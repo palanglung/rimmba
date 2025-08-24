@@ -1,0 +1,199 @@
+/* Manual Edit, Dmitrii Suvorov, Add Custom Fonts */
+
+@font-face {
+    font-family: 'Mackenzin';
+    src: url('https://cdn.shopify.com/s/files/1/0060/8560/7524/files/Mackenzin.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+  font-family: 'Nord-Book';
+  src: url('https://cdn.shopify.com/s/files/1/0060/8560/7524/files/Nord-Book.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DMSans-Regular';
+  src: url('https://cdn.shopify.com/s/files/1/0060/8560/7524/files/DMSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+.Mackenzin {
+  font-family: "Mackenzin", serif;
+}
+.DMSans-Regular {
+  font-family: "DMSans-Regular", sans-serif;
+}
+.Nord-Book {
+  font-family: "Nord-Book", sans-serif;
+}
+
+
+
+/* body[data-body-font="Mackenzin"] .product__description *,  */
+body[data-body-font="Mackenzin"] p {
+  font-family: "Mackenzin", serif;
+}
+
+/* body[data-body-font="Nord-Book"] .product__description *, */
+body[data-body-font="Nord-Book"] p {
+  font-family: "Nord-Book", sans-serif;
+}
+
+/* body[data-body-font="DMSans-Regular"] .product__description *, */
+body[data-body-font="DMSans-Regular"] p {
+  font-family: "DMSans-Regular", sans-serif;
+}
+
+
+
+
+
+
+body[data-heading-font="Mackenzin"] h1, body[data-heading-font="Mackenzin"] .h1, body[data-heading-font="Mackenzin"] h1 em,
+body[data-heading-font="Mackenzin"] h2, body[data-heading-font="Mackenzin"] .h2, body[data-heading-font="Mackenzin"] h2 em,
+body[data-heading-font="Mackenzin"] h3, body[data-heading-font="Mackenzin"] .h3, body[data-heading-font="Mackenzin"] h3 em,
+body[data-heading-font="Mackenzin"] h4, body[data-heading-font="Mackenzin"] .h4, body[data-heading-font="Mackenzin"] h4 em,
+body[data-heading-font="Mackenzin"] h5, body[data-heading-font="Mackenzin"] .h5, body[data-heading-font="Mackenzin"] h5 em,
+body[data-heading-font="Mackenzin"] h6, body[data-heading-font="Mackenzin"] .h6, body[data-heading-font="Mackenzin"] h6 em,
+body[data-heading-font="Mackenzin"] .hero__heading *
+{
+  font-family: "Mackenzin", serif !important;
+  letter-spacing: 0.1em;
+  word-spacing: 0.3em;
+  text-transform: uppercase;
+  /* white-space: pre-wrap; */
+}
+
+body[data-heading-font="Nord-Book"] h1, body[data-heading-font="Nord-Book"] .h1, body[data-heading-font="Nord-Book"] h1 em,
+body[data-heading-font="Nord-Book"] h2, body[data-heading-font="Nord-Book"] .h2, body[data-heading-font="Nord-Book"] h2 em,
+body[data-heading-font="Nord-Book"] h3, body[data-heading-font="Nord-Book"] .h3, body[data-heading-font="Nord-Book"] h3 em,
+body[data-heading-font="Nord-Book"] h4, body[data-heading-font="Nord-Book"] .h4, body[data-heading-font="Nord-Book"] h4 em,
+body[data-heading-font="Nord-Book"] h5, body[data-heading-font="Nord-Book"] .h5, body[data-heading-font="Nord-Book"] h5 em,
+body[data-heading-font="Nord-Book"] h6, body[data-heading-font="Nord-Book"] .h6, body[data-heading-font="Nord-Book"] h6 em,
+body[data-heading-font="Nord-Book"] .hero__heading *
+{
+  font-family: "Nord-Book", sans-serif !important;
+}
+body[data-heading-font="DMSans-Regular"] h1, body[data-heading-font="DMSans-Regular"] .h1,
+body[data-heading-font="DMSans-Regular"] h2, body[data-heading-font="DMSans-Regular"] .h2,
+body[data-heading-font="DMSans-Regular"] h3, body[data-heading-font="DMSans-Regular"] .h3,
+body[data-heading-font="DMSans-Regular"] h4, body[data-heading-font="DMSans-Regular"] .h4,
+body[data-heading-font="DMSans-Regular"] h5, body[data-heading-font="DMSans-Regular"] .h5,
+body[data-heading-font="DMSans-Regular"] h6, body[data-heading-font="DMSans-Regular"] .h6,
+body[data-heading-font="DMSans-Regular"] .hero__heading *
+{
+  font-family: "DMSans-Regular", sans-serif !important;
+}
+
+
+
+/* body[data-subheading-font="Mackenzin"], */
+body[data-subheading-font="Mackenzin"] .hero__entry,
+body[data-subheading-font="Mackenzin"] .callout-banner__content *,
+/* body[data-subheading-font="Mackenzin"] p, */
+/* body[data-subheading-font="Mackenzin"] span, */
+/* body[data-subheading-font="Mackenzin"] li  */
+{
+  font-family: "Mackenzin", serif !important;
+}
+/* body[data-subheading-font="Nord-Book"], */
+/* body[data-subheading-font="Nord-Book"] .callout-banner__content *, */
+body[data-subheading-font="Nord-Book"] .hero__entry p,
+body[data-subheading-font="Nord-Book"] .callout-banner__content *,
+body[data-subheading-font="Nord-Book"] .hero__subheading
+/* body[data-subheading-font="Nord-Book"] p, */
+/* body[data-subheading-font="Nord-Book"] span, */
+/* body[data-subheading-font="Nord-Book"] li  */
+{
+  font-family: "Nord-Book", sans-serif !important;
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+
+body[data-subheading-font="Nord-Book"] .breadcrumbs *
+{ 
+  font-family: "Nord-Book", sans-serif !important;
+}
+
+/* body[data-subheading-font="DMSans-Regular"] */
+body[data-subheading-font="DMSans-Regular"] .hero__entry,
+body[data-subheading-font="DMSans-Regular"] .callout-banner__content *,
+/* body[data-subheading-font="DMSans-Regular"] p, */
+/* body[data-subheading-font="DMSans-Regular"] span, */
+/* body[data-subheading-font="DMSans-Regular"] li  */
+{
+  font-family: "DMSans-Regular", sans-serif !important;
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+
+
+
+body[data-body-font="DMSans-Regular"] .header__nav-links-item--link {
+  font-family: "DMSans-Regular", sans-serif;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+  text-transform: inherit !important;
+}
+
+
+.hero__entry {
+  font-size: calc(var(--font-heading-scale) * var(--h5-multiplier));
+  line-height: var(--line-height-h5);
+  color: rgba(var(--color-heading-text), 1) !important;
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  word-break: var(--font-heading-word-break);
+}
+
+.callout-banner__content .callout-banner__content_heading {
+  font-size: calc(var(--font-heading-scale) * var(--h5-multiplier));
+  line-height: var(--line-height-h5);
+  margin-block-end: .4rem;
+  text-transform: var(--font-heading-text-transform);
+  margin-top: 0;
+}
+
+
+.text--label, .text--link,
+.header__nav-item.dropdown .header__nav-links-item > a {
+  font-family: var(--font-button-family) !important;
+}
+
+@media screen and (min-width: 750px) {
+  .max-w-full .callout-banner--horizontal .callout-banner__timer {
+    margin-inline-end: var(--spacing-6) !important; 
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .max-w-full .callout-banner__content, 
+  .max-w-full .callout-banner__timer,
+  .max-w-full .callout-banner__action {
+    padding-inline-start: var(--spacing-5);
+    padding-inline-end: var(--spacing-5);
+  }
+}
+
+
+/* .product-card .product-card__info .product-card__title {
+  font-weight: 400 !important;
+} */
+
+.facets__price-row > span {
+  inset-block-start: 52% !important;
+  inset-inline-start: 1.2rem !important;
+  font-size: 80% !important;
+}
+
+.facets__price-field .field__input
+{
+  padding-inline-start: 3.1rem !important;
+  font-size: 70% !important;
+}
