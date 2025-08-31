@@ -51,6 +51,8 @@ You can learn more about this (and learn how to cleanly revert these changes) at
       <script src="{{- 'predictive-search.js' | asset_url -}}" defer="defer"></script>
     {%- endif -%}
 
+    {{ 'rimmba.css?' + "test" | asset_url | stylesheet_tag }}
+
     {% comment %}theme-check-disable AssetPreload{% endcomment %}
     {%- unless settings.type_heading_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_heading_font | font_url }}" type="font/woff2" crossorigin>
