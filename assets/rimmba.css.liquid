@@ -749,11 +749,14 @@ table {
 }
 /*forcing padding on product variants preview circles with images*/
 .product__product-group .product-option__label--image, .product__variant-picker .product-option__label--image {
-    padding: .15rem !important;
+    padding: .2rem !important;
     min-height: 3em !important;
     min-width: 3rem !important;
     width: 5rem;
     height: 5rem;
+}
+.product__product-group .product-option__label.active {
+    border-width: .12rem;
 }
 /*minimizing font in menu*/
 nav * {
@@ -942,7 +945,23 @@ nav * {
 legend {
     max-width: clamp(320px, 30em, 640px) !important;
 }
-
+/*=============FIX FOOTER AND CHAT POSITION==================*/
+inbox-online-store-chat#ShopifyChat{
+    right: 100px !important;
+    bottom: 19px !important;
+}
+.section-footer.container {
+    padding-block-end: 4rem;
+}
+@media screen and (max-width:750px){
+    .section-footer.container {
+        padding-block-end: 7rem;
+    }
+    inbox-online-store-chat#ShopifyChat{
+        right: 100px !important;
+        bottom: 10px !important;
+    }
+}
 /* ========== MOBILE SCALING ========== */
 @media (max-width: 600px) {
   html {
