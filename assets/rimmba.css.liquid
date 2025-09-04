@@ -693,11 +693,6 @@ table {
 } 
 /*forcing product cards titles ellipsis*/
 @media screen and (min-width: 750px){
-.product__content .product__title {
-    font-size: calc(1rem * calc(var(--pi) * 0.75)) !important;
-    text-align: left;
-    margin: auto auto 0.5em 0 !important;
-}
 .product__content p,.product__content p em, .product__price .price {
     font-size: calc(1rem * calc(var(--pi) * .43)) !important;
 }
@@ -712,7 +707,11 @@ table {
     min-width: clamp(15ch, 47vw, 99%);
     margin-block-end: -1.2em;
 }
-
+.product__content .product__title {
+    font-size: calc(1rem * calc(var(--pi) * 0.75)) !important;
+    text-align: left;
+    margin: auto auto 0.5em 0 !important;
+}
 /*forcing paragraph above product colletions page to be centered*/
 .section-page-banner div {
     margin: auto !important;
