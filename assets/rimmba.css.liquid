@@ -234,10 +234,8 @@ STRONG & EM FORCES ENDS */
   width:80% !important; /*get feeback on sizing client wants*/
   margin:auto;
 }
-  /* styles for single image container */
-:where(.main-page__content > div)
-  :has(> :is(img, a:has(> img), p:has(> img), strong:has(> img)))
-  :not(:has(img + img, a + a, p + p, strong + strong, img + a, img + p, img + strong)) {
+/* styles for single image container */
+:where(.main-page__content > div):has(> :is(img, a:has(> img), p:has(> img), strong:has(> img))):not(:has(img + img, a + a, p + p, strong + strong, img + a, img + p, img + strong)) {
   margin: auto;
   max-width: 70vw;
   display: flex;
