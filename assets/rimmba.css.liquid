@@ -746,6 +746,17 @@ table {
     margin: auto;
     max-width: 1180px;
   }
+/*=======FIX SWIPER TO NEVER EXCEED SCREEN HEIGHT======*/
+.main-product__media .swiper--product-gallery .swiper-slide,
+.main-product__media .swiper--product-gallery .swiper-slide .media {
+    max-height: 85vh;
+    width: auto;
+}
+.swiper.swiper--product-gallery.swiper-initialized.swiper-horizontal {
+    height: 85vh;
+    aspect-ratio: 3/4;
+    max-width: fit-content;
+}
 }
 /*forcing no space between titles and pricing/description in products cards*/
 :where(a,h1,h2,h3,h4,h5,h6):is(.card-collection__subheading, .card-collection__heading, .product-card, .product-card__info, .product-card__title) {
