@@ -9,6 +9,41 @@
  */
 {
   "sections": {
+    "callout_banner_WDNLhR": {
+      "type": "callout-banner",
+      "name": "Callout banner",
+      "settings": {
+        "section_layout": "horizontal",
+        "media_position": "end",
+        "subheading": "{{ product.vendor }}",
+        "heading": "{{ product.title }}",
+        "heading_size": "h2",
+        "text": "<p>{{ metaobjects.date[\"date-y0cpnear\"].datedata | metafield_tag }}</p>",
+        "action_preference": "button",
+        "button_label": "",
+        "button_link": "{{ product.url }}",
+        "newsletter_button_label": "Submit",
+        "button_style": "button--outlined",
+        "show_timer": true,
+        "timer_layout": "1",
+        "timer_size": "h4",
+        "timer_year": 2025,
+        "timer_month": "10",
+        "timer_day": 18,
+        "timer_hour": 15,
+        "timer_minute": 30,
+        "timer_end_message": "Sale has ended",
+        "show_timer_days": true,
+        "show_timer_hours": true,
+        "show_timer_minutes": true,
+        "show_timer_seconds": true,
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "color_scheme_for_content": "scheme-1",
+        "spacing_top": "0",
+        "spacing_bottom": "0"
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -499,6 +534,7 @@
     }
   },
   "order": [
+    "callout_banner_WDNLhR",
     "main",
     "multitile_ybjXjD",
     "recommendations",
