@@ -12,19 +12,12 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "goback_zMzywG": {
-          "type": "goback",
-          "disabled": true,
+        "1e0c79e9-7de0-4eee-b9c5-f27132635fb8": {
+          "type": "title",
           "settings": {
-            "goback_style": "filled",
-            "goback_label": "",
-            "display_goback_mobile": "on-media",
-            "show_on": "desktop"
+            "heading_size": "h6",
+            "spacing_bottom": "1"
           }
-        },
-        "breadcrumbs_JRrp9d": {
-          "type": "breadcrumbs",
-          "settings": {}
         },
         "text_w7iGN6": {
           "type": "text",
@@ -39,6 +32,20 @@
             "show_block_content": true
           }
         },
+        "goback_zMzywG": {
+          "type": "goback",
+          "disabled": true,
+          "settings": {
+            "goback_style": "filled",
+            "goback_label": "",
+            "display_goback_mobile": "on-media",
+            "show_on": "desktop"
+          }
+        },
+        "breadcrumbs_JRrp9d": {
+          "type": "breadcrumbs",
+          "settings": {}
+        },
         "badge_dC66pN": {
           "type": "badge",
           "settings": {
@@ -46,13 +53,6 @@
             "show_badges": true,
             "show_badges_discount": true,
             "show_badges_sold": true
-          }
-        },
-        "1e0c79e9-7de0-4eee-b9c5-f27132635fb8": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h6",
-            "spacing_bottom": "1"
           }
         },
         "8effeb43-55b7-4ec4-ab9b-68bcd89b865b": {
@@ -63,10 +63,6 @@
             "show_price_shipping_info": true,
             "show_price_custom_info": ""
           }
-        },
-        "judge_me_reviews_preview_badge_9zXPD9": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
         },
         "sku_HNK7Ka": {
           "type": "sku",
@@ -102,12 +98,17 @@
             "show_subscription_policy": true
           }
         },
-        "custom_liquid_4ywCNW": {
-          "type": "custom_liquid",
-          "disabled": true,
+        "text_tXDE7c": {
+          "type": "text",
           "settings": {
             "spacing_bottom": "1",
-            "custom_liquid": "<a href=\"/pages/size-chart\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #122b61; text-decoration: underline; font-style: italic; text-align:right;\">Our Size Chart</a> <b> <br>"
+            "heading": "To reserve your place, select your size for the lingerie set and proceed to checkout.",
+            "icon": "",
+            "link_to_resource": "none",
+            "text_before_link": false,
+            "heading_secondary": "",
+            "metafield_for_product_variant": "",
+            "show_block_content": true
           }
         },
         "1e939cd6-0958-4135-a9e5-c50faef01437": {
@@ -122,10 +123,6 @@
             "sizes_option": "Size"
           }
         },
-        "judge_me_reviews_verified_badge_ekwtqC": {
-          "type": "shopify://apps/judge-me-reviews/blocks/verified_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        },
         "8604a6ff-ad0b-44dd-8068-1de4e062f8e8": {
           "type": "buy_buttons",
           "settings": {
@@ -135,6 +132,49 @@
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": false
           }
+        },
+        "text_a46449": {
+          "type": "text",
+          "settings": {
+            "spacing_bottom": "1",
+            "heading": "For any questions, heart-to-heart, email us or send us a message on WhatsApp",
+            "icon": "",
+            "link_to_resource": "none",
+            "text_before_link": false,
+            "heading_secondary": "",
+            "metafield_for_product_variant": "",
+            "show_block_content": true
+          }
+        },
+        "1ad0121e-439d-45c0-b45d-4f080836ade5": {
+          "type": "text",
+          "settings": {
+            "spacing_bottom": "1",
+            "heading": "<a href=\"mailto:care@rimmba.com\">care@rimmba.com</a>",
+            "icon": "option-chat_bubble",
+            "link_to_resource": "none",
+            "text_before_link": false,
+            "heading_secondary": "",
+            "metafield_for_product_variant": "",
+            "show_block_content": true
+          }
+        },
+        "text_ApxYN9": {
+          "type": "text",
+          "settings": {
+            "spacing_bottom": "1",
+            "heading": "<a href=\"https://wa.me/6282135714926\" target=\"_blank\">+62 821 3571 4926</a>",
+            "icon": "option-chat_bubble",
+            "link_to_resource": "none",
+            "text_before_link": false,
+            "heading_secondary": "",
+            "metafield_for_product_variant": "",
+            "show_block_content": true
+          }
+        },
+        "judge_me_reviews_verified_badge_ekwtqC": {
+          "type": "shopify://apps/judge-me-reviews/blocks/verified_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
         },
         "e6d841d6-2f71-40b3-956a-912df13f9f6e": {
           "type": "inventory_notice",
@@ -151,44 +191,10 @@
             "spacing_bottom": "2"
           }
         },
-        "b2dabe12-2158-4ba6-bc54-9baae453acf5": {
-          "type": "text",
-          "settings": {
-            "spacing_bottom": "1",
-            "heading": "Express international shipping Worldwide 20 USD",
-            "icon": "theme-check",
-            "link_to_resource": "none",
-            "text_before_link": false,
-            "heading_secondary": "",
-            "metafield_for_product_variant": "",
-            "show_block_content": true
-          }
-        },
-        "text_ixnkCY": {
-          "type": "text",
-          "settings": {
-            "spacing_bottom": "1",
-            "heading": "Free delivery on orders over 380 USD",
-            "icon": "theme-check",
-            "link_to_resource": "none",
-            "text_before_link": false,
-            "heading_secondary": "",
-            "metafield_for_product_variant": "",
-            "show_block_content": true
-          }
-        },
-        "1ad0121e-439d-45c0-b45d-4f080836ade5": {
-          "type": "text",
-          "settings": {
-            "spacing_bottom": "1",
-            "heading": "Custom Hemming (free)",
-            "icon": "theme-check",
-            "link_to_resource": "none",
-            "text_before_link": false,
-            "heading_secondary": "",
-            "metafield_for_product_variant": "",
-            "show_block_content": true
-          }
+        "judge_me_reviews_preview_badge_9zXPD9": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {}
         },
         "divider_XYwkEk": {
           "type": "divider",
@@ -241,26 +247,26 @@
         }
       },
       "block_order": [
+        "1e0c79e9-7de0-4eee-b9c5-f27132635fb8",
+        "text_w7iGN6",
         "goback_zMzywG",
         "breadcrumbs_JRrp9d",
-        "text_w7iGN6",
         "badge_dC66pN",
-        "1e0c79e9-7de0-4eee-b9c5-f27132635fb8",
         "8effeb43-55b7-4ec4-ab9b-68bcd89b865b",
-        "judge_me_reviews_preview_badge_9zXPD9",
         "sku_HNK7Ka",
         "divider_HGwyhB",
         "description_qA3HqH",
         "1e939cd6-0955-4135-a9e5-c50faef01437",
-        "custom_liquid_4ywCNW",
+        "text_tXDE7c",
         "1e939cd6-0958-4135-a9e5-c50faef01437",
-        "judge_me_reviews_verified_badge_ekwtqC",
         "8604a6ff-ad0b-44dd-8068-1de4e062f8e8",
+        "text_a46449",
+        "1ad0121e-439d-45c0-b45d-4f080836ade5",
+        "text_ApxYN9",
+        "judge_me_reviews_verified_badge_ekwtqC",
         "e6d841d6-2f71-40b3-956a-912df13f9f6e",
         "7be6b89c-da83-4ff2-9b85-44fb28cbfa27",
-        "b2dabe12-2158-4ba6-bc54-9baae453acf5",
-        "text_ixnkCY",
-        "1ad0121e-439d-45c0-b45d-4f080836ade5",
+        "judge_me_reviews_preview_badge_9zXPD9",
         "divider_XYwkEk",
         "content_grid_W3Mqy6",
         "content_grid_iCJFCN",
@@ -270,86 +276,31 @@
         "judge_me_reviews_review_widget_R8CEgy"
       ],
       "settings": {
-        "product_media_layout": "product__media-layout--full",
-        "product_media_layout_mobile": "product__media-layout--full--sm",
-        "product_media_aspect_ratio": "3/4",
+        "product_media_layout": "product__media-layout--partial",
+        "product_media_layout_mobile": "product__media-layout--partial--sm",
+        "product_media_aspect_ratio": "fit",
         "product_media_object_fit": "cover",
         "product_slider_auto_height": false,
         "media_transparent_background": false,
-        "display_media_zoom": "trigger",
+        "display_media_zoom": "click",
         "product_media_with_thumbs": "none",
-        "product_media_thumbs_ratio": "auto",
+        "product_media_thumbs_ratio": "1/1",
         "product_media_thumbs_object_fit": "cover",
-        "gallery_arrows_show_on": "desktop",
+        "gallery_arrows_show_on": "both",
         "display_media_gallery_pagination": "none",
         "media_gallery_info": "",
         "metafield_as_seen_on": "",
         "color_scheme_gallery": "scheme-1",
-        "enable_sticky_info": true,
-        "enable_actions_bar": true,
-        "media_grid_size": "small",
+        "enable_sticky_info": false,
+        "enable_actions_bar": false,
+        "media_grid_size": "large",
         "media_grid_position": "start",
         "grid_gap": "2",
         "spacing_grid": 1.6,
         "grid_content_alignment": "start",
-        "section_width": "max-w-fluid",
+        "section_width": "max-w-page",
         "color_scheme": "",
         "spacing_top": "1",
-        "spacing_bottom": "2"
-      }
-    },
-    "complete_the_set_LAN4cq": {
-      "type": "complete-the-set",
-      "blocks": {
-        "collapsible_UeyH3r": {
-          "type": "collapsible",
-          "settings": {
-            "block_type": "collapsible",
-            "heading": "Description",
-            "link": "",
-            "content": "<p>[description]</p>",
-            "page": ""
-          }
-        },
-        "collapsible_A663MD": {
-          "type": "collapsible",
-          "settings": {
-            "block_type": "drawer",
-            "heading": "Delivery & Returns",
-            "link": "",
-            "content": "<p>Shipping and returns can be inserted here.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_qFP38k": {
-          "type": "collapsible",
-          "settings": {
-            "block_type": "drawer",
-            "heading": "Contact us",
-            "link": "",
-            "content": "<p>Contact information can be entered here.</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "collapsible_UeyH3r",
-        "collapsible_A663MD",
-        "collapsible_qFP38k"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "Complete the <em>set</em>",
-        "content_heading": "Similar items",
-        "heading_size": "h3",
-        "content_type": "products",
-        "featured_image_aspect_ratio": "4/3",
-        "open_first_collapsible": true,
-        "flip_desktop": true,
-        "flip_mobile": true,
-        "section_width": "max-w-fluid",
-        "color_scheme": "",
-        "spacing_top": "2",
         "spacing_bottom": "2"
       }
     },
@@ -384,6 +335,7 @@
         },
         "slideshow_GzYNNk": {
           "type": "slideshow",
+          "disabled": true,
           "settings": {
             "show_on": "both",
             "column_factor": 3,
@@ -399,13 +351,13 @@
             "show_slideshow_arrows": true,
             "show_slideshow_bullets": true,
             "show_slideshow_progress": true,
-            "source_of_slideshow": "manual",
+            "source_of_slideshow": "metaobject",
             "slideshow_1_heading": "Slideshow 1",
             "slideshow_1_text": "<p>Engage and Impress Visitors with Stunning Visuals Using our Slideshow Feature.</p>",
             "button_label_1": "",
             "button_link_1": "",
             "button_style_1": "button--filled",
-            "slider_media_position_1": "top",
+            "slider_media_position_1": "bottom",
             "slideshow_2_heading": "Slideshow 2",
             "slideshow_2_text": "<p>Engage and Impress Visitors with Stunning Visuals Using our Slideshow Feature.</p>",
             "button_label_2": "",
@@ -481,8 +433,8 @@
     "recommendations": {
       "type": "product-recommendations",
       "settings": {
-        "layout": "layout-1",
-        "enable_slideshow_overflow": false,
+        "layout": "layout-2",
+        "enable_slideshow_overflow": true,
         "heading": "You may also like",
         "heading_size": "h3",
         "subheading": "",
@@ -524,7 +476,6 @@
   },
   "order": [
     "main",
-    "complete_the_set_LAN4cq",
     "multitile_ybjXjD",
     "recommendations",
     "166904322806a89075"
