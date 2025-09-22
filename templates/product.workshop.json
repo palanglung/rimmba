@@ -53,7 +53,7 @@
           "disabled": true,
           "settings": {
             "spacing_bottom": "1",
-            "heading": "{{ metaobjects.date[\"date-y0cpnear\"].datedata | metafield_tag }}",
+            "heading": "{{ product.metafields.custom.event_date.value.datedata | metafield_tag }}",
             "icon": "",
             "link_to_resource": "none",
             "text_before_link": false,
