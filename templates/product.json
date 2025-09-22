@@ -196,35 +196,19 @@
             "spacing_bottom": "1"
           }
         },
-        "content_grid_W3Mqy6": {
-          "type": "content_grid",
-          "disabled": true,
+        "complementary_products_h7nWQd": {
+          "type": "complementary_products",
           "settings": {
-            "heading": "Fast global shipping",
-            "icon": "theme-box"
-          }
-        },
-        "content_grid_iCJFCN": {
-          "type": "content_grid",
-          "disabled": true,
-          "settings": {
-            "heading": "Easy returns",
-            "icon": "theme-return"
+            "spacing_bottom": "3",
+            "heading": "Complete with:",
+            "icon": "option-heart",
+            "limit": 4
           }
         },
         "divider_MgiKBB": {
           "type": "divider",
           "settings": {
             "spacing_bottom": "1"
-          }
-        },
-        "complementary_products_h7nWQd": {
-          "type": "complementary_products",
-          "settings": {
-            "spacing_bottom": "2",
-            "heading": "You may also like",
-            "icon": "theme-box",
-            "limit": 4
           }
         },
         "judge_me_reviews_review_snippet_widget_3cxLcP": {
@@ -262,10 +246,8 @@
         "text_ixnkCY",
         "1ad0121e-439d-45c0-b45d-4f080836ade5",
         "divider_XYwkEk",
-        "content_grid_W3Mqy6",
-        "content_grid_iCJFCN",
-        "divider_MgiKBB",
         "complementary_products_h7nWQd",
+        "divider_MgiKBB",
         "judge_me_reviews_review_snippet_widget_3cxLcP",
         "judge_me_reviews_review_widget_R8CEgy"
       ],
