@@ -32,6 +32,19 @@
             "show_block_content": true
           }
         },
+        "text_kcEEwB": {
+          "type": "text",
+          "settings": {
+            "spacing_bottom": "1",
+            "heading": "{{ metaobjects.date[\"date-y0cpnear\"].datedata | metafield_tag }}",
+            "icon": "",
+            "link_to_resource": "none",
+            "text_before_link": false,
+            "heading_secondary": "",
+            "metafield_for_product_variant": "",
+            "show_block_content": true
+          }
+        },
         "goback_zMzywG": {
           "type": "goback",
           "disabled": true,
@@ -257,6 +270,7 @@
       "block_order": [
         "1e0c79e9-7de0-4eee-b9c5-f27132635fb8",
         "text_w7iGN6",
+        "text_kcEEwB",
         "goback_zMzywG",
         "breadcrumbs_JRrp9d",
         "badge_dC66pN",
