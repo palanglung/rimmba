@@ -300,7 +300,7 @@
         "media_gallery_info": "",
         "metafield_as_seen_on": "",
         "color_scheme_gallery": "scheme-1",
-        "enable_sticky_info": false,
+        "enable_sticky_info": true,
         "enable_actions_bar": false,
         "media_grid_size": "large",
         "media_grid_position": "start",
