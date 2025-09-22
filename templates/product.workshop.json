@@ -11,6 +11,7 @@
   "sections": {
     "callout_banner_WDNLhR": {
       "type": "callout-banner",
+      "disabled": true,
       "name": "Callout banner",
       "settings": {
         "section_layout": "horizontal",
