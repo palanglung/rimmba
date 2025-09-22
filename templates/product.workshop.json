@@ -60,7 +60,7 @@
           "settings": {
             "spacing_bottom": "1",
             "show_price_tax_info": true,
-            "show_price_shipping_info": true,
+            "show_price_shipping_info": false,
             "show_price_custom_info": ""
           }
         },
@@ -91,6 +91,7 @@
         },
         "1e939cd6-0955-4135-a9e5-c50faef01437": {
           "type": "purchase_options",
+          "disabled": true,
           "settings": {
             "spacing_bottom": "1",
             "show_subscription_title": true,
@@ -98,12 +99,18 @@
             "show_subscription_policy": true
           }
         },
+        "divider_7kaXaP": {
+          "type": "divider",
+          "settings": {
+            "spacing_bottom": "3"
+          }
+        },
         "text_tXDE7c": {
           "type": "text",
           "settings": {
-            "spacing_bottom": "1",
+            "spacing_bottom": "2",
             "heading": "To reserve your place, select your size for the lingerie set and proceed to checkout.",
-            "icon": "",
+            "icon": "option-plant",
             "link_to_resource": "none",
             "text_before_link": false,
             "heading_secondary": "",
@@ -187,6 +194,7 @@
         },
         "7be6b89c-da83-4ff2-9b85-44fb28cbfa27": {
           "type": "pickup-availability",
+          "disabled": true,
           "settings": {
             "spacing_bottom": "2"
           }
@@ -257,6 +265,7 @@
         "divider_HGwyhB",
         "description_qA3HqH",
         "1e939cd6-0955-4135-a9e5-c50faef01437",
+        "divider_7kaXaP",
         "text_tXDE7c",
         "1e939cd6-0958-4135-a9e5-c50faef01437",
         "8604a6ff-ad0b-44dd-8068-1de4e062f8e8",
@@ -439,7 +448,7 @@
         "heading_size": "h3",
         "subheading": "",
         "button_label": "View all",
-        "button_link": "",
+        "button_link": "shopify://collections",
         "button_style": "button--filled",
         "show_navigation_arrows": true,
         "slider_autoplay": 10,
