@@ -259,7 +259,6 @@
           "type": "collection-slide",
           "settings": {
             "collection": "maxi-dress",
-            "image": "shopify://shop_images/RIMMBA_CTLG_1019.jpg",
             "heading": "MAXI",
             "heading_size": "h3",
             "subheading": "<em>Floor length </em>"
@@ -269,7 +268,6 @@
           "type": "collection-slide",
           "settings": {
             "collection": "low-back",
-            "image": "shopify://shop_images/Mila_Halter_Silk_Dress_Marigold_Colour_By_Rimma_6.jpg",
             "heading": "LOW BACK",
             "heading_size": "h3",
             "subheading": "<em>Sensual grace </em>"
@@ -628,7 +626,6 @@
           "type": "collection-slide",
           "settings": {
             "collection": "eco-print-collection",
-            "image": "shopify://shop_images/RIMMBA_CTLG_0122.jpg",
             "heading": "Bella's Red Silk Kaftan",
             "heading_size": "h3",
             "subheading": ""
@@ -638,7 +635,6 @@
           "type": "collection-slide",
           "settings": {
             "collection": "eco-print-collection",
-            "image": "shopify://shop_images/RIMMBA_CTLG_0194.jpg",
             "heading": "Mira Silk dress",
             "heading_size": "h3",
             "subheading": ""
@@ -947,8 +943,7 @@
         "heading_size": "h3",
         "text": "<p><em>Hand-Dyed Indigo Ombre Silk Dress</em></p>",
         "section_layout": "dual-content",
-        "image": "shopify://shop_images/RIMMBA_CTLG_0648.jpg",
-        "image_mobile": "shopify://shop_images/RIMMBA_CTLG_0631.jpg",
+        "image": "shopify://shop_images/RIMMBA_CTLG_0616.jpg",
         "reverse_positions": false,
         "show_dots": false,
         "button_label": "View product",
