@@ -490,46 +490,126 @@
         "spacing_bottom": "2"
       }
     },
-    "recommendations": {
-      "type": "product-recommendations",
-      "settings": {
-        "layout": "layout-2",
-        "enable_slideshow_overflow": true,
-        "heading": "You may also like",
-        "heading_size": "h3",
-        "subheading": "",
-        "button_label": "View all",
-        "button_link": "shopify://collections",
-        "button_style": "button--filled",
-        "show_navigation_arrows": true,
-        "slider_autoplay": 10,
-        "tabs_button_style": "tab-btn-filled",
-        "max_products": 8,
-        "show_unavailable_products": false,
-        "section_width": "max-w-fluid",
-        "color_scheme": "",
-        "spacing_top": "4",
-        "spacing_bottom": "4"
-      }
-    },
-    "166904322806a89075": {
-      "type": "apps",
+    "highlighted_product_GzFYhF": {
+      "type": "highlighted-product",
       "blocks": {
-        "judge_me_reviews_preview_badge_apzaem": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "title_GThfQi": {
+          "type": "title",
+          "settings": {}
+        },
+        "badge_JwNVm6": {
+          "type": "badge",
+          "settings": {}
+        },
+        "text_TYewqC": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.highlighted_product.vendor }}",
+            "text_style": "link",
+            "link_to_resource": "vendor"
+          }
+        },
+        "price_jLQMFQ": {
+          "type": "price",
+          "settings": {
+            "show_price_tax_info": true,
+            "show_price_shipping_info": false,
+            "show_price_custom_info": ""
+          }
+        },
+        "divider_GidnhB": {
+          "type": "divider",
+          "settings": {}
+        },
+        "variant_picker_7KUz3q": {
+          "type": "variant_picker",
+          "settings": {
+            "title": "Variant picker",
+            "variant_picker_type": "buttons",
+            "variant_picker_layout": "product-selector--default",
+            "variant_options_with_thumbnails": "Color",
+            "size_guide_page": "",
+            "sizes_option": "Size"
+          }
+        },
+        "buy_buttons_786xpJ": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity": true,
+            "quantity_type": "inline",
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "product_link_MwUAMj": {
+          "type": "product_link",
           "settings": {}
         }
       },
       "block_order": [
-        "judge_me_reviews_preview_badge_apzaem"
+        "title_GThfQi",
+        "badge_JwNVm6",
+        "text_TYewqC",
+        "price_jLQMFQ",
+        "divider_GidnhB",
+        "variant_picker_7KUz3q",
+        "buy_buttons_786xpJ",
+        "product_link_MwUAMj"
       ],
       "disabled": true,
+      "name": "Highlighted product",
       "settings": {
-        "section_layout": "normal",
-        "spacing_inner": "2",
-        "section_width": "max-w-page",
+        "highlighted_product": "cotton-intimate-set-white-embroidery",
+        "heading": "<p>Item of the <em>week</em></p>",
+        "product_media_object_fit": "cover",
+        "adaptive_ratio_and_auto_height": "default",
+        "media_transparent_background": false,
+        "disable_media_zoom": true,
+        "show_media_index": true,
+        "media_gallery_info": "",
+        "color_scheme_arrows": "",
+        "section_width": "max-w-fluid",
         "color_scheme": "",
         "spacing_top": "2",
+        "spacing_bottom": "6"
+      }
+    },
+    "announcement_bar_eBpVFz": {
+      "type": "announcement-bar",
+      "blocks": {
+        "text_slide_7ATWKH": {
+          "type": "text-slide",
+          "settings": {
+            "content": "<p>Welcome to {{ product.vendor }}</p>",
+            "icon": "option-plant"
+          }
+        }
+      },
+      "block_order": [
+        "text_slide_7ATWKH"
+      ],
+      "name": "t:sections.announcement-bar.name",
+      "settings": {
+        "text_block_behaviour": "static",
+        "slider_autoplay_interval": 3,
+        "font_weight": "400",
+        "section_width": "max-w-full",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "main_list_collections_3e3zfn": {
+      "type": "main-list-collections",
+      "name": "t:sections.main-list-collections.name",
+      "settings": {
+        "collections_to_show": "all",
+        "card_title_style": "card-single-text",
+        "collection_product_count": "hide",
+        "collections_per_page": 12,
+        "pagination_style": "load_more",
+        "enable_infinity_scroll": true,
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "4",
         "spacing_bottom": "2"
       }
     }
@@ -538,7 +618,8 @@
     "callout_banner_WDNLhR",
     "main",
     "multitile_ybjXjD",
-    "recommendations",
-    "166904322806a89075"
+    "highlighted_product_GzFYhF",
+    "announcement_bar_eBpVFz",
+    "main_list_collections_3e3zfn"
   ]
 }
