@@ -635,6 +635,7 @@
           "type": "collection-slide",
           "settings": {
             "collection": "eco-print-collection",
+            "image": "shopify://shop_images/Mira_silk_dress_ecoprint_red7.jpg",
             "heading": "Mira Silk dress",
             "heading_size": "h3",
             "subheading": ""
