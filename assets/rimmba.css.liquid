@@ -190,7 +190,7 @@ STRONG & EM FORCES ENDS */
 }
 
 /* ========== EXCEPTIONS: IMAGE-BEARING PARAGRAPHS ========== */
-:where(p, h1, h2, h3, h4, h5, h6, li, blockquote):has(img) {
+:where(p, h1, h2, h3, h4, h5, h6, li, blockquote):has(img):not(.predictive-search__links *) {
   max-inline-size: 55ch !important;
   max-width: 100% !important;
   justify-self: center!important;
@@ -219,7 +219,10 @@ STRONG & EM FORCES ENDS */
   align-items: center;
   justify-items: center;
 }
-
+/*fix search collection suggestions*/
+.predictive-search__collections-title small {
+min-width: 20px;
+}
 /* ============== FORMATTING TABLES THAT ONLY CONAIN IMAGES ============== */
 /*========This used in custom pages like brand, sustainability, etc..=======*/
 /*This does not apply when a table has empty cells or other elements in a td*/
