@@ -51,6 +51,7 @@
     "product_card_variants_display_limit": 4,
     "swatches_shape": "circle",
     "show_product_groups_on_product_card": true,
+    "color_scheme_for_drawers": "",
     "show_country_drawer_title": true,
     "show_country_drawer_content": true,
     "enable_shipping_notification": true,
