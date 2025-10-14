@@ -161,12 +161,110 @@
         "spacing_top": "0",
         "spacing_bottom": "0"
       }
+    },
+    "seo_content_ebjggt": {
+      "type": "seo-content",
+      "name": "t:sections.seo-content.name",
+      "settings": {
+        "section_layout": "normal",
+        "heading": "RIMMBA Natural Fabrics & Botanical Dyes",
+        "heading_size": "h5",
+        "text": "<p>Read about how we hand-pick our natural fabrics and learn how we dye using plant, flowers and connecting with Nature.</p>",
+        "content_alignment": "center",
+        "section_width": "max-w-fluid",
+        "color_scheme": "",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "dual_tiles_CVpVR6": {
+      "type": "dual-tiles",
+      "blocks": {
+        "tile_qQwJq3": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-1",
+            "custom_background_color": "",
+            "heading": "Eco textiles & organic fabrics",
+            "heading_size": "h5",
+            "text": "",
+            "button_label": "Our Fabrics",
+            "button_link": "",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "auto",
+            "vertical_position": "stretch",
+            "content_position": "justify-center",
+            "content_alignment": "text-center align-center",
+            "product_position": "0",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "auto",
+            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        },
+        "tile_ibtWxT": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-1",
+            "custom_background_color": "",
+            "heading": "Botanical & Natural Dyes",
+            "heading_size": "h5",
+            "text": "",
+            "button_label": "our dyes",
+            "button_link": "",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "auto",
+            "vertical_position": "stretch",
+            "content_position": "justify-center",
+            "content_alignment": "text-center align-center",
+            "product_position": "0",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "auto",
+            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        }
+      },
+      "block_order": [
+        "tile_qQwJq3",
+        "tile_ibtWxT"
+      ],
+      "name": "t:sections.dual-tiles.name",
+      "settings": {
+        "section_layout": "seperated",
+        "block_size": "half",
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "color_scheme": "",
+        "section_width": "max-w-page",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
     }
   },
   "order": [
     "1760421621c74cd30c",
     "page_banner_kExA78",
     "dual_tiles_VMgfML",
-    "main"
+    "main",
+    "seo_content_ebjggt",
+    "dual_tiles_CVpVR6"
   ]
 }
