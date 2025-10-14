@@ -198,6 +198,66 @@
         "spacing_bottom": "2"
       }
     },
+    "full_width_banner_txyTw4": {
+      "type": "full-width-banner",
+      "blocks": {
+        "subheading_NpkYUe": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Enter a subheading for your full width image",
+            "link": ""
+          }
+        },
+        "heading_wLeJDz": {
+          "type": "heading",
+          "settings": {
+            "heading": "Headline full width banner",
+            "heading_size": "h3"
+          }
+        },
+        "buttons_BMDCEX": {
+          "type": "buttons",
+          "settings": {
+            "button_link_1": "/",
+            "button_link_1_type": "button",
+            "button_label_1": "",
+            "button_style_1": "button--outlined",
+            "color_scheme_first_button": "",
+            "button_link_2": "/",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "color_scheme_second_button": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_NpkYUe",
+        "heading_wLeJDz",
+        "buttons_BMDCEX"
+      ],
+      "name": "t:sections.full-width-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "auto",
+        "content_position": "center",
+        "content_alignment": "center",
+        "image": "shopify://shop_images/HND_1363.jpg",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "auto",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-full",
+        "color_scheme": "scheme-1",
+        "color_scheme_for_content": "scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
     "seo_content_ebjggt": {
       "type": "seo-content",
       "name": "t:sections.seo-content.name",
@@ -308,6 +368,7 @@
     "dual_tiles_VMgfML",
     "main",
     "accordions_h9bbAN",
+    "full_width_banner_txyTw4",
     "seo_content_ebjggt",
     "dual_tiles_CVpVR6"
   ]
