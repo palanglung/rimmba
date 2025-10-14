@@ -168,7 +168,7 @@
         "topic_8wKR6A": {
           "type": "topic",
           "settings": {
-            "is_open": true,
+            "is_open": false,
             "title": "Requirements",
             "text": "<p></p><p>Plant dyes will be determined based on seasonal availability. RIMMBA works with avocado seeds, annatto, brazilwood, indigo, marigold and onion skins.</p><p>Payment in full is required to secure your booking. All payments can be made via our RIMMBA website. </p><p>The Workshop requires intensive preparation and additional staffing on the day. The Workshop will commence on time and finish on time regardless of when attendees arrive.</p>",
             "page": ""
@@ -201,22 +201,29 @@
     "full_width_banner_txyTw4": {
       "type": "full-width-banner",
       "blocks": {
-        "subheading_NpkYUe": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Enter a subheading for your full width image",
-            "link": ""
-          }
-        },
         "heading_wLeJDz": {
           "type": "heading",
           "settings": {
-            "heading": "Headline full width banner",
-            "heading_size": "h3"
+            "heading": "Natural Fabrics & Botanical Dyes",
+            "heading_size": "h4"
+          }
+        },
+        "subheading_NpkYUe": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Selected by RIMMBA",
+            "link": ""
+          }
+        },
+        "content_TWVMYQ": {
+          "type": "content",
+          "settings": {
+            "content": "<p>Read how we hand-pick our natural fabrics and learn how we dye using plants, flowers and connecting with Nature</p>"
           }
         },
         "buttons_BMDCEX": {
           "type": "buttons",
+          "disabled": true,
           "settings": {
             "button_link_1": "/",
             "button_link_1_type": "button",
@@ -231,8 +238,9 @@
         }
       },
       "block_order": [
-        "subheading_NpkYUe",
         "heading_wLeJDz",
+        "subheading_NpkYUe",
+        "content_TWVMYQ",
         "buttons_BMDCEX"
       ],
       "name": "t:sections.full-width-banner.name",
@@ -262,10 +270,11 @@
     },
     "seo_content_ebjggt": {
       "type": "seo-content",
+      "disabled": true,
       "name": "t:sections.seo-content.name",
       "settings": {
         "section_layout": "normal",
-        "heading": "RIMMBA Natural Fabrics & Botanical Dyes",
+        "heading": "",
         "heading_size": "h5",
         "text": "<p>Read about how we hand-pick our natural fabrics and learn how we dye using plant, flowers and connecting with Nature.</p>",
         "content_alignment": "center",
