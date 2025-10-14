@@ -9,13 +9,114 @@
  */
 {
   "sections": {
+    "1760421621c74cd30c": {
+      "type": "apps",
+      "blocks": {
+        "yoast_seo_breadcrumbs_GjYUpM": {
+          "type": "shopify://apps/yoast-seo/blocks/breadcrumbs/7c777011-bc88-4743-a24e-64336e1e5b46",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "yoast_seo_breadcrumbs_GjYUpM"
+      ],
+      "settings": {
+        "section_layout": "normal",
+        "spacing_inner": "2",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "dual_tiles_VMgfML": {
+      "type": "dual-tiles",
+      "blocks": {
+        "tile_C9qM8E": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4",
+            "custom_background_color": "",
+            "heading": "<a href=\"/pages/botanical-lingerie-workshop\" target=\"_blank\" title=\"BOTANICAL-DYE WORKSHOPS\">Botanical Dye Workshop</a>",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "auto",
+            "vertical_position": "stretch",
+            "content_position": "justify-center",
+            "content_alignment": "text-center align-center",
+            "product_position": "0",
+            "image": "shopify://shop_images/O6A9072.jpg",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "auto",
+            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        },
+        "tile_XCNLMb": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-5",
+            "custom_background_color": "",
+            "heading": "Other Workshop",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "auto",
+            "vertical_position": "stretch",
+            "content_position": "justify-center",
+            "content_alignment": "text-center align-center",
+            "product_position": "0",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "auto",
+            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        }
+      },
+      "block_order": [
+        "tile_C9qM8E",
+        "tile_XCNLMb"
+      ],
+      "name": "t:sections.dual-tiles.name",
+      "settings": {
+        "section_layout": "seperated",
+        "block_size": "half",
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "color_scheme": "",
+        "section_width": "max-w-page",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
     "main": {
       "type": "main-page",
       "custom_css": [
         "table {box-shadow: none;}"
       ],
       "settings": {
-        "breadcrumbs": true,
+        "breadcrumbs": false,
         "show_page_title": true,
         "page_title_alignment": "text-center",
         "info_title": "",
@@ -28,6 +129,8 @@
     }
   },
   "order": [
+    "1760421621c74cd30c",
+    "dual_tiles_VMgfML",
     "main"
   ]
 }
