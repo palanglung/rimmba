@@ -20,6 +20,7 @@
       "block_order": [
         "yoast_seo_breadcrumbs_GjYUpM"
       ],
+      "disabled": true,
       "settings": {
         "section_layout": "normal",
         "spacing_inner": "2",
@@ -43,7 +44,7 @@
         "content_alignment": "center",
         "media_position": "background",
         "page_menu": "",
-        "enable_breadcrumbs": false,
+        "enable_breadcrumbs": true,
         "section_height": "auto",
         "content_width": "100%",
         "show_controls_on_video": false,
