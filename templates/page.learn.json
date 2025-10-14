@@ -29,6 +29,33 @@
         "spacing_bottom": "2"
       }
     },
+    "page_banner_kExA78": {
+      "type": "page-banner",
+      "name": "t:sections.page-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "heading": "",
+        "heading_size": "h6",
+        "text": "",
+        "show_default_description": true,
+        "show_on_description": "desktop",
+        "content_position": "center",
+        "content_alignment": "center",
+        "media_position": "background",
+        "page_menu": "",
+        "enable_breadcrumbs": false,
+        "section_height": "auto",
+        "content_width": "100%",
+        "show_controls_on_video": false,
+        "section_height_mobile": "auto",
+        "show_controls_on_video_mobile": false,
+        "section_width": "max-w-narrow",
+        "color_scheme": "scheme-1",
+        "color_scheme_for_media": "",
+        "spacing_top": "2",
+        "spacing_bottom": "6"
+      }
+    },
     "dual_tiles_VMgfML": {
       "type": "dual-tiles",
       "blocks": {
@@ -53,11 +80,13 @@
             "content_alignment": "text-center align-center",
             "product_position": "0",
             "image": "shopify://shop_images/O6A9072.jpg",
+            "video_external": "",
             "show_controls_on_video": false,
             "aspect_ratio_mobile": "auto",
             "content_alignment_mobile": "text-center--mobile align-center--mobile",
             "content_position_mobile": "justify-center--mobile",
             "product_position_mobile": "0",
+            "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
             "spacing_inner": "3"
           }
@@ -82,11 +111,13 @@
             "content_position": "justify-center",
             "content_alignment": "text-center align-center",
             "product_position": "0",
+            "video_external": "",
             "show_controls_on_video": false,
             "aspect_ratio_mobile": "auto",
             "content_alignment_mobile": "text-center--mobile align-center--mobile",
             "content_position_mobile": "justify-center--mobile",
             "product_position_mobile": "0",
+            "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
             "spacing_inner": "3"
           }
@@ -117,7 +148,7 @@
       ],
       "settings": {
         "breadcrumbs": false,
-        "show_page_title": true,
+        "show_page_title": false,
         "page_title_alignment": "text-center",
         "info_title": "",
         "info_content": "",
@@ -130,6 +161,7 @@
   },
   "order": [
     "1760421621c74cd30c",
+    "page_banner_kExA78",
     "dual_tiles_VMgfML",
     "main"
   ]
