@@ -339,7 +339,7 @@
       ],
       "custom_css": [
         ".main-product__media .swiper-button {border: none; background-color: rgba(255, 255, 255, 0.2) !important;}",
-        ".main-product__media .swiper-button svg path {stroke: white!important;}",
+        ".main-product__media .swiper-button svg path {stroke: white !important;}",
         ".swiper-button-next,.swiper-button-prev {color: white !important;}"
       ],
       "settings": {
@@ -353,7 +353,7 @@
         "product_media_with_thumbs": "none",
         "product_media_thumbs_ratio": "1/1",
         "product_media_thumbs_object_fit": "cover",
-        "gallery_arrows_show_on": "both",
+        "gallery_arrows_show_on": "mobile",
         "display_media_gallery_pagination": "none",
         "media_gallery_info": "",
         "metafield_as_seen_on": "",
