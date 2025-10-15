@@ -190,6 +190,18 @@
             "show_gift_card_recipient": false
           }
         },
+        "content_block_qLALqK": {
+          "type": "content_block",
+          "settings": {
+            "spacing_bottom": "1",
+            "heading": "💌 Care & Policies",
+            "row_content": "<h5></h5><ul><li>Please let us know ahead of time if you have any sensitivities or allergies.</li><li>Colours may vary depending on botanical materials, fabric, and dye process — part of the beauty of artisan work.</li><li>Aftercare: hand-wash in cold water, wash separately for first few wears, use neutral detergent, turn pieces inside-out to protect colour.</li><li>Full payment secures your spot. Cancellation refundable up to 14 days before; transfers allowed if you can’t make it.</li></ul><p><em>Participation in the Melukat ritual is optional; led by priest and arranged with Banjar’s blessing, offered as a moment of ceremony and celebration, not an obligation.</em></p>",
+            "icon": "",
+            "page": "",
+            "metafield_for_product_variant": "",
+            "show_block_content": true
+          }
+        },
         "text_a46449": {
           "type": "text",
           "settings": {
@@ -225,18 +237,6 @@
             "link_to_resource": "none",
             "text_before_link": false,
             "heading_secondary": "",
-            "metafield_for_product_variant": "",
-            "show_block_content": true
-          }
-        },
-        "content_block_qLALqK": {
-          "type": "content_block",
-          "settings": {
-            "spacing_bottom": "1",
-            "heading": "💌 Care & Policies",
-            "row_content": "<h5></h5><ul><li>Please let us know ahead of time if you have any sensitivities or allergies.</li><li>Colours may vary depending on botanical materials, fabric, and dye process — part of the beauty of artisan work.</li><li>Aftercare: hand-wash in cold water, wash separately for first few wears, use neutral detergent, turn pieces inside-out to protect colour.</li><li>Full payment secures your spot. Cancellation refundable up to 14 days before; transfers allowed if you can’t make it.</li></ul><p><em>Participation in the Melukat ritual is optional; led by priest and arranged with Banjar’s blessing, offered as a moment of ceremony and celebration, not an obligation.</em></p>",
-            "icon": "",
-            "page": "",
             "metafield_for_product_variant": "",
             "show_block_content": true
           }
@@ -330,10 +330,10 @@
         "text_tXDE7c",
         "1e939cd6-0958-4135-a9e5-c50faef01437",
         "8604a6ff-ad0b-44dd-8068-1de4e062f8e8",
+        "content_block_qLALqK",
         "text_a46449",
         "1ad0121e-439d-45c0-b45d-4f080836ade5",
         "text_ApxYN9",
-        "content_block_qLALqK",
         "e6d841d6-2f71-40b3-956a-912df13f9f6e",
         "7be6b89c-da83-4ff2-9b85-44fb28cbfa27",
         "judge_me_reviews_preview_badge_9zXPD9",
