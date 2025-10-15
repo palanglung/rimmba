@@ -353,7 +353,7 @@
       "settings": {
         "product_media_layout": "product__media-layout--full",
         "product_media_layout_mobile": "product__media-layout--partial--sm",
-        "product_media_aspect_ratio": "fit",
+        "product_media_aspect_ratio": "3/4",
         "product_media_object_fit": "cover",
         "product_slider_auto_height": false,
         "media_transparent_background": false,
