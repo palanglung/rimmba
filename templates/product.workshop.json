@@ -300,6 +300,8 @@
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "review_data": "sample_data",
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget",
             "max_width": 1200
           }
         }
@@ -334,6 +336,11 @@
         "complementary_products_h7nWQd",
         "judge_me_reviews_review_snippet_widget_3cxLcP",
         "judge_me_reviews_review_widget_R8CEgy"
+      ],
+      "custom_css": [
+        ".main-product__media .swiper-button {border: none; background-color: rgba(255, 255, 255, 0.2) !important;}",
+        ".main-product__media .swiper-button svg path {stroke: white!important;}",
+        ".swiper-button-next,.swiper-button-prev {color: white !important;}"
       ],
       "settings": {
         "product_media_layout": "product__media-layout--partial",
