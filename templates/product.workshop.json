@@ -229,9 +229,18 @@
             "show_block_content": true
           }
         },
-        "judge_me_reviews_verified_badge_ekwtqC": {
-          "type": "shopify://apps/judge-me-reviews/blocks/verified_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
+        "content_block_qLALqK": {
+          "type": "content_block",
+          "disabled": true,
+          "settings": {
+            "spacing_bottom": "1",
+            "heading": "💌 Care & Policies",
+            "row_content": "<h5></h5><ul><li>Please let us know ahead of time if you have any sensitivities or allergies.</li><li>Colours may vary depending on botanical materials, fabric, and dye process — part of the beauty of artisan work.</li><li>Aftercare: hand-wash in cold water, wash separately for first few wears, use neutral detergent, turn pieces inside-out to protect colour.</li><li>Full payment secures your spot. Cancellation refundable up to 14 days before; transfers allowed if you can’t make it.</li></ul><p><em>Participation in the Melukat ritual is optional; led by priest and arranged with Banjar’s blessing, offered as a moment of ceremony and celebration, not an obligation.</em></p>",
+            "icon": "",
+            "page": "",
+            "metafield_for_product_variant": "",
+            "show_block_content": true
+          }
         },
         "e6d841d6-2f71-40b3-956a-912df13f9f6e": {
           "type": "inventory_notice",
@@ -325,7 +334,7 @@
         "text_a46449",
         "1ad0121e-439d-45c0-b45d-4f080836ade5",
         "text_ApxYN9",
-        "judge_me_reviews_verified_badge_ekwtqC",
+        "content_block_qLALqK",
         "e6d841d6-2f71-40b3-956a-912df13f9f6e",
         "7be6b89c-da83-4ff2-9b85-44fb28cbfa27",
         "judge_me_reviews_preview_badge_9zXPD9",
