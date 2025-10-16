@@ -241,6 +241,13 @@
             "show_block_content": true
           }
         },
+        "divider_6AGwgk": {
+          "type": "divider",
+          "disabled": true,
+          "settings": {
+            "spacing_bottom": "1"
+          }
+        },
         "e6d841d6-2f71-40b3-956a-912df13f9f6e": {
           "type": "inventory_notice",
           "disabled": true,
@@ -334,6 +341,7 @@
         "text_a46449",
         "1ad0121e-439d-45c0-b45d-4f080836ade5",
         "text_ApxYN9",
+        "divider_6AGwgk",
         "e6d841d6-2f71-40b3-956a-912df13f9f6e",
         "7be6b89c-da83-4ff2-9b85-44fb28cbfa27",
         "judge_me_reviews_preview_badge_9zXPD9",
@@ -505,6 +513,154 @@
         "spacing_bottom": "2"
       }
     },
+    "full_width_banner_x4K4VD": {
+      "type": "full-width-banner",
+      "blocks": {
+        "heading_wBtCXC": {
+          "type": "heading",
+          "settings": {
+            "heading": "Natural Fabrics & Botanical Dyes",
+            "heading_size": "h3"
+          }
+        },
+        "subheading_JUd67i": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "selected by RIMMBA",
+            "link": ""
+          }
+        },
+        "content_3jFpeN": {
+          "type": "content",
+          "settings": {
+            "content": "<p>Read how we hand-pick our natural fabrics and learn how we dye using plants, flowers and connecting with Nature</p>"
+          }
+        },
+        "buttons_K4RUqh": {
+          "type": "buttons",
+          "settings": {
+            "button_link_1": "/",
+            "button_link_1_type": "button",
+            "button_label_1": "",
+            "button_style_1": "button--outlined",
+            "color_scheme_first_button": "",
+            "button_link_2": "/",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "color_scheme_second_button": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_wBtCXC",
+        "subheading_JUd67i",
+        "content_3jFpeN",
+        "buttons_K4RUqh"
+      ],
+      "name": "t:sections.full-width-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "auto",
+        "content_position": "center",
+        "content_alignment": "center",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "auto",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-full",
+        "color_scheme": "scheme-1",
+        "color_scheme_for_content": "scheme-1",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "dual_tiles_97YfNg": {
+      "type": "dual-tiles",
+      "blocks": {
+        "tile_ceHXEF": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "custom_background_color": "",
+            "heading": "Eco Textiles & Organiz Fabrics",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "our fabrics",
+            "button_link": "shopify://pages/sustainable-fashion",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "auto",
+            "vertical_position": "stretch",
+            "content_position": "justify-center",
+            "content_alignment": "text-center align-center",
+            "product_position": "0",
+            "image": "shopify://shop_images/1920_-_fabric_optimized_400.jpg",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "auto",
+            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        },
+        "tile_Gpgbd7": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "custom_background_color": "",
+            "heading": "Botanical & Natural Dye",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "Our Dyes",
+            "button_link": "shopify://pages/sustainable-fashion",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "auto",
+            "vertical_position": "stretch",
+            "content_position": "justify-center",
+            "content_alignment": "text-center align-center",
+            "product_position": "0",
+            "image": "shopify://shop_images/HND_7007_copy_optimized_300.jpg",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "auto",
+            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        }
+      },
+      "block_order": [
+        "tile_ceHXEF",
+        "tile_Gpgbd7"
+      ],
+      "name": "t:sections.dual-tiles.name",
+      "settings": {
+        "section_layout": "seperated",
+        "block_size": "half",
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "color_scheme": "",
+        "section_width": "max-w-page",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
     "highlighted_product_GzFYhF": {
       "type": "highlighted-product",
       "blocks": {
@@ -633,6 +789,8 @@
     "callout_banner_WDNLhR",
     "main",
     "multitile_ybjXjD",
+    "full_width_banner_x4K4VD",
+    "dual_tiles_97YfNg",
     "highlighted_product_GzFYhF",
     "announcement_bar_eBpVFz",
     "main_list_collections_3e3zfn"
