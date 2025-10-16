@@ -155,7 +155,7 @@
           "type": "text",
           "settings": {
             "spacing_bottom": "1",
-            "heading": "Express international shipping Worldwide 20 USD",
+            "heading": "Express international shipping Worldwide 25 USD",
             "icon": "theme-check",
             "link_to_resource": "none",
             "text_before_link": false,
@@ -168,7 +168,7 @@
           "type": "text",
           "settings": {
             "spacing_bottom": "1",
-            "heading": "Free delivery on orders over 380 USD",
+            "heading": "Free delivery on orders over 450 USD",
             "icon": "theme-check",
             "link_to_resource": "none",
             "text_before_link": false,
@@ -220,6 +220,8 @@
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "review_data": "sample_data",
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget",
             "max_width": 1200
           }
         }
