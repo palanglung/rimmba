@@ -211,6 +211,25 @@
             "spacing_bottom": "1"
           }
         },
+        "text_3hxXzg": {
+          "type": "text",
+          "settings": {
+            "spacing_bottom": "1",
+            "heading": "<a href=\"https://cdn.shopify.com/s/files/1/0060/8560/7524/files/RIMMBA_Retail_Catalog_2025.pdf\" target=\"_blank\" title=\"RIMMBA Retail Catalog 2025\">Save the Catalog PDF to browse offline</a>",
+            "icon": "option-clipboard",
+            "link_to_resource": "none",
+            "text_before_link": false,
+            "heading_secondary": "",
+            "metafield_for_product_variant": "",
+            "show_block_content": true
+          }
+        },
+        "divider_XPRBm8": {
+          "type": "divider",
+          "settings": {
+            "spacing_bottom": "1"
+          }
+        },
         "judge_me_reviews_review_snippet_widget_3cxLcP": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_snippet_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "disabled": true,
@@ -250,6 +269,8 @@
         "divider_XYwkEk",
         "complementary_products_h7nWQd",
         "divider_MgiKBB",
+        "text_3hxXzg",
+        "divider_XPRBm8",
         "judge_me_reviews_review_snippet_widget_3cxLcP",
         "judge_me_reviews_review_widget_R8CEgy"
       ],
