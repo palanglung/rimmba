@@ -1,1 +1,347 @@
-{"sections":{"featured_collections_JQrJUx":{"type":"featured-collections","blocks":{"collection_slide_eCyGr7":{"type":"collection-slide","settings":{"collection":"","heading":"Collection 1","heading_size":"h4","subheading":""}},"collection_slide_mgrYeF":{"type":"collection-slide","settings":{"collection":"","heading":"Collection 2","heading_size":"h4","subheading":""}},"collection_slide_a6Hh3H":{"type":"collection-slide","settings":{"collection":"","heading":"Collection 3","heading_size":"h4","subheading":""}},"collection_slide_Jxp4QF":{"type":"collection-slide","settings":{"collection":"","heading":"Collection 4","heading_size":"h4","subheading":""}},"collection_slide_yJVzU4":{"type":"collection-slide","settings":{"collection":"","heading":"Collection 5","heading_size":"h4","subheading":""}},"collection_slide_JeHaQi":{"type":"collection-slide","settings":{"collection":"","heading":"Collection 6","heading_size":"h4","subheading":""}},"collection_slide_FTD6Cq":{"type":"collection-slide","settings":{"collection":"","heading":"Collection 7","heading_size":"h4","subheading":""}},"collection_slide_73QVgH":{"type":"collection-slide","settings":{"collection":"","heading":"Collection 8","heading_size":"h4","subheading":""}}},"block_order":["collection_slide_eCyGr7","collection_slide_mgrYeF","collection_slide_a6Hh3H","collection_slide_Jxp4QF","collection_slide_yJVzU4","collection_slide_JeHaQi","collection_slide_FTD6Cq","collection_slide_73QVgH"],"disabled":true,"settings":{"layout":"layout-2","heading":"","heading_size":"h3","subheading":"","content_padding":"0","button_label":"","button_link":"shopify:\/\/collections","button_style":"button--filled","card_layout":"collection","card_style":"compact","image_aspect_ratio":"1\/1","card_content_alignment":"start","card_title_style":"card-single-text","collection_product_count":"show","slides_per_view":3,"slides_per_view_mobile":1,"show_carousel_arrows":true,"slideshow_alignment_center":false,"enable_slideshow_overflow":false,"slideshow_border":"none","section_width":"max-w-page","color_scheme":"","color_scheme_for_cards":"","spacing_top":"2","spacing_bottom":"1"}},"banner":{"type":"page-banner","custom_css":[],"settings":{"enable_transparent_header":true,"heading":"{{ collection.title }}","heading_size":"h3","text":"{{ collection.description }}","show_default_description":true,"show_on_description":"desktop","content_position":"start","content_alignment":"start","media_position":"background","page_menu":"","enable_breadcrumbs":true,"section_height":"auto","content_width":"100%","video_external":"","show_controls_on_video":false,"section_height_mobile":"auto","video_external_mobile":"","show_controls_on_video_mobile":false,"section_width":"max-w-fluid","color_scheme":"scheme-1","color_scheme_for_media":"","spacing_top":"1","spacing_bottom":"2"}},"main":{"type":"main-collection","blocks":{"text_card_J6n8hm":{"type":"text-card","name":"RANDOM WRITING ON COLLECTION","settings":{"color_scheme":"scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4","text":"","button_link":"shopify:\/\/products\/botanical-dye-lingerie-workshop-rimmba","link_type":"card","button_label":"LEARN MORE","button_style":"button--outlined","content_position":"center","content_alignment":"center","content_position_mobile":"center","content_alignment_mobile":"center","position":7,"column_factor":1,"row_factor":1,"card_image":"shopify:\/\/shop_images\/4_a73c6f42-46e3-4bf4-9c39-7e470693762c.jpg"}}},"block_order":["text_card_J6n8hm"],"settings":{"show_top_border_for_utilities_bar":false,"enable_products_count":false,"enable_sorting":true,"enable_opened_accordions":true,"filters":"drawer","products_per_row":"3","products_per_row_mobile":"2","products_per_page":46,"pagination_style":"default","enable_infinity_scroll":true,"section_width":"max-w-fluid","color_scheme":"","spacing_top":"1","spacing_bottom":"2"}},"f8303da3-c3cb-4a90-a63a-7a628615aa6f":{"type":"seo-content","disabled":true,"settings":{"section_layout":"normal","heading":"Buy Women's Silk Dresses Online - Rimmba","heading_size":"h3","text":"<p> RIMMBA silk dresses : <br\/><br\/>Feel like a goddess, draped in our mulberry silk dresses. We design unique and timeless silk dresses, so women around the world can feel sexy, confident, and beautiful inside and out. Cut on the bias our silk dresses drape effortlessly over all shapes and sizes, and compliments all body types. Our silk dress collection comprise of classic slip dresses, a mixture of oval and low V necklines, low back scoop, and mini, midi and maxi lengths options. Each silk dress is hand-dyed using low impact dyes, or natural dyes local to Indonesia. We pride ourselves on the quality of our fabrics, ethical production and promote slow fashion over fast fashion.<br\/><br\/>Silk Dress Fabric and Design :<\/p><p>Our silk dresses are designed using the highest grade mulberry silk. We use a range of silk satin and silk chiffon fabrics for effortless and timeless pieces. We believe in only using 100% natural fabric, to insure RIMMBA pieces will biodegrade naturally and will also not shed toxic piles. Silk is a zero- waste fabric, where all the silks byproducts are integrated back into the local ecosystem and economic system.<br\/><br\/>Who made your dresses ?<br\/><\/p><p>We design so women can feel connected to their silk dresses. At RIMMBA we pride ourselves not only on quality, but also on transparency and customer service. With us, you know who designs, sews and dyes your silk dresses. Our team takes all our customers measurements into the design process to insure the fit and fall of the dress drapes perfectly on your body. Overtime we have also learned to know who our customers are and have developed a loyal and loving relationship with them.<\/p><p><\/p>","content_alignment":"center","section_width":"max-w-fluid","color_scheme":"scheme-5","spacing_inner":"2","spacing_top":"4","spacing_bottom":"4"}}},"order":["featured_collections_JQrJUx","banner","main","f8303da3-c3cb-4a90-a63a-7a628615aa6f"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "featured_collections_JQrJUx": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_slide_eCyGr7": {
+          "type": "collection-slide",
+          "settings": {
+            "collection": "",
+            "heading": "Collection 1",
+            "heading_size": "h4",
+            "subheading": ""
+          }
+        },
+        "collection_slide_mgrYeF": {
+          "type": "collection-slide",
+          "settings": {
+            "collection": "",
+            "heading": "Collection 2",
+            "heading_size": "h4",
+            "subheading": ""
+          }
+        },
+        "collection_slide_a6Hh3H": {
+          "type": "collection-slide",
+          "settings": {
+            "collection": "",
+            "heading": "Collection 3",
+            "heading_size": "h4",
+            "subheading": ""
+          }
+        },
+        "collection_slide_Jxp4QF": {
+          "type": "collection-slide",
+          "settings": {
+            "collection": "",
+            "heading": "Collection 4",
+            "heading_size": "h4",
+            "subheading": ""
+          }
+        },
+        "collection_slide_yJVzU4": {
+          "type": "collection-slide",
+          "settings": {
+            "collection": "",
+            "heading": "Collection 5",
+            "heading_size": "h4",
+            "subheading": ""
+          }
+        },
+        "collection_slide_JeHaQi": {
+          "type": "collection-slide",
+          "settings": {
+            "collection": "",
+            "heading": "Collection 6",
+            "heading_size": "h4",
+            "subheading": ""
+          }
+        },
+        "collection_slide_FTD6Cq": {
+          "type": "collection-slide",
+          "settings": {
+            "collection": "",
+            "heading": "Collection 7",
+            "heading_size": "h4",
+            "subheading": ""
+          }
+        },
+        "collection_slide_73QVgH": {
+          "type": "collection-slide",
+          "settings": {
+            "collection": "",
+            "heading": "Collection 8",
+            "heading_size": "h4",
+            "subheading": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_slide_eCyGr7",
+        "collection_slide_mgrYeF",
+        "collection_slide_a6Hh3H",
+        "collection_slide_Jxp4QF",
+        "collection_slide_yJVzU4",
+        "collection_slide_JeHaQi",
+        "collection_slide_FTD6Cq",
+        "collection_slide_73QVgH"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "layout-2",
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "content_padding": "0",
+        "button_label": "",
+        "button_link": "shopify://collections",
+        "button_style": "button--filled",
+        "card_layout": "collection",
+        "card_style": "compact",
+        "image_aspect_ratio": "1/1",
+        "card_content_alignment": "start",
+        "card_title_style": "card-single-text",
+        "collection_product_count": "show",
+        "slides_per_view": 3,
+        "slides_per_view_mobile": 1,
+        "show_carousel_arrows": true,
+        "slideshow_alignment_center": false,
+        "enable_slideshow_overflow": false,
+        "slideshow_border": "none",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "color_scheme_for_cards": "",
+        "spacing_top": "2",
+        "spacing_bottom": "1"
+      }
+    },
+    "banner": {
+      "type": "page-banner",
+      "custom_css": [],
+      "settings": {
+        "enable_transparent_header": true,
+        "heading": "{{ collection.title }}",
+        "heading_size": "h3",
+        "text": "{{ collection.description }}",
+        "show_default_description": true,
+        "show_on_description": "desktop",
+        "content_position": "start",
+        "content_alignment": "start",
+        "media_position": "background",
+        "page_menu": "",
+        "enable_breadcrumbs": true,
+        "section_height": "auto",
+        "content_width": "100%",
+        "video_external": "",
+        "show_controls_on_video": false,
+        "section_height_mobile": "auto",
+        "video_external_mobile": "",
+        "show_controls_on_video_mobile": false,
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-1",
+        "color_scheme_for_media": "",
+        "spacing_top": "1",
+        "spacing_bottom": "2"
+      }
+    },
+    "full_width_banner_hzMUDn": {
+      "type": "full-width-banner",
+      "blocks": {
+        "subheading_X36niz": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Save the catalog to look at it offline",
+            "link": ""
+          }
+        },
+        "heading_LXqEi3": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Headline full width banner",
+            "heading_size": "h3"
+          }
+        },
+        "buttons_NknWt3": {
+          "type": "buttons",
+          "settings": {
+            "button_link_1": "https://cdn.shopify.com/s/files/1/0060/8560/7524/files/RIMMBA_Retail_Catalog_2025.pdf",
+            "button_link_1_type": "button",
+            "button_label_1": "PDF Catalog 2025",
+            "button_style_1": "button--filled",
+            "color_scheme_first_button": "scheme-1",
+            "button_link_2": "/",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "color_scheme_second_button": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_X36niz",
+        "heading_LXqEi3",
+        "buttons_NknWt3"
+      ],
+      "name": "t:sections.full-width-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "auto",
+        "content_position": "center",
+        "content_alignment": "center",
+        "image": "shopify://shop_images/HND_1363.jpg",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "half",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "color_scheme_for_content": "scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "full_width_banner_zggUyx": {
+      "type": "full-width-banner",
+      "blocks": {
+        "subheading_94nnxd": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Save the catalog to look at it offline",
+            "link": ""
+          }
+        },
+        "heading_eEXLeq": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Headline full width banner",
+            "heading_size": "h3"
+          }
+        },
+        "buttons_JpCK6q": {
+          "type": "buttons",
+          "settings": {
+            "button_link_1": "https://cdn.shopify.com/s/files/1/0060/8560/7524/files/RIMMBA_Retail_Catalog_2025.pdf",
+            "button_link_1_type": "button",
+            "button_label_1": "PDF Catalog 2025",
+            "button_style_1": "button--filled",
+            "color_scheme_first_button": "scheme-1",
+            "button_link_2": "/",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "color_scheme_second_button": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_94nnxd",
+        "heading_eEXLeq",
+        "buttons_JpCK6q"
+      ],
+      "disabled": true,
+      "name": "t:sections.full-width-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "auto",
+        "content_position": "center",
+        "content_alignment": "center",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "half",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "color_scheme_for_content": "scheme-1",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "text_card_J6n8hm": {
+          "type": "text-card",
+          "name": "RANDOM WRITING ON COLLECTION",
+          "settings": {
+            "color_scheme": "scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4",
+            "text": "",
+            "button_link": "shopify://products/botanical-dye-lingerie-workshop-rimmba",
+            "link_type": "card",
+            "button_label": "LEARN MORE",
+            "button_style": "button--outlined",
+            "content_position": "center",
+            "content_alignment": "center",
+            "content_position_mobile": "center",
+            "content_alignment_mobile": "center",
+            "position": 7,
+            "column_factor": 1,
+            "row_factor": 1,
+            "card_image": "shopify://shop_images/4_a73c6f42-46e3-4bf4-9c39-7e470693762c.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "text_card_J6n8hm"
+      ],
+      "settings": {
+        "show_top_border_for_utilities_bar": false,
+        "enable_products_count": false,
+        "enable_sorting": true,
+        "enable_opened_accordions": true,
+        "filters": "drawer",
+        "products_per_row": "3",
+        "products_per_row_mobile": "2",
+        "products_per_page": 46,
+        "pagination_style": "default",
+        "enable_infinity_scroll": true,
+        "section_width": "max-w-fluid",
+        "color_scheme": "",
+        "spacing_top": "1",
+        "spacing_bottom": "2"
+      }
+    },
+    "f8303da3-c3cb-4a90-a63a-7a628615aa6f": {
+      "type": "seo-content",
+      "disabled": true,
+      "settings": {
+        "section_layout": "normal",
+        "heading": "Buy Women's Silk Dresses Online - Rimmba",
+        "heading_size": "h3",
+        "text": "<p> RIMMBA silk dresses : <br/><br/>Feel like a goddess, draped in our mulberry silk dresses. We design unique and timeless silk dresses, so women around the world can feel sexy, confident, and beautiful inside and out. Cut on the bias our silk dresses drape effortlessly over all shapes and sizes, and compliments all body types. Our silk dress collection comprise of classic slip dresses, a mixture of oval and low V necklines, low back scoop, and mini, midi and maxi lengths options. Each silk dress is hand-dyed using low impact dyes, or natural dyes local to Indonesia. We pride ourselves on the quality of our fabrics, ethical production and promote slow fashion over fast fashion.<br/><br/>Silk Dress Fabric and Design :</p><p>Our silk dresses are designed using the highest grade mulberry silk. We use a range of silk satin and silk chiffon fabrics for effortless and timeless pieces. We believe in only using 100% natural fabric, to insure RIMMBA pieces will biodegrade naturally and will also not shed toxic piles. Silk is a zero- waste fabric, where all the silks byproducts are integrated back into the local ecosystem and economic system.<br/><br/>Who made your dresses ?<br/></p><p>We design so women can feel connected to their silk dresses. At RIMMBA we pride ourselves not only on quality, but also on transparency and customer service. With us, you know who designs, sews and dyes your silk dresses. Our team takes all our customers measurements into the design process to insure the fit and fall of the dress drapes perfectly on your body. Overtime we have also learned to know who our customers are and have developed a loyal and loving relationship with them.</p><p></p>",
+        "content_alignment": "center",
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-5",
+        "spacing_inner": "2",
+        "spacing_top": "4",
+        "spacing_bottom": "4"
+      }
+    }
+  },
+  "order": [
+    "featured_collections_JQrJUx",
+    "banner",
+    "full_width_banner_hzMUDn",
+    "full_width_banner_zggUyx",
+    "main",
+    "f8303da3-c3cb-4a90-a63a-7a628615aa6f"
+  ]
+}
