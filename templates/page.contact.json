@@ -9,6 +9,33 @@
  */
 {
   "sections": {
+    "page_banner_bMQDWP": {
+      "type": "page-banner",
+      "name": "t:sections.page-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "heading": "",
+        "heading_size": "h3",
+        "text": "",
+        "show_default_description": true,
+        "show_on_description": "desktop",
+        "content_position": "center",
+        "content_alignment": "center",
+        "media_position": "background",
+        "page_menu": "",
+        "enable_breadcrumbs": true,
+        "section_height": "auto",
+        "content_width": "100%",
+        "show_controls_on_video": false,
+        "section_height_mobile": "50svh",
+        "show_controls_on_video_mobile": false,
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-1",
+        "color_scheme_for_media": "",
+        "spacing_top": "2",
+        "spacing_bottom": "6"
+      }
+    },
     "custom_liquid_rbLwMT": {
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.name",
@@ -20,14 +47,95 @@
         "spacing_bottom": "2"
       }
     },
+    "dual_tiles_6eDKJQ": {
+      "type": "dual-tiles",
+      "blocks": {
+        "tile_UtyWpH": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "custom_background_color": "",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "3/4",
+            "vertical_position": "center",
+            "content_position": "justify-center",
+            "content_alignment": "text-center align-center",
+            "product_position": "0",
+            "image": "shopify://shop_images/7_ea3ffa71-d225-4b58-93c1-08c0dd770a1d.jpg",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "auto",
+            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        },
+        "tile_GWiygz": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-5",
+            "custom_background_color": "",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "<p>For any questions please email us at</p><p><a href=\"mailto:hello@rimmba.com\">care@rimmba.com</a></p><p>+6281338873123</p><p>Retail Store :</p><p><a href=\"https://maps.app.goo.gl/N4kXxNq9JvYbSX4B8\" target=\"_blank\" title=\"RIMMBA Shop in Bali\">Jalan Dewi Sita, no 12, Ubud, Gianyar, 80581, Bali. </a></p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "auto",
+            "vertical_position": "stretch",
+            "content_position": "justify-center",
+            "content_alignment": "text-center align-center",
+            "product_position": "0",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "auto",
+            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        }
+      },
+      "block_order": [
+        "tile_UtyWpH",
+        "tile_GWiygz"
+      ],
+      "name": "t:sections.dual-tiles.name",
+      "settings": {
+        "section_layout": "seperated",
+        "block_size": "half",
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "color_scheme": "",
+        "section_width": "max-w-page",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
     "main": {
       "type": "main-page",
       "settings": {
-        "breadcrumbs": true,
-        "show_page_title": true,
+        "breadcrumbs": false,
+        "show_page_title": false,
         "page_title_alignment": "text-center",
-        "info_title": "Opening hours",
-        "info_content": "<p>Monday to Friday 9am to 9pm (GMT)<br/>Saturday 10am to 6pm<br/>Sunday 10am to 4pm</p>",
+        "info_title": "",
+        "info_content": "",
         "section_width": "max-w-fluid",
         "color_scheme": "scheme-1",
         "spacing_top": "2",
@@ -115,7 +223,9 @@
     }
   },
   "order": [
+    "page_banner_bMQDWP",
     "custom_liquid_rbLwMT",
+    "dual_tiles_6eDKJQ",
     "main",
     "form",
     "map"
