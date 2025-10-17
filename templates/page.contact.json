@@ -17,10 +17,21 @@
         "page_title_alignment": "text-center",
         "info_title": "Opening hours",
         "info_content": "<p>Monday to Friday 9am to 9pm (GMT)<br/>Saturday 10am to 6pm<br/>Sunday 10am to 4pm</p>",
-        "section_width": "max-w-narrower",
+        "section_width": "max-w-fluid",
         "color_scheme": "scheme-1",
         "spacing_top": "2",
         "spacing_bottom": "0"
+      }
+    },
+    "custom_liquid_rbLwMT": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "custom_liquid": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.8889958784084!2d115.2609148760642!3d-8.510157886171275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23d9267119901%3A0x1d22c3d1a6f19a73!2sRimmba!5e0!3m2!1sen!2sid!4v1760670906999!5m2!1sen!2sid\" margin=\"auto\" align=\"center\" width=\"100%\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
       }
     },
     "form": {
@@ -101,23 +112,12 @@
         "spacing_top": "2",
         "spacing_bottom": "2"
       }
-    },
-    "custom_liquid_rbLwMT": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.name",
-      "settings": {
-        "custom_liquid": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.8889958784084!2d115.2609148760642!3d-8.510157886171275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23d9267119901%3A0x1d22c3d1a6f19a73!2sRimmba!5e0!3m2!1sen!2sid!4v1760670906999!5m2!1sen!2sid\" width=\"400\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-        "section_width": "max-w-full",
-        "color_scheme": "",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
-      }
     }
   },
   "order": [
+    "custom_liquid_rbLwMT",
     "main",
     "form",
-    "map",
-    "custom_liquid_rbLwMT"
+    "map"
   ]
 }
