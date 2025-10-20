@@ -397,7 +397,7 @@
         "button_label": "",
         "button_link": "",
         "button_style": "button--filled",
-        "section_width": "max-w-fluid",
+        "section_width": "max-w-page",
         "color_scheme": "",
         "spacing_top": "0",
         "spacing_bottom": "0"
