@@ -237,6 +237,99 @@
         "spacing_bottom": "2"
       }
     },
+    "carousel_464xTm": {
+      "type": "carousel",
+      "blocks": {
+        "card_3BMgMA": {
+          "type": "card",
+          "settings": {
+            "heading": "",
+            "heading_size": "h5",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "aspect_ratio": "4/1",
+            "color_scheme": "scheme-5",
+            "media_position": "background",
+            "content_position": "center",
+            "content_alignment": "center",
+            "image": "shopify://shop_images/MJR_3515.jpg",
+            "show_controls_on_video": false,
+            "content_position_mobile": "center",
+            "content_alignment_mobile": "center",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "0"
+          }
+        },
+        "card_94typ8": {
+          "type": "card",
+          "settings": {
+            "heading": "",
+            "heading_size": "h5",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "aspect_ratio": "4/1",
+            "color_scheme": "scheme-5",
+            "media_position": "background",
+            "content_position": "center",
+            "content_alignment": "center",
+            "image": "shopify://shop_images/MJR_3731_copy_2.jpg",
+            "show_controls_on_video": false,
+            "content_position_mobile": "center",
+            "content_alignment_mobile": "center",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "0"
+          }
+        },
+        "card_DWjnkp": {
+          "type": "card",
+          "settings": {
+            "heading": "",
+            "heading_size": "h5",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "aspect_ratio": "4/1",
+            "color_scheme": "scheme-5",
+            "media_position": "background",
+            "content_position": "center",
+            "content_alignment": "center",
+            "image": "shopify://shop_images/HND_8398_1_1024x1024-Picsart-AiImageEnhancer_1.jpg",
+            "show_controls_on_video": false,
+            "content_position_mobile": "center",
+            "content_alignment_mobile": "center",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "0"
+          }
+        }
+      },
+      "block_order": [
+        "card_3BMgMA",
+        "card_94typ8",
+        "card_DWjnkp"
+      ],
+      "name": "t:sections.carousel.name",
+      "settings": {
+        "show_navigation_arrows": true,
+        "slideshow_autoplay_interval": 4,
+        "slides_per_view": 1,
+        "layout": "layout-2",
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "button--filled",
+        "section_width": "max-w-fluid",
+        "color_scheme": "",
+        "spacing_top": "0",
+        "spacing_bottom": "0"
+      }
+    },
     "multitile_RMhzqE": {
       "type": "multitile",
       "blocks": {
@@ -441,6 +534,7 @@
     "custom_liquid_rbLwMT",
     "dual_tiles_6eDKJQ",
     "multitile_VmhDDc",
+    "carousel_464xTm",
     "multitile_RMhzqE",
     "main",
     "form",
