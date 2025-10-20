@@ -1231,7 +1231,7 @@
       ],
       "name": "Store Locator",
       "settings": {
-        "heading": "<a href=\"/pages/retailers\" title=\"Retail store & Atelier\">OUR BOUTIQUE - VISIT NOW</a>",
+        "heading": "<a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact Us\">OUR BOUTIQUE - VISIT NOW</a>",
         "heading_size": "h3",
         "layout": "image",
         "image_grid_columns": "auto",
