@@ -602,7 +602,12 @@
           "settings": {
             "title": "INTIMATES",
             "collection": "lingerie",
-            "products": [],
+            "products": [
+              "cotton-intimate-set-white-embroidery",
+              "rimmba-silk-intimate-set-indigo",
+              "silk-intimate-set-bra-underwear",
+              "wabisabi-kimono-indigo-mini"
+            ],
             "vendor": "",
             "collection_of_products": "",
             "show_unavailable_products": true,
