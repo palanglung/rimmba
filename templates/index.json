@@ -12,8 +12,40 @@
     "1658995208ad05f95f": {
       "type": "hero-banner",
       "blocks": {
+        "slide_BdeRpH": {
+          "type": "slide",
+          "settings": {
+            "banner_layout": "hero-banner--full",
+            "color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "header_menu_text_color": "#151515",
+            "heading": "<p>RESORT 2026</p>",
+            "subheading": "SHOT IN DESA TENGANAN",
+            "subheading_link": "",
+            "text": "<p>LUXURY SILK DRESSES - DYED FROM PLANTS</p>",
+            "button_link_1": "shopify://collections",
+            "button_link_1_type": "button",
+            "button_label_1": "Shop Now",
+            "button_style_1": "button--filled",
+            "button_link_2": "shopify://collections/all",
+            "button_label_2": "Explore",
+            "button_style_2": "button--outlined",
+            "content_position": "center",
+            "content_alignment": "center",
+            "image": "shopify://shop_images/RIMMBA_CAMPAIGN_0_601_c5adc79a-e40b-4e61-8d6e-8fe9735b0e16.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "enable_media_overlay_desktop": false,
+            "content_position_mobile": "center",
+            "content_alignment_mobile": "center",
+            "image_mobile": "shopify://shop_images/RIMMBA_CAMPAIGN_0_457.jpg",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "enable_media_overlay_mobile": true
+          }
+        },
         "8d591e0b-d408-44f1-8bd2-9b71f529aa90": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "banner_layout": "hero-banner--full",
             "color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
@@ -45,6 +77,7 @@
         },
         "slide_aQizGj": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "banner_layout": "hero-banner--full",
             "color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
@@ -69,36 +102,6 @@
             "content_position_mobile": "center",
             "content_alignment_mobile": "center",
             "image_mobile": "shopify://shop_images/36776492-A97B-4144-B98F-B1E61EF3DEFE.jpg",
-            "video_external_mobile": "",
-            "show_controls_on_video_mobile": false,
-            "enable_media_overlay_mobile": true
-          }
-        },
-        "slide_BdeRpH": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "banner_layout": "hero-banner--30-70",
-            "color_scheme": "scheme-5",
-            "header_menu_text_color": "#151515",
-            "heading": "<p>30-70 Hero <em>Banner</em></p>",
-            "subheading": "Highlight Your Promotion",
-            "subheading_link": "",
-            "text": "<p>Give customers details about the banner image or content on the template.</p>",
-            "button_link_1": "shopify://collections",
-            "button_link_1_type": "button",
-            "button_label_1": "Shop Now",
-            "button_style_1": "button--filled",
-            "button_link_2": "shopify://collections/all",
-            "button_label_2": "Explore",
-            "button_style_2": "button--outlined",
-            "content_position": "center",
-            "content_alignment": "center",
-            "video_external": "",
-            "show_controls_on_video": false,
-            "enable_media_overlay_desktop": false,
-            "content_position_mobile": "center",
-            "content_alignment_mobile": "center",
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
             "enable_media_overlay_mobile": true
@@ -138,9 +141,9 @@
         }
       },
       "block_order": [
+        "slide_BdeRpH",
         "8d591e0b-d408-44f1-8bd2-9b71f529aa90",
         "slide_aQizGj",
-        "slide_BdeRpH",
         "slide_6VWqy8"
       ],
       "custom_css": [
