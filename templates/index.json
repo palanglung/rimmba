@@ -615,7 +615,7 @@
             "content_alignment": "center"
           }
         },
-        "collection_EKQVDY": {
+        "collection_mRqFii": {
           "type": "collection",
           "settings": {
             "title": "",
@@ -635,12 +635,12 @@
       },
       "block_order": [
         "collection_waiCtD",
-        "collection_EKQVDY"
+        "collection_mRqFii"
       ],
       "disabled": true,
       "settings": {
         "layout": "layout-2",
-        "heading": "MOST LOVED",
+        "heading": "",
         "heading_size": "h3",
         "subheading": "",
         "button_label": "View all",
@@ -745,7 +745,7 @@
         "layout": "layout-1",
         "heading": "Featured products",
         "heading_size": "h3",
-        "subheading": "Selected collections",
+        "subheading": "SHOP COLLECTIONS",
         "button_label": "View all",
         "button_link": "",
         "button_style": "button--outlined",
