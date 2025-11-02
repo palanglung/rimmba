@@ -548,7 +548,7 @@
         "collection_JBz4Aj": {
           "type": "collection",
           "settings": {
-            "title": "Collection 1",
+            "title": "BEDDING",
             "collection": "bedding-and-acessocies",
             "products": [
               "pink-cosmic-silk-bedding-set",
@@ -570,8 +570,8 @@
         "collection_YdLgpj": {
           "type": "collection",
           "settings": {
-            "title": "Collection 2",
-            "collection": "",
+            "title": "BLOUSE & CROPS",
+            "collection": "tops",
             "products": [],
             "vendor": "",
             "collection_of_products": "",
