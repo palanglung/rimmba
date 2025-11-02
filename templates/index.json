@@ -342,6 +342,54 @@
         "spacing_bottom": "0"
       }
     },
+    "featured_products_rBqedk": {
+      "type": "featured-products",
+      "blocks": {
+        "collection_Cjf6Ax": {
+          "type": "collection",
+          "settings": {
+            "title": "ALL WHITE",
+            "collection": "",
+            "products": [
+              "gaya-silk-kaftan-dress-white",
+              "mila-halter-silk-dress-white-wedding-dress",
+              "lily-white-silk-dress-mini",
+              "olivia-vintage-silk-dress-white"
+            ],
+            "vendor": "",
+            "collection_of_products": "",
+            "show_unavailable_products": true,
+            "card_text_heading": "",
+            "card_text_button_label": "",
+            "card_text_button_style": "button--filled",
+            "card_text_button_link": "",
+            "content_position": "center",
+            "content_alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "collection_Cjf6Ax"
+      ],
+      "settings": {
+        "layout": "layout-2",
+        "heading": "DRESSES",
+        "heading_size": "h3",
+        "subheading": "",
+        "button_label": "View all",
+        "button_link": "shopify://collections",
+        "button_style": "button--text",
+        "max_products": 4,
+        "enable_slideshow_overflow": false,
+        "show_navigation_arrows": true,
+        "slideshow_autoplay_interval": 0,
+        "tab_button_style": "button--filled",
+        "section_width": "max-w-page",
+        "color_scheme": "scheme-1",
+        "spacing_top": "4",
+        "spacing_bottom": "0"
+      }
+    },
     "featured_collections_fpTnxQ": {
       "type": "featured-collections",
       "blocks": {
@@ -1493,6 +1541,7 @@
     "callout_banner_rVDLqh",
     "marquees_TFD63r",
     "featured_collections_JnyGJ7",
+    "featured_products_rBqedk",
     "featured_collections_fpTnxQ",
     "full_width_banner_JMAceU",
     "featured_products_4eL4yE",
