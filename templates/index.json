@@ -660,6 +660,28 @@
     "featured_products_9NJzmF": {
       "type": "featured-products",
       "blocks": {
+        "collection_yaFTKh": {
+          "type": "collection",
+          "settings": {
+            "title": "INTIMATES",
+            "collection": "lingerie",
+            "products": [
+              "cotton-intimate-set-white-embroidery",
+              "rimmba-silk-intimate-set-indigo",
+              "silk-intimate-set-bra-underwear",
+              "wabisabi-kimono-indigo-mini"
+            ],
+            "vendor": "",
+            "collection_of_products": "",
+            "show_unavailable_products": true,
+            "card_text_heading": "",
+            "card_text_button_label": "",
+            "card_text_button_style": "button--filled",
+            "card_text_button_link": "",
+            "content_position": "center",
+            "content_alignment": "center"
+          }
+        },
         "collection_JBz4Aj": {
           "type": "collection",
           "settings": {
@@ -711,34 +733,12 @@
             "content_position": "center",
             "content_alignment": "center"
           }
-        },
-        "collection_yaFTKh": {
-          "type": "collection",
-          "settings": {
-            "title": "INTIMATES",
-            "collection": "lingerie",
-            "products": [
-              "cotton-intimate-set-white-embroidery",
-              "rimmba-silk-intimate-set-indigo",
-              "silk-intimate-set-bra-underwear",
-              "wabisabi-kimono-indigo-mini"
-            ],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": true,
-            "card_text_heading": "",
-            "card_text_button_label": "",
-            "card_text_button_style": "button--filled",
-            "card_text_button_link": "",
-            "content_position": "center",
-            "content_alignment": "center"
-          }
         }
       },
       "block_order": [
+        "collection_yaFTKh",
         "collection_JBz4Aj",
-        "collection_YdLgpj",
-        "collection_yaFTKh"
+        "collection_YdLgpj"
       ],
       "settings": {
         "layout": "layout-1",
