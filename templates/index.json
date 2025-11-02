@@ -545,6 +545,30 @@
     "featured_products_9NJzmF": {
       "type": "featured-products",
       "blocks": {
+        "collection_JBz4Aj": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "title": "BEDDING",
+            "collection": "bedding-and-acessocies",
+            "products": [
+              "pua-silk-pillow-case",
+              "pua-silk-pillowcase-set-mint-green",
+              "wabisabi-kimono-indigo-mini",
+              "eco-print-silk-eye-mask",
+              "pink-cosmic-silk-bedding-set"
+            ],
+            "vendor": "",
+            "collection_of_products": "",
+            "show_unavailable_products": true,
+            "card_text_heading": "",
+            "card_text_button_label": "",
+            "card_text_button_style": "button--filled",
+            "card_text_button_link": "",
+            "content_position": "center",
+            "content_alignment": "center"
+          }
+        },
         "collection_YdLgpj": {
           "type": "collection",
           "settings": {
@@ -562,29 +586,6 @@
               "indigo-silk-dayu-elastic-bandeau-top",
               "cempaka-blouse-indigo",
               "cempaka-blouse"
-            ],
-            "vendor": "",
-            "collection_of_products": "",
-            "show_unavailable_products": true,
-            "card_text_heading": "",
-            "card_text_button_label": "",
-            "card_text_button_style": "button--filled",
-            "card_text_button_link": "",
-            "content_position": "center",
-            "content_alignment": "center"
-          }
-        },
-        "collection_JBz4Aj": {
-          "type": "collection",
-          "settings": {
-            "title": "BEDDING",
-            "collection": "bedding-and-acessocies",
-            "products": [
-              "pink-cosmic-silk-bedding-set",
-              "pua-silk-pillow-case",
-              "pua-silk-pillowcase-set-mint-green",
-              "eco-print-silk-eye-mask",
-              "wabisabi-kimono-indigo-mini"
             ],
             "vendor": "",
             "collection_of_products": "",
@@ -621,8 +622,8 @@
         }
       },
       "block_order": [
-        "collection_YdLgpj",
         "collection_JBz4Aj",
+        "collection_YdLgpj",
         "collection_yaFTKh"
       ],
       "settings": {
