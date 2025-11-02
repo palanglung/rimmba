@@ -15,8 +15,8 @@
         "slide_BdeRpH": {
           "type": "slide",
           "settings": {
-            "banner_layout": "hero-banner--full",
-            "color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "banner_layout": "hero-banner--70-30",
+            "color_scheme": "scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4",
             "header_menu_text_color": "#f7d623",
             "heading": "<p>RESORT 2026</p>",
             "subheading": "SHOT IN DESA TENGANAN",
@@ -31,7 +31,7 @@
             "button_style_2": "button--outlined",
             "content_position": "center",
             "content_alignment": "center",
-            "image": "shopify://shop_images/RIMMBA_CAMPAIGN_0_601_c5adc79a-e40b-4e61-8d6e-8fe9735b0e16.jpg",
+            "image": "shopify://shop_images/RIMMBA_CAMPAIGN_0_633.jpg",
             "video_external": "",
             "show_controls_on_video": false,
             "enable_media_overlay_desktop": false,
