@@ -572,7 +572,19 @@
           "settings": {
             "title": "BLOUSE & CROPS",
             "collection": "tops",
-            "products": [],
+            "products": [
+              "dayu-bandeau-embroidery-top-baby-indigo",
+              "zena-silk-chiffon-top-white",
+              "zena-silk-chiffon-top-black",
+              "sacred-cloth-silk-linen-blouse",
+              "pevita-halter-top-indigo",
+              "dayu-top-emerald-shibori",
+              "dayu-bandeau-embroidery-top-white",
+              "dayu-silk-top-night-storm",
+              "indigo-silk-dayu-elastic-bandeau-top",
+              "cempaka-blouse-indigo",
+              "cempaka-blouse"
+            ],
             "vendor": "",
             "collection_of_products": "",
             "show_unavailable_products": true,
