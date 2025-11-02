@@ -662,14 +662,13 @@
       "blocks": {
         "collection_JBz4Aj": {
           "type": "collection",
-          "disabled": true,
           "settings": {
             "title": "BEDDING",
             "collection": "bedding-and-acessocies",
             "products": [
+              "wabisabi-kimono-indigo-mini",
               "pua-silk-pillow-case",
               "pua-silk-pillowcase-set-mint-green",
-              "wabisabi-kimono-indigo-mini",
               "eco-print-silk-eye-mask",
               "pink-cosmic-silk-bedding-set"
             ],
