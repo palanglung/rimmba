@@ -797,6 +797,7 @@
         "collection_slide_7qKnzD",
         "collection_slide_8UbcnL"
       ],
+      "disabled": true,
       "settings": {
         "layout": "layout-2",
         "heading": "<a href=\"/collections/eco-print-collection\" title=\"Eco-Print Collection\">Eco-Print Series</a>",
@@ -885,89 +886,6 @@
         "spacing_inner": "2",
         "spacing_top": "1",
         "spacing_bottom": "0"
-      }
-    },
-    "highlighted_product_6R9Nc6": {
-      "type": "highlighted-product",
-      "blocks": {
-        "title_j4Yp9d": {
-          "type": "title",
-          "settings": {}
-        },
-        "badge_nw84n7": {
-          "type": "badge",
-          "settings": {}
-        },
-        "text_mxHdQQ": {
-          "type": "text",
-          "settings": {
-            "text": "{{ section.settings.highlighted_product.vendor }}",
-            "text_style": "link",
-            "link_to_resource": "vendor"
-          }
-        },
-        "price_gKh4H6": {
-          "type": "price",
-          "settings": {
-            "show_price_tax_info": true,
-            "show_price_shipping_info": false,
-            "show_price_custom_info": ""
-          }
-        },
-        "divider_QbYJcJ": {
-          "type": "divider",
-          "settings": {}
-        },
-        "variant_picker_xQXtde": {
-          "type": "variant_picker",
-          "settings": {
-            "title": "Variant picker",
-            "variant_picker_type": "buttons",
-            "variant_picker_layout": "product-selector--default",
-            "variant_options_with_thumbnails": "Color",
-            "size_guide_page": "",
-            "sizes_option": "Size"
-          }
-        },
-        "buy_buttons_GYAyze": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_quantity": true,
-            "quantity_type": "inline",
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": false
-          }
-        },
-        "product_link_gT4g9z": {
-          "type": "product_link",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "title_j4Yp9d",
-        "badge_nw84n7",
-        "text_mxHdQQ",
-        "price_gKh4H6",
-        "divider_QbYJcJ",
-        "variant_picker_xQXtde",
-        "buy_buttons_GYAyze",
-        "product_link_gT4g9z"
-      ],
-      "disabled": true,
-      "settings": {
-        "highlighted_product": "bellas-red-silk-kaftan-ecoprint",
-        "heading": "<p>Item of the <em>week</em></p>",
-        "product_media_object_fit": "cover",
-        "adaptive_ratio_and_auto_height": "default",
-        "media_transparent_background": false,
-        "disable_media_zoom": true,
-        "show_media_index": true,
-        "media_gallery_info": "",
-        "color_scheme_arrows": "",
-        "section_width": "max-w-fluid",
-        "color_scheme": "scheme-1",
-        "spacing_top": "4",
-        "spacing_bottom": "4"
       }
     },
     "dual_tiles_nqzRrp": {
@@ -1609,13 +1527,12 @@
     "featured_collections_JnyGJ7",
     "featured_products_rBqedk",
     "featured_collections_fpTnxQ",
+    "featured_products_fXeCd4",
     "full_width_banner_JMAceU",
     "featured_products_4eL4yE",
-    "featured_products_fXeCd4",
     "featured_products_9NJzmF",
     "16e24524-2040-41a4-b5ca-3a425d62879b",
     "full_width_banner_BAzegt",
-    "highlighted_product_6R9Nc6",
     "dual_tiles_nqzRrp",
     "shop_the_look_9hJ6AQ",
     "shop_the_look_FhgzC8",
