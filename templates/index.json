@@ -475,7 +475,7 @@
         "section_height": "full",
         "content_position": "end",
         "content_alignment": "center",
-        "image": "shopify://shop_images/karunia_1.jpg",
+        "image": "shopify://shop_images/18th_October_2025_-_Saturday_-_Umalas_Canggu.jpg",
         "video_external": "",
         "show_controls_on_video": false,
         "aspect_ratio": "auto",
@@ -550,7 +550,12 @@
           "settings": {
             "title": "Collection 1",
             "collection": "bedding-and-acessocies",
-            "products": [],
+            "products": [
+              "pink-cosmic-silk-bedding-set",
+              "pua-silk-pillow-case",
+              "pua-silk-pillowcase-set-mint-green",
+              "eco-print-silk-eye-mask"
+            ],
             "vendor": "",
             "collection_of_products": "",
             "show_unavailable_products": true,
@@ -602,7 +607,6 @@
         "collection_YdLgpj",
         "collection_yaFTKh"
       ],
-      "disabled": true,
       "settings": {
         "layout": "layout-1",
         "heading": "Featured products",
