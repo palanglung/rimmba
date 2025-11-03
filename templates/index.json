@@ -152,7 +152,7 @@
       "settings": {
         "enable_transparent_header": true,
         "slider_height": 100,
-        "slideshow_autoplay_interval": 4,
+        "slideshow_autoplay_interval": 6,
         "show_slideshow_navigation": true,
         "slideshow_navigation_position": "hero__swiper-buttons--sides",
         "color_scheme_arrows": "scheme-6",
