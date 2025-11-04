@@ -971,7 +971,9 @@ legend {
 inbox-online-store-chat#ShopifyChat{
     right: 100px !important;
     bottom: 19px !important;
-    z-index: calc(var(--z-header) + 0) !important;
+}
+inbox-online-store-chat#ShopifyChat, #smile-ui-lite-container {
+    z-index: calc(var(--z-header) + 0) !important; /*reposition below cart drawer*/
 }
 .section-footer.container {
     padding-block-end: 4rem;
