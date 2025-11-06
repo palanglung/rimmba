@@ -156,7 +156,7 @@
         "show_slideshow_navigation": true,
         "slideshow_navigation_position": "hero__swiper-buttons--sides",
         "color_scheme_arrows": "scheme-6",
-        "show_slideshow_pagination": true,
+        "show_slideshow_pagination": false,
         "slideshow_pagination_style": "style-2",
         "floating_bar": false
       }
