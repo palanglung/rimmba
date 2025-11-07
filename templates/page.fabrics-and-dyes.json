@@ -59,160 +59,21 @@
         "spacing_bottom": "6"
       }
     },
-    "dual_tiles_VMgfML": {
-      "type": "dual-tiles",
-      "blocks": {
-        "tile_C9qM8E": {
-          "type": "tile",
-          "settings": {
-            "show_on": "both",
-            "color_scheme": "scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4",
-            "custom_background_color": "",
-            "heading": "<a href=\"/products/botanical-dye-lingerie-workshop-rimmba\" target=\"_blank\" title=\"Botanical Dye Lingerie Workshop.\">Botanical Dye Workshop</a>",
-            "heading_size": "h3",
-            "text": "<p>18th October - Umalas / Canggu (3pm - 8pm)</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "button--filled",
-            "product": "",
-            "product_width": 24,
-            "show_other_elements_with_product": true,
-            "aspect_ratio": "auto",
-            "vertical_position": "stretch",
-            "content_position": "justify-center",
-            "content_alignment": "text-center align-center",
-            "product_position": "0",
-            "image": "shopify://shop_images/O6A9072.jpg",
-            "video_external": "",
-            "show_controls_on_video": false,
-            "aspect_ratio_mobile": "auto",
-            "content_alignment_mobile": "text-center--mobile align-center--mobile",
-            "content_position_mobile": "justify-center--mobile",
-            "product_position_mobile": "0",
-            "video_external_mobile": "",
-            "show_controls_on_video_mobile": false,
-            "spacing_inner": "3"
-          }
-        },
-        "tile_XCNLMb": {
-          "type": "tile",
-          "settings": {
-            "show_on": "both",
-            "color_scheme": "scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4",
-            "custom_background_color": "",
-            "heading": "<a href=\"/pages/private-workshop\" target=\"_blank\" title=\"PRIVATE WORKSHOP\">Private Workshop</a>",
-            "heading_size": "h3",
-            "text": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "button--filled",
-            "product": "",
-            "product_width": 24,
-            "show_other_elements_with_product": true,
-            "aspect_ratio": "auto",
-            "vertical_position": "stretch",
-            "content_position": "justify-center",
-            "content_alignment": "text-center align-center",
-            "product_position": "0",
-            "image": "shopify://shop_images/HND_1363.jpg",
-            "video_external": "",
-            "show_controls_on_video": false,
-            "aspect_ratio_mobile": "auto",
-            "content_alignment_mobile": "text-center--mobile align-center--mobile",
-            "content_position_mobile": "justify-center--mobile",
-            "product_position_mobile": "0",
-            "video_external_mobile": "",
-            "show_controls_on_video_mobile": false,
-            "spacing_inner": "3"
-          }
-        }
-      },
-      "block_order": [
-        "tile_C9qM8E",
-        "tile_XCNLMb"
-      ],
-      "name": "t:sections.dual-tiles.name",
-      "settings": {
-        "section_layout": "seperated",
-        "block_size": "half",
-        "block_order_mobile": false,
-        "heading": "",
-        "heading_size": "h3",
-        "heading_alignment": "start",
-        "color_scheme": "",
-        "section_width": "max-w-page",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
-      }
-    },
-    "main": {
-      "type": "main-page",
-      "custom_css": [
-        "table {box-shadow: none;}"
-      ],
-      "settings": {
-        "breadcrumbs": false,
-        "show_page_title": false,
-        "page_title_alignment": "text-center",
-        "info_title": "",
-        "info_content": "",
-        "section_width": "max-w-fluid",
-        "color_scheme": "",
-        "spacing_top": "0",
-        "spacing_bottom": "0"
-      }
-    },
-    "accordions_h9bbAN": {
-      "type": "accordions",
-      "blocks": {
-        "topic_8wKR6A": {
-          "type": "topic",
-          "settings": {
-            "is_open": false,
-            "title": "Requirements",
-            "text": "<p></p><p>Plant dyes will be determined based on seasonal availability. RIMMBA works with avocado seeds, annatto, brazilwood, indigo, marigold and onion skins.</p><p>Payment in full is required to secure your booking. All payments can be made via our RIMMBA website. </p><p>The Workshop requires intensive preparation and additional staffing on the day. The Workshop will commence on time and finish on time regardless of when attendees arrive.</p>",
-            "page": ""
-          }
-        },
-        "topic_kYjABU": {
-          "type": "topic",
-          "settings": {
-            "is_open": false,
-            "title": "Cancellation & Refund Policy",
-            "text": "<p>In the case of emergency or illness within your group, we are happy to reschedule the workshop to a later date. Please note that no refunds can be offered in these cases.</p><p>If you choose to cancel your booking, we offer a 50% refund for cancellations made at least 1 week prior to the scheduled workshop date.</p><p>Cancellations made within 1 week of the event are non-refundable due to the preparation, materials, and time invested in curating your experience.</p><p><strong>E :</strong> HELLO@RIMMBA.COM<br/><strong>P :</strong> +62 813388 73 123<br/><strong>W :</strong> WWW.RIMMBA.COM<br/><strong>I :</strong> @rimmba_thebrand</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "topic_8wKR6A",
-        "topic_kYjABU"
-      ],
-      "name": "t:sections.accordions.name",
-      "settings": {
-        "heading": "Terms & Conditions",
-        "heading_size": "h3",
-        "section_width": "max-w-narrower",
-        "color_scheme": "",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
-      }
-    },
     "full_width_banner_txyTw4": {
       "type": "full-width-banner",
       "blocks": {
+        "subheading_NpkYUe": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "handmadeby RIMMBA",
+            "link": ""
+          }
+        },
         "heading_wLeJDz": {
           "type": "heading",
           "settings": {
             "heading": "Natural Fabrics & Botanical Dyes",
             "heading_size": "h4"
-          }
-        },
-        "subheading_NpkYUe": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Selected by RIMMBA",
-            "link": ""
           }
         },
         "content_TWVMYQ": {
@@ -223,23 +84,22 @@
         },
         "buttons_BMDCEX": {
           "type": "buttons",
-          "disabled": true,
           "settings": {
-            "button_link_1": "/",
+            "button_link_1": "shopify://pages/workshop-landing-page",
             "button_link_1_type": "button",
-            "button_label_1": "",
-            "button_style_1": "button--outlined",
-            "color_scheme_first_button": "",
-            "button_link_2": "/",
+            "button_label_1": "Join the workshop",
+            "button_style_1": "button--filled",
+            "color_scheme_first_button": "scheme-6",
+            "button_link_2": "shopify://products/botanical-dye-lingerie-workshop-rimmba",
             "button_label_2": "",
-            "button_style_2": "button--outlined",
-            "color_scheme_second_button": ""
+            "button_style_2": "button--filled",
+            "color_scheme_second_button": "scheme-6"
           }
         }
       },
       "block_order": [
-        "heading_wLeJDz",
         "subheading_NpkYUe",
+        "heading_wLeJDz",
         "content_TWVMYQ",
         "buttons_BMDCEX"
       ],
@@ -268,6 +128,23 @@
         "spacing_bottom": "2"
       }
     },
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+        "table {box-shadow: none;}"
+      ],
+      "settings": {
+        "breadcrumbs": false,
+        "show_page_title": false,
+        "page_title_alignment": "text-center",
+        "info_title": "",
+        "info_content": "",
+        "section_width": "max-w-fluid",
+        "color_scheme": "",
+        "spacing_top": "0",
+        "spacing_bottom": "0"
+      }
+    },
     "seo_content_ebjggt": {
       "type": "seo-content",
       "disabled": true,
@@ -280,6 +157,73 @@
         "content_alignment": "center",
         "section_width": "max-w-fluid",
         "color_scheme": "",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "full_width_banner_meeAGa": {
+      "type": "full-width-banner",
+      "blocks": {
+        "subheading_bRynXm": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "We invite you to explore our fabric stories in depth:",
+            "link": ""
+          }
+        },
+        "heading_L3X7TU": {
+          "type": "heading",
+          "settings": {
+            "heading": "In celebration of the natural",
+            "heading_size": "h3"
+          }
+        },
+        "content_aNDdqh": {
+          "type": "content",
+          "settings": {
+            "content": "<p>Choosing natural fabrics is choosing balance between people and planet, craft and technology, tradition and tomorrow. RIMMBA’s approach to natural fabrics remind us that fashion can return to its roots, becoming again what it once was: an art of connection between what is to come and ancient traditions.</p>"
+          }
+        },
+        "buttons_nq4yj4": {
+          "type": "buttons",
+          "settings": {
+            "button_link_1": "/",
+            "button_link_1_type": "button",
+            "button_label_1": "",
+            "button_style_1": "button--outlined",
+            "color_scheme_first_button": "",
+            "button_link_2": "/",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "color_scheme_second_button": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_bRynXm",
+        "heading_L3X7TU",
+        "content_aNDdqh",
+        "buttons_nq4yj4"
+      ],
+      "name": "t:sections.full-width-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "auto",
+        "content_position": "center",
+        "content_alignment": "center",
+        "image": "shopify://shop_images/Screenshot_2025-07-15_at_13.26.06.png",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "auto",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "color_scheme_for_content": "scheme-6",
         "spacing_inner": "2",
         "spacing_top": "2",
         "spacing_bottom": "2"
@@ -363,9 +307,9 @@
         "section_layout": "seperated",
         "block_size": "half",
         "block_order_mobile": false,
-        "heading": "",
-        "heading_size": "h3",
-        "heading_alignment": "start",
+        "heading": "learn about RIMMBA fabrics and dyes",
+        "heading_size": "h5",
+        "heading_alignment": "center",
         "color_scheme": "",
         "section_width": "max-w-page",
         "spacing_top": "2",
@@ -376,11 +320,10 @@
   "order": [
     "1760421621c74cd30c",
     "page_banner_kExA78",
-    "dual_tiles_VMgfML",
-    "main",
-    "accordions_h9bbAN",
     "full_width_banner_txyTw4",
+    "main",
     "seo_content_ebjggt",
+    "full_width_banner_meeAGa",
     "dual_tiles_CVpVR6"
   ]
 }
