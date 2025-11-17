@@ -42,9 +42,9 @@
       "type": "main-blog",
       "settings": {
         "enable_filtering_by_tags": true,
-        "articles_per_page": 16,
+        "articles_per_page": 5,
         "pagination_style": "load_more",
-        "enable_infinity_scroll": false,
+        "enable_infinity_scroll": true,
         "show_excerpt": true,
         "show_date": false,
         "show_author": false,
