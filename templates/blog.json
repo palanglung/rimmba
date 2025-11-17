@@ -1,1 +1,65 @@
-{"sections":{"page_banner_yKcnKA":{"type":"page-banner","settings":{"heading":"Never miss a beat with our latest <em>news<\/em>","heading_size":"h2","text":"","show_default_description":true,"show_on_description":"desktop","content_position":"center","content_alignment":"center","media_position":"background","page_menu":"","enable_breadcrumbs":true,"section_height":"33svh","show_controls_on_video":false,"section_height_mobile":"33svh","show_controls_on_video_mobile":false,"section_width":"max-w-narrower","color_scheme":"scheme-6","color_scheme_for_media":"","spacing_top":"1","spacing_bottom":"1"}},"main":{"type":"main-blog","settings":{"enable_filtering_by_tags":true,"articles_per_page":16,"pagination_style":"load_more","enable_infinity_scroll":false,"show_excerpt":false,"show_date":true,"show_author":true,"content_alignment":"text-center","card_media_aspect_ratio":"1\/1","section_width":"max-w-narrow","color_scheme":"","spacing_grid":"2","spacing_top":"2","spacing_bottom":"6"}}},"order":["page_banner_yKcnKA","main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_banner_yKcnKA": {
+      "type": "page-banner",
+      "settings": {
+        "enable_transparent_header": true,
+        "heading": "Learn with RIMMBA",
+        "heading_size": "h5",
+        "text": "<p>Our relation with Natural Dyes & Eco Fabrics: from ancestral traditions to modern production practices. Learn the techniques, the origins and understand the differences to be able to recognize which products respect nature, the environnement and traditions; and which are using ecological labels as a marketing stunt.</p>",
+        "show_default_description": true,
+        "show_on_description": "desktop",
+        "content_position": "center",
+        "content_alignment": "center",
+        "media_position": "background",
+        "page_menu": "",
+        "enable_breadcrumbs": true,
+        "section_height": "50svh",
+        "content_width": "100%",
+        "image": "shopify://shop_images/Karunia.jpg",
+        "video_external": "",
+        "show_controls_on_video": false,
+        "section_height_mobile": "33svh",
+        "video_external_mobile": "",
+        "show_controls_on_video_mobile": false,
+        "section_width": "max-w-narrower",
+        "color_scheme": "scheme-6",
+        "color_scheme_for_media": "scheme-6",
+        "spacing_top": "1",
+        "spacing_bottom": "1"
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "enable_filtering_by_tags": true,
+        "articles_per_page": 16,
+        "pagination_style": "load_more",
+        "enable_infinity_scroll": false,
+        "show_excerpt": true,
+        "show_date": false,
+        "show_author": false,
+        "content_alignment": "text-center",
+        "card_media_aspect_ratio": "1/1",
+        "section_width": "max-w-narrow",
+        "color_scheme": "",
+        "spacing_grid": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "6"
+      }
+    }
+  },
+  "order": [
+    "page_banner_yKcnKA",
+    "main"
+  ]
+}
