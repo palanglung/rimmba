@@ -483,7 +483,8 @@ table {
     .callout-banner *, 
     .hero-banner *, 
     .store-locator-card__content *,
-    .section-announcement-bar *
+    .section-announcement-bar *,
+    figcaption *
     ),
 :where(p):not( 
     header *, 
@@ -496,7 +497,8 @@ table {
     .callout-banner *, 
     .hero-banner *, 
     .store-locator-card__content *,
-    .section-announcement-bar *
+    .section-announcement-bar *,
+    figcaption *
     ):has(em) em {
   font-size: calc(1rem * calc(var(--pi) * 0.5)) !important;
   line-height: 1.618em !important;
@@ -683,7 +685,8 @@ table {
     .menu *, 
     .callout-banner *, 
     .hero-banner *,
-    .product__sticky-cart *
+    .product__sticky-cart *,
+    figcaption *
     ),
 :where(p):not( 
     header *, 
@@ -695,7 +698,8 @@ table {
     .menu *, 
     .callout-banner *, 
     .hero-banner *,
-    .product__sticky-cart *
+    .product__sticky-cart *,
+    figcaption *
     ):has(em) em,
     .card-collection__subheading {
   font-size: calc(1rem * calc(var(--pi) * 0.43)) !important;
@@ -1053,6 +1057,7 @@ figcaption, figcaption p, figcatpion em, figcaption span {
     font-style: italic;
     color: var(--jdgm-primary-color) !important;
     text-align: center;
+    max-inline-size: 55ch !important;
 }
 
 /*==============ADJUST SIZING OF TABLES WITH IMAGES ON MOBILE================*/
