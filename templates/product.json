@@ -151,6 +151,19 @@
             "spacing_bottom": "2"
           }
         },
+        "text_iWyRDE": {
+          "type": "text",
+          "settings": {
+            "spacing_bottom": "1",
+            "heading": "<a href=\"https://maps.app.goo.gl/acKznBqVZsxj5zFq6\" target=\"_blank\" title=\"RIMMBA Ubud Boutique\">{{ product.vendor }}</a>",
+            "icon": "option-map_pin",
+            "link_to_resource": "none",
+            "text_before_link": false,
+            "heading_secondary": "",
+            "metafield_for_product_variant": "",
+            "show_block_content": true
+          }
+        },
         "b2dabe12-2158-4ba6-bc54-9baae453acf5": {
           "type": "text",
           "settings": {
@@ -239,9 +252,9 @@
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "review_data": "sample_data",
+            "max_width": 1200,
             "show_shop_reviews": false,
-            "empty_state": "empty_widget",
-            "max_width": 1200
+            "empty_state": "empty_widget"
           }
         }
       },
@@ -263,6 +276,7 @@
         "8604a6ff-ad0b-44dd-8068-1de4e062f8e8",
         "e6d841d6-2f71-40b3-956a-912df13f9f6e",
         "7be6b89c-da83-4ff2-9b85-44fb28cbfa27",
+        "text_iWyRDE",
         "b2dabe12-2158-4ba6-bc54-9baae453acf5",
         "text_ixnkCY",
         "1ad0121e-439d-45c0-b45d-4f080836ade5",
