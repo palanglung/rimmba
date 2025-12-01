@@ -155,7 +155,20 @@
           "type": "text",
           "settings": {
             "spacing_bottom": "1",
-            "heading": "<a href=\"https://maps.app.goo.gl/acKznBqVZsxj5zFq6\" target=\"_blank\" title=\"RIMMBA Ubud Boutique\">{{ product.vendor }}</a>",
+            "heading": "<a href=\"/pages/paypal\" target=\"_blank\" title=\"Paypal\">Click to pay with PayPal</a>",
+            "icon": "option-question_mark",
+            "link_to_resource": "none",
+            "text_before_link": false,
+            "heading_secondary": "",
+            "metafield_for_product_variant": "",
+            "show_block_content": true
+          }
+        },
+        "text_PTLpXT": {
+          "type": "text",
+          "settings": {
+            "spacing_bottom": "1",
+            "heading": "Click to visit our Boutique <a href=\"https://maps.app.goo.gl/acKznBqVZsxj5zFq6\" target=\"_blank\" title=\"RIMMBA Ubud Boutique\">{{ product.vendor }}</a>",
             "icon": "option-map_pin",
             "link_to_resource": "none",
             "text_before_link": false,
@@ -277,6 +290,7 @@
         "e6d841d6-2f71-40b3-956a-912df13f9f6e",
         "7be6b89c-da83-4ff2-9b85-44fb28cbfa27",
         "text_iWyRDE",
+        "text_PTLpXT",
         "b2dabe12-2158-4ba6-bc54-9baae453acf5",
         "text_ixnkCY",
         "1ad0121e-439d-45c0-b45d-4f080836ade5",
