@@ -56,10 +56,87 @@
         "spacing_top": "2",
         "spacing_bottom": "6"
       }
+    },
+    "full_width_banner_xBQwUR": {
+      "type": "full-width-banner",
+      "blocks": {
+        "subheading_KWMX7i": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "To learn more about our garments visit",
+            "link": ""
+          }
+        },
+        "heading_JfRwMA": {
+          "type": "heading",
+          "settings": {
+            "heading": "OUR COLLECTIONS",
+            "heading_size": "h3"
+          }
+        },
+        "buttons_kj98GW": {
+          "type": "buttons",
+          "settings": {
+            "button_link_1": "/",
+            "button_link_1_type": "button",
+            "button_label_1": "",
+            "button_style_1": "button--outlined",
+            "color_scheme_first_button": "",
+            "button_link_2": "/",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "color_scheme_second_button": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_KWMX7i",
+        "heading_JfRwMA",
+        "buttons_kj98GW"
+      ],
+      "name": "t:sections.full-width-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "auto",
+        "content_position": "center",
+        "content_alignment": "center",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "auto",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "color_scheme_for_content": "scheme-1",
+        "spacing_inner": "0",
+        "spacing_top": "2",
+        "spacing_bottom": "0"
+      }
+    },
+    "main_list_collections_mEeynj": {
+      "type": "main-list-collections",
+      "name": "t:sections.main-list-collections.name",
+      "settings": {
+        "collections_to_show": "all",
+        "card_title_style": "card-single-text",
+        "collection_product_count": "hide",
+        "collections_per_page": 12,
+        "pagination_style": "default",
+        "enable_infinity_scroll": false,
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
     }
   },
   "order": [
     "page_banner_yKcnKA",
-    "main"
+    "main",
+    "full_width_banner_xBQwUR",
+    "main_list_collections_mEeynj"
   ]
 }
