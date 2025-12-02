@@ -12,8 +12,7 @@
     "page_banner_UXcbjW": {
       "type": "page-banner",
       "custom_css": [
-        ".page-banner__title div {margin-top: 0em !important; padding-top: 0em !important;}",
-        ".section-page-banner__content .content {margin-top: 0 !important; padding-top: 0 !important;}"
+        ".section-page-banner div {margin-top: 0 !important;}"
       ],
       "name": "t:sections.page-banner.name",
       "settings": {
