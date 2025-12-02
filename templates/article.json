@@ -27,7 +27,7 @@
         "media_position": "background",
         "page_menu": "",
         "enable_breadcrumbs": true,
-        "section_height": "auto",
+        "section_height": "50svh",
         "content_width": "100%",
         "image": "{{ article.image }}",
         "video_external": "",
