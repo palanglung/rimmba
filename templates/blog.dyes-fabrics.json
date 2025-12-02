@@ -31,7 +31,7 @@
         "section_height_mobile": "33svh",
         "video_external_mobile": "",
         "show_controls_on_video_mobile": false,
-        "section_width": "max-w-narrower",
+        "section_width": "max-w-page",
         "color_scheme": "scheme-6",
         "color_scheme_for_media": "scheme-6",
         "spacing_top": "1",
