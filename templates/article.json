@@ -12,7 +12,8 @@
     "page_banner_UXcbjW": {
       "type": "page-banner",
       "custom_css": [
-        ".section-page-banner div {margin-top: 0 !important;}"
+        ".section-page-banner div {margin-top: 0 !important;}",
+        ".breadcrumbs ul {flex-wrap: wrap; line-height: 2em;}"
       ],
       "name": "t:sections.page-banner.name",
       "settings": {
