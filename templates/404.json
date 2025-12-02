@@ -1,1 +1,114 @@
-{"sections":{"main":{"type":"main-404","settings":{"heading":"<em>Oops!<\/em>","text":"<p>We can't find what you're looking for here. Click below to go back to the homepage.<\/p>","button_label":"Back home","button_link":"\/","button_style":"button--outlined","section_width":"max-w-narrower","color_scheme":"scheme-1","spacing_top":"4","spacing_bottom":"4"}}},"order":["main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "settings": {
+        "heading": "<em>Oops! </em>page not found",
+        "text": "<p>We can't find what you're looking. </p><p>You may click below to go back to the homepage.</p>",
+        "button_label": "Back home",
+        "button_link": "/",
+        "button_style": "button--outlined",
+        "section_width": "max-w-page",
+        "color_scheme": "scheme-1",
+        "spacing_top": "1",
+        "spacing_bottom": "0"
+      }
+    },
+    "full_width_banner_wJ6AAt": {
+      "type": "full-width-banner",
+      "blocks": {
+        "content_FrpT66": {
+          "type": "content",
+          "settings": {
+            "content": "<p>Or see if you can find what you were looking here below</p>"
+          }
+        },
+        "subheading_84EKU7": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Your custom silk dress awaits",
+            "link": ""
+          }
+        },
+        "heading_YermhX": {
+          "type": "heading",
+          "settings": {
+            "heading": "browse our collections",
+            "heading_size": "h3"
+          }
+        },
+        "buttons_YMWP9h": {
+          "type": "buttons",
+          "settings": {
+            "button_link_1": "/",
+            "button_link_1_type": "button",
+            "button_label_1": "",
+            "button_style_1": "button--outlined",
+            "color_scheme_first_button": "",
+            "button_link_2": "/",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "color_scheme_second_button": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_FrpT66",
+        "subheading_84EKU7",
+        "heading_YermhX",
+        "buttons_YMWP9h"
+      ],
+      "name": "t:sections.full-width-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "auto",
+        "content_position": "center",
+        "content_alignment": "center",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "auto",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "color_scheme_for_content": "scheme-1",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "0"
+      }
+    },
+    "main_list_collections_GkA9Yt": {
+      "type": "main-list-collections",
+      "name": "t:sections.main-list-collections.name",
+      "settings": {
+        "collections_to_show": "all",
+        "card_title_style": "card-single-text",
+        "collection_product_count": "hide",
+        "collections_per_page": 12,
+        "pagination_style": "default",
+        "enable_infinity_scroll": false,
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "full_width_banner_wJ6AAt",
+    "main_list_collections_GkA9Yt"
+  ]
+}
