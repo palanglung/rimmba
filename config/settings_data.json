@@ -60,6 +60,7 @@
     "enable_dynamic_checkout": true,
     "enable_cart_upsell": true,
     "cart_upsell_title": "Complete the set",
+    "enable_predictive_search": false,
     "search_suggestions": "",
     "enable_breadcrumbs_on_other_pages": true,
     "show_currency_codes": false,
