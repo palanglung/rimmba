@@ -122,10 +122,6 @@
             "sizes_option": "Size"
           }
         },
-        "judge_me_reviews_verified_badge_ekwtqC": {
-          "type": "shopify://apps/judge-me-reviews/blocks/verified_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        },
         "8604a6ff-ad0b-44dd-8068-1de4e062f8e8": {
           "type": "buy_buttons",
           "settings": {
@@ -256,6 +252,11 @@
             "spacing_bottom": "1"
           }
         },
+        "judge_me_reviews_verified_badge_ekwtqC": {
+          "type": "shopify://apps/judge-me-reviews/blocks/verified_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {}
+        },
         "judge_me_reviews_review_snippet_widget_3cxLcP": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_snippet_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "disabled": true,
@@ -285,7 +286,6 @@
         "1e939cd6-0955-4135-a9e5-c50faef01437",
         "custom_liquid_4ywCNW",
         "1e939cd6-0958-4135-a9e5-c50faef01437",
-        "judge_me_reviews_verified_badge_ekwtqC",
         "8604a6ff-ad0b-44dd-8068-1de4e062f8e8",
         "e6d841d6-2f71-40b3-956a-912df13f9f6e",
         "7be6b89c-da83-4ff2-9b85-44fb28cbfa27",
@@ -299,6 +299,7 @@
         "divider_MgiKBB",
         "text_3hxXzg",
         "divider_XPRBm8",
+        "judge_me_reviews_verified_badge_ekwtqC",
         "judge_me_reviews_review_snippet_widget_3cxLcP",
         "judge_me_reviews_review_widget_R8CEgy"
       ],

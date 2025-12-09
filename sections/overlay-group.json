@@ -51,7 +51,7 @@
         "heading_size": "h3",
         "text": "<p>Sign up for exclusive discounts, early sale access, and workshop updates!</p>",
         "button_close_text": "No thanks",
-        "show_popup_on_customizer": true,
+        "show_popup_on_customizer": false,
         "color_scheme": ""
       }
     }
