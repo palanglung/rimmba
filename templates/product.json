@@ -64,6 +64,20 @@
             "show_price_custom_info": ""
           }
         },
+        "text_Dha9ah": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "spacing_bottom": "1",
+            "heading": "{{ product.metafields.shopify.fabric | metafield_text: field: 'label' }}",
+            "icon": "option-price_tag",
+            "link_to_resource": "none",
+            "text_before_link": false,
+            "heading_secondary": "{{ product.metafields.shopify[\"color-pattern\"] | metafield_text: field: 'label' }}",
+            "metafield_for_product_variant": "{{ product.metafields.shopify[\"color-pattern\"] | metafield_text: field: 'label' }}",
+            "show_block_content": true
+          }
+        },
         "judge_me_reviews_preview_badge_9zXPD9": {
           "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
@@ -279,6 +293,7 @@
         "badge_dC66pN",
         "1e0c79e9-7de0-4eee-b9c5-f27132635fb8",
         "8effeb43-55b7-4ec4-ab9b-68bcd89b865b",
+        "text_Dha9ah",
         "judge_me_reviews_preview_badge_9zXPD9",
         "sku_HNK7Ka",
         "divider_HGwyhB",
