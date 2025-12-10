@@ -533,15 +533,14 @@
         "subheading_gUTqPz": {
           "type": "subheading",
           "settings": {
-            "subheading": "",
+            "subheading": "14 February 2026",
             "link": ""
           }
         },
         "heading_Ymr9i7": {
           "type": "heading",
-          "disabled": true,
           "settings": {
-            "heading": "",
+            "heading": "Botanical-Dye lingerie workshop",
             "heading_size": "h2"
           }
         },
@@ -568,23 +567,22 @@
       "settings": {
         "enable_transparent_header": true,
         "media_position": "background",
-        "section_height": "full",
-        "content_position": "end",
+        "section_height": "half",
+        "content_position": "center",
         "content_alignment": "center",
-        "image": "shopify://shop_images/karunia_1.jpg",
+        "image": "shopify://shop_images/Botanical-Dye-Lingerie-Workshop.014.jpg",
         "video_external": "",
         "show_controls_on_video": false,
-        "aspect_ratio": "auto",
+        "aspect_ratio": "16/9",
         "section_height_mobile": "third",
-        "content_position_mobile": "start",
+        "content_position_mobile": "center",
         "content_alignment_mobile": "center",
-        "image_mobile": "shopify://shop_images/Phone_version.jpg",
         "video_external_mobile": "",
         "show_controls_on_video_mobile": false,
         "aspect_ratio_mobile": "2/3",
-        "section_width": "max-w-fluid",
+        "section_width": "max-w-full",
         "color_scheme": "scheme-1",
-        "color_scheme_for_content": "scheme-6",
+        "color_scheme_for_content": "scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4",
         "spacing_inner": "0",
         "spacing_top": "0",
         "spacing_bottom": "0"
