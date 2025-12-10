@@ -314,10 +314,10 @@
         "judge_me_reviews_review_widget_R8CEgy": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
-            "review_data": "sample_data",
+            "review_data": "real_data",
+            "max_width": 1200,
             "show_shop_reviews": false,
-            "empty_state": "empty_widget",
-            "max_width": 1200
+            "empty_state": "other_products_reviews"
           }
         }
       },
@@ -564,11 +564,13 @@
         "section_height": "auto",
         "content_position": "center",
         "content_alignment": "center",
+        "video_external": "",
         "show_controls_on_video": false,
         "aspect_ratio": "auto",
         "section_height_mobile": "auto",
         "content_position_mobile": "center",
         "content_alignment_mobile": "center",
+        "video_external_mobile": "",
         "show_controls_on_video_mobile": false,
         "aspect_ratio_mobile": "auto",
         "section_width": "max-w-full",
@@ -603,11 +605,13 @@
             "content_alignment": "text-center align-center",
             "product_position": "0",
             "image": "shopify://shop_images/1920_-_fabric_optimized_400.jpg",
+            "video_external": "",
             "show_controls_on_video": false,
             "aspect_ratio_mobile": "auto",
             "content_alignment_mobile": "text-center--mobile align-center--mobile",
             "content_position_mobile": "justify-center--mobile",
             "product_position_mobile": "0",
+            "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
             "spacing_inner": "3"
           }
@@ -633,11 +637,13 @@
             "content_alignment": "text-center align-center",
             "product_position": "0",
             "image": "shopify://shop_images/HND_7007_copy_optimized_300.jpg",
+            "video_external": "",
             "show_controls_on_video": false,
             "aspect_ratio_mobile": "auto",
             "content_alignment_mobile": "text-center--mobile align-center--mobile",
             "content_position_mobile": "justify-center--mobile",
             "product_position_mobile": "0",
+            "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
             "spacing_inner": "3"
           }
