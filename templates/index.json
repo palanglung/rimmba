@@ -198,12 +198,12 @@
     "callout_banner_jYpAdw": {
       "type": "callout-banner",
       "settings": {
-        "section_layout": "horizontal",
+        "section_layout": "vertical",
         "media_position": "full",
         "subheading": "",
-        "heading": "Finding real silk — with no synthetics and no blends — has become increasingly rare. Finding clothing that is truly regenerative, chemical-free, and dyed without synthetic pigments is even harder. RIMMBA was created to lead this space.With absolute clarity, transparency, and zero compromise.",
+        "heading": "",
         "heading_size": "h5",
-        "text": "<p>Be The First To Know</p>",
+        "text": "<p>Finding real silk — with no synthetics and no blends — has become increasingly rare. Finding clothing that is truly regenerative, chemical-free, and dyed without synthetic pigments is even harder. RIMMBA was created to lead this space.With absolute clarity, transparency, and zero compromise.</p>",
         "action_preference": "newsletter_form",
         "button_label": "hello",
         "button_link": "",
