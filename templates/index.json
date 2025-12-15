@@ -195,6 +195,40 @@
         "spacing_bottom": "0"
       }
     },
+    "callout_banner_jYpAdw": {
+      "type": "callout-banner",
+      "settings": {
+        "section_layout": "horizontal",
+        "media_position": "full",
+        "subheading": "",
+        "heading": "Finding real silk — with no synthetics and no blends — has become increasingly rare. Finding clothing that is truly regenerative, chemical-free, and dyed without synthetic pigments is even harder. RIMMBA was created to lead this space.With absolute clarity, transparency, and zero compromise.",
+        "heading_size": "h5",
+        "text": "<p>Be The First To Know</p>",
+        "action_preference": "newsletter_form",
+        "button_label": "hello",
+        "button_link": "",
+        "newsletter_button_label": "Submit",
+        "button_style": "button--outlined",
+        "show_timer": true,
+        "timer_layout": "2",
+        "timer_size": "h1",
+        "timer_year": 2024,
+        "timer_month": "09",
+        "timer_day": 1,
+        "timer_hour": 0,
+        "timer_minute": 0,
+        "timer_end_message": "WORKSHOPS & PROMOTIONS",
+        "show_timer_days": true,
+        "show_timer_hours": true,
+        "show_timer_minutes": true,
+        "show_timer_seconds": true,
+        "section_width": "max-w-full",
+        "color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+        "color_scheme_for_content": "scheme-1",
+        "spacing_top": "0",
+        "spacing_bottom": "0"
+      }
+    },
     "marquees_TFD63r": {
       "type": "marquees",
       "blocks": {
@@ -1521,6 +1555,7 @@
   "order": [
     "1658995208ad05f95f",
     "callout_banner_rVDLqh",
+    "callout_banner_jYpAdw",
     "marquees_TFD63r",
     "featured_collections_JnyGJ7",
     "featured_products_rBqedk",
