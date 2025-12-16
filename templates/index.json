@@ -207,7 +207,7 @@
         "action_preference": "newsletter_form",
         "button_label": "hello",
         "button_link": "",
-        "newsletter_button_label": "Submit",
+        "newsletter_button_label": "",
         "button_style": "button--outlined",
         "show_timer": true,
         "timer_layout": "2",
