@@ -85,7 +85,7 @@
         "buttons_BMDCEX": {
           "type": "buttons",
           "settings": {
-            "button_link_1": "shopify://pages/workshop-landing-page",
+            "button_link_1": "shopify://pages/natural-dye-workshop-bali",
             "button_link_1_type": "button",
             "button_label_1": "Join the workshop",
             "button_style_1": "button--filled",
