@@ -1,0 +1,414 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_banner_kExA78": {
+      "type": "page-banner",
+      "name": "t:sections.page-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "heading": "",
+        "heading_size": "h6",
+        "text": "",
+        "show_default_description": true,
+        "show_on_description": "desktop",
+        "content_position": "center",
+        "content_alignment": "center",
+        "media_position": "background",
+        "page_menu": "",
+        "enable_breadcrumbs": true,
+        "section_height": "auto",
+        "content_width": "100%",
+        "video_external": "",
+        "show_controls_on_video": false,
+        "section_height_mobile": "auto",
+        "video_external_mobile": "",
+        "show_controls_on_video_mobile": false,
+        "section_width": "max-w-narrow",
+        "color_scheme": "scheme-1",
+        "color_scheme_for_media": "",
+        "spacing_top": "2",
+        "spacing_bottom": "6"
+      }
+    },
+    "1760421621c74cd30c": {
+      "type": "apps",
+      "blocks": {
+        "yoast_seo_breadcrumbs_GjYUpM": {
+          "type": "shopify://apps/yoast-seo/blocks/breadcrumbs/7c777011-bc88-4743-a24e-64336e1e5b46",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "yoast_seo_breadcrumbs_GjYUpM"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_layout": "normal",
+        "spacing_inner": "2",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "dual_tiles_CVpVR6": {
+      "type": "dual-tiles",
+      "blocks": {
+        "tile_qQwJq3": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "custom_background_color": "",
+            "heading": "Sustainable fabrics",
+            "heading_size": "h5",
+            "text": "",
+            "button_label": "Our Fabrics",
+            "button_link": "shopify://pages/sustainable-fabrics",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "auto",
+            "vertical_position": "stretch",
+            "content_position": "justify-center",
+            "content_alignment": "text-center align-center",
+            "product_position": "0",
+            "image": "shopify://shop_images/1920_-_fabric_optimized_400.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "auto",
+            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        },
+        "tile_ibtWxT": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "custom_background_color": "",
+            "heading": "Natural Dyes",
+            "heading_size": "h5",
+            "text": "",
+            "button_label": "our dyes",
+            "button_link": "shopify://pages/natural-dyes",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "auto",
+            "vertical_position": "stretch",
+            "content_position": "justify-center",
+            "content_alignment": "text-center align-center",
+            "product_position": "0",
+            "image": "shopify://shop_images/HND_7007_copy_optimized_300.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "auto",
+            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "image_mobile": "shopify://shop_images/HND_7007_copy_optimized_300.jpg",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        }
+      },
+      "block_order": [
+        "tile_qQwJq3",
+        "tile_ibtWxT"
+      ],
+      "name": "t:sections.dual-tiles.name",
+      "settings": {
+        "section_layout": "seperated",
+        "block_size": "half",
+        "block_order_mobile": false,
+        "heading": "learn about RIMMBA fabrics and dyes",
+        "heading_size": "h5",
+        "heading_alignment": "center",
+        "color_scheme": "",
+        "section_width": "max-w-page",
+        "spacing_top": "2",
+        "spacing_bottom": "6"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+        "table {box-shadow: none;}"
+      ],
+      "settings": {
+        "breadcrumbs": false,
+        "show_page_title": false,
+        "page_title_alignment": "text-center",
+        "info_title": "",
+        "info_content": "",
+        "section_width": "max-w-fluid",
+        "color_scheme": "",
+        "spacing_top": "0",
+        "spacing_bottom": "0"
+      }
+    },
+    "seo_content_ebjggt": {
+      "type": "seo-content",
+      "disabled": true,
+      "name": "t:sections.seo-content.name",
+      "settings": {
+        "section_layout": "normal",
+        "heading": "",
+        "heading_size": "h5",
+        "text": "<p>Read about how we hand-pick our natural fabrics and learn how we dye using plant, flowers and connecting with Nature.</p>",
+        "content_alignment": "center",
+        "section_width": "max-w-fluid",
+        "color_scheme": "",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "full_width_banner_txyTw4": {
+      "type": "full-width-banner",
+      "blocks": {
+        "subheading_NpkYUe": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "handmadeby RIMMBA",
+            "link": ""
+          }
+        },
+        "heading_wLeJDz": {
+          "type": "heading",
+          "settings": {
+            "heading": "Natural Fabrics & Botanical Dyes",
+            "heading_size": "h4"
+          }
+        },
+        "content_TWVMYQ": {
+          "type": "content",
+          "settings": {
+            "content": "<p>Read how we hand-pick our natural fabrics and learn how we dye using plants, flowers and connecting with Nature</p>"
+          }
+        },
+        "buttons_BMDCEX": {
+          "type": "buttons",
+          "settings": {
+            "button_link_1": "shopify://pages/natural-dye-workshop-bali",
+            "button_link_1_type": "button",
+            "button_label_1": "Join the workshop",
+            "button_style_1": "button--filled",
+            "color_scheme_first_button": "scheme-6",
+            "button_link_2": "shopify://products/botanical-dye-lingerie-workshop-rimmba",
+            "button_label_2": "",
+            "button_style_2": "button--filled",
+            "color_scheme_second_button": "scheme-6"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_NpkYUe",
+        "heading_wLeJDz",
+        "content_TWVMYQ",
+        "buttons_BMDCEX"
+      ],
+      "disabled": true,
+      "name": "t:sections.full-width-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "auto",
+        "content_position": "center",
+        "content_alignment": "center",
+        "image": "shopify://shop_images/RIMMBA_Natural_dyeing_Process.jpg",
+        "video_external": "",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "auto",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "video_external_mobile": "",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-full",
+        "color_scheme": "scheme-1",
+        "color_scheme_for_content": "scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "full_width_banner_meeAGa": {
+      "type": "full-width-banner",
+      "blocks": {
+        "subheading_bRynXm": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "We invite you to explore our fabric stories in depth:",
+            "link": ""
+          }
+        },
+        "heading_L3X7TU": {
+          "type": "heading",
+          "settings": {
+            "heading": "In celebration of the natural",
+            "heading_size": "h3"
+          }
+        },
+        "content_aNDdqh": {
+          "type": "content",
+          "settings": {
+            "content": "<p>Choosing natural fabrics is choosing balance between people and planet, craft and technology, tradition and tomorrow. RIMMBA’s approach to natural fabrics remind us that fashion can return to its roots, becoming again what it once was: an art of connection between what is to come and ancient traditions.</p>"
+          }
+        },
+        "buttons_nq4yj4": {
+          "type": "buttons",
+          "settings": {
+            "button_link_1": "/",
+            "button_link_1_type": "button",
+            "button_label_1": "",
+            "button_style_1": "button--outlined",
+            "color_scheme_first_button": "",
+            "button_link_2": "/",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "color_scheme_second_button": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_bRynXm",
+        "heading_L3X7TU",
+        "content_aNDdqh",
+        "buttons_nq4yj4"
+      ],
+      "disabled": true,
+      "name": "t:sections.full-width-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "auto",
+        "content_position": "center",
+        "content_alignment": "center",
+        "image": "shopify://shop_images/Screenshot_2025-07-15_at_13.26.06.png",
+        "video_external": "",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "auto",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "video_external_mobile": "",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "color_scheme_for_content": "scheme-6",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "full_width_banner_W7yygr": {
+      "type": "full-width-banner",
+      "blocks": {
+        "subheading_i48kh8": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "subheading": "",
+            "link": ""
+          }
+        },
+        "heading_Tdce6k": {
+          "type": "heading",
+          "settings": {
+            "heading": "Explore our collections",
+            "heading_size": "h3"
+          }
+        },
+        "buttons_ppdT6B": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_link_1": "/",
+            "button_link_1_type": "button",
+            "button_label_1": "",
+            "button_style_1": "button--outlined",
+            "color_scheme_first_button": "",
+            "button_link_2": "/",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "color_scheme_second_button": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_i48kh8",
+        "heading_Tdce6k",
+        "buttons_ppdT6B"
+      ],
+      "name": "t:sections.full-width-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "auto",
+        "content_position": "center",
+        "content_alignment": "center",
+        "video_external": "",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "auto",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "video_external_mobile": "",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "color_scheme_for_content": "scheme-1",
+        "spacing_inner": "0",
+        "spacing_top": "2",
+        "spacing_bottom": "0"
+      }
+    },
+    "main_list_collections_EnGLME": {
+      "type": "main-list-collections",
+      "name": "t:sections.main-list-collections.name",
+      "settings": {
+        "collections_to_show": "all",
+        "card_title_style": "card-single-text",
+        "collection_product_count": "hide",
+        "collections_per_page": 12,
+        "pagination_style": "default",
+        "enable_infinity_scroll": false,
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "1",
+        "spacing_bottom": "2"
+      }
+    }
+  },
+  "order": [
+    "page_banner_kExA78",
+    "1760421621c74cd30c",
+    "dual_tiles_CVpVR6",
+    "main",
+    "seo_content_ebjggt",
+    "full_width_banner_txyTw4",
+    "full_width_banner_meeAGa",
+    "full_width_banner_W7yygr",
+    "main_list_collections_EnGLME"
+  ]
+}
