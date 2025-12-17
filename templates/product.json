@@ -549,6 +549,88 @@
         "spacing_bottom": "4"
       }
     },
+    "dual_tiles_zDDei9": {
+      "type": "dual-tiles",
+      "blocks": {
+        "tile_UWFA7c": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "custom_background_color": "",
+            "heading": "Fabrics at RIMMBA",
+            "heading_size": "h5",
+            "text": "",
+            "button_label": "Natural Fabrics",
+            "button_link": "shopify://pages/sustainable-fabrics",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "auto",
+            "vertical_position": "stretch",
+            "content_position": "justify-center",
+            "content_alignment": "text-center align-center",
+            "product_position": "0",
+            "image": "shopify://shop_images/1920_-_fabric_optimized_400.jpg",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "auto",
+            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        },
+        "tile_UNLd9J": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "custom_background_color": "",
+            "heading": "Dyes at RIMMBA",
+            "heading_size": "h5",
+            "text": "",
+            "button_label": "Botanical Dyes",
+            "button_link": "shopify://pages/sustainable-fabrics",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "auto",
+            "vertical_position": "stretch",
+            "content_position": "justify-center",
+            "content_alignment": "text-center align-center",
+            "product_position": "0",
+            "image": "shopify://shop_images/HND_7007_copy_optimized_300.jpg",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "auto",
+            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        }
+      },
+      "block_order": [
+        "tile_UWFA7c",
+        "tile_UNLd9J"
+      ],
+      "name": "t:sections.dual-tiles.name",
+      "settings": {
+        "section_layout": "seperated",
+        "block_size": "half",
+        "block_order_mobile": false,
+        "heading": "Read about Your Dress",
+        "heading_size": "h5",
+        "heading_alignment": "center",
+        "color_scheme": "",
+        "section_width": "max-w-page",
+        "spacing_top": "2",
+        "spacing_bottom": "6"
+      }
+    },
     "166904322806a89075": {
       "type": "apps",
       "blocks": {
@@ -576,6 +658,7 @@
     "complete_the_set_LAN4cq",
     "multitile_ybjXjD",
     "recommendations",
+    "dual_tiles_zDDei9",
     "166904322806a89075"
   ]
 }
