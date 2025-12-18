@@ -197,6 +197,7 @@
     },
     "callout_banner_jYpAdw": {
       "type": "callout-banner",
+      "disabled": true,
       "settings": {
         "section_layout": "vertical",
         "media_position": "full",
@@ -227,6 +228,72 @@
         "color_scheme_for_content": "scheme-1",
         "spacing_top": "0",
         "spacing_bottom": "0"
+      }
+    },
+    "full_width_banner_BrDYKn": {
+      "type": "full-width-banner",
+      "blocks": {
+        "content_7LU3eT": {
+          "type": "content",
+          "settings": {
+            "content": "<p>Finding real silk — with no synthetics and no blends — has become increasingly rare. Finding clothing that is truly regenerative, chemical-free, and dyed without synthetic pigments is even harder.</p>"
+          }
+        },
+        "subheading_DnXELb": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "RIMMBA was created to lead this space. With absolute clarity, transparency, and zero compromise.",
+            "link": ""
+          }
+        },
+        "heading_RtVkAr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Say NO to fast Fashion",
+            "heading_size": "h3"
+          }
+        },
+        "buttons_MLp6VR": {
+          "type": "buttons",
+          "settings": {
+            "button_link_1": "shopify://pages/natural-dyes",
+            "button_link_1_type": "button",
+            "button_label_1": "our dyes",
+            "button_style_1": "button--filled",
+            "color_scheme_first_button": "",
+            "button_link_2": "shopify://pages/sustainable-fabrics",
+            "button_label_2": "our fabrics",
+            "button_style_2": "button--filled",
+            "color_scheme_second_button": "scheme-1"
+          }
+        }
+      },
+      "block_order": [
+        "content_7LU3eT",
+        "subheading_DnXELb",
+        "heading_RtVkAr",
+        "buttons_MLp6VR"
+      ],
+      "name": "t:sections.full-width-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "half",
+        "content_position": "center",
+        "content_alignment": "center",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "half",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "color_scheme_for_content": "scheme-1",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
       }
     },
     "marquees_TFD63r": {
@@ -1468,44 +1535,6 @@
         "spacing_bottom": "6"
       }
     },
-    "compare_slider_FCDTTc": {
-      "type": "compare-slider",
-      "blocks": {
-        "image_before_slide_XUaPRb": {
-          "type": "image-before-slide",
-          "settings": {
-            "title": "Image before",
-            "color_scheme": ""
-          }
-        },
-        "image_after_slide_6y9WQj": {
-          "type": "image-after-slide",
-          "settings": {
-            "title": "Image after",
-            "color_scheme": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_before_slide_XUaPRb",
-        "image_after_slide_6y9WQj"
-      ],
-      "disabled": true,
-      "settings": {
-        "section_layout": "shrink",
-        "heading": "Before / <em>After</em>",
-        "heading_size": "h3",
-        "text": "<p>Before and after images are a great way to showcase the transformation or improvement in a particular subject.</p>",
-        "button_label": "Shop now",
-        "button_link": "/",
-        "button_style": "button--filled",
-        "media_aspect_ratio": "3/2",
-        "section_width": "max-w-fluid",
-        "color_scheme": "scheme-1",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
-      }
-    },
     "custom_liquid_hGpHHj": {
       "type": "custom-liquid",
       "name": "Google Map",
@@ -1556,6 +1585,7 @@
     "1658995208ad05f95f",
     "callout_banner_rVDLqh",
     "callout_banner_jYpAdw",
+    "full_width_banner_BrDYKn",
     "marquees_TFD63r",
     "featured_collections_JnyGJ7",
     "featured_products_rBqedk",
@@ -1575,7 +1605,6 @@
     "store_locator_BeJxk9",
     "testimonials_CMyt3F",
     "social_media_highlights_fVaa73",
-    "compare_slider_FCDTTc",
     "custom_liquid_hGpHHj",
     "1745578575092f3781"
   ]
