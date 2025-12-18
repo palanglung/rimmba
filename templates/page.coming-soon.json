@@ -79,11 +79,12 @@
         "content_aNDdqh": {
           "type": "content",
           "settings": {
-            "content": "<h6>While waiting</h6><p>We invite you to learn <a href=\"/pages/handmade-silk-dress-bali\" title=\"Custom RIMMBA Dresses\">how we make our custom silk dresses in Bali</a>.</p><p>How we select <strong>sustainable fabrics</strong> and how we process <strong>natural dyes</strong> at RIMMBA</p>"
+            "content": "<p>We invite you to learn <a href=\"/pages/handmade-silk-dress-bali\" title=\"Custom RIMMBA Dresses\">how we make our custom silk dresses in Bali</a>.</p><p>How we select <strong>sustainable fabrics</strong> and how we process <strong>natural dyes</strong> at RIMMBA</p>"
           }
         },
         "buttons_nq4yj4": {
           "type": "buttons",
+          "disabled": true,
           "settings": {
             "button_link_1": "shopify://pages/natural-dyes",
             "button_link_1_type": "button",
@@ -124,7 +125,7 @@
         "color_scheme_for_content": "scheme-1",
         "spacing_inner": "2",
         "spacing_top": "0",
-        "spacing_bottom": "2"
+        "spacing_bottom": "0"
       }
     },
     "dual_tiles_CVpVR6": {
@@ -200,7 +201,6 @@
         "tile_qQwJq3",
         "tile_ibtWxT"
       ],
-      "disabled": true,
       "custom_css": [],
       "name": "t:sections.dual-tiles.name",
       "settings": {
