@@ -9,6 +9,27 @@
  */
 {
   "sections": {
+    "1760421621c74cd30c": {
+      "type": "apps",
+      "blocks": {
+        "yoast_seo_breadcrumbs_GjYUpM": {
+          "type": "shopify://apps/yoast-seo/blocks/breadcrumbs/7c777011-bc88-4743-a24e-64336e1e5b46",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "yoast_seo_breadcrumbs_GjYUpM"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_layout": "normal",
+        "spacing_inner": "2",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
     "page_banner_kExA78": {
       "type": "page-banner",
       "name": "t:sections.page-banner.name",
@@ -38,79 +59,57 @@
         "spacing_bottom": "6"
       }
     },
-    "1760421621c74cd30c": {
-      "type": "apps",
-      "blocks": {
-        "yoast_seo_breadcrumbs_GjYUpM": {
-          "type": "shopify://apps/yoast-seo/blocks/breadcrumbs/7c777011-bc88-4743-a24e-64336e1e5b46",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "yoast_seo_breadcrumbs_GjYUpM"
-      ],
-      "disabled": true,
-      "settings": {
-        "section_layout": "normal",
-        "spacing_inner": "2",
-        "section_width": "max-w-page",
-        "color_scheme": "",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
-      }
-    },
-    "full_width_banner_txyTw4": {
+    "full_width_banner_meeAGa": {
       "type": "full-width-banner",
       "blocks": {
-        "subheading_NpkYUe": {
+        "heading_L3X7TU": {
+          "type": "heading",
+          "settings": {
+            "heading": "In celebration of the natural",
+            "heading_size": "h3"
+          }
+        },
+        "content_aNDdqh": {
+          "type": "content",
+          "settings": {
+            "content": "<p>Choosing natural fabrics is choosing balance between people and planet, craft and technology, tradition and tomorrow.</p><p>RIMMBA’s approach to natural fabrics remind us that fashion can return to its roots, becoming again what it once was: an art of connection between what is to come and ancient traditions.</p>"
+          }
+        },
+        "subheading_bRynXm": {
           "type": "subheading",
           "settings": {
-            "subheading": "handmade by RIMMBA",
+            "subheading": "Explore RIMMBA's fabrics and dyes in depth",
             "link": ""
           }
         },
-        "heading_wLeJDz": {
-          "type": "heading",
-          "settings": {
-            "heading": "Natural Fabrics & Botanical Dyes",
-            "heading_size": "h4"
-          }
-        },
-        "content_TWVMYQ": {
-          "type": "content",
-          "settings": {
-            "content": "<p>Read how we hand-pick our natural fabrics and learn how we dye using plants, flowers and connecting with Nature</p>"
-          }
-        },
-        "buttons_BMDCEX": {
+        "buttons_nq4yj4": {
           "type": "buttons",
           "settings": {
-            "button_link_1": "shopify://pages/natural-dye-workshop-bali",
+            "button_link_1": "shopify://pages/natural-dyes",
             "button_link_1_type": "button",
-            "button_label_1": "Join the workshop",
+            "button_label_1": "our dyes",
             "button_style_1": "button--filled",
-            "color_scheme_first_button": "scheme-6",
-            "button_link_2": "shopify://products/botanical-dye-lingerie-workshop-rimmba",
-            "button_label_2": "",
+            "color_scheme_first_button": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "button_link_2": "shopify://pages/sustainable-fabrics",
+            "button_label_2": "our fabrics",
             "button_style_2": "button--filled",
-            "color_scheme_second_button": "scheme-6"
+            "color_scheme_second_button": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca"
           }
         }
       },
       "block_order": [
-        "subheading_NpkYUe",
-        "heading_wLeJDz",
-        "content_TWVMYQ",
-        "buttons_BMDCEX"
+        "heading_L3X7TU",
+        "content_aNDdqh",
+        "subheading_bRynXm",
+        "buttons_nq4yj4"
       ],
       "name": "t:sections.full-width-banner.name",
       "settings": {
-        "enable_transparent_header": true,
+        "enable_transparent_header": false,
         "media_position": "background",
         "section_height": "auto",
         "content_position": "center",
         "content_alignment": "center",
-        "image": "shopify://shop_images/RIMMBA_Natural_dyeing_Process.jpg",
         "video_external": "",
         "show_controls_on_video": false,
         "aspect_ratio": "auto",
@@ -121,44 +120,10 @@
         "show_controls_on_video_mobile": false,
         "aspect_ratio_mobile": "auto",
         "section_width": "max-w-full",
-        "color_scheme": "scheme-1",
-        "color_scheme_for_content": "scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4",
-        "spacing_inner": "2",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
-      }
-    },
-    "main": {
-      "type": "main-page",
-      "custom_css": [
-        "table {box-shadow: none;}"
-      ],
-      "settings": {
-        "breadcrumbs": false,
-        "show_page_title": false,
-        "page_title_alignment": "text-center",
-        "info_title": "",
-        "info_content": "",
-        "section_width": "max-w-fluid",
         "color_scheme": "",
+        "color_scheme_for_content": "scheme-1",
+        "spacing_inner": "2",
         "spacing_top": "0",
-        "spacing_bottom": "0"
-      }
-    },
-    "seo_content_ebjggt": {
-      "type": "seo-content",
-      "disabled": true,
-      "name": "t:sections.seo-content.name",
-      "settings": {
-        "section_layout": "normal",
-        "heading": "",
-        "heading_size": "h5",
-        "text": "<p>Read about how we hand-pick our natural fabrics and learn how we dye using plant, flowers and connecting with Nature.</p>",
-        "content_alignment": "center",
-        "section_width": "max-w-fluid",
-        "color_scheme": "",
-        "spacing_inner": "2",
-        "spacing_top": "2",
         "spacing_bottom": "2"
       }
     },
@@ -235,84 +200,51 @@
         "tile_qQwJq3",
         "tile_ibtWxT"
       ],
+      "disabled": true,
+      "custom_css": [],
       "name": "t:sections.dual-tiles.name",
       "settings": {
         "section_layout": "seperated",
         "block_size": "half",
         "block_order_mobile": false,
-        "heading": "learn about RIMMBA fabrics and dyes",
+        "heading": "",
         "heading_size": "h5",
         "heading_alignment": "center",
         "color_scheme": "",
-        "section_width": "max-w-page",
+        "section_width": "max-w-full",
         "spacing_top": "2",
         "spacing_bottom": "6"
       }
     },
-    "full_width_banner_meeAGa": {
-      "type": "full-width-banner",
-      "blocks": {
-        "subheading_bRynXm": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "We invite you to explore our fabric stories in depth:",
-            "link": ""
-          }
-        },
-        "heading_L3X7TU": {
-          "type": "heading",
-          "settings": {
-            "heading": "In celebration of the natural",
-            "heading_size": "h3"
-          }
-        },
-        "content_aNDdqh": {
-          "type": "content",
-          "settings": {
-            "content": "<p>Choosing natural fabrics is choosing balance between people and planet, craft and technology, tradition and tomorrow. RIMMBA’s approach to natural fabrics remind us that fashion can return to its roots, becoming again what it once was: an art of connection between what is to come and ancient traditions.</p>"
-          }
-        },
-        "buttons_nq4yj4": {
-          "type": "buttons",
-          "settings": {
-            "button_link_1": "/",
-            "button_link_1_type": "button",
-            "button_label_1": "",
-            "button_style_1": "button--outlined",
-            "color_scheme_first_button": "",
-            "button_link_2": "/",
-            "button_label_2": "",
-            "button_style_2": "button--outlined",
-            "color_scheme_second_button": ""
-          }
-        }
-      },
-      "block_order": [
-        "subheading_bRynXm",
-        "heading_L3X7TU",
-        "content_aNDdqh",
-        "buttons_nq4yj4"
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+        "table {box-shadow: none;}"
       ],
-      "name": "t:sections.full-width-banner.name",
       "settings": {
-        "enable_transparent_header": true,
-        "media_position": "background",
-        "section_height": "auto",
-        "content_position": "center",
-        "content_alignment": "center",
-        "image": "shopify://shop_images/Screenshot_2025-07-15_at_13.26.06.png",
-        "video_external": "",
-        "show_controls_on_video": false,
-        "aspect_ratio": "auto",
-        "section_height_mobile": "auto",
-        "content_position_mobile": "center",
-        "content_alignment_mobile": "center",
-        "video_external_mobile": "",
-        "show_controls_on_video_mobile": false,
-        "aspect_ratio_mobile": "auto",
-        "section_width": "max-w-full",
+        "breadcrumbs": false,
+        "show_page_title": false,
+        "page_title_alignment": "text-center",
+        "info_title": "",
+        "info_content": "",
+        "section_width": "max-w-fluid",
         "color_scheme": "",
-        "color_scheme_for_content": "scheme-6",
+        "spacing_top": "0",
+        "spacing_bottom": "0"
+      }
+    },
+    "seo_content_ebjggt": {
+      "type": "seo-content",
+      "disabled": true,
+      "name": "t:sections.seo-content.name",
+      "settings": {
+        "section_layout": "normal",
+        "heading": "",
+        "heading_size": "h5",
+        "text": "<p>Read about how we hand-pick our natural fabrics and learn how we dye using plant, flowers and connecting with Nature.</p>",
+        "content_alignment": "center",
+        "section_width": "max-w-fluid",
+        "color_scheme": "",
         "spacing_inner": "2",
         "spacing_top": "2",
         "spacing_bottom": "2"
@@ -323,7 +255,6 @@
       "blocks": {
         "subheading_i48kh8": {
           "type": "subheading",
-          "disabled": true,
           "settings": {
             "subheading": "",
             "link": ""
@@ -399,13 +330,12 @@
     }
   },
   "order": [
-    "page_banner_kExA78",
     "1760421621c74cd30c",
-    "full_width_banner_txyTw4",
+    "page_banner_kExA78",
+    "full_width_banner_meeAGa",
+    "dual_tiles_CVpVR6",
     "main",
     "seo_content_ebjggt",
-    "dual_tiles_CVpVR6",
-    "full_width_banner_meeAGa",
     "full_width_banner_W7yygr",
     "main_list_collections_EnGLME"
   ]
