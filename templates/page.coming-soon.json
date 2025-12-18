@@ -65,21 +65,21 @@
         "heading_L3X7TU": {
           "type": "heading",
           "settings": {
-            "heading": "In celebration of the natural",
+            "heading": "We're still weaving the threads",
             "heading_size": "h3"
-          }
-        },
-        "content_aNDdqh": {
-          "type": "content",
-          "settings": {
-            "content": "<p>Choosing natural fabrics is choosing balance between people and planet, craft and technology, tradition and tomorrow.</p><p>RIMMBA’s approach to natural fabrics remind us that fashion can return to its roots, becoming again what it once was: an art of connection between what is to come and ancient traditions.</p>"
           }
         },
         "subheading_bRynXm": {
           "type": "subheading",
           "settings": {
-            "subheading": "Explore RIMMBA's fabrics and dyes in depth",
+            "subheading": "this page will be ready soon",
             "link": ""
+          }
+        },
+        "content_aNDdqh": {
+          "type": "content",
+          "settings": {
+            "content": "<h6>While waiting</h6><p>We invite you to learn <a href=\"/pages/handmade-silk-dress-bali\" title=\"Custom RIMMBA Dresses\">how we make our custom silk dresses in Bali</a>.</p><p>How we select <strong>sustainable fabrics</strong> and how we process <strong>natural dyes</strong> at RIMMBA</p>"
           }
         },
         "buttons_nq4yj4": {
@@ -99,8 +99,8 @@
       },
       "block_order": [
         "heading_L3X7TU",
-        "content_aNDdqh",
         "subheading_bRynXm",
+        "content_aNDdqh",
         "buttons_nq4yj4"
       ],
       "name": "t:sections.full-width-banner.name",
@@ -218,6 +218,7 @@
     },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "custom_css": [
         "table {box-shadow: none;}"
       ],
