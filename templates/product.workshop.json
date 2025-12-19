@@ -232,7 +232,7 @@
           "type": "text",
           "settings": {
             "spacing_bottom": "1",
-            "heading": "<a href=\"https://wa.me/6282135714926\" target=\"_blank\">+62 821 3571 4926</a>",
+            "heading": "<a href=\"https://wa.me/6282135714926\" target=\"_blank\" title=\"RIMMBA's WhatsApp\">+62 813 3887 3123‬</a>",
             "icon": "option-chat_bubble",
             "link_to_resource": "none",
             "text_before_link": false,
