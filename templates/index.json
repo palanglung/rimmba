@@ -232,10 +232,17 @@
     "full_width_banner_BrDYKn": {
       "type": "full-width-banner",
       "blocks": {
+        "heading_RtVkAr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Say NO to fast Fashion",
+            "heading_size": "h3"
+          }
+        },
         "content_7LU3eT": {
           "type": "content",
           "settings": {
-            "content": "<p>Finding real silk — with no synthetics and no blends — has become increasingly rare. Finding clothing that is truly regenerative, chemical-free, and dyed without synthetic pigments is even harder.</p>"
+            "content": "<p>Finding real silk, with no synthetics and no blends, has become increasingly rare. Finding clothing that is truly regenerative, chemical-free, and dyed without synthetic pigments is even harder.</p>"
           }
         },
         "subheading_DnXELb": {
@@ -243,13 +250,6 @@
           "settings": {
             "subheading": "RIMMBA was created to lead this space. With absolute clarity, transparency, and zero compromise.",
             "link": ""
-          }
-        },
-        "heading_RtVkAr": {
-          "type": "heading",
-          "settings": {
-            "heading": "Say NO to fast Fashion",
-            "heading_size": "h3"
           }
         },
         "buttons_MLp6VR": {
@@ -268,9 +268,9 @@
         }
       },
       "block_order": [
+        "heading_RtVkAr",
         "content_7LU3eT",
         "subheading_DnXELb",
-        "heading_RtVkAr",
         "buttons_MLp6VR"
       ],
       "name": "t:sections.full-width-banner.name",
