@@ -297,6 +297,67 @@
         "spacing_bottom": "2"
       }
     },
+    "full_width_banner_JMAceU": {
+      "type": "full-width-banner",
+      "blocks": {
+        "subheading_gUTqPz": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "14 February 2026",
+            "link": ""
+          }
+        },
+        "heading_Ymr9i7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Botanical-Dye lingerie workshop",
+            "heading_size": "h2"
+          }
+        },
+        "buttons_7BWxeA": {
+          "type": "buttons",
+          "settings": {
+            "button_link_1": "shopify://pages/natural-dye-workshop-bali",
+            "button_link_1_type": "button",
+            "button_label_1": "SIGN UP NOW",
+            "button_style_1": "button--filled",
+            "color_scheme_first_button": "scheme-6",
+            "button_link_2": "shopify://pages/tailored-workshop-bali",
+            "button_label_2": "",
+            "button_style_2": "button--filled",
+            "color_scheme_second_button": "scheme-6"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_gUTqPz",
+        "heading_Ymr9i7",
+        "buttons_7BWxeA"
+      ],
+      "settings": {
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "third",
+        "content_position": "center",
+        "content_alignment": "center",
+        "image": "shopify://shop_images/FlowerBathFemininity.png",
+        "video_external": "",
+        "show_controls_on_video": false,
+        "aspect_ratio": "16/9",
+        "section_height_mobile": "third",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "video_external_mobile": "",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "2/3",
+        "section_width": "max-w-full",
+        "color_scheme": "scheme-1",
+        "color_scheme_for_content": "scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4",
+        "spacing_inner": "0",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
     "featured_collections_JnyGJ7": {
       "type": "featured-collections",
       "blocks": {
@@ -516,67 +577,6 @@
         "section_width": "max-w-page",
         "color_scheme": "scheme-1",
         "spacing_top": "4",
-        "spacing_bottom": "0"
-      }
-    },
-    "full_width_banner_JMAceU": {
-      "type": "full-width-banner",
-      "blocks": {
-        "subheading_gUTqPz": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "14 February 2026",
-            "link": ""
-          }
-        },
-        "heading_Ymr9i7": {
-          "type": "heading",
-          "settings": {
-            "heading": "Botanical-Dye lingerie workshop",
-            "heading_size": "h2"
-          }
-        },
-        "buttons_7BWxeA": {
-          "type": "buttons",
-          "settings": {
-            "button_link_1": "shopify://pages/natural-dye-workshop-bali",
-            "button_link_1_type": "button",
-            "button_label_1": "SIGN UP NOW",
-            "button_style_1": "button--filled",
-            "color_scheme_first_button": "scheme-6",
-            "button_link_2": "shopify://pages/tailored-workshop-bali",
-            "button_label_2": "",
-            "button_style_2": "button--filled",
-            "color_scheme_second_button": "scheme-6"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_gUTqPz",
-        "heading_Ymr9i7",
-        "buttons_7BWxeA"
-      ],
-      "settings": {
-        "enable_transparent_header": true,
-        "media_position": "background",
-        "section_height": "half",
-        "content_position": "center",
-        "content_alignment": "center",
-        "image": "shopify://shop_images/Botanical-Dye-Lingerie-Workshop.014.jpg",
-        "video_external": "",
-        "show_controls_on_video": false,
-        "aspect_ratio": "16/9",
-        "section_height_mobile": "third",
-        "content_position_mobile": "center",
-        "content_alignment_mobile": "center",
-        "video_external_mobile": "",
-        "show_controls_on_video_mobile": false,
-        "aspect_ratio_mobile": "2/3",
-        "section_width": "max-w-full",
-        "color_scheme": "scheme-1",
-        "color_scheme_for_content": "scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4",
-        "spacing_inner": "0",
-        "spacing_top": "0",
         "spacing_bottom": "0"
       }
     },
@@ -1315,8 +1315,8 @@
     "full_width_banner_BrDYKn",
     "featured_collections_JnyGJ7",
     "featured_collections_fpTnxQ",
-    "featured_products_fXeCd4",
     "full_width_banner_JMAceU",
+    "featured_products_fXeCd4",
     "featured_products_4eL4yE",
     "16e24524-2040-41a4-b5ca-3a425d62879b",
     "dual_tiles_nqzRrp",
