@@ -514,7 +514,7 @@
         "section_height": "third",
         "content_position": "center",
         "content_alignment": "center",
-        "image": "shopify://shop_images/Tyrian_Purple.webp",
+        "image": "shopify://shop_images/6.webp",
         "video_external": "",
         "show_controls_on_video": false,
         "aspect_ratio": "16/9",
@@ -526,7 +526,7 @@
         "aspect_ratio_mobile": "2/3",
         "section_width": "max-w-full",
         "color_scheme": "scheme-1",
-        "color_scheme_for_content": "scheme-2",
+        "color_scheme_for_content": "scheme-1",
         "spacing_inner": "0",
         "spacing_top": "2",
         "spacing_bottom": "2"
