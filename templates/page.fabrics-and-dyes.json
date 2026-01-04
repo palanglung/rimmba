@@ -110,7 +110,7 @@
         "section_height": "auto",
         "content_position": "center",
         "content_alignment": "center",
-        "image": "shopify://shop_images/RIMMBA_Natural_dyeing_Process.jpg",
+        "image": "shopify://shop_images/1.png",
         "video_external": "",
         "show_controls_on_video": false,
         "aspect_ratio": "auto",
@@ -122,7 +122,7 @@
         "aspect_ratio_mobile": "auto",
         "section_width": "max-w-full",
         "color_scheme": "scheme-1",
-        "color_scheme_for_content": "scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4",
+        "color_scheme_for_content": "scheme-1",
         "spacing_inner": "2",
         "spacing_top": "2",
         "spacing_bottom": "2"

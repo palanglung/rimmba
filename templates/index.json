@@ -256,7 +256,7 @@
           "type": "buttons",
           "settings": {
             "button_link_1": "shopify://pages/natural-dyes",
-            "button_link_1_type": "button",
+            "button_link_1_type": "card",
             "button_label_1": "our dyes",
             "button_style_1": "button--filled",
             "color_scheme_first_button": "",
