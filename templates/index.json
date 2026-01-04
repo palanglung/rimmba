@@ -290,7 +290,7 @@
         "show_controls_on_video_mobile": false,
         "aspect_ratio_mobile": "auto",
         "section_width": "max-w-full",
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "color_scheme_for_content": "scheme-1",
         "spacing_inner": "2",
         "spacing_top": "2",
