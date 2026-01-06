@@ -45,6 +45,7 @@
         },
         "slide_6VWqy8": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "banner_layout": "hero-banner--full",
             "color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
