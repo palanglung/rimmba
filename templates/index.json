@@ -261,10 +261,10 @@
             "button_label_1": "our dyes",
             "button_style_1": "button--filled",
             "color_scheme_first_button": "",
-            "button_link_2": "shopify://pages/sustainable-fabrics",
+            "button_link_2": "",
             "button_label_2": "our fabrics",
             "button_style_2": "button--filled",
-            "color_scheme_second_button": "scheme-3"
+            "color_scheme_second_button": "scheme-1"
           }
         }
       },
