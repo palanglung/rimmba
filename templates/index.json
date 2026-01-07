@@ -230,37 +230,37 @@
         "spacing_bottom": "0"
       }
     },
-    "full_width_banner_BrDYKn": {
+    "full_width_banner_xFVCUN": {
       "type": "full-width-banner",
       "blocks": {
-        "heading_RtVkAr": {
+        "heading_8BbH8k": {
           "type": "heading",
           "settings": {
             "heading": "Say NO to fast Fashion",
             "heading_size": "h3"
           }
         },
-        "subheading_DnXELb": {
+        "subheading_i6Nwma": {
           "type": "subheading",
           "settings": {
             "subheading": "RIMMBA was created to lead this space. With absolute clarity, transparency, and zero compromise.",
             "link": ""
           }
         },
-        "content_7LU3eT": {
+        "content_Fa6Jky": {
           "type": "content",
           "settings": {
             "content": "<p>Finding real silk, with no synthetics and no blends, has become increasingly rare. Finding clothing that is truly regenerative, chemical-free, and dyed without synthetic pigments is even harder.</p>"
           }
         },
-        "buttons_MLp6VR": {
+        "buttons_yE68Lt": {
           "type": "buttons",
           "settings": {
             "button_link_1": "shopify://pages/natural-dyes",
-            "button_link_1_type": "card",
+            "button_link_1_type": "button",
             "button_label_1": "our dyes",
             "button_style_1": "button--filled",
-            "color_scheme_first_button": "",
+            "color_scheme_first_button": "scheme-1",
             "button_link_2": "shopify://pages/sustainable-fabrics",
             "button_label_2": "our fabrics",
             "button_style_2": "button--filled",
@@ -269,10 +269,10 @@
         }
       },
       "block_order": [
-        "heading_RtVkAr",
-        "subheading_DnXELb",
-        "content_7LU3eT",
-        "buttons_MLp6VR"
+        "heading_8BbH8k",
+        "subheading_i6Nwma",
+        "content_Fa6Jky",
+        "buttons_yE68Lt"
       ],
       "name": "t:sections.full-width-banner.name",
       "settings": {
@@ -281,17 +281,15 @@
         "section_height": "auto",
         "content_position": "center",
         "content_alignment": "center",
-        "video_external": "",
         "show_controls_on_video": false,
         "aspect_ratio": "auto",
         "section_height_mobile": "auto",
         "content_position_mobile": "center",
         "content_alignment_mobile": "center",
-        "video_external_mobile": "",
         "show_controls_on_video_mobile": false,
         "aspect_ratio_mobile": "auto",
         "section_width": "max-w-full",
-        "color_scheme": "scheme-1",
+        "color_scheme": "",
         "color_scheme_for_content": "scheme-1",
         "spacing_inner": "2",
         "spacing_top": "2",
@@ -1313,7 +1311,7 @@
     "1658995208ad05f95f",
     "callout_banner_rVDLqh",
     "callout_banner_jYpAdw",
-    "full_width_banner_BrDYKn",
+    "full_width_banner_xFVCUN",
     "featured_collections_JnyGJ7",
     "featured_collections_fpTnxQ",
     "full_width_banner_JMAceU",
