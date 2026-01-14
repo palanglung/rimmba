@@ -1131,4 +1131,51 @@ figure {
         grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     }
 }
-/*  #shopify-section-template--18662645956774__page_banner_gViVwa > div */
+/*  CUSTOM PAGES with CLASS SECTION DIV */
+.section table {max-width:80% !important; margin:auto;}
+.section table.custom_inline_table {max-width: 75% !important; border-collapse: collapse !important; text-align: left; table-layout: auto; border-top: hidden; border-left: hidden;}
+.section table.custom_inline_table,
+.section table.custom_inline_table p {font-size:1em !important;}
+.section table.custom_inline_table th,
+.section table.custom_inline_table td {text-align: center; box-shadow: 1px 1px 1px #eee; padding: 0.5em;}
+.section dd,
+.section dt,
+.section dl { max-inline-size: 55ch; margin: auto; }
+.section dd { margin-block-end: 1em; margin-inline-start: 2ch; }
+
+@media (max-width: 768px) {
+  .section table.custom_inline_table {width: auto !important; max-width:fit-content !important; overflow-x:auto !important;}
+  .section table.custom_inline_table,
+  .section table.custom_inline_table p {font-size:0.8em !important;}
+
+  /* Apply mobile layout only to our verified tables */
+  .section table:has(> tbody > tr:only-child > td:nth-of-type(2)):has(img),
+  .section table:has(> tbody > tr:only-child > td:nth-of-type(2)) img {
+    width: 100% !important;
+  }
+
+  .section table:has(> tbody > tr:only-child > td:nth-of-type(2)):has(img) {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .section table:has(> tbody > tr:only-child > td:nth-of-type(2)):has(img) > tbody,
+  .section table:has(> tbody > tr:only-child > td:nth-of-type(2)):has(img) > tbody > tr {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .section table:has(> tbody > tr:only-child > td:nth-of-type(2)):has(img) td {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    box-shadow:none !important;
+    border:none !important;
+  }
+
+  /* Optional: add spacing between text and image */
+  .section table:has(> tbody > tr:only-child > td:nth-of-type(2)):has(img) td + td {
+    margin-top: 1rem;
+  }
+}
