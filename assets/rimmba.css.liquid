@@ -1131,6 +1131,25 @@ figure {
         grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     }
 }
+/* CUSTOM UNORDERED LIST WITH ROSE EMOJI */
+.rose-list {
+  list-style: none; /* Remove default bullets */
+  padding-left: 1em;
+  margin: 0;
+}
+
+.rose-list li {
+  padding-left: 1.5em; /* Space for the emoji */
+  position: relative;
+}
+
+.rose-list li::before {
+  content: "🌹"; /* The emoji */
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 /*  CUSTOM PAGES with CLASS SECTION DIV */
 .section table {max-width:80% !important; margin:auto;}
 .section table.custom_inline_table {max-width: 75% !important; border-collapse: collapse !important; text-align: left; table-layout: auto; border-top: hidden; border-left: hidden;}
