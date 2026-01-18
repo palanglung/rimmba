@@ -236,14 +236,14 @@
         "heading_8BbH8k": {
           "type": "heading",
           "settings": {
-            "heading": "Say NO to fast Fashion",
-            "heading_size": "h3"
+            "heading": "<strong>Garments made in service for the female body.</strong>",
+            "heading_size": "h6"
           }
         },
         "subheading_i6Nwma": {
           "type": "subheading",
           "settings": {
-            "subheading": "RIMMBA was created to lead this space. With absolute clarity, transparency, and zero compromise.",
+            "subheading": "<em>With care for the nervous system, the womb, and the skin.</em>",
             "link": ""
           }
         },
@@ -281,11 +281,13 @@
         "section_height": "auto",
         "content_position": "center",
         "content_alignment": "center",
+        "video_external": "",
         "show_controls_on_video": false,
         "aspect_ratio": "auto",
         "section_height_mobile": "auto",
         "content_position_mobile": "center",
         "content_alignment_mobile": "center",
+        "video_external_mobile": "",
         "show_controls_on_video_mobile": false,
         "aspect_ratio_mobile": "auto",
         "section_width": "max-w-full",
