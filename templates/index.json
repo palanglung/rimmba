@@ -654,7 +654,7 @@
         "collection_slide_RnfaVr": {
           "type": "collection-slide",
           "settings": {
-            "collection": "eco-print-collection",
+            "collection": "red-silk-eco-print-dresses",
             "heading": "Bella's Red Silk Kaftan",
             "heading_size": "h3",
             "subheading": ""
@@ -663,7 +663,7 @@
         "collection_slide_7qKnzD": {
           "type": "collection-slide",
           "settings": {
-            "collection": "eco-print-collection",
+            "collection": "red-silk-eco-print-dresses",
             "image": "shopify://shop_images/Mira_silk_dress_ecoprint_red7.jpg",
             "heading": "Mira Silk dress",
             "heading_size": "h3",
@@ -673,7 +673,7 @@
         "collection_slide_8UbcnL": {
           "type": "collection-slide",
           "settings": {
-            "collection": "eco-print-collection",
+            "collection": "red-silk-eco-print-dresses",
             "image": "shopify://shop_images/RIMMBA_CTLG_0018_473db58d-d5b2-40ca-8fd7-19695ad676fd.jpg",
             "heading": "Gaya Silk Kaftan",
             "heading_size": "h3",
@@ -694,7 +694,7 @@
         "subheading": "Wearable Art",
         "content_padding": "3",
         "button_label": "FULL COLLECTION",
-        "button_link": "shopify://collections/eco-print-collection",
+        "button_link": "shopify://collections/red-silk-eco-print-dresses",
         "button_style": "button--text",
         "card_layout": "collection",
         "card_style": "normal",
