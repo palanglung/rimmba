@@ -239,7 +239,7 @@
           "background_gradient": "",
           "primary_text": "#000000",
           "secondary_text": "#65706e",
-          "header_text": "#012e7c",
+          "header_text": "#000000",
           "primary_button": "#012e7c",
           "primary_button_label": "#f7d623",
           "secondary_button_label": "#012e7c",
