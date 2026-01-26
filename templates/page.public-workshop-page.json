@@ -59,93 +59,6 @@
         "spacing_bottom": "6"
       }
     },
-    "dual_tiles_VMgfML": {
-      "type": "dual-tiles",
-      "blocks": {
-        "tile_C9qM8E": {
-          "type": "tile",
-          "settings": {
-            "show_on": "both",
-            "color_scheme": "scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4",
-            "custom_background_color": "",
-            "heading": "<a href=\"/products/botanical-dye-lingerie-workshop-rimmba\" target=\"_blank\" title=\"Botanical Dye Lingerie Workshop.\">Botanical Dye Workshop</a>",
-            "heading_size": "h3",
-            "text": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "button--filled",
-            "product": "",
-            "product_width": 24,
-            "show_other_elements_with_product": true,
-            "aspect_ratio": "auto",
-            "vertical_position": "stretch",
-            "content_position": "justify-center",
-            "content_alignment": "text-center align-center",
-            "product_position": "0",
-            "image": "shopify://shop_images/O6A9072.jpg",
-            "video_external": "",
-            "show_controls_on_video": false,
-            "aspect_ratio_mobile": "auto",
-            "content_alignment_mobile": "text-center--mobile align-center--mobile",
-            "content_position_mobile": "justify-center--mobile",
-            "product_position_mobile": "0",
-            "video_external_mobile": "",
-            "show_controls_on_video_mobile": false,
-            "spacing_inner": "3"
-          }
-        },
-        "tile_XCNLMb": {
-          "type": "tile",
-          "settings": {
-            "show_on": "both",
-            "color_scheme": "scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4",
-            "custom_background_color": "",
-            "heading": "<a href=\"/pages/private-workshop\" target=\"_blank\" title=\"PRIVATE WORKSHOP\">Private Workshop</a>",
-            "heading_size": "h3",
-            "text": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "button--filled",
-            "product": "",
-            "product_width": 24,
-            "show_other_elements_with_product": true,
-            "aspect_ratio": "auto",
-            "vertical_position": "stretch",
-            "content_position": "justify-center",
-            "content_alignment": "text-center align-center",
-            "product_position": "0",
-            "image": "shopify://shop_images/1F7C185B-C0DE-488E-A5D9-A05342D6DD76.jpg",
-            "video_external": "",
-            "show_controls_on_video": false,
-            "aspect_ratio_mobile": "auto",
-            "content_alignment_mobile": "text-center--mobile align-center--mobile",
-            "content_position_mobile": "justify-center--mobile",
-            "product_position_mobile": "0",
-            "video_external_mobile": "",
-            "show_controls_on_video_mobile": false,
-            "spacing_inner": "3"
-          }
-        }
-      },
-      "block_order": [
-        "tile_C9qM8E",
-        "tile_XCNLMb"
-      ],
-      "disabled": true,
-      "name": "t:sections.dual-tiles.name",
-      "settings": {
-        "section_layout": "seperated",
-        "block_size": "half",
-        "block_order_mobile": false,
-        "heading": "",
-        "heading_size": "h3",
-        "heading_alignment": "start",
-        "color_scheme": "",
-        "section_width": "max-w-page",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
-      }
-    },
     "highlighted_product_TcbtpR": {
       "type": "highlighted-product",
       "blocks": {
@@ -259,6 +172,107 @@
         "color_scheme": "",
         "spacing_top": "0",
         "spacing_bottom": "0"
+      }
+    },
+    "seo_content_YqLz3V": {
+      "type": "seo-content",
+      "name": "t:sections.seo-content.name",
+      "settings": {
+        "section_layout": "normal",
+        "heading": "",
+        "heading_size": "h3",
+        "text": "<p>Each experience is <strong>thoughtfully curated by Karunia Fischer</strong> and designed to be intentional, engaging, and deeply connected to the spirit of your celebration.<br/>All materials are provided — you bring the guests, we bring the color, the plants, and the magic. 🌿</p>",
+        "content_alignment": "center",
+        "section_width": "max-w-narrower",
+        "color_scheme": "",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "dual_tiles_VMgfML": {
+      "type": "dual-tiles",
+      "blocks": {
+        "tile_XCNLMb": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4",
+            "custom_background_color": "",
+            "heading": "<a href=\"/pages/private-workshop\" target=\"_blank\" title=\"PRIVATE WORKSHOP\">Private Workshop</a>",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "auto",
+            "vertical_position": "stretch",
+            "content_position": "justify-center",
+            "content_alignment": "text-center align-center",
+            "product_position": "0",
+            "image": "shopify://shop_images/1F7C185B-C0DE-488E-A5D9-A05342D6DD76.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "auto",
+            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        },
+        "tile_C9qM8E": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-1",
+            "custom_background_color": "",
+            "heading": "Private Dyeing Experience",
+            "heading_size": "h5",
+            "text": "<p>Our <strong>Private Dyeing Experience</strong> is a personalized and hands-on session brought right to your location of choice — whether it’s your home, villa, hotel, or event space.</p><p>We take care of the full setup and guide you and your guests through the dyeing process in a relaxed, creative atmosphere. Before your event, we’ll connect with you to understand the occasion and tailor the pieces to match your theme.</p>",
+            "button_label": "Private Workshop",
+            "button_link": "shopify://pages/tailored-workshop-bali",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "auto",
+            "vertical_position": "stretch",
+            "content_position": "justify-center",
+            "content_alignment": "text-start align-start",
+            "product_position": "0",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "auto",
+            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        }
+      },
+      "block_order": [
+        "tile_XCNLMb",
+        "tile_C9qM8E"
+      ],
+      "name": "t:sections.dual-tiles.name",
+      "settings": {
+        "section_layout": "seperated",
+        "block_size": "half",
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "color_scheme": "",
+        "section_width": "max-w-page",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
       }
     },
     "accordions_h9bbAN": {
@@ -475,10 +489,11 @@
   "order": [
     "1760421621c74cd30c",
     "page_banner_kExA78",
-    "dual_tiles_VMgfML",
     "highlighted_product_TcbtpR",
     "featured_products_37gWjw",
     "main",
+    "seo_content_YqLz3V",
+    "dual_tiles_VMgfML",
     "accordions_h9bbAN",
     "full_width_banner_txyTw4",
     "seo_content_ebjggt",
