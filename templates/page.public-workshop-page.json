@@ -190,7 +190,7 @@
         "disable_media_zoom": true,
         "show_media_index": false,
         "media_gallery_info": "",
-        "color_scheme_arrows": "",
+        "color_scheme_arrows": "scheme-1",
         "section_width": "max-w-page",
         "color_scheme": "",
         "spacing_top": "1",
