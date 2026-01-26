@@ -148,6 +148,31 @@
     },
     "featured_products_37gWjw": {
       "type": "featured-products",
+      "blocks": {
+        "collection_LAC6DE": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "collection": "",
+            "products": [
+              "botanical-dye-lingerie-workshop-rimmba"
+            ],
+            "vendor": "",
+            "collection_of_products": "",
+            "show_unavailable_products": false,
+            "card_text_heading": "",
+            "card_text_button_label": "",
+            "card_text_button_style": "button--filled",
+            "card_text_button_link": "",
+            "content_position": "center",
+            "content_alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "collection_LAC6DE"
+      ],
       "name": "t:sections.featured-products.name",
       "settings": {
         "layout": "layout-2",
