@@ -491,6 +491,128 @@
         "spacing_bottom": "4"
       }
     },
+    "announcement_bar_PMQzN9": {
+      "type": "announcement-bar",
+      "blocks": {
+        "timer_zADPHY": {
+          "type": "timer",
+          "disabled": true,
+          "settings": {
+            "show_on": "both",
+            "timer_year": 2026,
+            "timer_month": "02",
+            "timer_day": 14,
+            "timer_hour": 15,
+            "timer_minute": 0,
+            "timer_end_message": "The Workshop has started!",
+            "show_timer_days": true,
+            "show_timer_hours": true,
+            "show_timer_minutes": true,
+            "show_timer_seconds": true
+          }
+        },
+        "text_slide_pEzHNp": {
+          "type": "text-slide",
+          "settings": {
+            "content": "<h6>Botanical-Dye Lingerie Workshop </h6>",
+            "icon": ""
+          }
+        },
+        "link_jRcWTq": {
+          "type": "link",
+          "disabled": true,
+          "settings": {
+            "show_on": "both",
+            "link_label": "Join the Workshop",
+            "link": "shopify://products/botanical-dye-lingerie-workshop-rimmba",
+            "icon": "option-leaf"
+          }
+        }
+      },
+      "block_order": [
+        "timer_zADPHY",
+        "text_slide_pEzHNp",
+        "link_jRcWTq"
+      ],
+      "disabled": true,
+      "name": "t:sections.announcement-bar.name",
+      "settings": {
+        "text_block_behaviour": "static",
+        "slider_autoplay_interval": 3,
+        "font_weight": "500",
+        "section_width": "max-w-page",
+        "color_scheme": "scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4"
+      }
+    },
+    "seo_content_C4gKHz": {
+      "type": "seo-content",
+      "disabled": true,
+      "name": "t:sections.seo-content.name",
+      "settings": {
+        "section_layout": "normal",
+        "heading": "<strong>Garments made in service for the female body</strong>",
+        "heading_size": "h3",
+        "text": "<h5>Private Natural Dyeing Experience in Bali</h5><p>RIMMBA creates silk dresses and natural fibre clothing crafted slowly from genuine silk and dyed with plants. These breathable, calming garments are designed to support femininity and the body’s innate intelligence.</p>",
+        "content_alignment": "center",
+        "section_width": "max-w-fluid",
+        "color_scheme": "",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "announcement_bar_NCdJdg": {
+      "type": "announcement-bar",
+      "blocks": {
+        "timer_enebwL": {
+          "type": "timer",
+          "disabled": true,
+          "settings": {
+            "show_on": "both",
+            "timer_year": 2026,
+            "timer_month": "02",
+            "timer_day": 14,
+            "timer_hour": 15,
+            "timer_minute": 0,
+            "timer_end_message": "The Workshop has started!",
+            "show_timer_days": true,
+            "show_timer_hours": true,
+            "show_timer_minutes": true,
+            "show_timer_seconds": true
+          }
+        },
+        "text_slide_DePjKi": {
+          "type": "text-slide",
+          "settings": {
+            "content": "<h6>14 February 2026, Valentine's Day</h6>",
+            "icon": ""
+          }
+        },
+        "link_3paMqm": {
+          "type": "link",
+          "settings": {
+            "show_on": "both",
+            "link_label": "Join the Workshop",
+            "link": "shopify://products/botanical-dye-lingerie-workshop-rimmba",
+            "icon": "option-leaf"
+          }
+        }
+      },
+      "block_order": [
+        "timer_enebwL",
+        "text_slide_DePjKi",
+        "link_3paMqm"
+      ],
+      "disabled": true,
+      "name": "t:sections.announcement-bar.name",
+      "settings": {
+        "text_block_behaviour": "static",
+        "slider_autoplay_interval": 3,
+        "font_weight": "500",
+        "section_width": "max-w-page",
+        "color_scheme": "scheme-8b8dbf76-41ec-4551-b268-3f5b736fa0b4"
+      }
+    },
     "full_width_banner_JMAceU": {
       "type": "full-width-banner",
       "blocks": {
@@ -1336,6 +1458,9 @@
     "full_width_banner_xFVCUN",
     "featured_collections_JnyGJ7",
     "featured_collections_fpTnxQ",
+    "announcement_bar_PMQzN9",
+    "seo_content_C4gKHz",
+    "announcement_bar_NCdJdg",
     "full_width_banner_JMAceU",
     "featured_products_fXeCd4",
     "featured_products_4eL4yE",
