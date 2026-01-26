@@ -150,11 +150,11 @@
       "type": "featured-products",
       "name": "t:sections.featured-products.name",
       "settings": {
-        "layout": "layout-1",
+        "layout": "layout-2",
         "heading": "Learn With Rimmba",
         "heading_size": "h3",
         "subheading": "",
-        "button_label": "Join the Next",
+        "button_label": "Join the Next workshop",
         "button_link": "shopify://products/botanical-dye-lingerie-workshop-rimmba",
         "button_style": "button--filled",
         "max_products": 4,
@@ -217,10 +217,11 @@
         "buy_buttons_3MrkVN",
         "product_link_xTQB3Y"
       ],
+      "disabled": true,
       "name": "Highlighted product",
       "settings": {
         "highlighted_product": "botanical-dye-lingerie-workshop-rimmba",
-        "heading": "<p>Learn with RIMMBA:</p>",
+        "heading": "<p>Read More</p>",
         "product_media_object_fit": "cover",
         "adaptive_ratio_and_auto_height": "default",
         "media_transparent_background": false,
@@ -228,7 +229,7 @@
         "show_media_index": true,
         "media_gallery_info": "",
         "color_scheme_arrows": "",
-        "section_width": "max-w-fluid",
+        "section_width": "max-w-page",
         "color_scheme": "",
         "spacing_top": "1",
         "spacing_bottom": "0"
