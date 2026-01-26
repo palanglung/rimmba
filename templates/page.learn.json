@@ -145,89 +145,6 @@
         "spacing_bottom": "2"
       }
     },
-    "highlighted_product_TcbtpR": {
-      "type": "highlighted-product",
-      "blocks": {
-        "title_L6zBYK": {
-          "type": "title",
-          "settings": {}
-        },
-        "badge_ajL6yK": {
-          "type": "badge",
-          "settings": {}
-        },
-        "text_zncVLH": {
-          "type": "text",
-          "settings": {
-            "text": "{{ section.settings.highlighted_product.vendor }}",
-            "text_style": "link",
-            "link_to_resource": "vendor"
-          }
-        },
-        "price_KraggH": {
-          "type": "price",
-          "settings": {
-            "show_price_tax_info": true,
-            "show_price_shipping_info": false,
-            "show_price_custom_info": ""
-          }
-        },
-        "divider_GwT4Wr": {
-          "type": "divider",
-          "settings": {}
-        },
-        "variant_picker_NbQCGU": {
-          "type": "variant_picker",
-          "settings": {
-            "title": "Variant picker",
-            "variant_picker_type": "buttons",
-            "variant_picker_layout": "product-selector--default",
-            "variant_options_with_thumbnails": "Color",
-            "size_guide_page": "",
-            "sizes_option": "Size"
-          }
-        },
-        "buy_buttons_3MrkVN": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_quantity": true,
-            "quantity_type": "inline",
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": false
-          }
-        },
-        "product_link_xTQB3Y": {
-          "type": "product_link",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "title_L6zBYK",
-        "badge_ajL6yK",
-        "text_zncVLH",
-        "price_KraggH",
-        "divider_GwT4Wr",
-        "variant_picker_NbQCGU",
-        "buy_buttons_3MrkVN",
-        "product_link_xTQB3Y"
-      ],
-      "name": "Highlighted product",
-      "settings": {
-        "highlighted_product": "botanical-dye-lingerie-workshop-rimmba",
-        "heading": "<p>Item of the <em>week</em></p>",
-        "product_media_object_fit": "cover",
-        "adaptive_ratio_and_auto_height": "default",
-        "media_transparent_background": false,
-        "disable_media_zoom": true,
-        "show_media_index": true,
-        "media_gallery_info": "",
-        "color_scheme_arrows": "",
-        "section_width": "max-w-fluid",
-        "color_scheme": "",
-        "spacing_top": "2",
-        "spacing_bottom": "6"
-      }
-    },
     "main": {
       "type": "main-page",
       "custom_css": [
@@ -460,7 +377,6 @@
     "1760421621c74cd30c",
     "page_banner_kExA78",
     "dual_tiles_VMgfML",
-    "highlighted_product_TcbtpR",
     "main",
     "accordions_h9bbAN",
     "full_width_banner_txyTw4",
