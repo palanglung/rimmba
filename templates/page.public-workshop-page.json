@@ -228,9 +228,9 @@
       "settings": {
         "layout": "layout-2",
         "heading": "",
-        "heading_size": "h3",
+        "heading_size": "h6",
         "subheading": "",
-        "button_label": "Join the Next workshop",
+        "button_label": "Our Next workshop",
         "button_link": "shopify://products/botanical-dye-lingerie-workshop-rimmba",
         "button_style": "button--filled",
         "max_products": 4,
