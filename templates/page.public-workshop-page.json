@@ -146,6 +146,57 @@
         "spacing_bottom": "2"
       }
     },
+    "highlighted_product_TcbtpR": {
+      "type": "highlighted-product",
+      "blocks": {
+        "title_L6zBYK": {
+          "type": "title",
+          "settings": {}
+        },
+        "richtext_LTeyrn": {
+          "type": "richtext",
+          "settings": {
+            "spacing_bottom": "1",
+            "text": "<p>Surrounded by Bali’s lush landscapes, this hands-on workshop guides you through eco-friendly natural dye techniques using leaves, roots, and flowers—honoring ancient wisdom while nurturing modern self-care. </p><p>Designed for women who crave mindful creativity, sustainability, and reconnection with the earth, this experience is as restorative as it is beautiful, leaving you with naturally dyed textiles and a deeper sense of balance.</p>"
+          }
+        },
+        "divider_GwT4Wr": {
+          "type": "divider",
+          "settings": {}
+        },
+        "product_link_xTQB3Y": {
+          "type": "product_link",
+          "settings": {}
+        },
+        "divider_jVifcm": {
+          "type": "divider",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title_L6zBYK",
+        "richtext_LTeyrn",
+        "divider_GwT4Wr",
+        "product_link_xTQB3Y",
+        "divider_jVifcm"
+      ],
+      "name": "Highlighted product",
+      "settings": {
+        "highlighted_product": "botanical-dye-lingerie-workshop-rimmba",
+        "heading": "<p>Learn with RIMMBA:</p>",
+        "product_media_object_fit": "cover",
+        "adaptive_ratio_and_auto_height": "default",
+        "media_transparent_background": false,
+        "disable_media_zoom": true,
+        "show_media_index": true,
+        "media_gallery_info": "",
+        "color_scheme_arrows": "",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "1",
+        "spacing_bottom": "1"
+      }
+    },
     "featured_products_37gWjw": {
       "type": "featured-products",
       "blocks": {
@@ -176,7 +227,7 @@
       "name": "t:sections.featured-products.name",
       "settings": {
         "layout": "layout-2",
-        "heading": "Learn With Rimmba",
+        "heading": "",
         "heading_size": "h3",
         "subheading": "",
         "button_label": "Join the Next workshop",
@@ -189,75 +240,8 @@
         "tab_button_style": "button--filled",
         "section_width": "max-w-page",
         "color_scheme": "",
-        "spacing_top": "2",
+        "spacing_top": "0",
         "spacing_bottom": "2"
-      }
-    },
-    "highlighted_product_TcbtpR": {
-      "type": "highlighted-product",
-      "blocks": {
-        "title_L6zBYK": {
-          "type": "title",
-          "settings": {}
-        },
-        "richtext_LTeyrn": {
-          "type": "richtext",
-          "settings": {
-            "spacing_bottom": "1",
-            "text": "<p>Join our upcoming workshop</p>"
-          }
-        },
-        "text_zncVLH": {
-          "type": "text",
-          "settings": {
-            "text": "{{ section.settings.highlighted_product.title }}",
-            "text_style": "link",
-            "link_to_resource": "none"
-          }
-        },
-        "divider_GwT4Wr": {
-          "type": "divider",
-          "settings": {}
-        },
-        "buy_buttons_3MrkVN": {
-          "type": "buy_buttons",
-          "disabled": true,
-          "settings": {
-            "show_quantity": true,
-            "quantity_type": "inline",
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": false
-          }
-        },
-        "product_link_xTQB3Y": {
-          "type": "product_link",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "title_L6zBYK",
-        "richtext_LTeyrn",
-        "text_zncVLH",
-        "divider_GwT4Wr",
-        "buy_buttons_3MrkVN",
-        "product_link_xTQB3Y"
-      ],
-      "disabled": true,
-      "name": "Highlighted product",
-      "settings": {
-        "highlighted_product": "botanical-dye-lingerie-workshop-rimmba",
-        "heading": "<p>Read More</p>",
-        "product_media_object_fit": "cover",
-        "adaptive_ratio_and_auto_height": "default",
-        "media_transparent_background": false,
-        "disable_media_zoom": true,
-        "show_media_index": true,
-        "media_gallery_info": "",
-        "color_scheme_arrows": "",
-        "section_width": "max-w-page",
-        "color_scheme": "",
-        "spacing_top": "1",
-        "spacing_bottom": "0"
       }
     },
     "main": {
@@ -492,8 +476,8 @@
     "1760421621c74cd30c",
     "page_banner_kExA78",
     "dual_tiles_VMgfML",
-    "featured_products_37gWjw",
     "highlighted_product_TcbtpR",
+    "featured_products_37gWjw",
     "main",
     "accordions_h9bbAN",
     "full_width_banner_txyTw4",
