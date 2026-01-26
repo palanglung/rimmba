@@ -230,11 +230,28 @@
         "spacing_bottom": "0"
       }
     },
+    "seo_content_MH4byM": {
+      "type": "seo-content",
+      "name": "t:sections.seo-content.name",
+      "settings": {
+        "section_layout": "normal",
+        "heading": "<strong>Garments made in service for the female body</strong>",
+        "heading_size": "h3",
+        "text": "<h5><em>With care for the nervous system, the womb, and the skin</em></h5><p>RIMMBA creates silk dresses and natural fibre clothing crafted slowly from genuine silk and dyed with plants. These breathable, calming garments are designed to support femininity and the body’s innate intelligence.</p>",
+        "content_alignment": "center",
+        "section_width": "max-w-fluid",
+        "color_scheme": "",
+        "spacing_inner": "2",
+        "spacing_top": "4",
+        "spacing_bottom": "0"
+      }
+    },
     "full_width_banner_xFVCUN": {
       "type": "full-width-banner",
       "blocks": {
         "heading_8BbH8k": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "<strong>Garments made in service for the female body.</strong>",
             "heading_size": "h6"
@@ -242,6 +259,7 @@
         },
         "subheading_i6Nwma": {
           "type": "subheading",
+          "disabled": true,
           "settings": {
             "subheading": "<em>With care for the nervous system, the womb, and the skin.</em>",
             "link": ""
@@ -249,6 +267,7 @@
         },
         "content_Fa6Jky": {
           "type": "content",
+          "disabled": true,
           "settings": {
             "content": "<p>RIMMBA creates silk dresses and natural fibre clothing crafted slowly from genuine silk and dyed with plants. These breathable, calming garments are designed to support femininity and the body’s innate intelligence.</p>"
           }
@@ -294,7 +313,7 @@
         "color_scheme": "",
         "color_scheme_for_content": "scheme-1",
         "spacing_inner": "2",
-        "spacing_top": "2",
+        "spacing_top": "0",
         "spacing_bottom": "2"
       }
     },
@@ -1313,6 +1332,7 @@
     "1658995208ad05f95f",
     "callout_banner_rVDLqh",
     "callout_banner_jYpAdw",
+    "seo_content_MH4byM",
     "full_width_banner_xFVCUN",
     "featured_collections_JnyGJ7",
     "featured_collections_fpTnxQ",
