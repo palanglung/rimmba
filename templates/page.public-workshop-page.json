@@ -233,7 +233,7 @@
             "custom_background_color": "",
             "heading": "Private Dyeing Experience",
             "heading_size": "h5",
-            "text": "<p>Our <strong>Private Dyeing Experience</strong> is a personalized and hands-on session brought right to your location of choice — whether it’s your home, villa, hotel, or event space.</p><p>We take care of the full setup and guide you and your guests through the dyeing process in a relaxed, creative atmosphere. Before your event, we’ll connect with you to understand the occasion and tailor the pieces to match your theme.</p>",
+            "text": "<p>Our <a href=\"/pages/tailored-workshop-bali\" target=\"_blank\" title=\"Private Dye Workshop\"><strong>Private Dyeing Experience</strong></a> is a <strong>personalized </strong>botanical-dye workshop brought right to your location of choice: whether it’s your home, villa, resort, or event space.</p><h6>We take care of the full setup</h6><p>RIMMBA's team will guide you and your guests through the dyeing process in a relaxed, creative atmosphere. Before your event, we’ll connect with you to understand the occasion and tailor the pieces to match your theme.</p>",
             "button_label": "Private Workshop",
             "button_link": "shopify://pages/tailored-workshop-bali",
             "button_style": "button--filled",
