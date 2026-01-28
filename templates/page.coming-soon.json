@@ -211,7 +211,7 @@
         "heading_size": "h5",
         "heading_alignment": "center",
         "color_scheme": "",
-        "section_width": "max-w-full",
+        "section_width": "max-w-page",
         "spacing_top": "2",
         "spacing_bottom": "6"
       }
