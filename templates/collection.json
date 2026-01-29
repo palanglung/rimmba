@@ -131,7 +131,7 @@
         "enable_transparent_header": true,
         "heading": "{{ collection.title }}",
         "heading_size": "h3",
-        "text": "<h4><strong>made in service for the female body</strong></h4><h6><em>With care for the nervous system, the womb, and the skin</em></h6><p>RIMMBA creates <a href=\"/collections/silk-dress\" title=\"Organic Silk Dresses\">silk garments</a> and natural fibre clothing crafted slowly from genuine silk and <a href=\"/pages/natural-dyes\" target=\"_blank\" title=\"Botanical And Natural Dyes\">dyed with plants</a>. These breathable, calming pieces are designed to support femininity and the body’s innate intelligence.</p><p>RIMMBA’s approach to natural fabrics remind us that fashion can return to its roots, becoming again what it once was: an art of connection between what is to come and ancient traditions.</p>",
+        "text": "",
         "show_default_description": false,
         "show_on_description": "desktop",
         "content_position": "start",
