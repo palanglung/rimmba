@@ -1131,8 +1131,13 @@ figure {
         grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     }
 }
-/* CUSTOM UNORDERED LIST WITH ROSE EMOJI */
 
+/* BREADCRUMBS FIX BROKEN LINKS */
+.breadcrumbs ul li a span {
+    white-space: nowrap;
+}
+
+/* CUSTOM UNORDERED LIST WITH ROSE EMOJI */
 .product__description ul,
 .section-page-banner__content.content ul {
   list-style: none; /* Remove default bullets */
@@ -1156,7 +1161,6 @@ figure {
   left: 0;
   top: 0;
 }
-
 
 /*  CUSTOM PAGES with CLASS SECTION DIV */
 .section table {max-width:80% !important; margin:auto;}
