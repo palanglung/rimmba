@@ -135,7 +135,7 @@
         "show_default_description": false,
         "show_on_description": "desktop",
         "content_position": "start",
-        "content_alignment": "start",
+        "content_alignment": "center",
         "media_position": "background",
         "page_menu": "",
         "enable_breadcrumbs": true,
