@@ -95,6 +95,19 @@
             "spacing_bottom": "3"
           }
         },
+        "text_RmAyJz": {
+          "type": "text",
+          "settings": {
+            "spacing_bottom": "1",
+            "heading": "<a href=\"/pages/natural-dyes-mud-dyeing\" target=\"_blank\" title=\"Mud Dyeing\">Learn about: <strong>Mud-Dye</strong></a>",
+            "icon": "theme-info-circle",
+            "link_to_resource": "none",
+            "text_before_link": false,
+            "heading_secondary": "",
+            "metafield_for_product_variant": "",
+            "show_block_content": true
+          }
+        },
         "description_qA3HqH": {
           "type": "description",
           "settings": {
@@ -122,6 +135,13 @@
           "settings": {
             "spacing_bottom": "1",
             "custom_liquid": "<a href=\"/pages/size-chart\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #122b61; text-decoration: underline; font-style: italic; text-align:right;\">Our Size Chart</a> <b> <br>"
+          }
+        },
+        "richtext_hwJRKa": {
+          "type": "richtext",
+          "settings": {
+            "spacing_bottom": "1",
+            "text": "<p>Read: <a href=\"/pages/natural-dyes-mud-dyeing\" target=\"_blank\" title=\"Mud Dyeing\">How Mud Dyeing Works at RIMMBA</a></p>"
           }
         },
         "1e939cd6-0958-4135-a9e5-c50faef01437": {
@@ -297,9 +317,11 @@
         "judge_me_reviews_preview_badge_9zXPD9",
         "sku_HNK7Ka",
         "divider_HGwyhB",
+        "text_RmAyJz",
         "description_qA3HqH",
         "1e939cd6-0955-4135-a9e5-c50faef01437",
         "custom_liquid_4ywCNW",
+        "richtext_hwJRKa",
         "1e939cd6-0958-4135-a9e5-c50faef01437",
         "8604a6ff-ad0b-44dd-8068-1de4e062f8e8",
         "e6d841d6-2f71-40b3-956a-912df13f9f6e",
