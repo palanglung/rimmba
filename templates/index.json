@@ -37,7 +37,6 @@
             "enable_media_overlay_desktop": false,
             "content_position_mobile": "center",
             "content_alignment_mobile": "center",
-            "image_mobile": "shopify://shop_images/RIMMBA_CAMPAIGN_0_457.jpg",
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
             "enable_media_overlay_mobile": true
@@ -90,8 +89,8 @@
             "button_label_1": "SIGN UP NOW",
             "button_style_1": "button--filled",
             "button_link_2": "shopify://pages/natural-dye-workshop-bali",
-            "button_label_2": "",
-            "button_style_2": "button--filled",
+            "button_label_2": "Our Workshop",
+            "button_style_2": "button--outlined",
             "content_position": "center",
             "content_alignment": "center",
             "image": "shopify://shop_images/O6A9072.jpg",
