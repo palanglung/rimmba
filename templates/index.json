@@ -324,7 +324,7 @@
           "type": "collection-slide",
           "settings": {
             "collection": "silk-maxi-dresses-kaftans",
-            "heading": "MAXI",
+            "heading": "MAXI - DRESS",
             "heading_size": "h3",
             "subheading": "<em>Floor length </em>"
           }
@@ -333,7 +333,7 @@
           "type": "collection-slide",
           "settings": {
             "collection": "low-back-silk-dresses",
-            "heading": "LOW BACK",
+            "heading": "LOW BACK - DRESS",
             "heading_size": "h3",
             "subheading": "<em>Sensual grace </em>"
           }
@@ -342,7 +342,7 @@
           "type": "collection-slide",
           "settings": {
             "collection": "midi-silk-dress",
-            "heading": "MIDI",
+            "heading": "MIDI - DRESS",
             "heading_size": "h3",
             "subheading": "Falls <em>halfway between knee and  ankle</em>"
           }
@@ -361,7 +361,7 @@
           "type": "collection-slide",
           "settings": {
             "collection": "silk-cotton-mini-dress",
-            "heading": "MINI",
+            "heading": "MINI - DRESS",
             "heading_size": "h3",
             "subheading": "<em>A little Dress</em>"
           }
