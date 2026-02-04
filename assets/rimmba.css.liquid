@@ -800,6 +800,38 @@ nav * {
 .hero-banner a.button.button--outlined.uppercase:hover {
     color: #F7D623; 
 }
+/*==REMOVE ANIMATIONS ON HERO SLIDER AND SITEWISE==*/
+.hero__animation p,
+.hero__animation,
+.hero__animation > *,
+.hero__animation .hero__button,
+.hero__animation .hero__heading,
+.hero__animation .hero__subheading,
+.hero__animation .hero__entry,
+.hero__animation .in-delay,
+.hero__animation .in-delay > *,
+.full-width-banner__animation,
+.full-width-banner__animation > *,
+.full-width-banner__animation .inAnimation,
+.full-width-banner__animation .inAnimation > * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+  -webkit-animation: none !important;
+  -moz-animation: none !important;
+  -o-animation: none !important;
+  animation: none !important;
+  animation-duration: 0ms !important;
+  animation-delay: 0ms !important;
+  opacity: 1!important;
+  -webkit-transform: none !important; 
+  -moz-transform: none !important; 
+  -o-transform: none !important; 
+  -ms-transform: none !important; 
+  transform: none !important;    
+}
+
 /*====REDUCE SPACING IN CALLOUT BANNER===*/
 .callout-banner__action {
     padding-block-end: 2rem !important;
