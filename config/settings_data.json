@@ -80,7 +80,7 @@
     "share_linkedin": true,
     "share_instagram": true,
     "share_facebook": true,
-    "favicon": "shopify://shop_images/favicon_base.png",
+    "favicon": "shopify://shop_images/RIMMBA-favicon-512x512.png",
     "metaobject_for_product_groups": "product_groups",
     "metaobject_for_product_options_type_values": "product_options_type_values",
     "max_image_url_width": "1.5",
