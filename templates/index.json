@@ -468,7 +468,7 @@
         "heading": "Garments",
         "heading_size": "h3",
         "subheading": "",
-        "content_padding": "3",
+        "content_padding": "0",
         "button_label": "Explore all",
         "button_link": "shopify://collections",
         "button_style": "button--text",
