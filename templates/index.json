@@ -379,7 +379,7 @@
         "heading": "DRESSES",
         "heading_size": "h3",
         "subheading": "",
-        "content_padding": "3",
+        "content_padding": "0",
         "button_label": "Explore all dresses",
         "button_link": "shopify://collections/natural-fabric-dresses-bali",
         "button_style": "button--text",
