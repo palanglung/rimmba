@@ -2382,7 +2382,7 @@ dropdown-input.has-error .dropdown__button {
 }
 
 .rte a {
-  color: currentColor;
+  /*color: currentColor; removed as it ruins Theme styling*/
   text-decoration: underline;
   text-underline-offset: 0.2rem;
 }
