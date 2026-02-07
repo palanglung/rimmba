@@ -588,9 +588,6 @@ a {
 a:not([href]) {
   cursor: not-allowed;
 }
-.section a:not(.button):not(button *):not(:has(img)) {
-  color: rgb(var(--color-link));
-}
 
 p > a {
   color: rgb(var(--color-link));
