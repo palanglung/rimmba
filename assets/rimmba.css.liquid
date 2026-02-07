@@ -1179,14 +1179,36 @@ figure {
 .section a:not(.button):not(button *):not(:has(img)),
 .rte a:not(.button):not(button *):not(:has(img)),
 .product__text--body a:not(.button):not(button *):not(:has(img)) {
-    color: rgb(var(--color-link));
+  color: rgb(var(--color-link));
+  display: inline-block; 
+  width: fit-content;      
+  max-width: 100%;
+  position: relative;
+  text-decoration: none;
+  padding-block: 0;
 }
-.product__text--body a:not(.button):not(button *):not(:has(img)) {
-    text-decoration:underline;
+
+.section a:not(.button):not(button *):not(:has(img))::after,
+.rte a:not(.button):not(button *):not(:has(img))::after,
+.product__text--body a:not(.button):not(button *):not(:has(img))::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0.25em;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: translateX(-50%) scaleX(1);
+  transform-origin: center;
+  transition: transform 0.2s ease;
 }
-.product__text--body a:hover {
-font-weight:bolder;
+
+ .section a:not(.button):not(button *):not(:has(img)):hover::after,
+.rte a:not(.button):not(button *):not(:has(img)):hover::after,
+.product__text--body a:not(.button):not(button *):not(:has(img)):hover::after {
+  transform: translateX(-50%) scaleX(0);
 }
+
 /* CUSTOM UNORDERED LIST WITH ROSE EMOJI */
 .product__description ul,
 .section-page-banner__content.content ul {
