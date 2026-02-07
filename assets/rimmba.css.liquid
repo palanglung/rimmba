@@ -1201,6 +1201,45 @@ figure {
   top: 0;
 }
 
+/*IMPOSE CORRECT FONTS ON LISTS AND OTHERS*/
+.rte > .section > * :is(
+  ol,
+  ul,
+  dl,
+  figcaption,
+  blockquote
+),
+.rte > .section > * :is(
+  ol *,
+  ul *,
+  dl *,
+  figcaption *,
+  blockquote *
+) {
+  font-family: "DMSans-Regular", sans-serif !important;
+}
+
+/*FIX DESCRIPTIVE LISTS*/
+.section dl { max-inline-size: 55ch; margin: auto; }
+.section dd { margin-block-end: 1em; margin-inline-start: 2ch; }
+.section dt {margin-left: 0;}
+.rte > .section > * dt,
+.rte > .section > * dt * {
+  font-family: "Mackenzin", serif !important;
+  text-transform: uppercase !important;
+
+  font-kerning: none !important;
+  font-variant-ligatures: none !important;
+  font-feature-settings:
+    "liga" 0,
+    "clig" 0,
+    "dlig" 0,
+    "hlig" 0 !important;
+
+  letter-spacing: 0.015em;
+}
+
+
 /*  CUSTOM PAGES with CLASS SECTION DIV */
 .section table {max-width:80% !important; margin:auto;}
 .section table.custom_inline_table {max-width: 75% !important; border-collapse: collapse !important; text-align: left; table-layout: auto; border-top: hidden; border-left: hidden;}
@@ -1208,9 +1247,7 @@ figure {
 .section table.custom_inline_table p {font-size:1em !important;}
 .section table.custom_inline_table th,
 .section table.custom_inline_table td {text-align: center; box-shadow: 1px 1px 1px #eee; padding: 0.5em;}
-.section dl { max-inline-size: 55ch; margin: auto; }
-.section dd { margin-block-end: 1em; margin-inline-start: 2ch; }
-.section dt {margin-left: 0;}
+
 @media (max-width: 768px) {
   .section table.custom_inline_table {width: auto !important; max-width:fit-content !important; overflow-x:auto !important;}
   .section table.custom_inline_table,
