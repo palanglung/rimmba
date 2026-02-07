@@ -1177,8 +1177,15 @@ figure {
 }
 /*FIXES LINKS NOT FOLLOWIN THEME SCHEMA*/
 .section a:not(.button):not(button *):not(:has(img)),
-.rte a:not(.button):not(button *):not(:has(img)) {
+.rte a:not(.button):not(button *):not(:has(img)),
+.product__text--body a:not(.button):not(button *):not(:has(img)) {
     color: rgb(var(--color-link));
+}
+.product__text--body a:not(.button):not(button *):not(:has(img)) {
+    text-decoration:underline;
+}
+.product__text--body a:hover {
+font-weight:bolder;
 }
 /* CUSTOM UNORDERED LIST WITH ROSE EMOJI */
 .product__description ul,
