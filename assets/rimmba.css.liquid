@@ -1175,7 +1175,11 @@ figure {
 .breadcrumbs ul li a span {
     white-space: nowrap;
 }
-
+/*FIXES LINKS NOT FOLLOWIN THEME SCHEMA*/
+.section a:not(.button):not(button *):not(:has(img)),
+.rte a:not(.button):not(button *):not(:has(img)) {
+    color: rgb(var(--color-link));
+}
 /* CUSTOM UNORDERED LIST WITH ROSE EMOJI */
 .product__description ul,
 .section-page-banner__content.content ul {
@@ -1201,7 +1205,7 @@ figure {
   top: 0;
 }
 
-/*IMPOSE CORRECT FONTS ON LISTS AND OTHERS*/
+/*IMPOSE ENFORCE CORRECT FONTS ON LISTS AND OTHERS*/
 body[data-body-font="DMSans-Regular"] p {
     font-family: "DMSans-Regular", sans-serif !important;
 }
