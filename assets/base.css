@@ -589,7 +589,7 @@ a:not([href]) {
   cursor: not-allowed;
 }
 
-p > a {
+p > a, .section > a {
   color: rgb(var(--color-link));
   text-decoration: underline;
   text-underline-offset: 0.2rem;
