@@ -190,6 +190,64 @@
         "spacing_bottom": "2"
       }
     },
+    "full_width_banner_nC8ehQ": {
+      "type": "full-width-banner",
+      "blocks": {
+        "heading_84W7WU": {
+          "type": "heading",
+          "settings": {
+            "heading": "Contact & bookings",
+            "heading_size": "h4"
+          }
+        },
+        "content_Q8zPP3": {
+          "type": "content",
+          "settings": {
+            "content": "<p>Not only for enquiries about our natural dye workshop, but also for private bookings, or collaborations in Bali or beyond: <br/>please reach out via WhatsApp or <a href=\"mailto:care@rimmba.com\" target=\"_blank\" title=\"mailto:care@rimmba.com\">email</a>.</p><p>In order to reserve your place, book directly via the workshop checkout page below.</p>"
+          }
+        },
+        "buttons_rXQkrf": {
+          "type": "buttons",
+          "settings": {
+            "button_link_1": "shopify://products/botanical-dye-lingerie-workshop-rimmba",
+            "button_link_1_type": "button",
+            "button_label_1": "Workshop booking",
+            "button_style_1": "button--filled",
+            "color_scheme_first_button": "scheme-1",
+            "button_link_2": "/",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "color_scheme_second_button": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_84W7WU",
+        "content_Q8zPP3",
+        "buttons_rXQkrf"
+      ],
+      "name": "t:sections.full-width-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "half",
+        "content_position": "center",
+        "content_alignment": "center",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "half",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "color_scheme_for_content": "",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
     "dual_tiles_VMgfML": {
       "type": "dual-tiles",
       "blocks": {
@@ -492,6 +550,7 @@
     "featured_products_37gWjw",
     "main",
     "seo_content_YqLz3V",
+    "full_width_banner_nC8ehQ",
     "dual_tiles_VMgfML",
     "accordions_h9bbAN",
     "full_width_banner_txyTw4",
