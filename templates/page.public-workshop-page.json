@@ -174,22 +174,6 @@
         "spacing_bottom": "0"
       }
     },
-    "seo_content_YqLz3V": {
-      "type": "seo-content",
-      "name": "t:sections.seo-content.name",
-      "settings": {
-        "section_layout": "normal",
-        "heading": "",
-        "heading_size": "h3",
-        "text": "<p>Each experience is <strong>thoughtfully curated by Karunia Fischer</strong> and designed to be intentional, engaging, and deeply connected to the spirit of your celebration.<br/>All materials are provided: you bring the guests, we bring the color, the plants, and the magic. 🌿</p>",
-        "content_alignment": "center",
-        "section_width": "max-w-narrower",
-        "color_scheme": "",
-        "spacing_inner": "2",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
-      }
-    },
     "full_width_banner_nC8ehQ": {
       "type": "full-width-banner",
       "blocks": {
@@ -245,6 +229,22 @@
         "section_width": "max-w-full",
         "color_scheme": "",
         "color_scheme_for_content": "",
+        "spacing_inner": "1",
+        "spacing_top": "0",
+        "spacing_bottom": "1"
+      }
+    },
+    "seo_content_YqLz3V": {
+      "type": "seo-content",
+      "name": "t:sections.seo-content.name",
+      "settings": {
+        "section_layout": "normal",
+        "heading": "",
+        "heading_size": "h3",
+        "text": "<p>Each experience is <strong>thoughtfully curated by Karunia Fischer</strong> and designed to be intentional, engaging, and deeply connected to the spirit of your celebration.<br/>All materials are provided: you bring the guests, we bring the color, the plants, and the magic. 🌿</p>",
+        "content_alignment": "center",
+        "section_width": "max-w-narrower",
+        "color_scheme": "",
         "spacing_inner": "2",
         "spacing_top": "2",
         "spacing_bottom": "2"
@@ -551,8 +551,8 @@
     "highlighted_product_TcbtpR",
     "featured_products_37gWjw",
     "main",
-    "seo_content_YqLz3V",
     "full_width_banner_nC8ehQ",
+    "seo_content_YqLz3V",
     "dual_tiles_VMgfML",
     "accordions_h9bbAN",
     "full_width_banner_txyTw4",
