@@ -49,7 +49,7 @@
         "image": "shopify://shop_images/Mud_Dye_Collaboration.webp",
         "heading": "<strong>Join the sustainable fashion movement!</strong>",
         "heading_size": "h3",
-        "text": "<p>Sign up for exclusive discounts, early sale access, and workshop updates!</p>",
+        "text": "<p>Sign up for exclusive discounts, early sale access, and <a href=\"/pages/natural-dye-workshop-bali\" target=\"_blank\" title=\"Natural Dye Workshop in Bali\">workshop updates</a>!</p>",
         "button_close_text": "No thanks",
         "show_popup_on_customizer": false,
         "color_scheme": ""
