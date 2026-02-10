@@ -46,7 +46,7 @@
       "type": "newsletter-popup",
       "settings": {
         "delay": 15,
-        "image": "shopify://shop_images/Rimmba_main_photo.jpg",
+        "image": "shopify://shop_images/Mud_Dye_Collaboration.webp",
         "heading": "<strong>Join the sustainable fashion movement!</strong>",
         "heading_size": "h3",
         "text": "<p>Sign up for exclusive discounts, early sale access, and workshop updates!</p>",
