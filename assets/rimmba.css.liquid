@@ -976,7 +976,16 @@ nav * {
 .media.media--small.newsletter-popup__media {
   aspect-ratio: 16 / 9;
 }
-
+@media screen and (max-width: 750px) { /*image visible on mobile*/
+  .newsletter-popup__media {
+    display: block;
+  }
+  .newsletter-popup__wrapper {
+    margin: auto;
+    margin-top:10%;
+    max-width:90%;
+  }
+}
 /* ========== TABLES ========== */
 /*
 :where(th, td) {
