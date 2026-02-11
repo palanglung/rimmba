@@ -1209,6 +1209,12 @@ figure {
   transform: translateX(-50%) scaleX(0);
 }
 
+.product-card a::after { /*fix on safari showing line on product cards*/
+  content: none !important;
+  display: none !important;
+}
+
+
 /* CUSTOM UNORDERED LIST WITH ROSE EMOJI */
 .product__description ul,
 .section-page-banner__content.content ul {
