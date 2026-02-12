@@ -1191,6 +1191,10 @@ figure {
 .product__product-groups legend.form__label span {
     white-space: normal;
 }
+/* FIX BROKEN FORMATTING ON LINKS BELOW PRODUCTS */
+.product__text+.product__text .product__text--content {
+    display: block;
+}
 /*FIXES LINKS NOT FOLLOWIN THEME SCHEMA*/
 .section a:not(.button):not(button *):not(:has(img)):not(.product-card *),
 .rte a:not(.button):not(button *):not(:has(img)):not(.product-card *),
