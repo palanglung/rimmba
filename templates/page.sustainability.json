@@ -110,6 +110,7 @@
         "section_height": "auto",
         "content_position": "center",
         "content_alignment": "center",
+        "image": "shopify://shop_images/Dye_Workshop_Bali.webp",
         "video_external": "",
         "show_controls_on_video": false,
         "aspect_ratio": "auto",
@@ -121,7 +122,7 @@
         "aspect_ratio_mobile": "auto",
         "section_width": "max-w-full",
         "color_scheme": "",
-        "color_scheme_for_content": "scheme-1",
+        "color_scheme_for_content": "scheme-6",
         "spacing_inner": "2",
         "spacing_top": "0",
         "spacing_bottom": "2"
