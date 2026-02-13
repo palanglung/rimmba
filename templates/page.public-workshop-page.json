@@ -157,6 +157,67 @@
         "spacing_bottom": "2"
       }
     },
+    "full_width_banner_MKq64z": {
+      "type": "full-width-banner",
+      "blocks": {
+        "subheading_9C97dz": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Save the Brochure to read it offline",
+            "link": ""
+          }
+        },
+        "heading_NLReWK": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Headline full width banner",
+            "heading_size": "h3"
+          }
+        },
+        "buttons_MbegM9": {
+          "type": "buttons",
+          "settings": {
+            "button_link_1": "https://cdn.shopify.com/s/files/1/0060/8560/7524/files/Public_Botanical_Dye_Workshop_RIMMBA_-_2026.pdf?v=1770966123",
+            "button_link_1_type": "button",
+            "button_label_1": "Public Workshop PDF",
+            "button_style_1": "button--filled",
+            "color_scheme_first_button": "",
+            "button_link_2": "/",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "color_scheme_second_button": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_9C97dz",
+        "heading_NLReWK",
+        "buttons_MbegM9"
+      ],
+      "name": "t:sections.full-width-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "auto",
+        "content_position": "center",
+        "content_alignment": "center",
+        "image": "shopify://shop_images/Banner_Silk_Natural_Dye.webp",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "half",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "color_scheme_for_content": "",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
     "main": {
       "type": "main-page",
       "custom_css": [
@@ -550,6 +611,7 @@
     "page_banner_kExA78",
     "highlighted_product_TcbtpR",
     "featured_products_37gWjw",
+    "full_width_banner_MKq64z",
     "main",
     "full_width_banner_nC8ehQ",
     "seo_content_YqLz3V",
