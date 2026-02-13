@@ -319,6 +319,54 @@
         "spacing_bottom": "2"
       }
     },
+    "accordions_BfpKAf": {
+      "type": "accordions",
+      "blocks": {
+        "topic_9ygEPm": {
+          "type": "topic",
+          "settings": {
+            "is_open": true,
+            "title": "Timeline",
+            "text": "<p>Please note that the provided timeframe mentioned above for crafting your custom RIMMBA silk dress is an estimate. We deeply appreciate the well-being and personal commitments of our dedicated team.</p><p>We understand that unforeseen personal circumstances can arise. Also, we have great respect for Balinese ceremonies which may interrupt production time.</p><p>Intricate or complex designs may also extend the time it takes to craft your custom silk dress.</p>",
+            "page": ""
+          }
+        },
+        "topic_ihzHtN": {
+          "type": "topic",
+          "settings": {
+            "is_open": false,
+            "title": "Access to the Atelier",
+            "text": "<p>Some customers may express a desire to observe the dyeing and sewing process. However, please note that this customized service does not grant access to the RIMMBA atelier.</p>",
+            "page": ""
+          }
+        },
+        "topic_QPUPVf": {
+          "type": "topic",
+          "disabled": true,
+          "settings": {
+            "is_open": false,
+            "title": "Refund details",
+            "text": "<p>Add additional information about refund policy.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "topic_9ygEPm",
+        "topic_ihzHtN",
+        "topic_QPUPVf"
+      ],
+      "disabled": true,
+      "name": "t:sections.accordions.name",
+      "settings": {
+        "heading": "Terms & Conditions",
+        "heading_size": "h3",
+        "section_width": "max-w-narrower",
+        "color_scheme": "",
+        "spacing_top": "1",
+        "spacing_bottom": "4"
+      }
+    },
     "full_width_banner_W7yygr": {
       "type": "full-width-banner",
       "blocks": {
@@ -407,6 +455,7 @@
     "seo_content_ebjggt",
     "full_width_banner_txyTw4",
     "full_width_banner_meeAGa",
+    "accordions_BfpKAf",
     "full_width_banner_W7yygr",
     "main_list_collections_EnGLME"
   ]
