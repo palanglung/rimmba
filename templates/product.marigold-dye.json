@@ -99,7 +99,7 @@
           "type": "text",
           "settings": {
             "spacing_bottom": "1",
-            "heading": "<a href=\"/pages/natural-dyes-mud-dyeing\" target=\"_blank\" title=\"Mud Dyeing\">Learn about: <strong>Mud-Dye</strong></a>",
+            "heading": "<a href=\"/pages/marigold-natural-dye\" target=\"_blank\" title=\"Marigold Natural Dye\">Learn about: <strong>Marigold-Dye</strong></a>",
             "icon": "theme-info-circle",
             "link_to_resource": "none",
             "text_before_link": false,
@@ -141,7 +141,7 @@
           "type": "richtext",
           "settings": {
             "spacing_bottom": "1",
-            "text": "<p>Read: <a href=\"/pages/natural-dyes-mud-dyeing\" target=\"_blank\" title=\"Mud Dyeing\">How Mud Dyeing Works at RIMMBA</a></p>"
+            "text": "<p>Read: <a href=\"/pages/marigold-natural-dye\" target=\"_blank\" title=\"Marigold Natural Dye\">How Marigold Dyeing Works at RIMMBA</a></p>"
           }
         },
         "1e939cd6-0958-4135-a9e5-c50faef01437": {
