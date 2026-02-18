@@ -134,20 +134,6 @@
         "spacing_bottom": "2"
       }
     },
-    "main": {
-      "type": "main-page",
-      "settings": {
-        "breadcrumbs": false,
-        "show_page_title": false,
-        "page_title_alignment": "text-center",
-        "info_title": "",
-        "info_content": "",
-        "section_width": "max-w-fluid",
-        "color_scheme": "scheme-1",
-        "spacing_top": "2",
-        "spacing_bottom": "0"
-      }
-    },
     "form": {
       "type": "form-contact",
       "blocks": {
@@ -417,6 +403,20 @@
         "spacing_bottom": "0"
       }
     },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "breadcrumbs": false,
+        "show_page_title": false,
+        "page_title_alignment": "text-center",
+        "info_title": "",
+        "info_content": "",
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-1",
+        "spacing_top": "2",
+        "spacing_bottom": "0"
+      }
+    },
     "multitile_RMhzqE": {
       "type": "multitile",
       "blocks": {
@@ -538,10 +538,10 @@
     "page_banner_bMQDWP",
     "custom_liquid_rbLwMT",
     "dual_tiles_6eDKJQ",
-    "main",
     "form",
     "multitile_VmhDDc",
     "carousel_464xTm",
+    "main",
     "multitile_RMhzqE",
     "map"
   ]
