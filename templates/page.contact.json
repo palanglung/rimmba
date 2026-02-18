@@ -411,7 +411,7 @@
         "page_title_alignment": "text-center",
         "info_title": "",
         "info_content": "",
-        "section_width": "max-w-fluid",
+        "section_width": "max-w-page",
         "color_scheme": "scheme-1",
         "spacing_top": "2",
         "spacing_bottom": "0"
