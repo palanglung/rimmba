@@ -50,6 +50,17 @@
         "spacing_bottom": "2"
       }
     },
+    "custom_liquid_7Tw7Bb": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "custom_liquid": "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": [{\n    \"@type\": \"Question\",\n    \"name\": \"Where is Botanicals by RIMMBA located?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Botanicals by RIMMBA is located at Jalan Dewi Sita No. 12, Ubud, Gianyar, Bali, Indonesia.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"Do I need an appointment to visit the boutique?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"No appointment is required during opening hours, but private consultations can be arranged in advance.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"Can I see the atelier and learn about the dyeing process?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Yes. Visitors can learn about botanical dye techniques and the materials used during their visit.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"Do you offer bespoke or custom pieces?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Yes. Botanicals by RIMMBA offers bespoke silk garments and tailoring services.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"How should I care for botanically dyed silk?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Natural dyes benefit from gentle washing, mild detergents, and air drying to preserve color and fabric integrity.\"\n    }\n  }]\n}\n</script>",
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "spacing_top": "0",
+        "spacing_bottom": "0"
+      }
+    },
     "dual_tiles_6eDKJQ": {
       "type": "dual-tiles",
       "blocks": {
@@ -537,6 +548,7 @@
   },
   "order": [
     "page_banner_bMQDWP",
+    "custom_liquid_7Tw7Bb",
     "custom_liquid_rbLwMT",
     "dual_tiles_6eDKJQ",
     "form",
