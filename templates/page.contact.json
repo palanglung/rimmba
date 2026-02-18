@@ -39,6 +39,17 @@
         "spacing_bottom": "6"
       }
     },
+    "custom_liquid_7Tw7Bb": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "custom_liquid": "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"ClothingStore\",\n  \"name\": \"Botanicals by RIMMBA\",\n  \"image\": \"https://rimmba.com/cdn/shop/files/FlowerBathFemininity.png\",\n  \"url\": \"https://rimmba.com/pages/contact-us\",\n  \"telephone\": \"+6281338873123\",\n  \"email\": \"care@rimmba.com\",\n  \"address\": {\n    \"@type\": \"PostalAddress\",\n    \"streetAddress\": \"Jalan Dewi Sita No. 12\",\n    \"addressLocality\": \"Ubud\",\n    \"addressRegion\": \"Gianyar\",\n    \"postalCode\": \"80581\",\n    \"addressCountry\": \"ID\"\n  },\n  \"openingHoursSpecification\": [{\n    \"@type\": \"OpeningHoursSpecification\",\n    \"dayOfWeek\": [\n      \"Monday\",\n      \"Tuesday\",\n      \"Wednesday\",\n      \"Thursday\",\n      \"Friday\",\n      \"Saturday\",\n      \"Sunday\"\n    ],\n    \"opens\": \"10:00\",\n    \"closes\": \"21:00\"\n  }],\n  \"priceRange\": \"$$\",\n  \"sameAs\": [\n    \"https://www.instagram.com/rimmba\",\n    \"https://www.facebook.com/rimmba\"\n  ]\n}\n</script>",
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "spacing_top": "0",
+        "spacing_bottom": "0"
+      }
+    },
     "custom_liquid_rbLwMT": {
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.name",
@@ -48,17 +59,6 @@
         "color_scheme": "",
         "spacing_top": "0",
         "spacing_bottom": "2"
-      }
-    },
-    "custom_liquid_7Tw7Bb": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.name",
-      "settings": {
-        "custom_liquid": "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": [{\n    \"@type\": \"Question\",\n    \"name\": \"Where is Botanicals by RIMMBA located?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Botanicals by RIMMBA is located at Jalan Dewi Sita No. 12, Ubud, Gianyar, Bali, Indonesia.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"Do I need an appointment to visit the boutique?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"No appointment is required during opening hours, but private consultations can be arranged in advance.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"Can I see the atelier and learn about the dyeing process?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Yes. Visitors can learn about botanical dye techniques and the materials used during their visit.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"Do you offer bespoke or custom pieces?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Yes. Botanicals by RIMMBA offers bespoke silk garments and tailoring services.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"How should I care for botanically dyed silk?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Natural dyes benefit from gentle washing, mild detergents, and air drying to preserve color and fabric integrity.\"\n    }\n  }]\n}\n</script>",
-        "section_width": "max-w-full",
-        "color_scheme": "",
-        "spacing_top": "0",
-        "spacing_bottom": "0"
       }
     },
     "dual_tiles_6eDKJQ": {
