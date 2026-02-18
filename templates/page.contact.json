@@ -300,7 +300,7 @@
         "heading_alignment": "start",
         "spacing_tile": "default",
         "color_scheme": "",
-        "section_width": "max-w-fluid",
+        "section_width": "max-w-page",
         "spacing_top": "2",
         "spacing_bottom": "2"
       }
@@ -398,7 +398,7 @@
         "button_label": "",
         "button_link": "",
         "button_style": "button--filled",
-        "section_width": "max-w-fluid",
+        "section_width": "max-w-page",
         "color_scheme": "",
         "spacing_top": "0",
         "spacing_bottom": "0"
@@ -516,7 +516,7 @@
         "heading_alignment": "start",
         "spacing_tile": "default",
         "color_scheme": "",
-        "section_width": "max-w-fluid",
+        "section_width": "max-w-page",
         "spacing_top": "2",
         "spacing_bottom": "2"
       }
