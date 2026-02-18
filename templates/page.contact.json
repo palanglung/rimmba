@@ -136,7 +136,6 @@
     },
     "main": {
       "type": "main-page",
-      "disabled": true,
       "settings": {
         "breadcrumbs": false,
         "show_page_title": false,
