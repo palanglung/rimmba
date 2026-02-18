@@ -610,6 +610,17 @@
         "spacing_top": "2",
         "spacing_bottom": "2"
       }
+    },
+    "custom_liquid_MFi6Nm": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "custom_liquid": "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": [{\n    \"@type\": \"Question\",\n    \"name\": \"Where is Botanicals by RIMMBA located?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Botanicals by RIMMBA is located at Jl. Dewisita No.12, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"Do I need an appointment to visit the boutique?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"No appointment is required during opening hours, but private consultations must be arranged in advance.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"Can I see the atelier and learn about the dyeing process?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Yes, we offer both private classes and public workshops to learn about the natural dyeing process.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"Do you offer bespoke or custom pieces?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Yes. Botanicals by RIMMBA offers bespoke silk garments and custom tailoring services.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"How should I care for botanically dyed silk?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Natural dyes benefit from gentle washing, mild detergents, and air drying to preserve color and fabric integrity.\"\n    }\n  }]\n}\n</script>",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
     }
   },
   "order": [
@@ -623,6 +634,7 @@
     "main",
     "multitile_RMhzqE",
     "accordions_MaqKtQ",
-    "map"
+    "map",
+    "custom_liquid_MFi6Nm"
   ]
 }
