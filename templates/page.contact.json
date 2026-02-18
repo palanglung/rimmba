@@ -92,7 +92,7 @@
             "custom_background_color": "",
             "heading": "",
             "heading_size": "h3",
-            "text": "{{ page.content }}",
+            "text": "<h3>Botanicals by RIMMBA</h3><h4>Silk Boutique & Atelier</h4><p><a href=\"https://maps.app.goo.gl/N4kXxNq9JvYbSX4B8\" target=\"_blank\" title=\"RIMMBA Shop in Bali\">Jalan Dewi Sita No. 12, Ubud, Gianyar 80581, Bali</a><br/></p><p></p><h5>Opening Hours</h5><p><strong>Monday – Sunday<br/></strong>10:00 AM — 9:00 PM</p><p></p><p>For any questions about our handmade <a href=\"/pages/handmade-silk-dress-bali\" target=\"_blank\" title=\"Custom RIMMBA Dresses\">custom silk dresses</a> or atelier visits, contact us:</p><p><a href=\"mailto:care@rimmba.com\">care@rimmba.com</a></p><p><a href=\"tel:+6281338873123\">+62 813 3887 3123</a></p>",
             "button_label": "",
             "button_link": "",
             "button_style": "button--filled",
@@ -132,6 +132,21 @@
         "section_width": "max-w-page",
         "spacing_top": "2",
         "spacing_bottom": "2"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "breadcrumbs": false,
+        "show_page_title": false,
+        "page_title_alignment": "text-center",
+        "info_title": "",
+        "info_content": "",
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-1",
+        "spacing_top": "2",
+        "spacing_bottom": "0"
       }
     },
     "form": {
@@ -506,21 +521,6 @@
         "spacing_bottom": "2"
       }
     },
-    "main": {
-      "type": "main-page",
-      "disabled": true,
-      "settings": {
-        "breadcrumbs": false,
-        "show_page_title": false,
-        "page_title_alignment": "text-center",
-        "info_title": "",
-        "info_content": "",
-        "section_width": "max-w-fluid",
-        "color_scheme": "scheme-1",
-        "spacing_top": "2",
-        "spacing_bottom": "0"
-      }
-    },
     "map": {
       "type": "map",
       "disabled": true,
@@ -539,11 +539,11 @@
     "page_banner_bMQDWP",
     "custom_liquid_rbLwMT",
     "dual_tiles_6eDKJQ",
+    "main",
     "form",
     "multitile_VmhDDc",
     "carousel_464xTm",
     "multitile_RMhzqE",
-    "main",
     "map"
   ]
 }
