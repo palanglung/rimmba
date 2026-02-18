@@ -532,6 +532,72 @@
         "spacing_bottom": "2"
       }
     },
+    "accordions_MaqKtQ": {
+      "type": "accordions",
+      "blocks": {
+        "topic_4YNKGM": {
+          "type": "topic",
+          "settings": {
+            "is_open": false,
+            "title": "Do I need an appointment to visit the boutique?",
+            "text": "<p>No appointment is required during opening hours. However, if you would like a private consultation or bespoke guidance, we recommend contacting us in advance.</p>",
+            "page": ""
+          }
+        },
+        "topic_dFEhN6": {
+          "type": "topic",
+          "settings": {
+            "is_open": false,
+            "title": "Where is Botanicals by RIMMBA located?",
+            "text": "<p>Our boutique and atelier are located on <a href=\"https://maps.app.goo.gl/eLeJjMp8t6WdUBRS8\" target=\"_blank\" title=\"Botanicals by RIMMBA Shop in Ubud\">Jalan Dewi Sita No. 12 in Ubud, Gianyar, Bali</a>. You can find directions through the Google Maps link above.</p>",
+            "page": ""
+          }
+        },
+        "topic_U3EC3a": {
+          "type": "topic",
+          "settings": {
+            "is_open": false,
+            "title": "How should I care for botanically dyed silk?",
+            "text": "<p>We provide gentle <a href=\"/pages/care-and-laundering-rimmba-silk-garments\" target=\"_blank\" title=\"Washing & Care instructions\">care guidance </a>during your visit. In general, natural dyes benefit from mild washing, low agitation, and air drying.</p>",
+            "page": ""
+          }
+        },
+        "topic_LkENzr": {
+          "type": "topic",
+          "settings": {
+            "is_open": true,
+            "title": "Do you offer bespoke or custom pieces?",
+            "text": "<p>Yes. We offer bespoke silk garments and tailoring. For more details, please visit our <a href=\"/pages/handmade-silk-dress-bali\" target=\"_blank\" title=\"Custom RIMMBA Dresses\">custom dresses page</a>, or contact us directly.</p>",
+            "page": ""
+          }
+        },
+        "topic_jVFyEB": {
+          "type": "topic",
+          "settings": {
+            "is_open": true,
+            "title": "Can I see the atelier and learn about the dyeing process?",
+            "text": "<p>Yes, we offer both <a href=\"/pages/tailored-workshop-bali\" target=\"_blank\" title=\"Private Dye Workshop\">private classes</a> and <a href=\"/pages/natural-dye-workshop-bali\" target=\"_blank\" title=\"Natural Dye Workshop in Bali\">public workshops</a> to learn about the natural dyeing process.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "topic_4YNKGM",
+        "topic_dFEhN6",
+        "topic_U3EC3a",
+        "topic_LkENzr",
+        "topic_jVFyEB"
+      ],
+      "name": "t:sections.accordions.name",
+      "settings": {
+        "heading": "Frequently asked questions",
+        "heading_size": "h3",
+        "section_width": "max-w-narrower",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
     "map": {
       "type": "map",
       "disabled": true,
@@ -556,6 +622,7 @@
     "carousel_464xTm",
     "main",
     "multitile_RMhzqE",
+    "accordions_MaqKtQ",
     "map"
   ]
 }
