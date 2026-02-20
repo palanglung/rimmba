@@ -1,6 +1,954 @@
+{% doc %}
+  @prompt
+    a multi-tile section with choice for width (narrow, fluid, full), style and 4 different layouts options.
+    Each of the blocks contained should contain:
+    - Title
+    - Description
+    - Be itself a link
+    - Background image (option to leave empty, manually choose, or link to page as explained below)
+    The contents can be manually inserted or automatically links to:
+    - page title
+    - page Meta Description
+    - page URL
+    - page featured image
+    of different selected pages., The option to choose "manual" and "linked to page" should be available for each: Title, Description, Background Image. The Option for Color Scheme option should be available for each tile. 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-multi-tile-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+  }
+
+  .ai-multi-tile-container-{{ ai_gen_id }} {
+    margin: 0 auto;
+  }
+
+  .ai-multi-tile-container-{{ ai_gen_id }}.width-narrow {
+    max-width: 800px;
+  }
+
+  .ai-multi-tile-container-{{ ai_gen_id }}.width-fluid {
+    max-width: 1200px;
+  }
+
+  .ai-multi-tile-container-{{ ai_gen_id }}.width-full {
+    max-width: 100%;
+  }
+
+  .ai-multi-tile-grid-{{ ai_gen_id }} {
+    display: grid;
+    gap: {{ block.settings.tile_spacing }}px;
+  }
+
+  .ai-multi-tile-grid-{{ ai_gen_id }}.layout-grid-2x2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ai-multi-tile-grid-{{ ai_gen_id }}.layout-grid-3x1 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ai-multi-tile-grid-{{ ai_gen_id }}.layout-grid-4x1 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .ai-multi-tile-grid-{{ ai_gen_id }}.layout-masonry {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ai-multi-tile-grid-{{ ai_gen_id }}.layout-masonry .ai-multi-tile-item-{{ ai_gen_id }}:nth-child(1) {
+    grid-row: span 2;
+  }
+
+  .ai-multi-tile-item-{{ ai_gen_id }} {
+    position: relative;
+    overflow: hidden;
+    border-radius: {{ block.settings.tile_border_radius }}px;
+    min-height: {{ block.settings.tile_min_height }}px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+
+  .ai-multi-tile-item-{{ ai_gen_id }}:hover {
+    transform: scale(1.02);
+  }
+
+  .ai-multi-tile-background-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .ai-multi-tile-background-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-multi-tile-background-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: {{ block.settings.placeholder_bg_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-multi-tile-background-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  .ai-multi-tile-overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  .ai-multi-tile-overlay-{{ ai_gen_id }}.overlay-none {
+    background: transparent;
+  }
+
+  .ai-multi-tile-overlay-{{ ai_gen_id }}.overlay-light {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+  }
+
+  .ai-multi-tile-overlay-{{ ai_gen_id }}.overlay-medium {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+  }
+
+  .ai-multi-tile-overlay-{{ ai_gen_id }}.overlay-dark {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+  }
+
+  .ai-multi-tile-content-{{ ai_gen_id }} {
+    position: relative;
+    z-index: 3;
+    padding: {{ block.settings.content_padding }}px;
+  }
+
+  .ai-multi-tile-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.title_size }}px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    text-transform: {{ block.settings.title_transform }};
+  }
+
+  .ai-multi-tile-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.description_size }}px;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-multi-tile-grid-{{ ai_gen_id }}.layout-grid-2x2,
+    .ai-multi-tile-grid-{{ ai_gen_id }}.layout-grid-3x1,
+    .ai-multi-tile-grid-{{ ai_gen_id }}.layout-grid-4x1,
+    .ai-multi-tile-grid-{{ ai_gen_id }}.layout-masonry {
+      grid-template-columns: 1fr;
+    }
+
+    .ai-multi-tile-grid-{{ ai_gen_id }}.layout-masonry .ai-multi-tile-item-{{ ai_gen_id }}:nth-child(1) {
+      grid-row: span 1;
+    }
+
+    .ai-multi-tile-title-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.title_size }}px * 0.8);
+    }
+
+    .ai-multi-tile-description-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.description_size }}px * 0.9);
+    }
+  }
+{% endstyle %}
+
+<multi-tile-section-{{ ai_gen_id }} class="ai-multi-tile-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-multi-tile-container-{{ ai_gen_id }} width-{{ block.settings.container_width }}">
+    <div class="ai-multi-tile-grid-{{ ai_gen_id }} layout-{{ block.settings.layout }}">
+      {% for i in (1..4) %}
+        {% liquid
+          assign content_source_key = 'content_source_' | append: i
+          assign title_source_key = 'title_source_' | append: i
+          assign description_source_key = 'description_source_' | append: i
+          assign image_source_key = 'image_source_' | append: i
+          assign manual_title_key = 'manual_title_' | append: i
+          assign manual_description_key = 'manual_description_' | append: i
+          assign manual_url_key = 'manual_url_' | append: i
+          assign manual_image_key = 'manual_image_' | append: i
+          assign linked_page_key = 'linked_page_' | append: i
+          assign color_scheme_key = 'color_scheme_' | append: i
+          assign overlay_style_key = 'overlay_style_' | append: i
+
+          assign linked_page = block.settings[linked_page_key]
+
+          if block.settings[title_source_key] == 'manual'
+            assign tile_title = block.settings[manual_title_key]
+          else
+            if linked_page
+              assign tile_title = linked_page.title
+            else
+              assign tile_title = ''
+            endif
+          endif
+
+          if block.settings[description_source_key] == 'manual'
+            assign tile_description = block.settings[manual_description_key]
+          else
+            if linked_page
+              assign tile_description = linked_page.metafields.global.description_tag
+            else
+              assign tile_description = ''
+            endif
+          endif
+
+          if block.settings[image_source_key] == 'manual'
+            assign tile_image = block.settings[manual_image_key]
+          else
+            if linked_page
+              assign tile_image = linked_page.image
+            else
+              assign tile_image = null
+            endif
+          endif
+
+          if block.settings[content_source_key] == 'manual'
+            assign tile_url = block.settings[manual_url_key]
+          else
+            if linked_page
+              assign tile_url = linked_page.url
+            else
+              assign tile_url = ''
+            endif
+          endif
+
+          assign color_scheme = block.settings[color_scheme_key]
+          assign overlay_style = block.settings[overlay_style_key]
+        %}
+
+        <a
+          href="{{ tile_url }}"
+          class="ai-multi-tile-item-{{ ai_gen_id }} color-{{ color_scheme }}"
+          {% if tile_url == blank %}aria-disabled="true" style="pointer-events: none;"{% endif %}
+        >
+          <div class="ai-multi-tile-background-{{ ai_gen_id }}">
+            {% if tile_image %}
+              <img
+                src="{{ tile_image | image_url: width: 800 }}"
+                alt="{{ tile_image.alt | escape }}"
+                loading="lazy"
+                width="800"
+                height="600"
+              >
+            {% else %}
+              <div class="ai-multi-tile-background-placeholder-{{ ai_gen_id }}">
+                {{ 'image' | placeholder_svg_tag }}
+              </div>
+            {% endif %}
+          </div>
+          <div class="ai-multi-tile-overlay-{{ ai_gen_id }} overlay-{{ overlay_style }}"></div>
+          <div class="ai-multi-tile-content-{{ ai_gen_id }}">
+            {% if tile_title != blank %}
+              <h3 class="ai-multi-tile-title-{{ ai_gen_id }}">{{ tile_title }}</h3>
+            {% endif %}
+            {% if tile_description != blank %}
+              <p class="ai-multi-tile-description-{{ ai_gen_id }}">{{ tile_description }}</p>
+            {% endif %}
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</multi-tile-section-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class MultiTileSection{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.setupAccessibility();
+      }
+
+      setupAccessibility() {
+        const tiles = this.querySelectorAll('.ai-multi-tile-item-{{ ai_gen_id }}');
+        tiles.forEach((tile) => {
+          if (!tile.getAttribute('href') || tile.getAttribute('href') === '') {
+            tile.setAttribute('tabindex', '-1');
+          }
+        });
+      }
+    }
+
+    customElements.define('multi-tile-section-{{ ai_gen_id }}', MultiTileSection{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Multi-tile section",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "fluid",
+          "label": "Fluid"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "fluid"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout style",
+      "options": [
+        {
+          "value": "grid-2x2",
+          "label": "Grid 2x2"
+        },
+        {
+          "value": "grid-3x1",
+          "label": "Grid 3 columns"
+        },
+        {
+          "value": "grid-4x1",
+          "label": "Grid 4 columns"
+        },
+        {
+          "value": "masonry",
+          "label": "Masonry"
+        }
+      ],
+      "default": "grid-2x2"
+    },
+    {
+      "type": "range",
+      "id": "tile_spacing",
+      "label": "Tile spacing",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "tile_min_height",
+      "label": "Tile minimum height",
+      "min": 200,
+      "max": 600,
+      "step": 50,
+      "unit": "px",
+      "default": 300
+    },
+    {
+      "type": "header",
+      "content": "Tile style"
+    },
+    {
+      "type": "range",
+      "id": "tile_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "placeholder_bg_color",
+      "label": "Placeholder background",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "header",
+      "content": "Content style"
+    },
+    {
+      "type": "range",
+      "id": "content_padding",
+      "label": "Content padding",
+      "min": 16,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "select",
+      "id": "title_transform",
+      "label": "Title transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ],
+      "default": "uppercase"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Tile 1"
+    },
+    {
+      "type": "select",
+      "id": "content_source_1",
+      "label": "Link source",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual"
+        },
+        {
+          "value": "page",
+          "label": "Link to page"
+        }
+      ],
+      "default": "manual"
+    },
+    {
+      "type": "select",
+      "id": "title_source_1",
+      "label": "Title source",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual"
+        },
+        {
+          "value": "page",
+          "label": "From page"
+        }
+      ],
+      "default": "manual"
+    },
+    {
+      "type": "text",
+      "id": "manual_title_1",
+      "label": "Manual title",
+      "default": "Tile 1"
+    },
+    {
+      "type": "select",
+      "id": "description_source_1",
+      "label": "Description source",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual"
+        },
+        {
+          "value": "page",
+          "label": "From page"
+        }
+      ],
+      "default": "manual"
+    },
+    {
+      "type": "textarea",
+      "id": "manual_description_1",
+      "label": "Manual description",
+      "default": "Add a description for this tile"
+    },
+    {
+      "type": "select",
+      "id": "image_source_1",
+      "label": "Image source",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual"
+        },
+        {
+          "value": "page",
+          "label": "From page"
+        }
+      ],
+      "default": "manual"
+    },
+    {
+      "type": "image_picker",
+      "id": "manual_image_1",
+      "label": "Manual background image"
+    },
+    {
+      "type": "url",
+      "id": "manual_url_1",
+      "label": "Manual link"
+    },
+    {
+      "type": "page",
+      "id": "linked_page_1",
+      "label": "Select page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_1",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style_1",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "header",
+      "content": "Tile 2"
+    },
+    {
+      "type": "select",
+      "id": "content_source_2",
+      "label": "Link source",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual"
+        },
+        {
+          "value": "page",
+          "label": "Link to page"
+        }
+      ],
+      "default": "manual"
+    },
+    {
+      "type": "select",
+      "id": "title_source_2",
+      "label": "Title source",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual"
+        },
+        {
+          "value": "page",
+          "label": "From page"
+        }
+      ],
+      "default": "manual"
+    },
+    {
+      "type": "text",
+      "id": "manual_title_2",
+      "label": "Manual title",
+      "default": "Tile 2"
+    },
+    {
+      "type": "select",
+      "id": "description_source_2",
+      "label": "Description source",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual"
+        },
+        {
+          "value": "page",
+          "label": "From page"
+        }
+      ],
+      "default": "manual"
+    },
+    {
+      "type": "textarea",
+      "id": "manual_description_2",
+      "label": "Manual description",
+      "default": "Add a description for this tile"
+    },
+    {
+      "type": "select",
+      "id": "image_source_2",
+      "label": "Image source",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual"
+        },
+        {
+          "value": "page",
+          "label": "From page"
+        }
+      ],
+      "default": "manual"
+    },
+    {
+      "type": "image_picker",
+      "id": "manual_image_2",
+      "label": "Manual background image"
+    },
+    {
+      "type": "url",
+      "id": "manual_url_2",
+      "label": "Manual link"
+    },
+    {
+      "type": "page",
+      "id": "linked_page_2",
+      "label": "Select page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_2",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style_2",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "header",
+      "content": "Tile 3"
+    },
+    {
+      "type": "select",
+      "id": "content_source_3",
+      "label": "Link source",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual"
+        },
+        {
+          "value": "page",
+          "label": "Link to page"
+        }
+      ],
+      "default": "manual"
+    },
+    {
+      "type": "select",
+      "id": "title_source_3",
+      "label": "Title source",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual"
+        },
+        {
+          "value": "page",
+          "label": "From page"
+        }
+      ],
+      "default": "manual"
+    },
+    {
+      "type": "text",
+      "id": "manual_title_3",
+      "label": "Manual title",
+      "default": "Tile 3"
+    },
+    {
+      "type": "select",
+      "id": "description_source_3",
+      "label": "Description source",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual"
+        },
+        {
+          "value": "page",
+          "label": "From page"
+        }
+      ],
+      "default": "manual"
+    },
+    {
+      "type": "textarea",
+      "id": "manual_description_3",
+      "label": "Manual description",
+      "default": "Add a description for this tile"
+    },
+    {
+      "type": "select",
+      "id": "image_source_3",
+      "label": "Image source",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual"
+        },
+        {
+          "value": "page",
+          "label": "From page"
+        }
+      ],
+      "default": "manual"
+    },
+    {
+      "type": "image_picker",
+      "id": "manual_image_3",
+      "label": "Manual background image"
+    },
+    {
+      "type": "url",
+      "id": "manual_url_3",
+      "label": "Manual link"
+    },
+    {
+      "type": "page",
+      "id": "linked_page_3",
+      "label": "Select page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_3",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style_3",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "header",
+      "content": "Tile 4"
+    },
+    {
+      "type": "select",
+      "id": "content_source_4",
+      "label": "Link source",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual"
+        },
+        {
+          "value": "page",
+          "label": "Link to page"
+        }
+      ],
+      "default": "manual"
+    },
+    {
+      "type": "select",
+      "id": "title_source_4",
+      "label": "Title source",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual"
+        },
+        {
+          "value": "page",
+          "label": "From page"
+        }
+      ],
+      "default": "manual"
+    },
+    {
+      "type": "text",
+      "id": "manual_title_4",
+      "label": "Manual title",
+      "default": "Tile 4"
+    },
+    {
+      "type": "select",
+      "id": "description_source_4",
+      "label": "Description source",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual"
+        },
+        {
+          "value": "page",
+          "label": "From page"
+        }
+      ],
+      "default": "manual"
+    },
+    {
+      "type": "textarea",
+      "id": "manual_description_4",
+      "label": "Manual description",
+      "default": "Add a description for this tile"
+    },
+    {
+      "type": "select",
+      "id": "image_source_4",
+      "label": "Image source",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual"
+        },
+        {
+          "value": "page",
+          "label": "From page"
+        }
+      ],
+      "default": "manual"
+    },
+    {
+      "type": "image_picker",
+      "id": "manual_image_4",
+      "label": "Manual background image"
+    },
+    {
+      "type": "url",
+      "id": "manual_url_4",
+      "label": "Manual link"
+    },
+    {
+      "type": "page",
+      "id": "linked_page_4",
+      "label": "Select page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_4",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style_4",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "medium"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Multi-tile section"
+    }
+  ]
+}
 {% endschema %}
