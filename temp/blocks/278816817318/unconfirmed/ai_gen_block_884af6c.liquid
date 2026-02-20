@@ -1,6 +1,2290 @@
+{% doc %}
+  @prompt
+    A multi-tile section containing blocks that take content and link to pages. with choice for width , style and 4 different layouts options.
+    Each of the blocks contained should contain:
+    - Select Page to linked
+    - Manual URL (be default linking to the selected page)
+    - Title
+    - Description
+    - Be itself a link
+    - Background image (option to leave empty, manually choose, or taken from the linked page)
+    The contents can be manually inserted or automatically links to:
+    - page title
+    - page Meta Description
+    - page URL
+    - page image
+    of the different selected pages.
+    Title/Description/Image/Link should by default link to page when empty, switch to manual when manually filled.
+    
+    Appearance:
+    - The Option for Color Scheme option should be available for each tile.
+    - Titles/Descripion/padding Should each have the option for [S|M|L|XL]
+    - Border radius
+    - Overlay [None|Light|Medium|Dark] (darkens the image to make title/description easier to read)
+    For each tile there must be option for a button (not visible if button's text is empty) with option:
+    - style: filled|outline|text
+    - align: left|center|right|full.
+    
+    For the layout:
+    there must be option to choose how many tiles to show: minimum 1 maximum 9.
+    Options for layout style should be divided as so:
+    Layout
+    - section width: [narrow|fluid|full]
+    - Number of tiles: [1-9]
+    - Masonry [on|off] 
+    - Number of columns [1-4]
+    - Number of rows [1-4]
+    Enabling masonry should keep the first tile in the first column, stretched on all the rows. Example: if layout is 3 columns+3 rows the first tile should occupy 1 column 3 rows. The remaining tiles should be distributed on the remaining columns/rows, aligning at the bottom with the first tile., For the section (in the "Layout") should have option for margin/spacing top [None|S|M|L|XL] and bottom [None|S|M|L|XL]; and option for the section's Color Scheme.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% liquid
+  assign section_width = block.settings.section_width
+  assign num_tiles = block.settings.num_tiles
+  assign masonry = block.settings.masonry
+  assign num_columns = block.settings.num_columns
+  assign num_rows = block.settings.num_rows
+  assign margin_top = block.settings.margin_top
+  assign margin_bottom = block.settings.margin_bottom
+%}
+
+{% style %}
+  .ai-multi-tile-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+  }
+
+  .ai-multi-tile-wrapper-{{ ai_gen_id }} {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .ai-multi-tile-wrapper-{{ ai_gen_id }}--margin-top-s {
+    margin-top: 20px;
+  }
+
+  .ai-multi-tile-wrapper-{{ ai_gen_id }}--margin-top-m {
+    margin-top: 40px;
+  }
+
+  .ai-multi-tile-wrapper-{{ ai_gen_id }}--margin-top-l {
+    margin-top: 60px;
+  }
+
+  .ai-multi-tile-wrapper-{{ ai_gen_id }}--margin-top-xl {
+    margin-top: 80px;
+  }
+
+  .ai-multi-tile-wrapper-{{ ai_gen_id }}--margin-bottom-s {
+    margin-bottom: 20px;
+  }
+
+  .ai-multi-tile-wrapper-{{ ai_gen_id }}--margin-bottom-m {
+    margin-bottom: 40px;
+  }
+
+  .ai-multi-tile-wrapper-{{ ai_gen_id }}--margin-bottom-l {
+    margin-bottom: 60px;
+  }
+
+  .ai-multi-tile-wrapper-{{ ai_gen_id }}--margin-bottom-xl {
+    margin-bottom: 80px;
+  }
+
+  .ai-multi-tile-container-{{ ai_gen_id }} {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .ai-multi-tile-container-{{ ai_gen_id }}--narrow {
+    max-width: 800px;
+  }
+
+  .ai-multi-tile-container-{{ ai_gen_id }}--fluid {
+    max-width: 1320px;
+    padding: 0 20px;
+  }
+
+  .ai-multi-tile-container-{{ ai_gen_id }}--full {
+    max-width: 100%;
+  }
+
+  .ai-multi-tile-grid-{{ ai_gen_id }} {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat({{ num_columns }}, 1fr);
+    grid-template-rows: repeat({{ num_rows }}, minmax(250px, auto));
+  }
+
+  {% if masonry %}
+    .ai-multi-tile-item-{{ ai_gen_id }}:first-child {
+      grid-column: 1;
+      grid-row: 1 / span {{ num_rows }};
+    }
+  {% endif %}
+
+  .ai-multi-tile-item-{{ ai_gen_id }} {
+    position: relative;
+    overflow: hidden;
+    border-radius: {{ block.settings.border_radius }}px;
+    display: flex;
+    flex-direction: column;
+    min-height: 250px;
+  }
+
+  .ai-multi-tile-link-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    text-decoration: none;
+  }
+
+  .ai-multi-tile-bg-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .ai-multi-tile-bg-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-multi-tile-bg-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-multi-tile-bg-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 200px;
+    opacity: 0.3;
+  }
+
+  .ai-multi-tile-overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .ai-multi-tile-overlay-{{ ai_gen_id }}--light {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .ai-multi-tile-overlay-{{ ai_gen_id }}--medium {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .ai-multi-tile-overlay-{{ ai_gen_id }}--dark {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .ai-multi-tile-content-{{ ai_gen_id }} {
+    position: relative;
+    z-index: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-grow: 1;
+    pointer-events: none;
+  }
+
+  .ai-multi-tile-title-{{ ai_gen_id }} {
+    margin: 0 0 10px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .ai-multi-tile-title-{{ ai_gen_id }}--s {
+    font-size: 18px;
+  }
+
+  .ai-multi-tile-title-{{ ai_gen_id }}--m {
+    font-size: 24px;
+  }
+
+  .ai-multi-tile-title-{{ ai_gen_id }}--l {
+    font-size: 32px;
+  }
+
+  .ai-multi-tile-title-{{ ai_gen_id }}--xl {
+    font-size: 40px;
+  }
+
+  .ai-multi-tile-description-{{ ai_gen_id }} {
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+
+  .ai-multi-tile-description-{{ ai_gen_id }}--s {
+    font-size: 14px;
+  }
+
+  .ai-multi-tile-description-{{ ai_gen_id }}--m {
+    font-size: 16px;
+  }
+
+  .ai-multi-tile-description-{{ ai_gen_id }}--l {
+    font-size: 18px;
+  }
+
+  .ai-multi-tile-description-{{ ai_gen_id }}--xl {
+    font-size: 20px;
+  }
+
+  .ai-multi-tile-padding-{{ ai_gen_id }}--s {
+    padding: 15px;
+  }
+
+  .ai-multi-tile-padding-{{ ai_gen_id }}--m {
+    padding: 30px;
+  }
+
+  .ai-multi-tile-padding-{{ ai_gen_id }}--l {
+    padding: 45px;
+  }
+
+  .ai-multi-tile-padding-{{ ai_gen_id }}--xl {
+    padding: 60px;
+  }
+
+  .ai-multi-tile-button-wrapper-{{ ai_gen_id }} {
+    pointer-events: auto;
+  }
+
+  .ai-multi-tile-button-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: 12px 24px;
+    text-decoration: none;
+    border: 2px solid;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .ai-multi-tile-button-{{ ai_gen_id }}--filled {
+    background-color: #162a50;
+    color: #ffc829;
+    border-color: #162a50;
+  }
+
+  .ai-multi-tile-button-{{ ai_gen_id }}--filled:hover {
+    background-color: #0f1d35;
+    border-color: #0f1d35;
+  }
+
+  .ai-multi-tile-button-{{ ai_gen_id }}--outline {
+    background-color: transparent;
+    color: inherit;
+    border-color: currentColor;
+  }
+
+  .ai-multi-tile-button-{{ ai_gen_id }}--outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .ai-multi-tile-button-{{ ai_gen_id }}--text {
+    background-color: transparent;
+    color: inherit;
+    border-color: transparent;
+    padding: 0;
+    text-decoration: underline;
+  }
+
+  .ai-multi-tile-button-{{ ai_gen_id }}--text:hover {
+    opacity: 0.8;
+  }
+
+  .ai-multi-tile-button-wrapper-{{ ai_gen_id }}--left {
+    text-align: left;
+  }
+
+  .ai-multi-tile-button-wrapper-{{ ai_gen_id }}--center {
+    text-align: center;
+  }
+
+  .ai-multi-tile-button-wrapper-{{ ai_gen_id }}--right {
+    text-align: right;
+  }
+
+  .ai-multi-tile-button-wrapper-{{ ai_gen_id }}--full .ai-multi-tile-button-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-multi-tile-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+
+    {% if masonry %}
+      .ai-multi-tile-item-{{ ai_gen_id }}:first-child {
+        grid-column: 1;
+        grid-row: auto;
+      }
+    {% endif %}
+
+    .ai-multi-tile-title-{{ ai_gen_id }}--s {
+      font-size: 16px;
+    }
+
+    .ai-multi-tile-title-{{ ai_gen_id }}--m {
+      font-size: 20px;
+    }
+
+    .ai-multi-tile-title-{{ ai_gen_id }}--l {
+      font-size: 26px;
+    }
+
+    .ai-multi-tile-title-{{ ai_gen_id }}--xl {
+      font-size: 32px;
+    }
+
+    .ai-multi-tile-description-{{ ai_gen_id }}--s {
+      font-size: 13px;
+    }
+
+    .ai-multi-tile-description-{{ ai_gen_id }}--m {
+      font-size: 14px;
+    }
+
+    .ai-multi-tile-description-{{ ai_gen_id }}--l {
+      font-size: 16px;
+    }
+
+    .ai-multi-tile-description-{{ ai_gen_id }}--xl {
+      font-size: 18px;
+    }
+
+    .ai-multi-tile-wrapper-{{ ai_gen_id }}--margin-top-s {
+      margin-top: 15px;
+    }
+
+    .ai-multi-tile-wrapper-{{ ai_gen_id }}--margin-top-m {
+      margin-top: 25px;
+    }
+
+    .ai-multi-tile-wrapper-{{ ai_gen_id }}--margin-top-l {
+      margin-top: 40px;
+    }
+
+    .ai-multi-tile-wrapper-{{ ai_gen_id }}--margin-top-xl {
+      margin-top: 50px;
+    }
+
+    .ai-multi-tile-wrapper-{{ ai_gen_id }}--margin-bottom-s {
+      margin-bottom: 15px;
+    }
+
+    .ai-multi-tile-wrapper-{{ ai_gen_id }}--margin-bottom-m {
+      margin-bottom: 25px;
+    }
+
+    .ai-multi-tile-wrapper-{{ ai_gen_id }}--margin-bottom-l {
+      margin-bottom: 40px;
+    }
+
+    .ai-multi-tile-wrapper-{{ ai_gen_id }}--margin-bottom-xl {
+      margin-bottom: 50px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-multi-tile-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-multi-tile-wrapper-{{ ai_gen_id }} {% if margin_top != 'none' %}ai-multi-tile-wrapper-{{ ai_gen_id }}--margin-top-{{ margin_top }}{% endif %} {% if margin_bottom != 'none' %}ai-multi-tile-wrapper-{{ ai_gen_id }}--margin-bottom-{{ margin_bottom }}{% endif %} color-{{ block.settings.color_scheme }}">
+    <div class="ai-multi-tile-container-{{ ai_gen_id }} ai-multi-tile-container-{{ ai_gen_id }}--{{ section_width }}">
+      <div class="ai-multi-tile-grid-{{ ai_gen_id }}">
+        {% for i in (1..num_tiles) %}
+          {% liquid
+            assign tile_page_key = 'tile_' | append: i | append: '_page'
+            assign tile_url_key = 'tile_' | append: i | append: '_url'
+            assign tile_title_key = 'tile_' | append: i | append: '_title'
+            assign tile_description_key = 'tile_' | append: i | append: '_description'
+            assign tile_image_key = 'tile_' | append: i | append: '_image'
+            assign tile_color_scheme_key = 'tile_' | append: i | append: '_color_scheme'
+            assign tile_title_size_key = 'tile_' | append: i | append: '_title_size'
+            assign tile_description_size_key = 'tile_' | append: i | append: '_description_size'
+            assign tile_padding_key = 'tile_' | append: i | append: '_padding'
+            assign tile_overlay_key = 'tile_' | append: i | append: '_overlay'
+            assign tile_button_text_key = 'tile_' | append: i | append: '_button_text'
+            assign tile_button_style_key = 'tile_' | append: i | append: '_button_style'
+            assign tile_button_align_key = 'tile_' | append: i | append: '_button_align'
+
+            assign tile_page = block.settings[tile_page_key]
+            assign tile_url = block.settings[tile_url_key]
+            assign tile_title = block.settings[tile_title_key]
+            assign tile_description = block.settings[tile_description_key]
+            assign tile_image = block.settings[tile_image_key]
+            assign tile_color_scheme = block.settings[tile_color_scheme_key]
+            assign tile_title_size = block.settings[tile_title_size_key]
+            assign tile_description_size = block.settings[tile_description_size_key]
+            assign tile_padding = block.settings[tile_padding_key]
+            assign tile_overlay = block.settings[tile_overlay_key]
+            assign tile_button_text = block.settings[tile_button_text_key]
+            assign tile_button_style = block.settings[tile_button_style_key]
+            assign tile_button_align = block.settings[tile_button_align_key]
+
+            if tile_url == blank and tile_page != blank
+              assign final_url = tile_page.url
+            elsif tile_url != blank
+              assign final_url = tile_url
+            else
+              assign final_url = '#'
+            endif
+
+            if tile_title == blank and tile_page != blank
+              assign final_title = tile_page.title
+            else
+              assign final_title = tile_title
+            endif
+
+            if tile_description == blank and tile_page != blank
+              assign final_description = tile_page.metafields.global.description_tag
+            else
+              assign final_description = tile_description
+            endif
+
+            if tile_image == blank and tile_page != blank and tile_page.image != blank
+              assign final_image = tile_page.image
+            elsif tile_image != blank
+              assign final_image = tile_image
+            else
+              assign final_image = blank
+            endif
+          %}
+
+          <div class="ai-multi-tile-item-{{ ai_gen_id }} color-{{ tile_color_scheme }}">
+            <a href="{{ final_url }}" class="ai-multi-tile-link-{{ ai_gen_id }}" aria-label="{{ final_title | escape }}"></a>
+
+            <div class="ai-multi-tile-bg-{{ ai_gen_id }}">
+              {% if final_image != blank %}
+                <img
+                  src="{{ final_image | image_url: width: 1200 }}"
+                  alt="{{ final_image.alt | default: final_title | escape }}"
+                  loading="lazy"
+                  width="{{ final_image.width }}"
+                  height="{{ final_image.height }}"
+                >
+              {% else %}
+                <div class="ai-multi-tile-bg-placeholder-{{ ai_gen_id }}">
+                  {{ 'image' | placeholder_svg_tag }}
+                </div>
+              {% endif %}
+            </div>
+
+            {% if tile_overlay != 'none' %}
+              <div class="ai-multi-tile-overlay-{{ ai_gen_id }} ai-multi-tile-overlay-{{ ai_gen_id }}--{{ tile_overlay }}"></div>
+            {% endif %}
+
+            <div class="ai-multi-tile-content-{{ ai_gen_id }} ai-multi-tile-padding-{{ ai_gen_id }}--{{ tile_padding }}">
+              {% if final_title != blank %}
+                <h3 class="ai-multi-tile-title-{{ ai_gen_id }} ai-multi-tile-title-{{ ai_gen_id }}--{{ tile_title_size }}">
+                  {{ final_title }}
+                </h3>
+              {% endif %}
+
+              {% if final_description != blank %}
+                <div class="ai-multi-tile-description-{{ ai_gen_id }} ai-multi-tile-description-{{ ai_gen_id }}--{{ tile_description_size }}">
+                  {{ final_description }}
+                </div>
+              {% endif %}
+
+              {% if tile_button_text != blank %}
+                <div class="ai-multi-tile-button-wrapper-{{ ai_gen_id }} ai-multi-tile-button-wrapper-{{ ai_gen_id }}--{{ tile_button_align }}">
+                  <span class="ai-multi-tile-button-{{ ai_gen_id }} ai-multi-tile-button-{{ ai_gen_id }}--{{ tile_button_style }}">
+                    {{ tile_button_text }}
+                  </span>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Multi-tile section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "fluid",
+          "label": "Fluid"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "fluid"
+    },
+    {
+      "type": "range",
+      "id": "num_tiles",
+      "label": "Number of tiles",
+      "min": 1,
+      "max": 9,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "masonry",
+      "label": "Masonry layout",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "num_columns",
+      "label": "Number of columns",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "num_rows",
+      "label": "Number of rows",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "select",
+      "id": "margin_top",
+      "label": "Margin top",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Tile 1"
+    },
+    {
+      "type": "page",
+      "id": "tile_1_page",
+      "label": "Page"
+    },
+    {
+      "type": "url",
+      "id": "tile_1_url",
+      "label": "Manual URL"
+    },
+    {
+      "type": "text",
+      "id": "tile_1_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "tile_1_description",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "tile_1_image",
+      "label": "Background image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "tile_1_color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "tile_1_title_size",
+      "label": "Title size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_1_description_size",
+      "label": "Description size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_1_padding",
+      "label": "Padding",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_1_overlay",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "tile_1_button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "tile_1_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "tile_1_button_align",
+      "label": "Button align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Tile 2"
+    },
+    {
+      "type": "page",
+      "id": "tile_2_page",
+      "label": "Page"
+    },
+    {
+      "type": "url",
+      "id": "tile_2_url",
+      "label": "Manual URL"
+    },
+    {
+      "type": "text",
+      "id": "tile_2_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "tile_2_description",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "tile_2_image",
+      "label": "Background image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "tile_2_color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "tile_2_title_size",
+      "label": "Title size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_2_description_size",
+      "label": "Description size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_2_padding",
+      "label": "Padding",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_2_overlay",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "tile_2_button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "tile_2_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "tile_2_button_align",
+      "label": "Button align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Tile 3"
+    },
+    {
+      "type": "page",
+      "id": "tile_3_page",
+      "label": "Page"
+    },
+    {
+      "type": "url",
+      "id": "tile_3_url",
+      "label": "Manual URL"
+    },
+    {
+      "type": "text",
+      "id": "tile_3_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "tile_3_description",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "tile_3_image",
+      "label": "Background image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "tile_3_color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "tile_3_title_size",
+      "label": "Title size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_3_description_size",
+      "label": "Description size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_3_padding",
+      "label": "Padding",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_3_overlay",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "tile_3_button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "tile_3_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "tile_3_button_align",
+      "label": "Button align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Tile 4"
+    },
+    {
+      "type": "page",
+      "id": "tile_4_page",
+      "label": "Page"
+    },
+    {
+      "type": "url",
+      "id": "tile_4_url",
+      "label": "Manual URL"
+    },
+    {
+      "type": "text",
+      "id": "tile_4_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "tile_4_description",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "tile_4_image",
+      "label": "Background image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "tile_4_color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "tile_4_title_size",
+      "label": "Title size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_4_description_size",
+      "label": "Description size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_4_padding",
+      "label": "Padding",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_4_overlay",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "tile_4_button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "tile_4_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "tile_4_button_align",
+      "label": "Button align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Tile 5"
+    },
+    {
+      "type": "page",
+      "id": "tile_5_page",
+      "label": "Page"
+    },
+    {
+      "type": "url",
+      "id": "tile_5_url",
+      "label": "Manual URL"
+    },
+    {
+      "type": "text",
+      "id": "tile_5_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "tile_5_description",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "tile_5_image",
+      "label": "Background image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "tile_5_color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "tile_5_title_size",
+      "label": "Title size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_5_description_size",
+      "label": "Description size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_5_padding",
+      "label": "Padding",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_5_overlay",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "tile_5_button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "tile_5_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "tile_5_button_align",
+      "label": "Button align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Tile 6"
+    },
+    {
+      "type": "page",
+      "id": "tile_6_page",
+      "label": "Page"
+    },
+    {
+      "type": "url",
+      "id": "tile_6_url",
+      "label": "Manual URL"
+    },
+    {
+      "type": "text",
+      "id": "tile_6_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "tile_6_description",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "tile_6_image",
+      "label": "Background image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "tile_6_color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "tile_6_title_size",
+      "label": "Title size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_6_description_size",
+      "label": "Description size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_6_padding",
+      "label": "Padding",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_6_overlay",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "tile_6_button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "tile_6_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "tile_6_button_align",
+      "label": "Button align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Tile 7"
+    },
+    {
+      "type": "page",
+      "id": "tile_7_page",
+      "label": "Page"
+    },
+    {
+      "type": "url",
+      "id": "tile_7_url",
+      "label": "Manual URL"
+    },
+    {
+      "type": "text",
+      "id": "tile_7_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "tile_7_description",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "tile_7_image",
+      "label": "Background image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "tile_7_color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "tile_7_title_size",
+      "label": "Title size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_7_description_size",
+      "label": "Description size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_7_padding",
+      "label": "Padding",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_7_overlay",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "tile_7_button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "tile_7_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "tile_7_button_align",
+      "label": "Button align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Tile 8"
+    },
+    {
+      "type": "page",
+      "id": "tile_8_page",
+      "label": "Page"
+    },
+    {
+      "type": "url",
+      "id": "tile_8_url",
+      "label": "Manual URL"
+    },
+    {
+      "type": "text",
+      "id": "tile_8_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "tile_8_description",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "tile_8_image",
+      "label": "Background image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "tile_8_color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "tile_8_title_size",
+      "label": "Title size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_8_description_size",
+      "label": "Description size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_8_padding",
+      "label": "Padding",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_8_overlay",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "tile_8_button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "tile_8_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "tile_8_button_align",
+      "label": "Button align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Tile 9"
+    },
+    {
+      "type": "page",
+      "id": "tile_9_page",
+      "label": "Page"
+    },
+    {
+      "type": "url",
+      "id": "tile_9_url",
+      "label": "Manual URL"
+    },
+    {
+      "type": "text",
+      "id": "tile_9_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "tile_9_description",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "tile_9_image",
+      "label": "Background image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "tile_9_color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "tile_9_title_size",
+      "label": "Title size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_9_description_size",
+      "label": "Description size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_9_padding",
+      "label": "Padding",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "tile_9_overlay",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "tile_9_button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "tile_9_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "tile_9_button_align",
+      "label": "Button align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "left"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Multi-tile section"
+    }
+  ]
+}
 {% endschema %}
