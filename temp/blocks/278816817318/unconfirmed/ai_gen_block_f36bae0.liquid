@@ -1,6 +1,1502 @@
+{% doc %}
+  @prompt
+    a multi-tile section with choice for width (narrow, fluid, full), style and 4 different layouts options.
+    Each of the blocks contained should contain:
+    - Title
+    - Description
+    - Be itself a link
+    - Background image (option to leave empty, manually choose, or link to page as explained below)
+    The contents can be manually inserted or automatically links to:
+    - page title
+    - page Meta Description
+    - page URL
+    - page featured image
+    of different selected pages., The option to choose "manual" and "linked to page" should be available for each: Title, Description, Background Image. The Option for Color Scheme option should be available for each tile. , Title/Description/Image/Link should by default link to page when empty, switch to manual when manually filled., for each tile there must be option for a button (not visible if button's text is empty) with filled|outline|text options and choice to align left|center|right|full with, there should be option to choose how many tiles to show: minimum 1 maximum 9
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-multi-tile-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+  }
+
+  .ai-multi-tile-container-{{ ai_gen_id }} {
+    margin: 0 auto;
+  }
+
+  .ai-multi-tile-container-{{ ai_gen_id }}.width-narrow {
+    max-width: 800px;
+  }
+
+  .ai-multi-tile-container-{{ ai_gen_id }}.width-fluid {
+    max-width: 1200px;
+  }
+
+  .ai-multi-tile-container-{{ ai_gen_id }}.width-full {
+    max-width: 100%;
+  }
+
+  .ai-multi-tile-grid-{{ ai_gen_id }} {
+    display: grid;
+    gap: {{ block.settings.tile_spacing }}px;
+  }
+
+  .ai-multi-tile-grid-{{ ai_gen_id }}.layout-grid-2x2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ai-multi-tile-grid-{{ ai_gen_id }}.layout-grid-3x1 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ai-multi-tile-grid-{{ ai_gen_id }}.layout-grid-4x1 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .ai-multi-tile-grid-{{ ai_gen_id }}.layout-masonry {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ai-multi-tile-grid-{{ ai_gen_id }}.layout-masonry .ai-multi-tile-wrapper-{{ ai_gen_id }}:nth-child(1) {
+    grid-row: span 2;
+  }
+
+  .ai-multi-tile-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    overflow: hidden;
+    border-radius: {{ block.settings.tile_border_radius }}px;
+    min-height: {{ block.settings.tile_min_height }}px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: transform 0.3s ease;
+  }
+
+  .ai-multi-tile-wrapper-{{ ai_gen_id }}:hover {
+    transform: scale(1.02);
+  }
+
+  .ai-multi-tile-link-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    text-decoration: none;
+  }
+
+  .ai-multi-tile-background-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .ai-multi-tile-background-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-multi-tile-background-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: {{ block.settings.placeholder_bg_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-multi-tile-background-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  .ai-multi-tile-overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  .ai-multi-tile-overlay-{{ ai_gen_id }}.overlay-none {
+    background: transparent;
+  }
+
+  .ai-multi-tile-overlay-{{ ai_gen_id }}.overlay-light {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+  }
+
+  .ai-multi-tile-overlay-{{ ai_gen_id }}.overlay-medium {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+  }
+
+  .ai-multi-tile-overlay-{{ ai_gen_id }}.overlay-dark {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+  }
+
+  .ai-multi-tile-content-{{ ai_gen_id }} {
+    position: relative;
+    z-index: 3;
+    padding: {{ block.settings.content_padding }}px;
+  }
+
+  .ai-multi-tile-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.title_size }}px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    text-transform: {{ block.settings.title_transform }};
+  }
+
+  .ai-multi-tile-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.description_size }}px;
+    margin: 0 0 16px;
+    line-height: 1.5;
+  }
+
+  .ai-multi-tile-button-wrapper-{{ ai_gen_id }} {
+    display: flex;
+  }
+
+  .ai-multi-tile-button-wrapper-{{ ai_gen_id }}.align-left {
+    justify-content: flex-start;
+  }
+
+  .ai-multi-tile-button-wrapper-{{ ai_gen_id }}.align-center {
+    justify-content: center;
+  }
+
+  .ai-multi-tile-button-wrapper-{{ ai_gen_id }}.align-right {
+    justify-content: flex-end;
+  }
+
+  .ai-multi-tile-button-wrapper-{{ ai_gen_id }}.align-full .ai-multi-tile-button-{{ ai_gen_id }} {
+    width: 100%;
+  }
+
+  .ai-multi-tile-button-{{ ai_gen_id }} {
+    position: relative;
+    z-index: 5;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .ai-multi-tile-button-{{ ai_gen_id }}.style-filled {
+    border: 2px solid transparent;
+  }
+
+  .ai-multi-tile-button-{{ ai_gen_id }}.style-outline {
+    background: transparent;
+    border: 2px solid currentColor;
+  }
+
+  .ai-multi-tile-button-{{ ai_gen_id }}.style-text {
+    background: transparent;
+    border: none;
+    padding: 8px 0;
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-multi-tile-grid-{{ ai_gen_id }}.layout-grid-2x2,
+    .ai-multi-tile-grid-{{ ai_gen_id }}.layout-grid-3x1,
+    .ai-multi-tile-grid-{{ ai_gen_id }}.layout-grid-4x1,
+    .ai-multi-tile-grid-{{ ai_gen_id }}.layout-masonry {
+      grid-template-columns: 1fr;
+    }
+
+    .ai-multi-tile-grid-{{ ai_gen_id }}.layout-masonry .ai-multi-tile-wrapper-{{ ai_gen_id }}:nth-child(1) {
+      grid-row: span 1;
+    }
+
+    .ai-multi-tile-title-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.title_size }}px * 0.8);
+    }
+
+    .ai-multi-tile-description-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.description_size }}px * 0.9);
+    }
+  }
+{% endstyle %}
+
+<multi-tile-section-{{ ai_gen_id }} class="ai-multi-tile-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-multi-tile-container-{{ ai_gen_id }} width-{{ block.settings.container_width }}">
+    <div class="ai-multi-tile-grid-{{ ai_gen_id }} layout-{{ block.settings.layout }}">
+      {% for i in (1..9) %}
+        {% if i <= block.settings.tiles_count %}
+          {% liquid
+            assign manual_title_key = 'manual_title_' | append: i
+            assign manual_description_key = 'manual_description_' | append: i
+            assign manual_url_key = 'manual_url_' | append: i
+            assign manual_image_key = 'manual_image_' | append: i
+            assign linked_page_key = 'linked_page_' | append: i
+            assign color_scheme_key = 'color_scheme_' | append: i
+            assign overlay_style_key = 'overlay_style_' | append: i
+            assign button_text_key = 'button_text_' | append: i
+            assign button_style_key = 'button_style_' | append: i
+            assign button_align_key = 'button_align_' | append: i
+
+            assign manual_title = block.settings[manual_title_key]
+            assign manual_description = block.settings[manual_description_key]
+            assign manual_url = block.settings[manual_url_key]
+            assign manual_image = block.settings[manual_image_key]
+            assign linked_page = block.settings[linked_page_key]
+            assign button_text = block.settings[button_text_key]
+            assign button_style = block.settings[button_style_key]
+            assign button_align = block.settings[button_align_key]
+
+            if manual_title != blank
+              assign tile_title = manual_title
+            elsif linked_page
+              assign tile_title = linked_page.title
+            else
+              assign tile_title = ''
+            endif
+
+            if manual_description != blank
+              assign tile_description = manual_description
+            elsif linked_page
+              assign tile_description = linked_page.metafields.global.description_tag
+            else
+              assign tile_description = ''
+            endif
+
+            if manual_image != blank
+              assign tile_image = manual_image
+            elsif linked_page
+              assign tile_image = linked_page.image
+            else
+              assign tile_image = null
+            endif
+
+            if manual_url != blank
+              assign tile_url = manual_url
+            elsif linked_page
+              assign tile_url = linked_page.url
+            else
+              assign tile_url = ''
+            endif
+
+            assign color_scheme = block.settings[color_scheme_key]
+            assign overlay_style = block.settings[overlay_style_key]
+          %}
+
+          <div class="ai-multi-tile-wrapper-{{ ai_gen_id }} color-{{ color_scheme }}">
+            {% if tile_url != blank and button_text == blank %}
+              <a href="{{ tile_url }}" class="ai-multi-tile-link-{{ ai_gen_id }}" aria-label="{{ tile_title | escape }}"></a>
+            {% endif %}
+
+            <div class="ai-multi-tile-background-{{ ai_gen_id }}">
+              {% if tile_image %}
+                <img
+                  src="{{ tile_image | image_url: width: 800 }}"
+                  alt="{{ tile_image.alt | escape }}"
+                  loading="lazy"
+                  width="800"
+                  height="600"
+                >
+              {% else %}
+                <div class="ai-multi-tile-background-placeholder-{{ ai_gen_id }}">
+                  {{ 'image' | placeholder_svg_tag }}
+                </div>
+              {% endif %}
+            </div>
+            <div class="ai-multi-tile-overlay-{{ ai_gen_id }} overlay-{{ overlay_style }}"></div>
+            <div class="ai-multi-tile-content-{{ ai_gen_id }}">
+              {% if tile_title != blank %}
+                <h3 class="ai-multi-tile-title-{{ ai_gen_id }}">{{ tile_title }}</h3>
+              {% endif %}
+              {% if tile_description != blank %}
+                <p class="ai-multi-tile-description-{{ ai_gen_id }}">{{ tile_description }}</p>
+              {% endif %}
+              {% if button_text != blank and tile_url != blank %}
+                <div class="ai-multi-tile-button-wrapper-{{ ai_gen_id }} align-{{ button_align }}">
+                  <a href="{{ tile_url }}" class="ai-multi-tile-button-{{ ai_gen_id }} style-{{ button_style }}">
+                    {{ button_text }}
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</multi-tile-section-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class MultiTileSection{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.setupAccessibility();
+      }
+
+      setupAccessibility() {
+        const wrappers = this.querySelectorAll('.ai-multi-tile-wrapper-{{ ai_gen_id }}');
+        wrappers.forEach((wrapper) => {
+          const link = wrapper.querySelector('.ai-multi-tile-link-{{ ai_gen_id }}');
+          if (link && (!link.getAttribute('href') || link.getAttribute('href') === '')) {
+            link.setAttribute('tabindex', '-1');
+          }
+        });
+      }
+    }
+
+    customElements.define('multi-tile-section-{{ ai_gen_id }}', MultiTileSection{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Multi-tile section",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "tiles_count",
+      "label": "Number of tiles",
+      "min": 1,
+      "max": 9,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "fluid",
+          "label": "Fluid"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "fluid"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout style",
+      "options": [
+        {
+          "value": "grid-2x2",
+          "label": "Grid 2x2"
+        },
+        {
+          "value": "grid-3x1",
+          "label": "Grid 3 columns"
+        },
+        {
+          "value": "grid-4x1",
+          "label": "Grid 4 columns"
+        },
+        {
+          "value": "masonry",
+          "label": "Masonry"
+        }
+      ],
+      "default": "grid-2x2"
+    },
+    {
+      "type": "range",
+      "id": "tile_spacing",
+      "label": "Tile spacing",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "tile_min_height",
+      "label": "Tile minimum height",
+      "min": 200,
+      "max": 600,
+      "step": 50,
+      "unit": "px",
+      "default": 300
+    },
+    {
+      "type": "header",
+      "content": "Tile style"
+    },
+    {
+      "type": "range",
+      "id": "tile_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "placeholder_bg_color",
+      "label": "Placeholder background",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "header",
+      "content": "Content style"
+    },
+    {
+      "type": "range",
+      "id": "content_padding",
+      "label": "Content padding",
+      "min": 16,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "select",
+      "id": "title_transform",
+      "label": "Title transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ],
+      "default": "uppercase"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Tile 1"
+    },
+    {
+      "type": "text",
+      "id": "manual_title_1",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "manual_description_1",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "manual_image_1",
+      "label": "Background image"
+    },
+    {
+      "type": "url",
+      "id": "manual_url_1",
+      "label": "Link"
+    },
+    {
+      "type": "page",
+      "id": "linked_page_1",
+      "label": "Or link to page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_1",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style_1",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "text",
+      "id": "button_text_1",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "button_style_1",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "button_align_1",
+      "label": "Button alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Tile 2"
+    },
+    {
+      "type": "text",
+      "id": "manual_title_2",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "manual_description_2",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "manual_image_2",
+      "label": "Background image"
+    },
+    {
+      "type": "url",
+      "id": "manual_url_2",
+      "label": "Link"
+    },
+    {
+      "type": "page",
+      "id": "linked_page_2",
+      "label": "Or link to page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_2",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style_2",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "text",
+      "id": "button_text_2",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "button_style_2",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "button_align_2",
+      "label": "Button alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Tile 3"
+    },
+    {
+      "type": "text",
+      "id": "manual_title_3",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "manual_description_3",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "manual_image_3",
+      "label": "Background image"
+    },
+    {
+      "type": "url",
+      "id": "manual_url_3",
+      "label": "Link"
+    },
+    {
+      "type": "page",
+      "id": "linked_page_3",
+      "label": "Or link to page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_3",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style_3",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "text",
+      "id": "button_text_3",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "button_style_3",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "button_align_3",
+      "label": "Button alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Tile 4"
+    },
+    {
+      "type": "text",
+      "id": "manual_title_4",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "manual_description_4",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "manual_image_4",
+      "label": "Background image"
+    },
+    {
+      "type": "url",
+      "id": "manual_url_4",
+      "label": "Link"
+    },
+    {
+      "type": "page",
+      "id": "linked_page_4",
+      "label": "Or link to page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_4",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style_4",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "text",
+      "id": "button_text_4",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "button_style_4",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "button_align_4",
+      "label": "Button alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Tile 5"
+    },
+    {
+      "type": "text",
+      "id": "manual_title_5",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "manual_description_5",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "manual_image_5",
+      "label": "Background image"
+    },
+    {
+      "type": "url",
+      "id": "manual_url_5",
+      "label": "Link"
+    },
+    {
+      "type": "page",
+      "id": "linked_page_5",
+      "label": "Or link to page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_5",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style_5",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "text",
+      "id": "button_text_5",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "button_style_5",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "button_align_5",
+      "label": "Button alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Tile 6"
+    },
+    {
+      "type": "text",
+      "id": "manual_title_6",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "manual_description_6",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "manual_image_6",
+      "label": "Background image"
+    },
+    {
+      "type": "url",
+      "id": "manual_url_6",
+      "label": "Link"
+    },
+    {
+      "type": "page",
+      "id": "linked_page_6",
+      "label": "Or link to page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_6",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style_6",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "text",
+      "id": "button_text_6",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "button_style_6",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "button_align_6",
+      "label": "Button alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Tile 7"
+    },
+    {
+      "type": "text",
+      "id": "manual_title_7",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "manual_description_7",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "manual_image_7",
+      "label": "Background image"
+    },
+    {
+      "type": "url",
+      "id": "manual_url_7",
+      "label": "Link"
+    },
+    {
+      "type": "page",
+      "id": "linked_page_7",
+      "label": "Or link to page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_7",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style_7",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "text",
+      "id": "button_text_7",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "button_style_7",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "button_align_7",
+      "label": "Button alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Tile 8"
+    },
+    {
+      "type": "text",
+      "id": "manual_title_8",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "manual_description_8",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "manual_image_8",
+      "label": "Background image"
+    },
+    {
+      "type": "url",
+      "id": "manual_url_8",
+      "label": "Link"
+    },
+    {
+      "type": "page",
+      "id": "linked_page_8",
+      "label": "Or link to page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_8",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style_8",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "text",
+      "id": "button_text_8",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "button_style_8",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "button_align_8",
+      "label": "Button alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Tile 9"
+    },
+    {
+      "type": "text",
+      "id": "manual_title_9",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "manual_description_9",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "manual_image_9",
+      "label": "Background image"
+    },
+    {
+      "type": "url",
+      "id": "manual_url_9",
+      "label": "Link"
+    },
+    {
+      "type": "page",
+      "id": "linked_page_9",
+      "label": "Or link to page"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_9",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style_9",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "text",
+      "id": "button_text_9",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "button_style_9",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "button_align_9",
+      "label": "Button alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "left"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Multi-tile section"
+    }
+  ]
+}
 {% endschema %}
