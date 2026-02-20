@@ -1,6 +1,354 @@
+{% doc %}
+  @prompt
+    a multi-tile which automatically links to:
+    - page title
+    - page Meta Description
+    of different selected pages.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-page-tiles-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+  }
+
+  .ai-page-tiles__grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat({{ block.settings.columns_desktop }}, 1fr);
+    gap: {{ block.settings.gap }}px;
+  }
+
+  .ai-page-tile-{{ ai_gen_id }} {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: {{ block.settings.tile_background_color }};
+    border: {{ block.settings.border_width }}px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    padding: {{ block.settings.padding }}px;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+  }
+
+  .ai-page-tile-{{ ai_gen_id }}:hover {
+    transform: translateY(-{{ block.settings.hover_lift }}px);
+    box-shadow: 0 {{ block.settings.hover_lift | times: 2 }}px {{ block.settings.hover_lift | times: 4 }}px rgba(0, 0, 0, 0.1);
+  }
+
+  .ai-page-tile__title-{{ ai_gen_id }} {
+    color: {{ block.settings.title_color }};
+    font-size: {{ block.settings.title_size }}px;
+    margin: 0 0 {{ block.settings.title_spacing }}px 0;
+    font-weight: 600;
+  }
+
+  .ai-page-tile__description-{{ ai_gen_id }} {
+    color: {{ block.settings.description_color }};
+    font-size: {{ block.settings.description_size }}px;
+    line-height: 1.5;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .ai-page-tile__empty-{{ ai_gen_id }} {
+    background-color: #f4f4f4;
+    border: 2px dashed #cccccc;
+    padding: {{ block.settings.padding }}px;
+    text-align: center;
+    color: #666666;
+    font-size: 14px;
+    border-radius: {{ block.settings.border_radius }}px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-page-tiles__grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat({{ block.settings.columns_mobile }}, 1fr);
+    }
+
+    .ai-page-tile__title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.title_size | times: 0.85 }}px;
+    }
+
+    .ai-page-tile__description-{{ ai_gen_id }} {
+      font-size: {{ block.settings.description_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<page-tiles-{{ ai_gen_id }} class="ai-page-tiles-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-page-tiles__grid-{{ ai_gen_id }}">
+    {% liquid
+      assign has_any_page = false
+      for i in (1..6)
+        assign page_key = 'page_' | append: i
+        assign page = block.settings[page_key]
+        if page != blank
+          assign has_any_page = true
+          break
+        endif
+      endfor
+    %}
+
+    {% if has_any_page %}
+      {% for i in (1..6) %}
+        {% liquid
+          assign page_key = 'page_' | append: i
+          assign page = block.settings[page_key]
+        %}
+
+        {% if page != blank %}
+          <a href="{{ page.url }}" class="ai-page-tile-{{ ai_gen_id }}">
+            <h3 class="ai-page-tile__title-{{ ai_gen_id }}">{{ page.title }}</h3>
+            {% if page.metafields.global.description_tag != blank %}
+              <p class="ai-page-tile__description-{{ ai_gen_id }}">
+                {{ page.metafields.global.description_tag }}
+              </p>
+            {% elsif block.settings.show_fallback_text %}
+              <p class="ai-page-tile__description-{{ ai_gen_id }}">
+                {{ block.settings.fallback_text }}
+              </p>
+            {% endif %}
+          </a>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <div class="ai-page-tile__empty-{{ ai_gen_id }}">
+        Next, select pages to display
+      </div>
+    {% endif %}
+  </div>
+</page-tiles-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class PageTiles{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.tiles = this.querySelectorAll('.ai-page-tile-{{ ai_gen_id }}');
+      }
+    }
+
+    customElements.define('page-tiles-{{ ai_gen_id }}', PageTiles{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Page tiles",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Pages"
+    },
+    {
+      "type": "page",
+      "id": "page_1",
+      "label": "Page 1"
+    },
+    {
+      "type": "page",
+      "id": "page_2",
+      "label": "Page 2"
+    },
+    {
+      "type": "page",
+      "id": "page_3",
+      "label": "Page 3"
+    },
+    {
+      "type": "page",
+      "id": "page_4",
+      "label": "Page 4"
+    },
+    {
+      "type": "page",
+      "id": "page_5",
+      "label": "Page 5"
+    },
+    {
+      "type": "page",
+      "id": "page_6",
+      "label": "Page 6"
+    },
+    {
+      "type": "header",
+      "content": "Fallback text"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_fallback_text",
+      "label": "Show fallback text",
+      "info": "Display fallback text when page has no meta description",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "fallback_text",
+      "label": "Fallback text",
+      "default": "Learn more about this page"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns on desktop",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Columns on mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap between tiles",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Tile style"
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "label": "Padding",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "label": "Border width",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "tile_background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#ebebeb"
+    },
+    {
+      "type": "range",
+      "id": "hover_lift",
+      "label": "Hover lift",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 14,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#151515"
+    },
+    {
+      "type": "range",
+      "id": "title_spacing",
+      "label": "Title spacing",
+      "min": 5,
+      "max": 30,
+      "step": 5,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#65706e"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page tiles"
+    }
+  ]
+}
 {% endschema %}
