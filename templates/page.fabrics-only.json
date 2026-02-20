@@ -59,75 +59,6 @@
         "spacing_bottom": "2"
       }
     },
-    "full_width_banner_txyTw4": {
-      "type": "full-width-banner",
-      "blocks": {
-        "subheading_NpkYUe": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "handmade by RIMMBA",
-            "link": ""
-          }
-        },
-        "heading_wLeJDz": {
-          "type": "heading",
-          "settings": {
-            "heading": "Natural Fabrics & Botanical Dyes",
-            "heading_size": "h4"
-          }
-        },
-        "content_TWVMYQ": {
-          "type": "content",
-          "settings": {
-            "content": "<p>Read how we hand-pick our natural fabrics and learn how we dye using plants, flowers and connecting with Nature</p>"
-          }
-        },
-        "buttons_BMDCEX": {
-          "type": "buttons",
-          "settings": {
-            "button_link_1": "shopify://pages/natural-dye-workshop-bali",
-            "button_link_1_type": "button",
-            "button_label_1": "Join the workshop",
-            "button_style_1": "button--filled",
-            "color_scheme_first_button": "scheme-6",
-            "button_link_2": "shopify://products/botanical-dye-lingerie-workshop-rimmba",
-            "button_label_2": "",
-            "button_style_2": "button--filled",
-            "color_scheme_second_button": "scheme-6"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_NpkYUe",
-        "heading_wLeJDz",
-        "content_TWVMYQ",
-        "buttons_BMDCEX"
-      ],
-      "name": "t:sections.full-width-banner.name",
-      "settings": {
-        "enable_transparent_header": true,
-        "media_position": "background",
-        "section_height": "auto",
-        "content_position": "center",
-        "content_alignment": "center",
-        "image": "shopify://shop_images/Dye_Workshop_Bali.webp",
-        "video_external": "",
-        "show_controls_on_video": false,
-        "aspect_ratio": "auto",
-        "section_height_mobile": "auto",
-        "content_position_mobile": "center",
-        "content_alignment_mobile": "center",
-        "video_external_mobile": "",
-        "show_controls_on_video_mobile": false,
-        "aspect_ratio_mobile": "auto",
-        "section_width": "max-w-full",
-        "color_scheme": "scheme-1",
-        "color_scheme_for_content": "scheme-6",
-        "spacing_inner": "2",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
-      }
-    },
     "main": {
       "type": "main-page",
       "custom_css": [
@@ -145,30 +76,13 @@
         "spacing_bottom": "0"
       }
     },
-    "seo_content_ebjggt": {
-      "type": "seo-content",
-      "disabled": true,
-      "name": "t:sections.seo-content.name",
-      "settings": {
-        "section_layout": "normal",
-        "heading": "",
-        "heading_size": "h5",
-        "text": "<p>Read about how we hand-pick our natural fabrics and learn how we dye using plant, flowers and connecting with Nature.</p>",
-        "content_alignment": "center",
-        "section_width": "max-w-fluid",
-        "color_scheme": "",
-        "spacing_inner": "2",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
-      }
-    },
     "full_width_banner_meeAGa": {
       "type": "full-width-banner",
       "blocks": {
         "heading_L3X7TU": {
           "type": "heading",
           "settings": {
-            "heading": "Natural fabrics & Botanical Dyes",
+            "heading": "Natural & Botanical Dyes",
             "heading_size": "h3"
           }
         },
@@ -182,16 +96,16 @@
         "content_aNDdqh": {
           "type": "content",
           "settings": {
-            "content": "<p>Read how we hand-pick our natural fabrics and learn how we dye using plants, flowers and connecting with Nature</p>"
+            "content": "<p>Read how we hand-pick our natural & botanical dye using plants, flowers and connecting with Nature</p>"
           }
         },
         "buttons_nq4yj4": {
           "type": "buttons",
           "settings": {
-            "button_link_1": "/",
+            "button_link_1": "shopify://pages/natural-dyes",
             "button_link_1_type": "button",
-            "button_label_1": "",
-            "button_style_1": "button--outlined",
+            "button_label_1": "Our Dyes",
+            "button_style_1": "button--filled",
             "color_scheme_first_button": "",
             "button_link_2": "/",
             "button_label_2": "",
@@ -213,7 +127,7 @@
         "section_height": "auto",
         "content_position": "center",
         "content_alignment": "center",
-        "image": "shopify://shop_images/Dye_Workshop_Bali.webp",
+        "image": "shopify://shop_images/Natural_Dye_Preparation.webp",
         "video_external": "",
         "show_controls_on_video": false,
         "aspect_ratio": "auto",
@@ -225,10 +139,10 @@
         "aspect_ratio_mobile": "auto",
         "section_width": "max-w-full",
         "color_scheme": "",
-        "color_scheme_for_content": "scheme-6",
+        "color_scheme_for_content": "scheme-ee2d138c-ee7e-4f91-b721-75c523bfadd3",
         "spacing_inner": "2",
         "spacing_top": "2",
-        "spacing_bottom": "2"
+        "spacing_bottom": "0"
       }
     },
     "dual_tiles_CVpVR6": {
@@ -303,6 +217,7 @@
         "tile_qQwJq3",
         "tile_ibtWxT"
       ],
+      "disabled": true,
       "name": "t:sections.dual-tiles.name",
       "settings": {
         "section_layout": "seperated",
@@ -356,6 +271,7 @@
         "heading_Tdce6k",
         "buttons_ppdT6B"
       ],
+      "disabled": true,
       "name": "t:sections.full-width-banner.name",
       "settings": {
         "enable_transparent_header": true,
@@ -382,6 +298,7 @@
     },
     "main_list_collections_EnGLME": {
       "type": "main-list-collections",
+      "disabled": true,
       "name": "t:sections.main-list-collections.name",
       "settings": {
         "collections_to_show": "all",
@@ -400,9 +317,7 @@
   "order": [
     "page_banner_kExA78",
     "1760421621c74cd30c",
-    "full_width_banner_txyTw4",
     "main",
-    "seo_content_ebjggt",
     "full_width_banner_meeAGa",
     "dual_tiles_CVpVR6",
     "full_width_banner_W7yygr",
