@@ -1,0 +1,640 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_banner_bMQDWP": {
+      "type": "page-banner",
+      "disabled": true,
+      "name": "t:sections.page-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "heading": "",
+        "heading_size": "h3",
+        "text": "",
+        "show_default_description": true,
+        "show_on_description": "desktop",
+        "content_position": "center",
+        "content_alignment": "center",
+        "media_position": "background",
+        "page_menu": "",
+        "enable_breadcrumbs": true,
+        "section_height": "auto",
+        "content_width": "100%",
+        "video_external": "",
+        "show_controls_on_video": false,
+        "section_height_mobile": "auto",
+        "video_external_mobile": "",
+        "show_controls_on_video_mobile": false,
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-1",
+        "color_scheme_for_media": "",
+        "spacing_top": "2",
+        "spacing_bottom": "6"
+      }
+    },
+    "custom_liquid_7Tw7Bb": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "custom_liquid": "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"ClothingStore\",\n  \"name\": \"Botanicals by RIMMBA\",\n  \"image\": \"https://rimmba.com/cdn/shop/files/FlowerBathFemininity.png\",\n  \"url\": \"https://rimmba.com/pages/contact-us\",\n  \"telephone\": \"+6281338873123\",\n  \"email\": \"care@rimmba.com\",\n  \"address\": {\n    \"@type\": \"PostalAddress\",\n    \"streetAddress\": \"Jalan Dewi Sita No. 12\",\n    \"addressLocality\": \"Ubud\",\n    \"addressRegion\": \"Gianyar\",\n    \"postalCode\": \"80581\",\n    \"addressCountry\": \"ID\"\n  },\n  \"openingHoursSpecification\": [{\n    \"@type\": \"OpeningHoursSpecification\",\n    \"dayOfWeek\": [\n      \"Monday\",\n      \"Tuesday\",\n      \"Wednesday\",\n      \"Thursday\",\n      \"Friday\",\n      \"Saturday\",\n      \"Sunday\"\n    ],\n    \"opens\": \"10:00\",\n    \"closes\": \"21:00\"\n  }],\n  \"priceRange\": \"$$\",\n  \"sameAs\": [\n    \"https://www.instagram.com/rimmba\",\n    \"https://www.facebook.com/rimmba\"\n  ]\n}\n</script>",
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "spacing_top": "0",
+        "spacing_bottom": "0"
+      }
+    },
+    "custom_liquid_rbLwMT": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "custom_liquid": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.8889958784084!2d115.2609148760642!3d-8.510157886171275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23d9267119901%3A0x1d22c3d1a6f19a73!2sRimmba!5e0!3m2!1sen!2sid!4v1760670906999!5m2!1sen!2sid\" margin=\"auto\" align=\"center\" width=\"100%\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "spacing_top": "0",
+        "spacing_bottom": "2"
+      }
+    },
+    "dual_tiles_6eDKJQ": {
+      "type": "dual-tiles",
+      "blocks": {
+        "tile_UtyWpH": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "custom_background_color": "",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "auto",
+            "vertical_position": "center",
+            "content_position": "justify-center",
+            "content_alignment": "text-center align-center",
+            "product_position": "0",
+            "image": "shopify://shop_images/NEW_NEW_BBR.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "auto",
+            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        },
+        "tile_GWiygz": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-1",
+            "custom_background_color": "",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "<h3>Botanicals by RIMMBA</h3><h4>Silk Boutique & Atelier</h4><p><a href=\"https://maps.app.goo.gl/N4kXxNq9JvYbSX4B8\" target=\"_blank\" title=\"RIMMBA Shop in Bali\">Jalan Dewi Sita No. 12, Ubud, Gianyar 80581, Bali</a><br/></p><p></p><h5>Opening Hours</h5><p><strong>Monday – Sunday<br/></strong>10:00 AM — 9:00 PM</p><p></p><p>For any questions about our handmade <a href=\"/pages/handmade-silk-dress-bali\" target=\"_blank\" title=\"Custom RIMMBA Dresses\">custom silk dresses</a> or atelier visits, contact us:</p><p><a href=\"mailto:care@rimmba.com\">care@rimmba.com</a></p><p><a href=\"tel:+6281338873123\">+62 813 3887 3123</a></p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "auto",
+            "vertical_position": "stretch",
+            "content_position": "justify-center",
+            "content_alignment": "text-center align-center",
+            "product_position": "0",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "auto",
+            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        }
+      },
+      "block_order": [
+        "tile_UtyWpH",
+        "tile_GWiygz"
+      ],
+      "name": "t:sections.dual-tiles.name",
+      "settings": {
+        "section_layout": "seperated",
+        "block_size": "half",
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "color_scheme": "",
+        "section_width": "max-w-page",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "form": {
+      "type": "form-contact",
+      "blocks": {
+        "field_qaqAeN": {
+          "type": "field",
+          "settings": {
+            "column_factor": "3",
+            "heading": "First Name",
+            "type": "text",
+            "required": false,
+            "checked": false,
+            "placeholder": "",
+            "binding": "first_name",
+            "label_description": "",
+            "option_1": "",
+            "option_2": "",
+            "option_3": "",
+            "option_4": ""
+          }
+        },
+        "field_p8UeqH": {
+          "type": "field",
+          "settings": {
+            "column_factor": "3",
+            "heading": "Last Name",
+            "type": "text",
+            "required": false,
+            "checked": false,
+            "placeholder": "",
+            "binding": "last_name",
+            "label_description": "",
+            "option_1": "",
+            "option_2": "",
+            "option_3": "",
+            "option_4": ""
+          }
+        },
+        "field_CQfU3F": {
+          "type": "field",
+          "settings": {
+            "column_factor": "6",
+            "heading": "Contact Method",
+            "type": "checkbox",
+            "required": false,
+            "checked": false,
+            "placeholder": "",
+            "binding": "custom",
+            "label_description": "How do you want us to contact you?",
+            "option_1": "Email",
+            "option_2": "Phone",
+            "option_3": "SMS",
+            "option_4": ""
+          }
+        }
+      },
+      "block_order": [
+        "field_qaqAeN",
+        "field_p8UeqH",
+        "field_CQfU3F"
+      ],
+      "settings": {
+        "section_width": "max-w-narrower",
+        "color_scheme": "scheme-1",
+        "spacing_top": "0",
+        "spacing_bottom": "2"
+      }
+    },
+    "multitile_VmhDDc": {
+      "type": "multitile",
+      "blocks": {
+        "tile_JDXkTX": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 3,
+            "row_factor": 2,
+            "color_scheme": "",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "auto",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify://shop_images/Store_Locator-02.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "0"
+          }
+        },
+        "tile_VEYaKz": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 3,
+            "row_factor": 1,
+            "color_scheme": "",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "4/3",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify://shop_images/2_0a0ca90a-8c9f-48dd-b9dd-72ff15349fe9.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "0"
+          }
+        },
+        "tile_JhKgUA": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 3,
+            "row_factor": 1,
+            "color_scheme": "",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "4/3",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify://shop_images/5_c1fa1d43-4395-4753-91a9-0886a1620175.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "0"
+          }
+        }
+      },
+      "block_order": [
+        "tile_JDXkTX",
+        "tile_VEYaKz",
+        "tile_JhKgUA"
+      ],
+      "name": "t:sections.multitile.name",
+      "settings": {
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "spacing_tile": "default",
+        "color_scheme": "",
+        "section_width": "max-w-page",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "carousel_464xTm": {
+      "type": "carousel",
+      "blocks": {
+        "card_3BMgMA": {
+          "type": "card",
+          "settings": {
+            "heading": "",
+            "heading_size": "h5",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "aspect_ratio": "2/1",
+            "color_scheme": "scheme-5",
+            "media_position": "background",
+            "content_position": "center",
+            "content_alignment": "center",
+            "image": "shopify://shop_images/MJR_3515.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "content_position_mobile": "center",
+            "content_alignment_mobile": "center",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "0"
+          }
+        },
+        "card_94typ8": {
+          "type": "card",
+          "settings": {
+            "heading": "",
+            "heading_size": "h5",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "aspect_ratio": "2/1",
+            "color_scheme": "scheme-5",
+            "media_position": "background",
+            "content_position": "center",
+            "content_alignment": "center",
+            "image": "shopify://shop_images/MJR_3731_copy_2.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "content_position_mobile": "center",
+            "content_alignment_mobile": "center",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "0"
+          }
+        },
+        "card_DWjnkp": {
+          "type": "card",
+          "settings": {
+            "heading": "",
+            "heading_size": "h5",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "aspect_ratio": "2/1",
+            "color_scheme": "scheme-5",
+            "media_position": "background",
+            "content_position": "center",
+            "content_alignment": "center",
+            "image": "shopify://shop_images/HND_8398_1_1024x1024-Picsart-AiImageEnhancer_1.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "content_position_mobile": "center",
+            "content_alignment_mobile": "center",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "0"
+          }
+        }
+      },
+      "block_order": [
+        "card_3BMgMA",
+        "card_94typ8",
+        "card_DWjnkp"
+      ],
+      "name": "t:sections.carousel.name",
+      "settings": {
+        "show_navigation_arrows": true,
+        "slideshow_autoplay_interval": 4,
+        "slides_per_view": 1,
+        "layout": "layout-2",
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "button--filled",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "0",
+        "spacing_bottom": "0"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "breadcrumbs": false,
+        "show_page_title": false,
+        "page_title_alignment": "text-center",
+        "info_title": "",
+        "info_content": "",
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-1",
+        "spacing_top": "2",
+        "spacing_bottom": "0"
+      }
+    },
+    "multitile_RMhzqE": {
+      "type": "multitile",
+      "blocks": {
+        "tile_MtiYEB": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 3,
+            "row_factor": 1,
+            "color_scheme": "",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "4/3",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify://shop_images/3_c37810ba-451a-4be2-aa7a-3e5f09c715bd.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "0"
+          }
+        },
+        "tile_e6WkF7": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 3,
+            "row_factor": 2,
+            "color_scheme": "",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "auto",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify://shop_images/1_2d58c94e-0ab2-4b3c-9003-e963fd59211e.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "0"
+          }
+        },
+        "tile_3zAiNX": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 3,
+            "row_factor": 1,
+            "color_scheme": "",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "4/3",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify://shop_images/3_8271d541-e0ad-4e1d-846e-e7441c0ba6d8.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "0"
+          }
+        }
+      },
+      "block_order": [
+        "tile_MtiYEB",
+        "tile_e6WkF7",
+        "tile_3zAiNX"
+      ],
+      "name": "t:sections.multitile.name",
+      "settings": {
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "spacing_tile": "default",
+        "color_scheme": "",
+        "section_width": "max-w-page",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "accordions_MaqKtQ": {
+      "type": "accordions",
+      "blocks": {
+        "topic_4YNKGM": {
+          "type": "topic",
+          "settings": {
+            "is_open": false,
+            "title": "Do I need an appointment to visit the boutique?",
+            "text": "<p>No appointment is required during opening hours. However, if you would like a private consultation or bespoke guidance, we recommend contacting us in advance.</p>",
+            "page": ""
+          }
+        },
+        "topic_dFEhN6": {
+          "type": "topic",
+          "settings": {
+            "is_open": false,
+            "title": "Where is Botanicals by RIMMBA located?",
+            "text": "<p>Our boutique and atelier are located on <a href=\"https://maps.app.goo.gl/eLeJjMp8t6WdUBRS8\" target=\"_blank\" title=\"Botanicals by RIMMBA Shop in Ubud\">Jalan Dewi Sita No. 12 in Ubud, Gianyar, Bali</a>. You can find directions through the Google Maps link above.</p>",
+            "page": ""
+          }
+        },
+        "topic_U3EC3a": {
+          "type": "topic",
+          "settings": {
+            "is_open": false,
+            "title": "How should I care for botanically dyed silk?",
+            "text": "<p>We provide gentle <a href=\"/pages/care-and-laundering-rimmba-silk-garments\" target=\"_blank\" title=\"Washing & Care instructions\">care guidance </a>during your visit. In general, natural dyes benefit from mild washing, low agitation, and air drying.</p>",
+            "page": ""
+          }
+        },
+        "topic_LkENzr": {
+          "type": "topic",
+          "settings": {
+            "is_open": true,
+            "title": "Do you offer bespoke or custom pieces?",
+            "text": "<p>Yes. We offer bespoke silk garments and tailoring. For more details, please visit our <a href=\"/pages/handmade-silk-dress-bali\" target=\"_blank\" title=\"Custom RIMMBA Dresses\">custom dresses page</a>, or contact us directly.</p>",
+            "page": ""
+          }
+        },
+        "topic_jVFyEB": {
+          "type": "topic",
+          "settings": {
+            "is_open": true,
+            "title": "Can I see the atelier and learn about the dyeing process?",
+            "text": "<p>Yes, we offer both <a href=\"/pages/tailored-workshop-bali\" target=\"_blank\" title=\"Private Dye Workshop\">private classes</a> and <a href=\"/pages/natural-dye-workshop-bali\" target=\"_blank\" title=\"Natural Dye Workshop in Bali\">public workshops</a> to learn about the natural dyeing process.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "topic_4YNKGM",
+        "topic_dFEhN6",
+        "topic_U3EC3a",
+        "topic_LkENzr",
+        "topic_jVFyEB"
+      ],
+      "name": "t:sections.accordions.name",
+      "settings": {
+        "heading": "Frequently asked questions",
+        "heading_size": "h3",
+        "section_width": "max-w-narrower",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "map": {
+      "type": "map",
+      "disabled": true,
+      "settings": {
+        "api_key": "AIzaSyCD1080--vBMnb--MBME_Qe7d9EnnNvN6Y",
+        "address_query": "Rimmba, Jl. Dewisita No.12, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571",
+        "zoom_level": 13,
+        "section_width": "max-w-fluid",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "custom_liquid_MFi6Nm": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "custom_liquid": "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": [{\n    \"@type\": \"Question\",\n    \"name\": \"Where is Botanicals by RIMMBA located?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Botanicals by RIMMBA is located at Jl. Dewisita No.12, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"Do I need an appointment to visit the boutique?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"No appointment is required during opening hours, but private consultations must be arranged in advance.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"Can I see the atelier and learn about the dyeing process?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Yes, we offer both private classes and public workshops to learn about the natural dyeing process.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"Do you offer bespoke or custom pieces?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Yes. Botanicals by RIMMBA offers bespoke silk garments and custom tailoring services.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"How should I care for botanically dyed silk?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Natural dyes benefit from gentle washing, mild detergents, and air drying to preserve color and fabric integrity.\"\n    }\n  }]\n}\n</script>",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    }
+  },
+  "order": [
+    "page_banner_bMQDWP",
+    "custom_liquid_7Tw7Bb",
+    "custom_liquid_rbLwMT",
+    "dual_tiles_6eDKJQ",
+    "form",
+    "multitile_VmhDDc",
+    "carousel_464xTm",
+    "main",
+    "multitile_RMhzqE",
+    "accordions_MaqKtQ",
+    "map",
+    "custom_liquid_MFi6Nm"
+  ]
+}
