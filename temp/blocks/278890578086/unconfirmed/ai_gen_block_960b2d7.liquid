@@ -1,6 +1,935 @@
+{% doc %}
+  @prompt
+    A Contact Form section container for the Release theme (OS 2.0 compatible) with choice for:
+    
+    Title (manually fill, hidden if empty) option [h2 | h3 | h4 | h5]-default"h2";
+    Description (manually fill, hidden if empty);
+    Title & Description alignment [Start | Center | End]-default"Center";
+    
+    Layout Type [Normal | Split]-default"Normal";
+    
+    Fields Columns [1 | 2 | 3]-default"1";
+    
+    Container width [narrow | fluid | full]-default"Narrow";
+    Container Color Scheme [select];
+    Spacing top [No | S | M | L | XL]-default"M";
+    Spacing bottom [No | S | M | L | XL]-default"M";
+    Padding [No | S | M | L | XL]-default"M";
+    Internal spacing between fields [No | S | M | L | XL]-default"M";
+    
+    Button with:
+    Button label-default"Send message";
+    Button style [filled | outlined | text]-default"filled";
+    Button alignment [left | center | right | full]-default"left";
+    
+    Layout behavior:
+    
+    When Layout Type = Normal:
+    Fields follow Fields Columns setting.
+    1 = single column.
+    2 = two equal columns.
+    3 = three equal columns.
+    Message spans full width.
+    Button follows selected alignment and must use same internal spacing as fields (no extra bottom margin).
+    
+    When Layout Type = Split:
+    Section divided into two equal-width columns.
+    Left column contains all enabled fields except Message.
+    Right column contains Message and Button.
+    Fields Columns setting is ignored.
+    Both columns must be equal height.
+    Message textarea must stretch to fill available vertical space of its column.
+    Do NOT set fixed height on textarea.
+    Height must be controlled by layout (flex or grid), not hardcoded values.
+    Button must render directly under Message and respect same internal spacing rhythm.
+    
+    On mobile:
+    Always collapse to single column.
+    Render fields in normal order with Message last and Button under Message.
+    
+    Fields Color Scheme [select] (applies only to fields);
+    
+    IMPORTANT:
+    The selected Fields Color Scheme must apply ONLY to input, textarea and select elements.
+    It must NOT apply to the form element, wrapper div, grid container or column containers.
+    
+    Each field must include:
+    Show field [Yes | No]-default"Yes";
+    Required [Yes | No]-default"No";
+    Custom label;
+    Custom placeholder;
+    
+    Fields:
+    Name;
+    Surname;
+    Email (email input with native validation);
+    Phone;
+    Subject;
+    Message (textarea);
+    
+    Field rules:
+    Field renders only if Show = Yes;
+    Required attribute applied only if enabled;
+    No field forced required unless selected;
+    Use Shopify native {% form 'contact' %};
+    
+    Form behavior:
+    Must use Shopify native contact handling;
+    Must display validation errors correctly;
+    Must display success message correctly;
+    Must follow theme styling and selected Color Scheme;
+    Must be fully OS 2.0 compatible;
+    No unnecessary custom CSS;
+    Button must use Release theme native classes, example:
+    class="button button--filled uppercase color-scheme-X";
+    Do NOT create custom button CSS., Not working at all. do over.
+{% enddoc %}
+{% liquid
+  assign spacing_top = section.settings.spacing_top
+  assign spacing_bottom = section.settings.spacing_bottom
+  assign padding = section.settings.padding
+  assign field_spacing = section.settings.field_spacing
+  
+  assign spacing_top_value = 0
+  assign spacing_bottom_value = 0
+  assign padding_value = 0
+  assign field_spacing_value = 0
+  
+  case spacing_top
+    when 'S'
+      assign spacing_top_value = 'calc(var(--section-spacing-unit-size) * 2)'
+    when 'M'
+      assign spacing_top_value = 'calc(var(--section-spacing-unit-size) * 4)'
+    when 'L'
+      assign spacing_top_value = 'calc(var(--section-spacing-unit-size) * 6)'
+    when 'XL'
+      assign spacing_top_value = 'calc(var(--section-spacing-unit-size) * 8)'
+  endcase
+  
+  case spacing_bottom
+    when 'S'
+      assign spacing_bottom_value = 'calc(var(--section-spacing-unit-size) * 2)'
+    when 'M'
+      assign spacing_bottom_value = 'calc(var(--section-spacing-unit-size) * 4)'
+    when 'L'
+      assign spacing_bottom_value = 'calc(var(--section-spacing-unit-size) * 6)'
+    when 'XL'
+      assign spacing_bottom_value = 'calc(var(--section-spacing-unit-size) * 8)'
+  endcase
+  
+  case padding
+    when 'S'
+      assign padding_value = 'calc(var(--section-spacing-unit-size) * 2)'
+    when 'M'
+      assign padding_value = 'calc(var(--section-spacing-unit-size) * 4)'
+    when 'L'
+      assign padding_value = 'calc(var(--section-spacing-unit-size) * 6)'
+    when 'XL'
+      assign padding_value = 'calc(var(--section-spacing-unit-size) * 8)'
+  endcase
+  
+  case field_spacing
+    when 'S'
+      assign field_spacing_value = 'calc(var(--section-spacing-unit-size) * 1)'
+    when 'M'
+      assign field_spacing_value = 'calc(var(--section-spacing-unit-size) * 2)'
+    when 'L'
+      assign field_spacing_value = 'calc(var(--section-spacing-unit-size) * 3)'
+    when 'XL'
+      assign field_spacing_value = 'calc(var(--section-spacing-unit-size) * 4)'
+  endcase
+%}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ spacing_top_value }};
+    padding-bottom: {{ spacing_bottom_value }};
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-container {
+    {% if padding != 'No' %}
+      padding: {{ padding_value }};
+    {% endif %}
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-inner {
+    {% if section.settings.container_width == 'narrow' %}
+      max-width: 72rem;
+      margin-left: auto;
+      margin-right: auto;
+    {% elsif section.settings.container_width == 'fluid' %}
+      max-width: var(--page-width);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    {% endif %}
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-header {
+    margin-bottom: calc(var(--section-spacing-unit-size) * 3);
+    {% if section.settings.title_description_alignment == 'Start' %}
+      text-align: left;
+    {% elsif section.settings.title_description_alignment == 'Center' %}
+      text-align: center;
+    {% elsif section.settings.title_description_alignment == 'End' %}
+      text-align: right;
+    {% endif %}
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-title {
+    margin: 0 0 1rem 0;
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-description {
+    margin: 0;
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-fields {
+    {% if section.settings.layout_type == 'Normal' %}
+      display: grid;
+      {% if section.settings.fields_columns == '1' %}
+        grid-template-columns: 1fr;
+      {% elsif section.settings.fields_columns == '2' %}
+        grid-template-columns: repeat(2, 1fr);
+        gap: calc(var(--section-spacing-unit-size) * 2);
+      {% elsif section.settings.fields_columns == '3' %}
+        grid-template-columns: repeat(3, 1fr);
+        gap: calc(var(--section-spacing-unit-size) * 2);
+      {% endif %}
+    {% else %}
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: calc(var(--section-spacing-unit-size) * 4);
+      align-items: start;
+    {% endif %}
+  }
+  
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .contact-form-fields {
+      grid-template-columns: 1fr !important;
+    }
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-field {
+    {% if field_spacing != 'No' %}
+      margin-top: {{ field_spacing_value }};
+    {% endif %}
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-field:first-child {
+    margin-top: 0;
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-field-full {
+    grid-column: 1 / -1;
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-left,
+  #shopify-section-{{ section.id }} .contact-form-right {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-right {
+    height: 100%;
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-message-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-message-wrapper .field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-message-wrapper textarea {
+    flex: 1;
+    min-height: 15rem;
+    resize: vertical;
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-button-wrapper {
+    {% if field_spacing != 'No' %}
+      margin-top: {{ field_spacing_value }};
+    {% endif %}
+    {% if section.settings.button_alignment == 'left' %}
+      text-align: left;
+    {% elsif section.settings.button_alignment == 'center' %}
+      text-align: center;
+    {% elsif section.settings.button_alignment == 'right' %}
+      text-align: right;
+    {% elsif section.settings.button_alignment == 'full' %}
+      text-align: left;
+    {% endif %}
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-button-wrapper.button-full .button {
+    width: 100%;
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-success,
+  #shopify-section-{{ section.id }} .contact-form-error {
+    padding: 1.5rem;
+    border-radius: 0.4rem;
+    margin-bottom: calc(var(--section-spacing-unit-size) * 2);
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  
+  #shopify-section-{{ section.id }} .contact-form-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+{% endstyle %}
+
+<div class="color-{{ section.settings.container_color_scheme }}">
+  <div class="contact-form-container">
+    <div class="contact-form-inner">
+      {% if section.settings.title != blank or section.settings.description != blank %}
+        <div class="contact-form-header">
+          {% if section.settings.title != blank %}
+            {% case section.settings.title_tag %}
+              {% when 'h2' %}
+                <h2 class="contact-form-title">{{ section.settings.title }}</h2>
+              {% when 'h3' %}
+                <h3 class="contact-form-title">{{ section.settings.title }}</h3>
+              {% when 'h4' %}
+                <h4 class="contact-form-title">{{ section.settings.title }}</h4>
+              {% when 'h5' %}
+                <h5 class="contact-form-title">{{ section.settings.title }}</h5>
+            {% endcase %}
+          {% endif %}
+          {% if section.settings.description != blank %}
+            <div class="contact-form-description rte">{{ section.settings.description }}</div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% form 'contact' %}
+        {% if form.posted_successfully? %}
+          <div class="contact-form-success">
+            Thank you for contacting us. We will get back to you as soon as possible.
+          </div>
+        {% endif %}
+
+        {% if form.errors %}
+          <div class="contact-form-error">
+            {{ form.errors | default_errors }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.layout_type == 'Normal' %}
+          <div class="contact-form-fields">
+            {% if section.settings.show_name %}
+              <div class="contact-form-field">
+                <div class="field">
+                  <label for="contact-name-{{ section.id }}">
+                    {{ section.settings.name_label }}{% if section.settings.name_required %} *{% endif %}
+                  </label>
+                  <input
+                    type="text"
+                    id="contact-name-{{ section.id }}"
+                    name="contact[{{ section.settings.name_label }}]"
+                    placeholder="{{ section.settings.name_placeholder }}"
+                    class="field__input color-{{ section.settings.fields_color_scheme }}"
+                    {% if section.settings.name_required %}required{% endif %}
+                  >
+                </div>
+              </div>
+            {% endif %}
+
+            {% if section.settings.show_surname %}
+              <div class="contact-form-field">
+                <div class="field">
+                  <label for="contact-surname-{{ section.id }}">
+                    {{ section.settings.surname_label }}{% if section.settings.surname_required %} *{% endif %}
+                  </label>
+                  <input
+                    type="text"
+                    id="contact-surname-{{ section.id }}"
+                    name="contact[{{ section.settings.surname_label }}]"
+                    placeholder="{{ section.settings.surname_placeholder }}"
+                    class="field__input color-{{ section.settings.fields_color_scheme }}"
+                    {% if section.settings.surname_required %}required{% endif %}
+                  >
+                </div>
+              </div>
+            {% endif %}
+
+            {% if section.settings.show_email %}
+              <div class="contact-form-field">
+                <div class="field">
+                  <label for="contact-email-{{ section.id }}">
+                    {{ section.settings.email_label }}{% if section.settings.email_required %} *{% endif %}
+                  </label>
+                  <input
+                    type="email"
+                    id="contact-email-{{ section.id }}"
+                    name="contact[email]"
+                    placeholder="{{ section.settings.email_placeholder }}"
+                    class="field__input color-{{ section.settings.fields_color_scheme }}"
+                    autocomplete="email"
+                    {% if section.settings.email_required %}required{% endif %}
+                  >
+                </div>
+              </div>
+            {% endif %}
+
+            {% if section.settings.show_phone %}
+              <div class="contact-form-field">
+                <div class="field">
+                  <label for="contact-phone-{{ section.id }}">
+                    {{ section.settings.phone_label }}{% if section.settings.phone_required %} *{% endif %}
+                  </label>
+                  <input
+                    type="tel"
+                    id="contact-phone-{{ section.id }}"
+                    name="contact[{{ section.settings.phone_label }}]"
+                    placeholder="{{ section.settings.phone_placeholder }}"
+                    class="field__input color-{{ section.settings.fields_color_scheme }}"
+                    {% if section.settings.phone_required %}required{% endif %}
+                  >
+                </div>
+              </div>
+            {% endif %}
+
+            {% if section.settings.show_subject %}
+              <div class="contact-form-field">
+                <div class="field">
+                  <label for="contact-subject-{{ section.id }}">
+                    {{ section.settings.subject_label }}{% if section.settings.subject_required %} *{% endif %}
+                  </label>
+                  <input
+                    type="text"
+                    id="contact-subject-{{ section.id }}"
+                    name="contact[{{ section.settings.subject_label }}]"
+                    placeholder="{{ section.settings.subject_placeholder }}"
+                    class="field__input color-{{ section.settings.fields_color_scheme }}"
+                    {% if section.settings.subject_required %}required{% endif %}
+                  >
+                </div>
+              </div>
+            {% endif %}
+
+            {% if section.settings.show_message %}
+              <div class="contact-form-field contact-form-field-full">
+                <div class="field">
+                  <label for="contact-message-{{ section.id }}">
+                    {{ section.settings.message_label }}{% if section.settings.message_required %} *{% endif %}
+                  </label>
+                  <textarea
+                    id="contact-message-{{ section.id }}"
+                    name="contact[body]"
+                    placeholder="{{ section.settings.message_placeholder }}"
+                    class="field__input color-{{ section.settings.fields_color_scheme }}"
+                    rows="6"
+                    {% if section.settings.message_required %}required{% endif %}
+                  ></textarea>
+                </div>
+              </div>
+            {% endif %}
+
+            <div class="contact-form-field contact-form-field-full">
+              <div class="contact-form-button-wrapper {% if section.settings.button_alignment == 'full' %}button-full{% endif %}">
+                <button type="submit" class="button button--{{ section.settings.button_style }} uppercase color-{{ section.settings.container_color_scheme }}">
+                  {{ section.settings.button_label }}
+                </button>
+              </div>
+            </div>
+          </div>
+
+        {% else %}
+          <div class="contact-form-fields">
+            <div class="contact-form-left">
+              {% if section.settings.show_name %}
+                <div class="contact-form-field">
+                  <div class="field">
+                    <label for="contact-name-{{ section.id }}">
+                      {{ section.settings.name_label }}{% if section.settings.name_required %} *{% endif %}
+                    </label>
+                    <input
+                      type="text"
+                      id="contact-name-{{ section.id }}"
+                      name="contact[{{ section.settings.name_label }}]"
+                      placeholder="{{ section.settings.name_placeholder }}"
+                      class="field__input color-{{ section.settings.fields_color_scheme }}"
+                      {% if section.settings.name_required %}required{% endif %}
+                    >
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if section.settings.show_surname %}
+                <div class="contact-form-field">
+                  <div class="field">
+                    <label for="contact-surname-{{ section.id }}">
+                      {{ section.settings.surname_label }}{% if section.settings.surname_required %} *{% endif %}
+                    </label>
+                    <input
+                      type="text"
+                      id="contact-surname-{{ section.id }}"
+                      name="contact[{{ section.settings.surname_label }}]"
+                      placeholder="{{ section.settings.surname_placeholder }}"
+                      class="field__input color-{{ section.settings.fields_color_scheme }}"
+                      {% if section.settings.surname_required %}required{% endif %}
+                    >
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if section.settings.show_email %}
+                <div class="contact-form-field">
+                  <div class="field">
+                    <label for="contact-email-{{ section.id }}">
+                      {{ section.settings.email_label }}{% if section.settings.email_required %} *{% endif %}
+                    </label>
+                    <input
+                      type="email"
+                      id="contact-email-{{ section.id }}"
+                      name="contact[email]"
+                      placeholder="{{ section.settings.email_placeholder }}"
+                      class="field__input color-{{ section.settings.fields_color_scheme }}"
+                      autocomplete="email"
+                      {% if section.settings.email_required %}required{% endif %}
+                    >
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if section.settings.show_phone %}
+                <div class="contact-form-field">
+                  <div class="field">
+                    <label for="contact-phone-{{ section.id }}">
+                      {{ section.settings.phone_label }}{% if section.settings.phone_required %} *{% endif %}
+                    </label>
+                    <input
+                      type="tel"
+                      id="contact-phone-{{ section.id }}"
+                      name="contact[{{ section.settings.phone_label }}]"
+                      placeholder="{{ section.settings.phone_placeholder }}"
+                      class="field__input color-{{ section.settings.fields_color_scheme }}"
+                      {% if section.settings.phone_required %}required{% endif %}
+                    >
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if section.settings.show_subject %}
+                <div class="contact-form-field">
+                  <div class="field">
+                    <label for="contact-subject-{{ section.id }}">
+                      {{ section.settings.subject_label }}{% if section.settings.subject_required %} *{% endif %}
+                    </label>
+                    <input
+                      type="text"
+                      id="contact-subject-{{ section.id }}"
+                      name="contact[{{ section.settings.subject_label }}]"
+                      placeholder="{{ section.settings.subject_placeholder }}"
+                      class="field__input color-{{ section.settings.fields_color_scheme }}"
+                      {% if section.settings.subject_required %}required{% endif %}
+                    >
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+
+            <div class="contact-form-right">
+              {% if section.settings.show_message %}
+                <div class="contact-form-message-wrapper">
+                  <div class="field">
+                    <label for="contact-message-{{ section.id }}">
+                      {{ section.settings.message_label }}{% if section.settings.message_required %} *{% endif %}
+                    </label>
+                    <textarea
+                      id="contact-message-{{ section.id }}"
+                      name="contact[body]"
+                      placeholder="{{ section.settings.message_placeholder }}"
+                      class="field__input color-{{ section.settings.fields_color_scheme }}"
+                      {% if section.settings.message_required %}required{% endif %}
+                    ></textarea>
+                  </div>
+                </div>
+              {% endif %}
+
+              <div class="contact-form-button-wrapper {% if section.settings.button_alignment == 'full' %}button-full{% endif %}">
+                <button type="submit" class="button button--{{ section.settings.button_style }} uppercase color-{{ section.settings.container_color_scheme }}">
+                  {{ section.settings.button_label }}
+                </button>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endform %}
+    </div>
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Contact form",
+  "tag": "section",
+  "class": "section-contact-form",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Title and description"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "title_tag",
+      "label": "Title tag",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "select",
+      "id": "title_description_alignment",
+      "label": "Title and description alignment",
+      "options": [
+        { "value": "Start", "label": "Start" },
+        { "value": "Center", "label": "Center" },
+        { "value": "End", "label": "End" }
+      ],
+      "default": "Center"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout_type",
+      "label": "Layout type",
+      "options": [
+        { "value": "Normal", "label": "Normal" },
+        { "value": "Split", "label": "Split" }
+      ],
+      "default": "Normal",
+      "info": "Split layout divides form into two columns"
+    },
+    {
+      "type": "select",
+      "id": "fields_columns",
+      "label": "Fields columns",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" }
+      ],
+      "default": "1",
+      "info": "Only applies to Normal layout"
+    },
+    {
+      "type": "header",
+      "content": "Container"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        { "value": "narrow", "label": "Narrow" },
+        { "value": "fluid", "label": "Fluid" },
+        { "value": "full", "label": "Full" }
+      ],
+      "default": "narrow"
+    },
+    {
+      "type": "color_scheme",
+      "id": "container_color_scheme",
+      "label": "Container color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "spacing_top",
+      "label": "Spacing top",
+      "options": [
+        { "value": "No", "label": "No" },
+        { "value": "S", "label": "S" },
+        { "value": "M", "label": "M" },
+        { "value": "L", "label": "L" },
+        { "value": "XL", "label": "XL" }
+      ],
+      "default": "M"
+    },
+    {
+      "type": "select",
+      "id": "spacing_bottom",
+      "label": "Spacing bottom",
+      "options": [
+        { "value": "No", "label": "No" },
+        { "value": "S", "label": "S" },
+        { "value": "M", "label": "M" },
+        { "value": "L", "label": "L" },
+        { "value": "XL", "label": "XL" }
+      ],
+      "default": "M"
+    },
+    {
+      "type": "select",
+      "id": "padding",
+      "label": "Padding",
+      "options": [
+        { "value": "No", "label": "No" },
+        { "value": "S", "label": "S" },
+        { "value": "M", "label": "M" },
+        { "value": "L", "label": "L" },
+        { "value": "XL", "label": "XL" }
+      ],
+      "default": "M"
+    },
+    {
+      "type": "select",
+      "id": "field_spacing",
+      "label": "Internal spacing between fields",
+      "options": [
+        { "value": "No", "label": "No" },
+        { "value": "S", "label": "S" },
+        { "value": "M", "label": "M" },
+        { "value": "L", "label": "L" },
+        { "value": "XL", "label": "XL" }
+      ],
+      "default": "M"
+    },
+    {
+      "type": "color_scheme",
+      "id": "fields_color_scheme",
+      "label": "Fields color scheme",
+      "default": "scheme-1",
+      "info": "Applies only to input, textarea and select elements"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Send message"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        { "value": "filled", "label": "Filled" },
+        { "value": "outlined", "label": "Outlined" },
+        { "value": "text", "label": "Text" }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "button_alignment",
+      "label": "Button alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" },
+        { "value": "full", "label": "Full" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Name field"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_name",
+      "label": "Show field",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "name_required",
+      "label": "Required",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "name_label",
+      "label": "Custom label",
+      "default": "Name"
+    },
+    {
+      "type": "text",
+      "id": "name_placeholder",
+      "label": "Custom placeholder",
+      "default": "Enter your name"
+    },
+    {
+      "type": "header",
+      "content": "Surname field"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_surname",
+      "label": "Show field",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "surname_required",
+      "label": "Required",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "surname_label",
+      "label": "Custom label",
+      "default": "Surname"
+    },
+    {
+      "type": "text",
+      "id": "surname_placeholder",
+      "label": "Custom placeholder",
+      "default": "Enter your surname"
+    },
+    {
+      "type": "header",
+      "content": "Email field"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_email",
+      "label": "Show field",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "email_required",
+      "label": "Required",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "email_label",
+      "label": "Custom label",
+      "default": "Email"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Custom placeholder",
+      "default": "Enter your email"
+    },
+    {
+      "type": "header",
+      "content": "Phone field"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_phone",
+      "label": "Show field",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "phone_required",
+      "label": "Required",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "phone_label",
+      "label": "Custom label",
+      "default": "Phone"
+    },
+    {
+      "type": "text",
+      "id": "phone_placeholder",
+      "label": "Custom placeholder",
+      "default": "Enter your phone number"
+    },
+    {
+      "type": "header",
+      "content": "Subject field"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_subject",
+      "label": "Show field",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "subject_required",
+      "label": "Required",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "subject_label",
+      "label": "Custom label",
+      "default": "Subject"
+    },
+    {
+      "type": "text",
+      "id": "subject_placeholder",
+      "label": "Custom placeholder",
+      "default": "Enter subject"
+    },
+    {
+      "type": "header",
+      "content": "Message field"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_message",
+      "label": "Show field",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "message_required",
+      "label": "Required",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "message_label",
+      "label": "Custom label",
+      "default": "Message"
+    },
+    {
+      "type": "text",
+      "id": "message_placeholder",
+      "label": "Custom placeholder",
+      "default": "Enter your message"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact form"
+    }
+  ]
+}
 {% endschema %}
