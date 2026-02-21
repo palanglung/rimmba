@@ -1,6 +1,680 @@
+{% doc %}
+  @prompt
+    A multi-tile section containing up to 9 blocks/tiles.
+    Each tile links to a page and can display either manually entered content or automatically pull content from the selected page.
+    The section must include layout controls, styling options, and optional masonry behavior.
+    
+    Section (Container of the Tiles)
+    The section contains the tiles and controls overall layout, spacing, width, color scheme, and masonry behavior.
+    Section Layout & Settings
+    
+    The section must include the following settings:
+     - Section width: [narrow | fluid | full]
+     - Margin/spacing top: [No | S | M | L | XL]
+     - Margin/spacing bottom: [No | S | M | L | XL]
+     - Section Color Schema: [select]
+     - Number of tiles to show: [1–9]
+     - Masonry: [on | off]
+     - Number of columns: [1–4]
+     - Number of rows: [1–4]
+    
+    Masonry Behavior
+    When masonry is enabled:
+     - The first tile must remain in the first column.
+     - The first tile must stretch across all rows.
+    
+    Example: if layout is 3 columns and 3 rows, the first tile occupies 1 column and 3 rows.
+     - The remaining tiles do not have to be equal in size.
+     - They must be distributed to fill the remaining columns and rows.
+     - Tiles should align at the bottom with the first tile.
+     - The layout should avoid leaving empty areas when possible.
+    
+    Tiles (Blocks Inside the Section)
+    Each tile represents a linked page and may display content either manually entered or automatically pulled from the selected page.
+    Tile Content Settings
+    Each tile must include:
+     - Select Page to link
+     - Manual URL (defaults to selected page URL)
+     - Title
+     - Description
+     - Background image (can be left empty, manually selected, or automatically taken from the linked page or its Yoast/SEO Social Media image)
+    with options for:
+     - open link in a new page [Yes | No]
+     - The tile itself must function as a link [Yes | No]
+    
+    Automatic Content Fallback
+    The following content can be manually entered or automatically pulled from the selected page:
+     - Page title
+     - Page Meta Description
+     - Page URL
+     - Page image
+    If Title / Description / Image / Link are empty, they must default to the selected page values.
+    If manually filled, manual content overrides the automatic content.
+    
+    Tile Appearance & Styling
+    Each tile must include:
+     - Color Schema selector
+     - Content vertical alignment: [top | center | bottom | distributed]
+     -  - top / center / bottom → all content aligned together
+     -  - distributed → title at top, description centered, button at bottom
+     - Title size: [S | M | L | XL]
+     - Description size: [S | M | L | XL]
+     - Padding size: [S | M | L | XL]
+     - Border radius: [none | smooth | rounded]
+     - Overlay: [No | Light | Medium | Dark]
+    
+    Overlay details:
+    The overlay is layered between the text content and the background image.
+    The overlay color must be taken from the tile’s Color Schema background color.
+     - No = 0% opacity.
+     - Dark = 85% opacity.
+    
+    Tile Button
+    Each tile must include an optional button:
+     - Button text (not visible if empty)
+     - Button style: [filled | outline | text]
+     - Button radius: [none | smooth | rounded]
+     - Button alignment: [left | center | right | full]
+    If the button text is empty, the tile itself functions as the link.
+    If button text is provided, only the button should function as the link.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% liquid
+  assign page_link = block.settings.page_link
+  assign manual_url = block.settings.manual_url
+  assign manual_title = block.settings.manual_title
+  assign manual_description = block.settings.manual_description
+  assign manual_image = block.settings.manual_image
+  
+  if manual_url != blank
+    assign tile_url = manual_url
+  elsif page_link
+    assign tile_url = page_link.url
+  else
+    assign tile_url = '#'
+  endif
+  
+  if manual_title != blank
+    assign tile_title = manual_title
+  elsif page_link
+    assign tile_title = page_link.title
+  else
+    assign tile_title = ''
+  endif
+  
+  if manual_description != blank
+    assign tile_description = manual_description
+  elsif page_link and page_link.metafields.global.description_tag != blank
+    assign tile_description = page_link.metafields.global.description_tag
+  else
+    assign tile_description = ''
+  endif
+  
+  if manual_image != blank
+    assign tile_image = manual_image
+  elsif page_link and page_link.image != blank
+    assign tile_image = page_link.image
+  else
+    assign tile_image = blank
+  endif
+  
+  assign color_scheme = block.settings.color_scheme
+  assign scheme_bg = color_scheme.settings.background
+  
+  case block.settings.overlay_opacity
+    when 'none'
+      assign overlay_opacity = 0
+    when 'light'
+      assign overlay_opacity = 0.3
+    when 'medium'
+      assign overlay_opacity = 0.6
+    when 'dark'
+      assign overlay_opacity = 0.85
+  endcase
+  
+  case block.settings.padding_size
+    when 's'
+      assign padding_value = '1.6rem'
+    when 'm'
+      assign padding_value = '2.4rem'
+    when 'l'
+      assign padding_value = '3.2rem'
+    when 'xl'
+      assign padding_value = '4.8rem'
+  endcase
+  
+  case block.settings.title_size
+    when 's'
+      assign title_font_size = '1.6rem'
+    when 'm'
+      assign title_font_size = '2.4rem'
+    when 'l'
+      assign title_font_size = '3.2rem'
+    when 'xl'
+      assign title_font_size = '4.8rem'
+  endcase
+  
+  case block.settings.description_size
+    when 's'
+      assign desc_font_size = '1.2rem'
+    when 'm'
+      assign desc_font_size = '1.4rem'
+    when 'l'
+      assign desc_font_size = '1.6rem'
+    when 'xl'
+      assign desc_font_size = '2rem'
+  endcase
+  
+  case block.settings.border_radius
+    when 'none'
+      assign border_radius_value = '0'
+    when 'smooth'
+      assign border_radius_value = '0.8rem'
+    when 'rounded'
+      assign border_radius_value = '2.4rem'
+  endcase
+  
+  case block.settings.button_radius
+    when 'none'
+      assign button_radius_value = '0'
+    when 'smooth'
+      assign button_radius_value = '0.4rem'
+    when 'rounded'
+      assign button_radius_value = '5rem'
+  endcase
+%}
+
+{% style %}
+  .ai-tile-{{ ai_gen_id }} {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    border-radius: {{ border_radius_value }};
+    min-height: 200px;
+    background-color: {{ color_scheme.settings.background }};
+    color: {{ color_scheme.settings.primary_text }};
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+  
+  .ai-tile-{{ ai_gen_id }}:hover {
+    transform: translateY(-2px);
+  }
+  
+  .ai-tile-bg-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  .ai-tile-bg-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .ai-tile-overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: {{ scheme_bg }};
+    opacity: {{ overlay_opacity }};
+    z-index: 1;
+  }
+  
+  .ai-tile-content-{{ ai_gen_id }} {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: {{ padding_value }};
+    {% if block.settings.content_alignment == 'top' %}
+      justify-content: flex-start;
+    {% elsif block.settings.content_alignment == 'center' %}
+      justify-content: center;
+    {% elsif block.settings.content_alignment == 'bottom' %}
+      justify-content: flex-end;
+    {% elsif block.settings.content_alignment == 'distributed' %}
+      justify-content: space-between;
+    {% endif %}
+  }
+  
+  .ai-tile-title-{{ ai_gen_id }} {
+    font-size: {{ title_font_size }};
+    font-weight: 700;
+    margin: 0 0 1.2rem 0;
+    color: {{ color_scheme.settings.header_text }};
+    line-height: 1.2;
+  }
+  
+  .ai-tile-description-{{ ai_gen_id }} {
+    font-size: {{ desc_font_size }};
+    margin: 0;
+    color: {{ color_scheme.settings.secondary_text }};
+    line-height: 1.5;
+    {% if block.settings.content_alignment == 'distributed' %}
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+    {% endif %}
+  }
+  
+  .ai-tile-button-wrapper-{{ ai_gen_id }} {
+    margin-top: 1.6rem;
+    display: flex;
+    {% if block.settings.button_alignment == 'left' %}
+      justify-content: flex-start;
+    {% elsif block.settings.button_alignment == 'center' %}
+      justify-content: center;
+    {% elsif block.settings.button_alignment == 'right' %}
+      justify-content: flex-end;
+    {% elsif block.settings.button_alignment == 'full' %}
+      justify-content: stretch;
+    {% endif %}
+  }
+  
+  .ai-tile-button-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem 2.4rem;
+    border-radius: {{ button_radius_value }};
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    {% if block.settings.button_alignment == 'full' %}
+      width: 100%;
+    {% endif %}
+    
+    {% if block.settings.button_style == 'filled' %}
+      background-color: {{ color_scheme.settings.primary_button }};
+      color: {{ color_scheme.settings.primary_button_label }};
+      border: 2px solid {{ color_scheme.settings.primary_button }};
+    {% elsif block.settings.button_style == 'outline' %}
+      background-color: transparent;
+      color: {{ color_scheme.settings.secondary_button_label }};
+      border: 2px solid {{ color_scheme.settings.secondary_button_label }};
+    {% elsif block.settings.button_style == 'text' %}
+      background-color: transparent;
+      color: {{ color_scheme.settings.link }};
+      border: none;
+      padding: 0.8rem 1.6rem;
+      text-decoration: underline;
+    {% endif %}
+  }
+  
+  .ai-tile-button-{{ ai_gen_id }}:hover {
+    {% if block.settings.button_style == 'filled' %}
+      opacity: 0.9;
+    {% elsif block.settings.button_style == 'outline' %}
+      background-color: {{ color_scheme.settings.secondary_button_label }};
+      color: {{ color_scheme.settings.background }};
+    {% elsif block.settings.button_style == 'text' %}
+      opacity: 0.8;
+    {% endif %}
+  }
+{% endstyle %}
+
+{% if block.settings.tile_as_link and block.settings.button_text == blank %}
+  <a 
+    href="{{ tile_url }}" 
+    class="ai-tile-{{ ai_gen_id }}"
+    {% if block.settings.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}
+    {{ block.shopify_attributes }}
+  >
+    {% if tile_image != blank %}
+      <div class="ai-tile-bg-{{ ai_gen_id }}">
+        <img 
+          src="{{ tile_image | image_url: width: 1200 }}" 
+          alt="{{ tile_image.alt | escape }}"
+          loading="lazy"
+          width="{{ tile_image.width }}"
+          height="{{ tile_image.height }}"
+        >
+      </div>
+    {% endif %}
+    
+    <div class="ai-tile-overlay-{{ ai_gen_id }}"></div>
+    
+    <div class="ai-tile-content-{{ ai_gen_id }}">
+      {% if tile_title != blank %}
+        <h3 class="ai-tile-title-{{ ai_gen_id }}">{{ tile_title }}</h3>
+      {% endif %}
+      
+      {% if tile_description != blank %}
+        <div class="ai-tile-description-{{ ai_gen_id }}">{{ tile_description }}</div>
+      {% endif %}
+    </div>
+  </a>
+{% else %}
+  <div class="ai-tile-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+    {% if tile_image != blank %}
+      <div class="ai-tile-bg-{{ ai_gen_id }}">
+        <img 
+          src="{{ tile_image | image_url: width: 1200 }}" 
+          alt="{{ tile_image.alt | escape }}"
+          loading="lazy"
+          width="{{ tile_image.width }}"
+          height="{{ tile_image.height }}"
+        >
+      </div>
+    {% endif %}
+    
+    <div class="ai-tile-overlay-{{ ai_gen_id }}"></div>
+    
+    <div class="ai-tile-content-{{ ai_gen_id }}">
+      {% if tile_title != blank %}
+        <h3 class="ai-tile-title-{{ ai_gen_id }}">{{ tile_title }}</h3>
+      {% endif %}
+      
+      {% if tile_description != blank %}
+        <div class="ai-tile-description-{{ ai_gen_id }}">{{ tile_description }}</div>
+      {% endif %}
+      
+      {% if block.settings.button_text != blank %}
+        <div class="ai-tile-button-wrapper-{{ ai_gen_id }}">
+          <a 
+            href="{{ tile_url }}" 
+            class="ai-tile-button-{{ ai_gen_id }}"
+            {% if block.settings.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}
+          >
+            {{ block.settings.button_text }}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Page tile",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Page link"
+    },
+    {
+      "type": "page",
+      "id": "page_link",
+      "label": "Select page"
+    },
+    {
+      "type": "url",
+      "id": "manual_url",
+      "label": "Manual URL"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_in_new_tab",
+      "label": "Open link in new tab",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "tile_as_link",
+      "label": "Tile as link",
+      "default": true,
+      "info": "If disabled, only the button will be clickable"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "manual_title",
+      "label": "Title",
+      "info": "Leave empty to use page title"
+    },
+    {
+      "type": "textarea",
+      "id": "manual_description",
+      "label": "Description",
+      "info": "Leave empty to use page meta description"
+    },
+    {
+      "type": "image_picker",
+      "id": "manual_image",
+      "label": "Background image",
+      "info": "Leave empty to use page image"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content vertical alignment",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "distributed",
+          "label": "Distributed"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "select",
+      "id": "title_size",
+      "label": "Title size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "l"
+    },
+    {
+      "type": "select",
+      "id": "description_size",
+      "label": "Description size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "padding_size",
+      "label": "Padding size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "border_radius",
+      "label": "Border radius",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "smooth",
+          "label": "Smooth"
+        },
+        {
+          "value": "rounded",
+          "label": "Rounded"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "select",
+      "id": "overlay_opacity",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "No"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "info": "Leave empty to make entire tile clickable"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "button_radius",
+      "label": "Button radius",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "smooth",
+          "label": "Smooth"
+        },
+        {
+          "value": "rounded",
+          "label": "Rounded"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "select",
+      "id": "button_alignment",
+      "label": "Button alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "left"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page tile"
+    }
+  ]
+}
 {% endschema %}
