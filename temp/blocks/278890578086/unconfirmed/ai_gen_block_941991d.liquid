@@ -1,6 +1,623 @@
+{% doc %}
+  @prompt
+    A multi-tile section containing blocks that take content and link to pages. 
+    Section must have choice for width, style and 4 different layouts options.
+    Each of the blocks (tiles) contained should contain:
+    - Select Page to linked
+    - Manual URL (be default linking to the selected page)
+    - Title
+    - Description
+    - Be itself a link
+    - Background image (option to leave empty, manually choose, or taken from the linked page)
+    The contents can be manually inserted or automatically links to:
+    - page title
+    - page Meta Description
+    - page URL
+    - page image
+    of the different selected pages.
+    Title/Description/Image/Link should by default link to page when empty, switch to manual when manually filled.
+    
+    Appearance/styling:
+    - The Option for Color Schema option should be available for each tile.
+    - each tile should have also option for it's content (Title/Decription/button) to be [top|center|bottom|distributed], while "top|center|bottom" will apply all the tiles content equally; "distributed" will place: the title on top, description center and button at bottom;
+    - Titles/Descripion/padding Should each have the option for [S|M|L|XL]
+    - Border radius
+    - Overlay [No|Light|Medium|Dark] (the overlay is the settings for an element layered between the texts and the background image. The color should be taken from the Tile's background color as per its Color Schema. No: 0% opacity - Dark: 85% opacity)
+    
+    For each tile there must be option for a button (not visible if button's text is empty) with option:
+    - style: filled|outline|text
+    - align: left|center|right|full.
+    
+    For the layout:
+    There must be option to choose how many tiles to show: minimum 1 maximum 9.
+    Options for layout style should be divided as so:
+    Layout
+    - section width: [narrow|fluid|full]
+    - margin/spacing top [No|S|M|L|XL]
+    - margin/spacing bottom [No|S|M|L|XL]
+    - Section's Color Schema [select]
+    - Number of tiles: [1-9]
+    - Masonry [on|off] 
+    - Number of columns [1-4]
+    - Number of rows [1-4]
+    Enabling masonry should keep the first tile in the first column, stretched on all the rows. Example: if layout is 3columns+3rows the first tile should occupy 1 column 3 rows. The remaining tiles do not have to be all the same size, they should be distributed to fill the remaining columns/rows, aligning at the bottom with the first tile.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% liquid
+  assign linked_page = block.settings.linked_page
+  assign manual_url = block.settings.manual_url
+  assign manual_title = block.settings.manual_title
+  assign manual_description = block.settings.manual_description
+  assign manual_image = block.settings.manual_image
+
+  if manual_url != blank
+    assign tile_url = manual_url
+  elsif linked_page
+    assign tile_url = linked_page.url
+  else
+    assign tile_url = '#'
+  endif
+
+  if manual_title != blank
+    assign tile_title = manual_title
+  elsif linked_page
+    assign tile_title = linked_page.title
+  else
+    assign tile_title = ''
+  endif
+
+  if manual_description != blank
+    assign tile_description = manual_description
+  elsif linked_page and linked_page.metafields.global.description_tag != blank
+    assign tile_description = linked_page.metafields.global.description_tag
+  else
+    assign tile_description = ''
+  endif
+
+  if manual_image != blank
+    assign tile_image = manual_image
+  elsif linked_page and linked_page.image != blank
+    assign tile_image = linked_page.image
+  else
+    assign tile_image = blank
+  endif
+
+  assign color_scheme = block.settings.color_scheme
+  assign scheme_bg = color_scheme.settings.background
+  assign scheme_text = color_scheme.settings.primary_text
+  assign scheme_secondary_text = color_scheme.settings.secondary_text
+  assign scheme_button = color_scheme.settings.primary_button
+  assign scheme_button_text = color_scheme.settings.primary_button_label
+
+  case block.settings.overlay_intensity
+    when 'none'
+      assign overlay_opacity = 0
+    when 'light'
+      assign overlay_opacity = 0.25
+    when 'medium'
+      assign overlay_opacity = 0.5
+    when 'dark'
+      assign overlay_opacity = 0.85
+  endcase
+
+  case block.settings.title_size
+    when 's'
+      assign title_font_size = 18
+    when 'm'
+      assign title_font_size = 24
+    when 'l'
+      assign title_font_size = 32
+    when 'xl'
+      assign title_font_size = 40
+  endcase
+
+  case block.settings.description_size
+    when 's'
+      assign desc_font_size = 12
+    when 'm'
+      assign desc_font_size = 14
+    when 'l'
+      assign desc_font_size = 16
+    when 'xl'
+      assign desc_font_size = 18
+  endcase
+
+  case block.settings.padding_size
+    when 's'
+      assign padding_value = 16
+    when 'm'
+      assign padding_value = 24
+    when 'l'
+      assign padding_value = 32
+    when 'xl'
+      assign padding_value = 40
+  endcase
+
+  case block.settings.border_radius
+    when 'none'
+      assign radius_value = 0
+    when 's'
+      assign radius_value = 4
+    when 'm'
+      assign radius_value = 8
+    when 'l'
+      assign radius_value = 16
+    when 'xl'
+      assign radius_value = 24
+  endcase
+%}
+
+{% style %}
+  .ai-tile-{{ ai_gen_id }} {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: {{ radius_value }}px;
+    background-color: {{ scheme_bg }};
+    height: 100%;
+    text-decoration: none;
+    color: {{ scheme_text }};
+  }
+
+  .ai-tile-image-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-tile-image-placeholder-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: {{ scheme_bg }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-tile-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+  }
+
+  .ai-tile-overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: {{ scheme_bg }};
+    opacity: {{ overlay_opacity }};
+    pointer-events: none;
+  }
+
+  .ai-tile-content-{{ ai_gen_id }} {
+    position: relative;
+    z-index: 2;
+    padding: {{ padding_value }}px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    {% if block.settings.content_alignment == 'top' %}
+      justify-content: flex-start;
+    {% elsif block.settings.content_alignment == 'center' %}
+      justify-content: center;
+    {% elsif block.settings.content_alignment == 'bottom' %}
+      justify-content: flex-end;
+    {% elsif block.settings.content_alignment == 'distributed' %}
+      justify-content: space-between;
+    {% endif %}
+  }
+
+  .ai-tile-title-{{ ai_gen_id }} {
+    font-size: {{ title_font_size }}px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    color: {{ scheme_text }};
+    line-height: 1.2;
+  }
+
+  .ai-tile-description-{{ ai_gen_id }} {
+    font-size: {{ desc_font_size }}px;
+    margin: 0;
+    color: {{ scheme_secondary_text }};
+    line-height: 1.5;
+    {% if block.settings.content_alignment == 'distributed' %}
+      flex-grow: 1;
+    {% endif %}
+  }
+
+  .ai-tile-button-wrapper-{{ ai_gen_id }} {
+    margin-top: 16px;
+    {% if block.settings.button_align == 'left' %}
+      text-align: left;
+    {% elsif block.settings.button_align == 'center' %}
+      text-align: center;
+    {% elsif block.settings.button_align == 'right' %}
+      text-align: right;
+    {% elsif block.settings.button_align == 'full' %}
+      text-align: left;
+    {% endif %}
+  }
+
+  .ai-tile-button-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    {% if block.settings.button_align == 'full' %}
+      width: 100%;
+      text-align: center;
+    {% endif %}
+    {% if block.settings.button_style == 'filled' %}
+      background-color: {{ scheme_button }};
+      color: {{ scheme_button_text }};
+      border: 2px solid {{ scheme_button }};
+    {% elsif block.settings.button_style == 'outline' %}
+      background-color: transparent;
+      color: {{ scheme_text }};
+      border: 2px solid {{ scheme_text }};
+    {% elsif block.settings.button_style == 'text' %}
+      background-color: transparent;
+      color: {{ scheme_text }};
+      border: none;
+      padding: 0;
+      text-decoration: underline;
+    {% endif %}
+  }
+
+  .ai-tile-button-{{ ai_gen_id }}:hover {
+    {% if block.settings.button_style == 'filled' %}
+      opacity: 0.8;
+    {% elsif block.settings.button_style == 'outline' %}
+      background-color: {{ scheme_text }};
+      color: {{ scheme_bg }};
+    {% elsif block.settings.button_style == 'text' %}
+      opacity: 0.7;
+    {% endif %}
+  }
+
+  .ai-tile-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: {{ scheme_secondary_text }};
+    text-align: center;
+    pointer-events: none;
+    z-index: 3;
+  }
+{% endstyle %}
+
+<a
+  href="{{ tile_url }}"
+  class="ai-tile-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  {% if tile_image != blank %}
+    <img
+      src="{{ tile_image | image_url: width: 1200 }}"
+      alt="{{ tile_image.alt | escape }}"
+      loading="lazy"
+      class="ai-tile-image-{{ ai_gen_id }}"
+      width="{{ tile_image.width }}"
+      height="{{ tile_image.height }}"
+    >
+  {% else %}
+    <div class="ai-tile-image-placeholder-{{ ai_gen_id }}">
+      {{ 'image' | placeholder_svg_tag }}
+    </div>
+  {% endif %}
+
+  {% if block.settings.overlay_intensity != 'none' %}
+    <div class="ai-tile-overlay-{{ ai_gen_id }}"></div>
+  {% endif %}
+
+  <div class="ai-tile-content-{{ ai_gen_id }}">
+    {% if block.settings.content_alignment == 'distributed' %}
+      <div>
+        {% if tile_title != blank %}
+          <h3 class="ai-tile-title-{{ ai_gen_id }}">{{ tile_title }}</h3>
+        {% endif %}
+      </div>
+      <div>
+        {% if tile_description != blank %}
+          <p class="ai-tile-description-{{ ai_gen_id }}">{{ tile_description }}</p>
+        {% endif %}
+      </div>
+      <div>
+        {% if block.settings.button_text != blank %}
+          <div class="ai-tile-button-wrapper-{{ ai_gen_id }}">
+            <span class="ai-tile-button-{{ ai_gen_id }}">{{ block.settings.button_text }}</span>
+          </div>
+        {% endif %}
+      </div>
+    {% else %}
+      {% if tile_title != blank %}
+        <h3 class="ai-tile-title-{{ ai_gen_id }}">{{ tile_title }}</h3>
+      {% endif %}
+      {% if tile_description != blank %}
+        <p class="ai-tile-description-{{ ai_gen_id }}">{{ tile_description }}</p>
+      {% endif %}
+      {% if block.settings.button_text != blank %}
+        <div class="ai-tile-button-wrapper-{{ ai_gen_id }}">
+          <span class="ai-tile-button-{{ ai_gen_id }}">{{ block.settings.button_text }}</span>
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
+
+  {% if linked_page == blank and manual_url == blank and manual_title == blank %}
+    <div class="ai-tile-empty-state-{{ ai_gen_id }}">
+      Next, select a page or add content
+    </div>
+  {% endif %}
+</a>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Page tile",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Page link"
+    },
+    {
+      "type": "page",
+      "id": "linked_page",
+      "label": "Select page"
+    },
+    {
+      "type": "url",
+      "id": "manual_url",
+      "label": "Manual URL"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "manual_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "manual_description",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "manual_image",
+      "label": "Background image"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "button_align",
+      "label": "Button align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content alignment",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "distributed",
+          "label": "Distributed"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "select",
+      "id": "title_size",
+      "label": "Title size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "l"
+    },
+    {
+      "type": "select",
+      "id": "description_size",
+      "label": "Description size",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "padding_size",
+      "label": "Padding",
+      "options": [
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "border_radius",
+      "label": "Border radius",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "select",
+      "id": "overlay_intensity",
+      "label": "Overlay",
+      "options": [
+        {
+          "value": "none",
+          "label": "No"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "medium"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page tile"
+    }
+  ]
+}
 {% endschema %}
