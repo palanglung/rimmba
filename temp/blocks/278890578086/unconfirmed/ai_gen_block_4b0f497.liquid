@@ -1,6 +1,1163 @@
+{% doc %}
+  @prompt
+    A Contact Form section container with choice for:
+    
+    Title (manually fill, hidden if empty) option [h2 | h3 | h4 | h5]-default"h2";
+    Description (manually fill, hidden if empty);
+    Title & Description alignment [Start | Center | End]-default"Center";
+    
+    Layout Type [Normal | Split]-default"Normal";
+    Fields Columns [1 | 2 | 3]-default"1";
+    
+    Container width [narrow | fluid | full]-default"Narrow";
+    Container Color Scheme [select];
+    Spacing top [No | S | M | L | XL]-default"M";
+    Spacing bottom [No | S | M | L | XL]-default"M";
+    Padding [No | S | M | L | XL]-default"M";
+    Internal spacing between fields [No | S | M | L | XL]-default"M";
+    
+    Container Color Scheme rules:
+    Apply selected scheme class (example: color-scheme-X) to the main section wrapper only.
+    It controls section background and text.
+    Do NOT apply Container Color Scheme to inputs or textarea directly.
+    
+    Fields Color Scheme [select];
+    
+    Fields Color Scheme rules:
+    Apply selected scheme class ONLY to elements with class="field__input".
+    This scheme must control:
+    - background-color of .field__input (must not remain transparent);
+    - text color of .field__input (must not inherit container text color).
+    Do NOT apply Fields Color Scheme to:
+    form element,
+    grid container,
+    col-span wrappers,
+    class="field",
+    class="field--textarea",
+    class="field__label".
+    
+    Each field must use structure:
+    <div class="field">
+    <label class="field__label">...</label>
+    <input or textarea class="field__input color-scheme-X">
+    <span class="field__message hidden"></span>
+    </div>
+    
+    If Hide label visually = Yes:
+    label must use class="field__label visually-hidden".
+    
+    Button:
+    Button label-default"Send message";
+    Button style [filled | outlined | text]-default"filled";
+    Button alignment [left | center | right | full]-default"left";
+    
+    Button rules:
+    Button must use theme native classes:
+    class="button button--filled uppercase color-scheme-X";
+    Button must inherit Container Color Scheme.
+    Do NOT apply Fields Color Scheme to button.
+    Do NOT create custom button CSS.
+    Button must follow same spacing rhythm as fields.
+    
+    Layout behavior:
+    
+    Fields Columns applies to BOTH Layout Types.
+    
+    When Layout Type = Normal:
+    Use class="contact-form grid".
+    1 = each field wrapper uses col-span-6;
+    2 = each field wrapper uses col-span-3;
+    3 = distribute evenly using grid logic.
+    Message spans full width using col-span-6.
+    
+    When Layout Type = Split:
+    Grid divided into two equal-width columns.
+    Right column = Message + Button.
+    Left column contains all other enabled fields.
+    Fields Columns applies to LEFT column only.
+    If Fields Columns = 1:
+    Left column fields stack one per row.
+    If Fields Columns = 2:
+    Left column fields arranged in two internal columns.
+    If Fields Columns = 3:
+    Left column fields arranged in three internal columns.
+    Message occupies full width of right column.
+    Both columns equal height.
+    Message textarea stretches automatically using layout (no fixed height).
+    Button under Message.
+    
+    On mobile:
+    All fields full width.
+    Message last.
+    Button under Message.
+    
+    Each field includes:
+    Show [Yes | No]-default"Yes";
+    Required [Yes | No]-default"No";
+    Custom label;
+    Custom placeholder;
+    Hide label visually [Yes | No]-default"No";
+    
+    Fields:
+    Name;
+    Surname;
+    Email (email input with native validation);
+    Phone;
+    Subject;
+    Message (textarea);
+    
+    Use Shopify native {% form 'contact' %};
+    Required attribute applied only when enabled;
+    Validation message uses class="field__message hidden";
+    No unnecessary custom CSS.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-contact-form-{{ ai_gen_id }} {
+    display: block;
+  }
+
+  .ai-contact-form-{{ ai_gen_id }}__wrapper {
+    width: 100%;
+  }
+
+  {% if block.settings.container_width == 'narrow' %}
+    .ai-contact-form-{{ ai_gen_id }}__wrapper {
+      max-width: 72rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.6rem;
+      padding-right: 1.6rem;
+    }
+  {% elsif block.settings.container_width == 'fluid' %}
+    .ai-contact-form-{{ ai_gen_id }}__wrapper {
+      max-width: 132rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.6rem;
+      padding-right: 1.6rem;
+    }
+  {% endif %}
+
+  {% assign spacing_map = 'no:0,s:1.6,m:3.2,l:4.8,xl:6.4' | split: ',' %}
+  {% for item in spacing_map %}
+    {% assign parts = item | split: ':' %}
+    {% if parts[0] == block.settings.spacing_top %}
+      {% assign spacing_top_value = parts[1] %}
+    {% endif %}
+    {% if parts[0] == block.settings.spacing_bottom %}
+      {% assign spacing_bottom_value = parts[1] %}
+    {% endif %}
+    {% if parts[0] == block.settings.padding %}
+      {% assign padding_value = parts[1] %}
+    {% endif %}
+    {% if parts[0] == block.settings.internal_spacing %}
+      {% assign internal_spacing_value = parts[1] %}
+    {% endif %}
+  {% endfor %}
+
+  .ai-contact-form-{{ ai_gen_id }}__wrapper {
+    padding-top: {{ spacing_top_value }}rem;
+    padding-bottom: {{ spacing_bottom_value }}rem;
+  }
+
+  .ai-contact-form-{{ ai_gen_id }}__inner {
+    padding: {{ padding_value }}rem;
+  }
+
+  .ai-contact-form-{{ ai_gen_id }}__header {
+    margin-bottom: {{ internal_spacing_value }}rem;
+  }
+
+  {% if block.settings.title_description_alignment == 'start' %}
+    .ai-contact-form-{{ ai_gen_id }}__header {
+      text-align: left;
+    }
+  {% elsif block.settings.title_description_alignment == 'center' %}
+    .ai-contact-form-{{ ai_gen_id }}__header {
+      text-align: center;
+    }
+  {% elsif block.settings.title_description_alignment == 'end' %}
+    .ai-contact-form-{{ ai_gen_id }}__header {
+      text-align: right;
+    }
+  {% endif %}
+
+  .ai-contact-form-{{ ai_gen_id }}__title {
+    margin: 0 0 1.6rem 0;
+  }
+
+  .ai-contact-form-{{ ai_gen_id }}__description {
+    margin: 0;
+  }
+
+  .contact-form {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: {{ internal_spacing_value }}rem;
+  }
+
+  {% if block.settings.layout_type == 'split' %}
+    .ai-contact-form-{{ ai_gen_id }}__left-column {
+      grid-column: span 3;
+      display: grid;
+      gap: {{ internal_spacing_value }}rem;
+      {% if block.settings.fields_columns == '1' %}
+        grid-template-columns: 1fr;
+      {% elsif block.settings.fields_columns == '2' %}
+        grid-template-columns: repeat(2, 1fr);
+      {% elsif block.settings.fields_columns == '3' %}
+        grid-template-columns: repeat(3, 1fr);
+      {% endif %}
+    }
+
+    .ai-contact-form-{{ ai_gen_id }}__right-column {
+      grid-column: span 3;
+      display: flex;
+      flex-direction: column;
+      gap: {{ internal_spacing_value }}rem;
+    }
+
+    .ai-contact-form-{{ ai_gen_id }}__right-column .field--textarea {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ai-contact-form-{{ ai_gen_id }}__right-column .field--textarea .field__input {
+      flex: 1;
+      min-height: 15rem;
+    }
+  {% else %}
+    {% if block.settings.fields_columns == '1' %}
+      .col-span-6 {
+        grid-column: span 6;
+      }
+    {% elsif block.settings.fields_columns == '2' %}
+      .col-span-3 {
+        grid-column: span 3;
+      }
+      .col-span-6 {
+        grid-column: span 6;
+      }
+    {% elsif block.settings.fields_columns == '3' %}
+      .col-span-2 {
+        grid-column: span 2;
+      }
+      .col-span-6 {
+        grid-column: span 6;
+      }
+    {% endif %}
+  {% endif %}
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .field__label {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .field__input {
+    padding: 1.2rem 1.6rem;
+    border: 1px solid;
+    font-size: 1.4rem;
+    width: 100%;
+  }
+
+  .field--textarea .field__input {
+    min-height: 12rem;
+    resize: vertical;
+  }
+
+  .field__message {
+    font-size: 1.2rem;
+    margin-top: 0.4rem;
+  }
+
+  .field__message.hidden {
+    display: none;
+  }
+
+  .ai-contact-form-{{ ai_gen_id }}__button-wrapper {
+    {% if block.settings.layout_type == 'normal' %}
+      grid-column: span 6;
+    {% endif %}
+    {% if block.settings.button_alignment == 'left' %}
+      text-align: left;
+    {% elsif block.settings.button_alignment == 'center' %}
+      text-align: center;
+    {% elsif block.settings.button_alignment == 'right' %}
+      text-align: right;
+    {% elsif block.settings.button_alignment == 'full' %}
+      text-align: left;
+    {% endif %}
+  }
+
+  {% if block.settings.button_alignment == 'full' %}
+    .ai-contact-form-{{ ai_gen_id }}__button-wrapper .button {
+      width: 100%;
+    }
+  {% endif %}
+
+  @media screen and (max-width: 749px) {
+    {% if block.settings.layout_type == 'split' %}
+      .ai-contact-form-{{ ai_gen_id }}__left-column,
+      .ai-contact-form-{{ ai_gen_id }}__right-column {
+        grid-column: span 6;
+      }
+
+      .ai-contact-form-{{ ai_gen_id }}__left-column {
+        grid-template-columns: 1fr;
+      }
+    {% endif %}
+
+    .col-span-3,
+    .col-span-2 {
+      grid-column: span 6;
+    }
+  }
+{% endstyle %}
+
+<ai-contact-form-{{ ai_gen_id }} class="ai-contact-form-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-contact-form-{{ ai_gen_id }}__wrapper color-scheme-{{ block.settings.container_color_scheme }}">
+    <div class="ai-contact-form-{{ ai_gen_id }}__inner">
+      {% if block.settings.title != blank or block.settings.description != blank %}
+        <div class="ai-contact-form-{{ ai_gen_id }}__header">
+          {% if block.settings.title != blank %}
+            {% if block.settings.title_tag == 'h2' %}
+              <h2 class="ai-contact-form-{{ ai_gen_id }}__title">{{ block.settings.title }}</h2>
+            {% elsif block.settings.title_tag == 'h3' %}
+              <h3 class="ai-contact-form-{{ ai_gen_id }}__title">{{ block.settings.title }}</h3>
+            {% elsif block.settings.title_tag == 'h4' %}
+              <h4 class="ai-contact-form-{{ ai_gen_id }}__title">{{ block.settings.title }}</h4>
+            {% elsif block.settings.title_tag == 'h5' %}
+              <h5 class="ai-contact-form-{{ ai_gen_id }}__title">{{ block.settings.title }}</h5>
+            {% endif %}
+          {% endif %}
+          {% if block.settings.description != blank %}
+            <div class="ai-contact-form-{{ ai_gen_id }}__description">{{ block.settings.description }}</div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {%- form 'contact' -%}
+        {% if block.settings.layout_type == 'split' %}
+          <div class="contact-form grid">
+            <div class="ai-contact-form-{{ ai_gen_id }}__left-column">
+              {% if block.settings.show_name %}
+                <div class="field">
+                  <label class="field__label {% if block.settings.hide_name_label %}visually-hidden{% endif %}" for="ai-contact-name-{{ ai_gen_id }}">
+                    {{ block.settings.name_label }}
+                  </label>
+                  <input
+                    type="text"
+                    id="ai-contact-name-{{ ai_gen_id }}"
+                    name="contact[name]"
+                    class="field__input color-scheme-{{ block.settings.fields_color_scheme }}"
+                    placeholder="{{ block.settings.name_placeholder }}"
+                    {% if block.settings.name_required %}required{% endif %}
+                  >
+                  <span class="field__message hidden"></span>
+                </div>
+              {% endif %}
+
+              {% if block.settings.show_surname %}
+                <div class="field">
+                  <label class="field__label {% if block.settings.hide_surname_label %}visually-hidden{% endif %}" for="ai-contact-surname-{{ ai_gen_id }}">
+                    {{ block.settings.surname_label }}
+                  </label>
+                  <input
+                    type="text"
+                    id="ai-contact-surname-{{ ai_gen_id }}"
+                    name="contact[surname]"
+                    class="field__input color-scheme-{{ block.settings.fields_color_scheme }}"
+                    placeholder="{{ block.settings.surname_placeholder }}"
+                    {% if block.settings.surname_required %}required{% endif %}
+                  >
+                  <span class="field__message hidden"></span>
+                </div>
+              {% endif %}
+
+              {% if block.settings.show_email %}
+                <div class="field">
+                  <label class="field__label {% if block.settings.hide_email_label %}visually-hidden{% endif %}" for="ai-contact-email-{{ ai_gen_id }}">
+                    {{ block.settings.email_label }}
+                  </label>
+                  <input
+                    type="email"
+                    id="ai-contact-email-{{ ai_gen_id }}"
+                    name="contact[email]"
+                    class="field__input color-scheme-{{ block.settings.fields_color_scheme }}"
+                    placeholder="{{ block.settings.email_placeholder }}"
+                    autocomplete="email"
+                    {% if block.settings.email_required %}required{% endif %}
+                  >
+                  <span class="field__message hidden"></span>
+                </div>
+              {% endif %}
+
+              {% if block.settings.show_phone %}
+                <div class="field">
+                  <label class="field__label {% if block.settings.hide_phone_label %}visually-hidden{% endif %}" for="ai-contact-phone-{{ ai_gen_id }}">
+                    {{ block.settings.phone_label }}
+                  </label>
+                  <input
+                    type="tel"
+                    id="ai-contact-phone-{{ ai_gen_id }}"
+                    name="contact[phone]"
+                    class="field__input color-scheme-{{ block.settings.fields_color_scheme }}"
+                    placeholder="{{ block.settings.phone_placeholder }}"
+                    autocomplete="tel"
+                    {% if block.settings.phone_required %}required{% endif %}
+                  >
+                  <span class="field__message hidden"></span>
+                </div>
+              {% endif %}
+
+              {% if block.settings.show_subject %}
+                <div class="field">
+                  <label class="field__label {% if block.settings.hide_subject_label %}visually-hidden{% endif %}" for="ai-contact-subject-{{ ai_gen_id }}">
+                    {{ block.settings.subject_label }}
+                  </label>
+                  <input
+                    type="text"
+                    id="ai-contact-subject-{{ ai_gen_id }}"
+                    name="contact[subject]"
+                    class="field__input color-scheme-{{ block.settings.fields_color_scheme }}"
+                    placeholder="{{ block.settings.subject_placeholder }}"
+                    {% if block.settings.subject_required %}required{% endif %}
+                  >
+                  <span class="field__message hidden"></span>
+                </div>
+              {% endif %}
+            </div>
+
+            <div class="ai-contact-form-{{ ai_gen_id }}__right-column">
+              {% if block.settings.show_message %}
+                <div class="field field--textarea">
+                  <label class="field__label {% if block.settings.hide_message_label %}visually-hidden{% endif %}" for="ai-contact-message-{{ ai_gen_id }}">
+                    {{ block.settings.message_label }}
+                  </label>
+                  <textarea
+                    id="ai-contact-message-{{ ai_gen_id }}"
+                    name="contact[body]"
+                    class="field__input color-scheme-{{ block.settings.fields_color_scheme }}"
+                    placeholder="{{ block.settings.message_placeholder }}"
+                    {% if block.settings.message_required %}required{% endif %}
+                  ></textarea>
+                  <span class="field__message hidden"></span>
+                </div>
+              {% endif %}
+
+              <div class="ai-contact-form-{{ ai_gen_id }}__button-wrapper">
+                <button type="submit" class="button button--{{ block.settings.button_style }} uppercase color-scheme-{{ block.settings.container_color_scheme }}">
+                  {{ block.settings.button_label }}
+                </button>
+              </div>
+            </div>
+          </div>
+        {% else %}
+          <div class="contact-form grid">
+            {% if block.settings.show_name %}
+              <div class="field {% if block.settings.fields_columns == '1' %}col-span-6{% elsif block.settings.fields_columns == '2' %}col-span-3{% elsif block.settings.fields_columns == '3' %}col-span-2{% endif %}">
+                <label class="field__label {% if block.settings.hide_name_label %}visually-hidden{% endif %}" for="ai-contact-name-{{ ai_gen_id }}">
+                  {{ block.settings.name_label }}
+                </label>
+                <input
+                  type="text"
+                  id="ai-contact-name-{{ ai_gen_id }}"
+                  name="contact[name]"
+                  class="field__input color-scheme-{{ block.settings.fields_color_scheme }}"
+                  placeholder="{{ block.settings.name_placeholder }}"
+                  {% if block.settings.name_required %}required{% endif %}
+                >
+                <span class="field__message hidden"></span>
+              </div>
+            {% endif %}
+
+            {% if block.settings.show_surname %}
+              <div class="field {% if block.settings.fields_columns == '1' %}col-span-6{% elsif block.settings.fields_columns == '2' %}col-span-3{% elsif block.settings.fields_columns == '3' %}col-span-2{% endif %}">
+                <label class="field__label {% if block.settings.hide_surname_label %}visually-hidden{% endif %}" for="ai-contact-surname-{{ ai_gen_id }}">
+                  {{ block.settings.surname_label }}
+                </label>
+                <input
+                  type="text"
+                  id="ai-contact-surname-{{ ai_gen_id }}"
+                  name="contact[surname]"
+                  class="field__input color-scheme-{{ block.settings.fields_color_scheme }}"
+                  placeholder="{{ block.settings.surname_placeholder }}"
+                  {% if block.settings.surname_required %}required{% endif %}
+                >
+                <span class="field__message hidden"></span>
+              </div>
+            {% endif %}
+
+            {% if block.settings.show_email %}
+              <div class="field {% if block.settings.fields_columns == '1' %}col-span-6{% elsif block.settings.fields_columns == '2' %}col-span-3{% elsif block.settings.fields_columns == '3' %}col-span-2{% endif %}">
+                <label class="field__label {% if block.settings.hide_email_label %}visually-hidden{% endif %}" for="ai-contact-email-{{ ai_gen_id }}">
+                  {{ block.settings.email_label }}
+                </label>
+                <input
+                  type="email"
+                  id="ai-contact-email-{{ ai_gen_id }}"
+                  name="contact[email]"
+                  class="field__input color-scheme-{{ block.settings.fields_color_scheme }}"
+                  placeholder="{{ block.settings.email_placeholder }}"
+                  autocomplete="email"
+                  {% if block.settings.email_required %}required{% endif %}
+                >
+                <span class="field__message hidden"></span>
+              </div>
+            {% endif %}
+
+            {% if block.settings.show_phone %}
+              <div class="field {% if block.settings.fields_columns == '1' %}col-span-6{% elsif block.settings.fields_columns == '2' %}col-span-3{% elsif block.settings.fields_columns == '3' %}col-span-2{% endif %}">
+                <label class="field__label {% if block.settings.hide_phone_label %}visually-hidden{% endif %}" for="ai-contact-phone-{{ ai_gen_id }}">
+                  {{ block.settings.phone_label }}
+                </label>
+                <input
+                  type="tel"
+                  id="ai-contact-phone-{{ ai_gen_id }}"
+                  name="contact[phone]"
+                  class="field__input color-scheme-{{ block.settings.fields_color_scheme }}"
+                  placeholder="{{ block.settings.phone_placeholder }}"
+                  autocomplete="tel"
+                  {% if block.settings.phone_required %}required{% endif %}
+                >
+                <span class="field__message hidden"></span>
+              </div>
+            {% endif %}
+
+            {% if block.settings.show_subject %}
+              <div class="field {% if block.settings.fields_columns == '1' %}col-span-6{% elsif block.settings.fields_columns == '2' %}col-span-3{% elsif block.settings.fields_columns == '3' %}col-span-2{% endif %}">
+                <label class="field__label {% if block.settings.hide_subject_label %}visually-hidden{% endif %}" for="ai-contact-subject-{{ ai_gen_id }}">
+                  {{ block.settings.subject_label }}
+                </label>
+                <input
+                  type="text"
+                  id="ai-contact-subject-{{ ai_gen_id }}"
+                  name="contact[subject]"
+                  class="field__input color-scheme-{{ block.settings.fields_color_scheme }}"
+                  placeholder="{{ block.settings.subject_placeholder }}"
+                  {% if block.settings.subject_required %}required{% endif %}
+                >
+                <span class="field__message hidden"></span>
+              </div>
+            {% endif %}
+
+            {% if block.settings.show_message %}
+              <div class="field field--textarea col-span-6">
+                <label class="field__label {% if block.settings.hide_message_label %}visually-hidden{% endif %}" for="ai-contact-message-{{ ai_gen_id }}">
+                  {{ block.settings.message_label }}
+                </label>
+                <textarea
+                  id="ai-contact-message-{{ ai_gen_id }}"
+                  name="contact[body]"
+                  class="field__input color-scheme-{{ block.settings.fields_color_scheme }}"
+                  placeholder="{{ block.settings.message_placeholder }}"
+                  {% if block.settings.message_required %}required{% endif %}
+                ></textarea>
+                <span class="field__message hidden"></span>
+              </div>
+            {% endif %}
+
+            <div class="ai-contact-form-{{ ai_gen_id }}__button-wrapper">
+              <button type="submit" class="button button--{{ block.settings.button_style }} uppercase color-scheme-{{ block.settings.container_color_scheme }}">
+                {{ block.settings.button_label }}
+              </button>
+            </div>
+          </div>
+        {% endif %}
+      {%- endform -%}
+    </div>
+  </div>
+</ai-contact-form-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class AiContactForm{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.form = this.querySelector('form');
+        if (this.form) {
+          this.form.addEventListener('submit', this.handleSubmit.bind(this));
+        }
+      }
+
+      handleSubmit(event) {
+        const inputs = this.form.querySelectorAll('input[required], textarea[required]');
+        let isValid = true;
+
+        inputs.forEach(input => {
+          const field = input.closest('.field');
+          const message = field.querySelector('.field__message');
+
+          if (!input.value.trim()) {
+            isValid = false;
+            message.textContent = 'This field is required';
+            message.classList.remove('hidden');
+          } else if (input.type === 'email' && !this.isValidEmail(input.value)) {
+            isValid = false;
+            message.textContent = 'Please enter a valid email address';
+            message.classList.remove('hidden');
+          } else {
+            message.textContent = '';
+            message.classList.add('hidden');
+          }
+        });
+
+        if (!isValid) {
+          event.preventDefault();
+        }
+      }
+
+      isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+    }
+
+    customElements.define('ai-contact-form-{{ ai_gen_id }}', AiContactForm{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Contact form",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Title"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "title_tag",
+      "label": "Title tag",
+      "options": [
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "select",
+      "id": "title_description_alignment",
+      "label": "Title & description alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "Start"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "End"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout_type",
+      "label": "Layout type",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "split",
+          "label": "Split"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "select",
+      "id": "fields_columns",
+      "label": "Fields columns",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "header",
+      "content": "Container"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "fluid",
+          "label": "Fluid"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "narrow"
+    },
+    {
+      "type": "color_scheme",
+      "id": "container_color_scheme",
+      "label": "Container color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "spacing_top",
+      "label": "Spacing top",
+      "options": [
+        {
+          "value": "no",
+          "label": "No"
+        },
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "spacing_bottom",
+      "label": "Spacing bottom",
+      "options": [
+        {
+          "value": "no",
+          "label": "No"
+        },
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "padding",
+      "label": "Padding",
+      "options": [
+        {
+          "value": "no",
+          "label": "No"
+        },
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "internal_spacing",
+      "label": "Internal spacing between fields",
+      "options": [
+        {
+          "value": "no",
+          "label": "No"
+        },
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "header",
+      "content": "Fields style"
+    },
+    {
+      "type": "color_scheme",
+      "id": "fields_color_scheme",
+      "label": "Fields color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Send message"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outlined",
+          "label": "Outlined"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "button_alignment",
+      "label": "Button alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Name field"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_name",
+      "label": "Show",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "name_required",
+      "label": "Required",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "name_label",
+      "label": "Custom label",
+      "default": "Name"
+    },
+    {
+      "type": "text",
+      "id": "name_placeholder",
+      "label": "Custom placeholder",
+      "default": "Enter your name"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_name_label",
+      "label": "Hide label visually",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Surname field"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_surname",
+      "label": "Show",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "surname_required",
+      "label": "Required",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "surname_label",
+      "label": "Custom label",
+      "default": "Surname"
+    },
+    {
+      "type": "text",
+      "id": "surname_placeholder",
+      "label": "Custom placeholder",
+      "default": "Enter your surname"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_surname_label",
+      "label": "Hide label visually",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Email field"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_email",
+      "label": "Show",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "email_required",
+      "label": "Required",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "email_label",
+      "label": "Custom label",
+      "default": "Email"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Custom placeholder",
+      "default": "Enter your email"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_email_label",
+      "label": "Hide label visually",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Phone field"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_phone",
+      "label": "Show",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "phone_required",
+      "label": "Required",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "phone_label",
+      "label": "Custom label",
+      "default": "Phone"
+    },
+    {
+      "type": "text",
+      "id": "phone_placeholder",
+      "label": "Custom placeholder",
+      "default": "Enter your phone"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_phone_label",
+      "label": "Hide label visually",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Subject field"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_subject",
+      "label": "Show",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "subject_required",
+      "label": "Required",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "subject_label",
+      "label": "Custom label",
+      "default": "Subject"
+    },
+    {
+      "type": "text",
+      "id": "subject_placeholder",
+      "label": "Custom placeholder",
+      "default": "Enter subject"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_subject_label",
+      "label": "Hide label visually",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Message field"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_message",
+      "label": "Show",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "message_required",
+      "label": "Required",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "message_label",
+      "label": "Custom label",
+      "default": "Message"
+    },
+    {
+      "type": "text",
+      "id": "message_placeholder",
+      "label": "Custom placeholder",
+      "default": "Enter your message"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_message_label",
+      "label": "Hide label visually",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact form"
+    }
+  ],
+  "tag": null
+}
 {% endschema %}
