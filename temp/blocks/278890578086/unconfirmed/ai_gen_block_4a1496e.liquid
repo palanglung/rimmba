@@ -1,6 +1,1259 @@
+{% doc %}
+  @prompt
+    A configurable Contact Form section container with choice for:
+    
+    - Title (manually fill, hidden if empty) option [ h2 | h3 | h4 | h5 ]-default"h2";
+    - Description (manually fill, hidden if empty);
+    - Title&Description alignment [Start | Center | End]-default"Center";
+    - Container width: [narrow | fluid | full]-default"Narrow";
+    - Spacing top: [No | S | M | L | XL]-default"M";
+    - Spacing bottom: [No | S | M | L | XL]-default"M";
+    - Container Color Schema: [select];
+    - Height: [Auto | Third | Half | Full]-default"Auto";
+    - Padding: [No | S | M | L | XL]-default"M";
+    - Internal spacing between form fields: [No | S | M | L | XL]-default"M";
+    
+    Layout options:
+    - Layout type: [Single Column | Two Columns | Split]-default"Single Column";
+    - For Split layout: Form position [Left | Right]-default"Left";
+    
+    When Split layout is selected:
+    The second column must allow optional Title and Description (both hidden if empty).
+    The content must follow the selected Color Schema.
+    
+    The form must use Shopify native {% form 'contact' %}.
+    
+    Each field must have independent configuration for:
+    - Show field [Yes | No]-default"Yes";
+    - Required [Yes | No]-default"No";
+    - Label text (customizable);
+    - Placeholder text (customizable);
+    
+    Fields included:
+    
+    - Name field (text input);
+    - Email field (email input with native email validation);
+    - Phone field (tel input);
+    - Subject field (text input);
+    - Message field (textarea);
+    
+    Field behavior:
+    - A field must render only if Show = Yes.
+    - The required attribute must be applied only if Required = Yes.
+    - No field should be forced required unless selected.
+    - Email field must preserve native email validation.
+    - Message field must be textarea when shown.
+    
+    Button:
+    - Button label-default"Send message";
+    - Button style:[filled | outlined | text]-default"filled";
+    - Button must follow the theme’s native button system;
+    - Button must use existing Release theme classes;
+    - Do NOT create custom button CSS;
+    - Button must follow theme radius, sizing, typography;
+    - Buttons must correctly inherit the selected Color Schema;
+    - Example filled button class structure:
+      class="button button--filled uppercase color-scheme-X";
+    - Ensure filled, outlined, and text styles render correctly using theme classes only;
+    
+    Form behavior:
+    - Must use Shopify native contact handling;
+    - Must display validation errors properly;
+    - Must display success message properly;
+    - Error and success messages must follow theme styling and selected Color Schema;
+    
+    All layout and spacing must follow theme utilities.
+    No inline styling unless strictly necessary.
+    Section must be fully OS 2.0 compatible., A configurable Contact Form section container with choice for:
+    
+    - Title (manually fill, hidden if empty) option [ h2 | h3 | h4 | h5 ]-default"h2";
+    - Description (manually fill, hidden if empty);
+    - Title&Description alignment [Start | Center | End]-default"Center";
+    - Container width: [narrow | fluid | full]-default"Narrow";
+    - Spacing top: [No | S | M | L | XL]-default"M";
+    - Spacing bottom: [No | S | M | L | XL]-default"M";
+    - Container Color Schema: [select];
+    - Height: [Auto | Third | Half | Full]-default"Auto";
+    - Padding: [No | S | M | L | XL]-default"M";
+    - Internal spacing between form fields: [No | S | M | L | XL]-default"M";
+    
+    Layout type: [Single Column | Two Columns | Split]-default"Single Column";
+    
+    Layout behavior:
+    
+    Single Column:
+    All enabled fields must stack vertically in one column.
+    Each field must take full available width.
+    Button must align according to content alignment.
+    
+    Two Columns:
+    Form fields must be distributed across two equal-width columns.
+    Fields should fill left column first, then right column.
+    If odd number of fields, last field occupies full row below.
+    Message field should span full width across both columns.
+    Layout must collapse to single column on mobile.
+    
+    Split:
+    Two equal columns layout.
+    One column contains the form.
+    The other column contains optional content block.
+    Split position: [Form Left | Form Right]-default"Left";
+    Content block includes optional Title and Description (hidden if empty).
+    Both columns must collapse to single column on mobile, with form appearing first.
+    
+    The form must use Shopify native {% form 'contact' %}.
+    
+    Each field must have independent configuration:
+    
+    - Show field [Yes | No]-default"Yes";
+    - Required [Yes | No]-default"No";
+    - Label text (customizable);
+    - Placeholder text (customizable);
+    
+    Fields included:
+    
+    - Name field (text input);
+    - Email field (email input with native email validation);
+    - Phone field (tel input);
+    - Subject field (text input);
+    - Message field (textarea);
+    
+    Field behavior:
+    - Field renders only if Show = Yes;
+    - Required attribute applied only if Required = Yes;
+    - No field forced required unless selected;
+    - Email must preserve native email validation;
+    - Message must render as textarea and span full width in multi-column layouts;
+    
+    Button:
+    - Button label-default"Send message";
+    - Button style:[filled | outlined | text]-default"filled";
+    - Button must follow theme native button system;
+    - Button must use existing Release theme classes;
+    - Do NOT create custom button CSS;
+    - Button must follow theme radius, sizing, typography;
+    - Buttons must correctly inherit selected Color Schema;
+    - Example filled button class structure:
+      class="button button--filled uppercase color-scheme-X";
+    - Ensure filled, outlined, and text styles render correctly using theme classes only;
+    
+    Form behavior:
+    - Must use Shopify native contact handling;
+    - Must display validation errors properly;
+    - Must display success message properly;
+    - Error and success messages must follow theme styling and selected Color Schema;
+    
+    All layout, spacing, and responsiveness must follow theme utilities.
+    No inline styling unless strictly necessary.
+    Section must be fully OS 2.0 compatible., A configurable Contact Form section container for the Release theme (Online Store 2.0 compatible).
+    
+    ────────────────────────────
+    1. SECTION SETTINGS
+    
+    - Title (manually fill, hidden if empty) option [ h2 | h3 | h4 | h5 ]-default"h2";
+    - Description (manually fill, hidden if empty);
+    - Title & Description alignment [Start | Center | End]-default"Center";
+    - Container width: [narrow | fluid | full]-default"Narrow";
+    - Container Color Scheme: [select];
+    - Height: [Auto | Third | Half | Full]-default"Auto";
+    - Spacing top: [No | S | M | L | XL]-default"M";
+    - Spacing bottom: [No | S | M | L | XL]-default"M";
+    - Section padding: [No | S | M | L | XL]-default"M";
+    - Internal spacing between form fields: [No | S | M | L | XL]-default"M";
+    
+    ────────────────────────────
+    2. LAYOUT SETTINGS
+    
+    Layout type: [Single Column | Two Columns | Split]-default"Single Column";
+    
+    Single Column:
+    All enabled fields stack vertically.
+    Each field takes full width.
+    Button alignment follows its own alignment setting.
+    
+    Two Columns:
+    Form fields are arranged in two equal-width columns.
+    Fields distribute vertically in reading order.
+    Message field must span full width across both columns.
+    If odd number of fields, last field occupies full row.
+    Layout must collapse to single column on mobile.
+    
+    Split:
+    Section divided into two equal-width columns.
+    One column contains the form.
+    The other column contains a content block.
+    
+    Split position: [Form Left | Form Right]-default"Left";
+    
+    Content block (visible only in Split layout):
+    - Content Title (hidden if empty);
+    - Content Description (hidden if empty);
+    
+    Split behavior:
+    - Form column contains all enabled fields and the button.
+    - Content column contains only the optional content fields.
+    - On mobile, layout collapses to single column with form appearing first.
+    - Both columns must respect selected Container Color Scheme.
+    
+    ────────────────────────────
+    3. FORM FIELD SETTINGS
+    
+    The form must use Shopify native {% form 'contact' %}.
+    
+    Each field must include:
+    
+    - Show field [Yes | No]-default"Yes";
+    - Required [Yes | No]-default"No";
+    - Label text (customizable);
+    - Placeholder text (customizable);
+    
+    Fields:
+    
+    - Name (text input);
+    - Email (email input with native email validation);
+    - Phone (tel input);
+    - Subject (text input);
+    - Message (textarea);
+    
+    Field behavior:
+    - Field renders only if Show = Yes;
+    - Required attribute applied only if Required = Yes;
+    - No field forced required unless selected;
+    - Email must preserve native email validation;
+    - Message must render as textarea;
+    - In Two Columns layout, Message spans full width;
+    - In Single Column and Split layout, Message takes full width of form column;
+    
+    ────────────────────────────
+    4. BUTTON SETTINGS
+    
+    - Button label-default"Send message";
+    - Button style:[filled | outlined | text]-default"filled";
+    - Button alignment:[left | center | right | full]-default"left";
+    
+    Button rules:
+    - Button must use theme’s native button system;
+    - Do NOT create custom button CSS;
+    - Button must use existing Release theme classes;
+    - Button must follow theme radius, sizing, typography, uppercase settings;
+    - Button must inherit selected Container Color Scheme;
+    - Example filled button class structure:
+      class="button button--filled uppercase color-scheme-X";
+    - Ensure filled, outlined, and text styles render correctly using theme classes only;
+    
+    Alignment behavior:
+    - Left = button aligned left inside form column;
+    - Center = horizontally centered;
+    - Right = aligned right;
+    - Full = button spans full width of form column;
+    
+    ────────────────────────────
+    5. FORM BEHAVIOR
+    
+    - Must use Shopify native contact handling;
+    - Must display validation errors properly;
+    - Must display success message properly;
+    - Success and error messages must follow theme styling and selected Color Scheme;
+    - No custom submission handling;
+    - No inline styles unless strictly necessary;
+    
+    Section must be fully OS 2.0 compatible.
+    All layout and spacing must rely on theme utilities and scoped section styles only.
+{% enddoc %}
+{% liquid
+  assign ai_gen_id = block.id | replace: '_', '' | downcase
+
+  assign spacing_top_class = ''
+  case block.settings.spacing_top
+    when 'no'
+      assign spacing_top_class = 'section-spacing--none'
+    when 's'
+      assign spacing_top_class = 'section-spacing--small'
+    when 'm'
+      assign spacing_top_class = 'section-spacing--medium'
+    when 'l'
+      assign spacing_top_class = 'section-spacing--large'
+    when 'xl'
+      assign spacing_top_class = 'section-spacing--xlarge'
+  endcase
+
+  assign spacing_bottom_class = ''
+  case block.settings.spacing_bottom
+    when 'no'
+      assign spacing_bottom_class = 'section-spacing--none'
+    when 's'
+      assign spacing_bottom_class = 'section-spacing--small'
+    when 'm'
+      assign spacing_bottom_class = 'section-spacing--medium'
+    when 'l'
+      assign spacing_bottom_class = 'section-spacing--large'
+    when 'xl'
+      assign spacing_bottom_class = 'section-spacing--xlarge'
+  endcase
+
+  assign container_width_class = ''
+  case block.settings.container_width
+    when 'narrow'
+      assign container_width_class = 'container container--narrow'
+    when 'fluid'
+      assign container_width_class = 'container'
+    when 'full'
+      assign container_width_class = 'container--full-width'
+  endcase
+
+  assign alignment_class = ''
+  case block.settings.title_description_alignment
+    when 'start'
+      assign alignment_class = 'text-start'
+    when 'center'
+      assign alignment_class = 'text-center'
+    when 'end'
+      assign alignment_class = 'text-end'
+  endcase
+
+  assign button_style_class = ''
+  case block.settings.button_style
+    when 'filled'
+      assign button_style_class = 'button--filled'
+    when 'outlined'
+      assign button_style_class = 'button--outlined'
+    when 'text'
+      assign button_style_class = 'button--text'
+  endcase
+%}
+
+{% style %}
+  .ai-contact-form-section-{{ ai_gen_id }} {
+    display: block;
+  }
+
+  .ai-contact-form-padding-no-{{ ai_gen_id }} {
+    padding: 0;
+  }
+
+  .ai-contact-form-padding-s-{{ ai_gen_id }} {
+    padding: 2rem;
+  }
+
+  .ai-contact-form-padding-m-{{ ai_gen_id }} {
+    padding: 4rem;
+  }
+
+  .ai-contact-form-padding-l-{{ ai_gen_id }} {
+    padding: 6rem;
+  }
+
+  .ai-contact-form-padding-xl-{{ ai_gen_id }} {
+    padding: 8rem;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-contact-form-padding-s-{{ ai_gen_id }} {
+      padding: 1.5rem;
+    }
+
+    .ai-contact-form-padding-m-{{ ai_gen_id }} {
+      padding: 2.5rem;
+    }
+
+    .ai-contact-form-padding-l-{{ ai_gen_id }} {
+      padding: 4rem;
+    }
+
+    .ai-contact-form-padding-xl-{{ ai_gen_id }} {
+      padding: 5rem;
+    }
+  }
+
+  .ai-contact-form-height-auto-{{ ai_gen_id }} {
+    min-height: auto;
+  }
+
+  .ai-contact-form-height-third-{{ ai_gen_id }} {
+    min-height: 33.33vh;
+  }
+
+  .ai-contact-form-height-half-{{ ai_gen_id }} {
+    min-height: 50vh;
+  }
+
+  .ai-contact-form-height-full-{{ ai_gen_id }} {
+    min-height: 100vh;
+  }
+
+  .ai-contact-form-header-{{ ai_gen_id }} {
+    margin-bottom: 3rem;
+  }
+
+  .ai-contact-form-title-{{ ai_gen_id }} {
+    margin-bottom: 1.5rem;
+  }
+
+  .ai-contact-form-description-{{ ai_gen_id }} {
+    margin: 0;
+  }
+
+  .ai-contact-form-layout-{{ ai_gen_id }} {
+    display: grid;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .ai-contact-form-layout-single-{{ ai_gen_id }} {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-contact-form-layout-split-{{ ai_gen_id }} {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  .ai-contact-form-layout-split-right-{{ ai_gen_id }} .ai-contact-form-wrapper-{{ ai_gen_id }} {
+    order: 2;
+  }
+
+  .ai-contact-form-layout-split-right-{{ ai_gen_id }} .ai-contact-form-content-block-{{ ai_gen_id }} {
+    order: 1;
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-contact-form-layout-split-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+    }
+
+    .ai-contact-form-layout-split-right-{{ ai_gen_id }} .ai-contact-form-wrapper-{{ ai_gen_id }},
+    .ai-contact-form-layout-split-right-{{ ai_gen_id }} .ai-contact-form-content-block-{{ ai_gen_id }} {
+      order: 0;
+    }
+  }
+
+  .ai-contact-form-fields-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .ai-contact-form-field-spacing-no-{{ ai_gen_id }} .ai-contact-form-field-{{ ai_gen_id }} {
+    margin-bottom: 0;
+  }
+
+  .ai-contact-form-field-spacing-s-{{ ai_gen_id }} .ai-contact-form-field-{{ ai_gen_id }} {
+    margin-bottom: 1rem;
+  }
+
+  .ai-contact-form-field-spacing-m-{{ ai_gen_id }} .ai-contact-form-field-{{ ai_gen_id }} {
+    margin-bottom: 2rem;
+  }
+
+  .ai-contact-form-field-spacing-l-{{ ai_gen_id }} .ai-contact-form-field-{{ ai_gen_id }} {
+    margin-bottom: 3rem;
+  }
+
+  .ai-contact-form-field-spacing-xl-{{ ai_gen_id }} .ai-contact-form-field-{{ ai_gen_id }} {
+    margin-bottom: 4rem;
+  }
+
+  .ai-contact-form-fields-grid-two-{{ ai_gen_id }} {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-contact-form-fields-grid-two-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .ai-contact-form-field-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ai-contact-form-field-full-{{ ai_gen_id }} {
+    grid-column: 1 / -1;
+  }
+
+  .ai-contact-form-label-{{ ai_gen_id }} {
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    color: rgb(var(--color-primary-text));
+  }
+
+  .ai-contact-form-input-{{ ai_gen_id }},
+  .ai-contact-form-textarea-{{ ai_gen_id }} {
+    width: 100%;
+    padding: 1.2rem 1.6rem;
+    border: 1px solid rgb(var(--color-border));
+    background-color: rgb(var(--color-background));
+    color: rgb(var(--color-primary-text));
+    font-size: 1.4rem;
+    transition: border-color 0.2s ease;
+  }
+
+  .ai-contact-form-input-{{ ai_gen_id }}:focus,
+  .ai-contact-form-textarea-{{ ai_gen_id }}:focus {
+    outline: none;
+    border-color: rgb(var(--color-primary-button));
+  }
+
+  .ai-contact-form-textarea-{{ ai_gen_id }} {
+    min-height: 15rem;
+    resize: vertical;
+    font-family: inherit;
+  }
+
+  .ai-contact-form-button-wrapper-{{ ai_gen_id }} {
+    margin-top: 2rem;
+  }
+
+  .ai-contact-form-button-align-left-{{ ai_gen_id }} {
+    text-align: left;
+  }
+
+  .ai-contact-form-button-align-center-{{ ai_gen_id }} {
+    text-align: center;
+  }
+
+  .ai-contact-form-button-align-right-{{ ai_gen_id }} {
+    text-align: right;
+  }
+
+  .ai-contact-form-button-align-full-{{ ai_gen_id }} .button {
+    width: 100%;
+  }
+
+  .ai-contact-form-message-{{ ai_gen_id }} {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 0.4rem;
+    font-size: 1.4rem;
+  }
+
+  .ai-contact-form-success-{{ ai_gen_id }} {
+    background-color: rgba(0, 128, 96, 0.1);
+    color: #008060;
+    border: 1px solid rgba(0, 128, 96, 0.3);
+  }
+
+  .ai-contact-form-error-{{ ai_gen_id }} {
+    background-color: rgba(216, 44, 13, 0.1);
+    color: #D82C0D;
+    border: 1px solid rgba(216, 44, 13, 0.3);
+  }
+
+  .ai-contact-form-content-block-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .ai-contact-form-content-title-{{ ai_gen_id }} {
+    margin-bottom: 1.5rem;
+  }
+
+  .ai-contact-form-content-description-{{ ai_gen_id }} {
+    margin: 0;
+  }
+{% endstyle %}
+
+<ai-contact-form-{{ ai_gen_id }}
+  class="ai-contact-form-section-{{ ai_gen_id }} color-scheme-{{ block.settings.color_scheme }} {{ spacing_top_class }} {{ spacing_bottom_class }} ai-contact-form-height-{{ block.settings.height }}-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="{{ container_width_class }}">
+    <div class="ai-contact-form-padding-{{ block.settings.section_padding }}-{{ ai_gen_id }}">
+      {% liquid
+        assign layout_class = 'ai-contact-form-layout-single-' | append: ai_gen_id
+        if block.settings.layout_type == 'split'
+          assign layout_class = 'ai-contact-form-layout-split-' | append: ai_gen_id
+          if block.settings.split_form_position == 'right'
+            assign layout_class = layout_class | append: ' ai-contact-form-layout-split-right-' | append: ai_gen_id
+          endif
+        endif
+      %}
+
+      <div class="ai-contact-form-layout-{{ ai_gen_id }} {{ layout_class }}">
+        <div class="ai-contact-form-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.title != blank or block.settings.description != blank %}
+            <div class="ai-contact-form-header-{{ ai_gen_id }} {{ alignment_class }}">
+              {% if block.settings.title != blank %}
+                {% case block.settings.title_tag %}
+                  {% when 'h2' %}
+                    <h2 class="ai-contact-form-title-{{ ai_gen_id }} h2">{{ block.settings.title }}</h2>
+                  {% when 'h3' %}
+                    <h3 class="ai-contact-form-title-{{ ai_gen_id }} h3">{{ block.settings.title }}</h3>
+                  {% when 'h4' %}
+                    <h4 class="ai-contact-form-title-{{ ai_gen_id }} h4">{{ block.settings.title }}</h4>
+                  {% when 'h5' %}
+                    <h5 class="ai-contact-form-title-{{ ai_gen_id }} h5">{{ block.settings.title }}</h5>
+                {% endcase %}
+              {% endif %}
+
+              {% if block.settings.description != blank %}
+                <div class="ai-contact-form-description-{{ ai_gen_id }}">
+                  {{ block.settings.description }}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+
+          {% form 'contact' %}
+            {% if form.posted_successfully? %}
+              <div class="ai-contact-form-message-{{ ai_gen_id }} ai-contact-form-success-{{ ai_gen_id }}">
+                {{ 'contact.form.post_success' | t }}
+              </div>
+            {% endif %}
+
+            {% if form.errors %}
+              <div class="ai-contact-form-message-{{ ai_gen_id }} ai-contact-form-error-{{ ai_gen_id }}">
+                {{ form.errors | default_errors }}
+              </div>
+            {% endif %}
+
+            {% liquid
+              assign fields_grid_class = 'ai-contact-form-fields-grid-' | append: ai_gen_id
+              if block.settings.layout_type == 'two_columns'
+                assign fields_grid_class = fields_grid_class | append: ' ai-contact-form-fields-grid-two-' | append: ai_gen_id
+              endif
+
+              assign field_spacing_class = 'ai-contact-form-field-spacing-' | append: block.settings.field_spacing | append: '-' | append: ai_gen_id
+            %}
+
+            <div class="{{ fields_grid_class }} {{ field_spacing_class }}">
+              {% if block.settings.show_name_field %}
+                <div class="ai-contact-form-field-{{ ai_gen_id }}">
+                  <label class="ai-contact-form-label-{{ ai_gen_id }}" for="contact-name-{{ ai_gen_id }}">
+                    {{ block.settings.name_label }}{% if block.settings.name_required %} *{% endif %}
+                  </label>
+                  <input
+                    type="text"
+                    id="contact-name-{{ ai_gen_id }}"
+                    name="contact[name]"
+                    class="ai-contact-form-input-{{ ai_gen_id }}"
+                    placeholder="{{ block.settings.name_placeholder }}"
+                    {% if block.settings.name_required %}required{% endif %}
+                  >
+                </div>
+              {% endif %}
+
+              {% if block.settings.show_email_field %}
+                <div class="ai-contact-form-field-{{ ai_gen_id }}">
+                  <label class="ai-contact-form-label-{{ ai_gen_id }}" for="contact-email-{{ ai_gen_id }}">
+                    {{ block.settings.email_label }}{% if block.settings.email_required %} *{% endif %}
+                  </label>
+                  <input
+                    type="email"
+                    id="contact-email-{{ ai_gen_id }}"
+                    name="contact[email]"
+                    class="ai-contact-form-input-{{ ai_gen_id }}"
+                    placeholder="{{ block.settings.email_placeholder }}"
+                    autocomplete="email"
+                    {% if block.settings.email_required %}required{% endif %}
+                  >
+                </div>
+              {% endif %}
+
+              {% if block.settings.show_phone_field %}
+                <div class="ai-contact-form-field-{{ ai_gen_id }}">
+                  <label class="ai-contact-form-label-{{ ai_gen_id }}" for="contact-phone-{{ ai_gen_id }}">
+                    {{ block.settings.phone_label }}{% if block.settings.phone_required %} *{% endif %}
+                  </label>
+                  <input
+                    type="tel"
+                    id="contact-phone-{{ ai_gen_id }}"
+                    name="contact[phone]"
+                    class="ai-contact-form-input-{{ ai_gen_id }}"
+                    placeholder="{{ block.settings.phone_placeholder }}"
+                    autocomplete="tel"
+                    {% if block.settings.phone_required %}required{% endif %}
+                  >
+                </div>
+              {% endif %}
+
+              {% if block.settings.show_subject_field %}
+                <div class="ai-contact-form-field-{{ ai_gen_id }}">
+                  <label class="ai-contact-form-label-{{ ai_gen_id }}" for="contact-subject-{{ ai_gen_id }}">
+                    {{ block.settings.subject_label }}{% if block.settings.subject_required %} *{% endif %}
+                  </label>
+                  <input
+                    type="text"
+                    id="contact-subject-{{ ai_gen_id }}"
+                    name="contact[subject]"
+                    class="ai-contact-form-input-{{ ai_gen_id }}"
+                    placeholder="{{ block.settings.subject_placeholder }}"
+                    {% if block.settings.subject_required %}required{% endif %}
+                  >
+                </div>
+              {% endif %}
+
+              {% if block.settings.show_message_field %}
+                <div class="ai-contact-form-field-{{ ai_gen_id }} ai-contact-form-field-full-{{ ai_gen_id }}">
+                  <label class="ai-contact-form-label-{{ ai_gen_id }}" for="contact-message-{{ ai_gen_id }}">
+                    {{ block.settings.message_label }}{% if block.settings.message_required %} *{% endif %}
+                  </label>
+                  <textarea
+                    id="contact-message-{{ ai_gen_id }}"
+                    name="contact[body]"
+                    class="ai-contact-form-textarea-{{ ai_gen_id }}"
+                    placeholder="{{ block.settings.message_placeholder }}"
+                    {% if block.settings.message_required %}required{% endif %}
+                  ></textarea>
+                </div>
+              {% endif %}
+
+              <div class="ai-contact-form-button-wrapper-{{ ai_gen_id }} ai-contact-form-field-full-{{ ai_gen_id }} ai-contact-form-button-align-{{ block.settings.button_alignment }}-{{ ai_gen_id }}">
+                <button type="submit" class="button {{ button_style_class }} uppercase">
+                  {{ block.settings.button_label }}
+                </button>
+              </div>
+            </div>
+          {% endform %}
+        </div>
+
+        {% if block.settings.layout_type == 'split' %}
+          <div class="ai-contact-form-content-block-{{ ai_gen_id }}">
+            {% if block.settings.content_title != blank %}
+              {% case block.settings.title_tag %}
+                {% when 'h2' %}
+                  <h2 class="ai-contact-form-content-title-{{ ai_gen_id }} h2">{{ block.settings.content_title }}</h2>
+                {% when 'h3' %}
+                  <h3 class="ai-contact-form-content-title-{{ ai_gen_id }} h3">{{ block.settings.content_title }}</h3>
+                {% when 'h4' %}
+                  <h4 class="ai-contact-form-content-title-{{ ai_gen_id }} h4">{{ block.settings.content_title }}</h4>
+                {% when 'h5' %}
+                  <h5 class="ai-contact-form-content-title-{{ ai_gen_id }} h5">{{ block.settings.content_title }}</h5>
+              {% endcase %}
+            {% endif %}
+
+            {% if block.settings.content_description != blank %}
+              <div class="ai-contact-form-content-description-{{ ai_gen_id }}">
+                {{ block.settings.content_description }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</ai-contact-form-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class AiContactForm{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.form = this.querySelector('form');
+        if (this.form) {
+          this.form.addEventListener('submit', this.handleSubmit.bind(this));
+        }
+      }
+
+      handleSubmit(event) {
+        const requiredFields = this.form.querySelectorAll('[required]');
+        let isValid = true;
+
+        requiredFields.forEach(field => {
+          if (!field.value.trim()) {
+            isValid = false;
+            field.style.borderColor = '#D82C0D';
+          } else {
+            field.style.borderColor = '';
+          }
+        });
+
+        if (!isValid) {
+          event.preventDefault();
+        }
+      }
+    }
+
+    customElements.define('ai-contact-form-{{ ai_gen_id }}', AiContactForm{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Contact form",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section settings"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "title_tag",
+      "label": "Title tag",
+      "options": [
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "select",
+      "id": "title_description_alignment",
+      "label": "Title and description alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "Start"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "End"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Container"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "fluid",
+          "label": "Fluid"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "narrow"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "label": "Height",
+      "options": [
+        {
+          "value": "auto",
+          "label": "Auto"
+        },
+        {
+          "value": "third",
+          "label": "Third"
+        },
+        {
+          "value": "half",
+          "label": "Half"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "select",
+      "id": "spacing_top",
+      "label": "Spacing top",
+      "options": [
+        {
+          "value": "no",
+          "label": "No"
+        },
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "spacing_bottom",
+      "label": "Spacing bottom",
+      "options": [
+        {
+          "value": "no",
+          "label": "No"
+        },
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section padding",
+      "options": [
+        {
+          "value": "no",
+          "label": "No"
+        },
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "field_spacing",
+      "label": "Field spacing",
+      "options": [
+        {
+          "value": "no",
+          "label": "No"
+        },
+        {
+          "value": "s",
+          "label": "S"
+        },
+        {
+          "value": "m",
+          "label": "M"
+        },
+        {
+          "value": "l",
+          "label": "L"
+        },
+        {
+          "value": "xl",
+          "label": "XL"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout_type",
+      "label": "Layout type",
+      "options": [
+        {
+          "value": "single_column",
+          "label": "Single column"
+        },
+        {
+          "value": "two_columns",
+          "label": "Two columns"
+        },
+        {
+          "value": "split",
+          "label": "Split"
+        }
+      ],
+      "default": "single_column"
+    },
+    {
+      "type": "select",
+      "id": "split_form_position",
+      "label": "Form position (split layout)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Form left"
+        },
+        {
+          "value": "right",
+          "label": "Form right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "content_title",
+      "label": "Content title (split layout)"
+    },
+    {
+      "type": "richtext",
+      "id": "content_description",
+      "label": "Content description (split layout)"
+    },
+    {
+      "type": "header",
+      "content": "Name field"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_name_field",
+      "label": "Show field",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "name_required",
+      "label": "Required",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "name_label",
+      "label": "Label",
+      "default": "Name"
+    },
+    {
+      "type": "text",
+      "id": "name_placeholder",
+      "label": "Placeholder",
+      "default": "Your name"
+    },
+    {
+      "type": "header",
+      "content": "Email field"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_email_field",
+      "label": "Show field",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "email_required",
+      "label": "Required",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "email_label",
+      "label": "Label",
+      "default": "Email"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Placeholder",
+      "default": "your@email.com"
+    },
+    {
+      "type": "header",
+      "content": "Phone field"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_phone_field",
+      "label": "Show field",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "phone_required",
+      "label": "Required",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "phone_label",
+      "label": "Label",
+      "default": "Phone"
+    },
+    {
+      "type": "text",
+      "id": "phone_placeholder",
+      "label": "Placeholder",
+      "default": "Your phone number"
+    },
+    {
+      "type": "header",
+      "content": "Subject field"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_subject_field",
+      "label": "Show field",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "subject_required",
+      "label": "Required",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "subject_label",
+      "label": "Label",
+      "default": "Subject"
+    },
+    {
+      "type": "text",
+      "id": "subject_placeholder",
+      "label": "Placeholder",
+      "default": "How can we help?"
+    },
+    {
+      "type": "header",
+      "content": "Message field"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_message_field",
+      "label": "Show field",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "message_required",
+      "label": "Required",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "message_label",
+      "label": "Label",
+      "default": "Message"
+    },
+    {
+      "type": "text",
+      "id": "message_placeholder",
+      "label": "Placeholder",
+      "default": "Your message"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Send message"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outlined",
+          "label": "Outlined"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "select",
+      "id": "button_alignment",
+      "label": "Button alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "left"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact form"
+    }
+  ]
+}
 {% endschema %}
