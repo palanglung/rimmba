@@ -257,7 +257,7 @@
             "tile_3_tile_is_link": true,
             "tile_3_custom_title": "",
             "tile_3_custom_description": "",
-            "tile_3_button_label": "",
+            "tile_3_button_label": "read",
             "tile_3_button_style": "filled",
             "tile_3_background_image": "shopify://shop_images/Natural_Dye_Preparation.webp",
             "tile_3_overlay_strength": "soft",
