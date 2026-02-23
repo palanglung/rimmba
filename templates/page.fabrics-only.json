@@ -268,12 +268,12 @@
         "video_external_mobile": "",
         "show_controls_on_video_mobile": false,
         "aspect_ratio_mobile": "auto",
-        "section_width": "max-w-full",
+        "section_width": "max-w-page",
         "color_scheme": "",
         "color_scheme_for_content": "scheme-ee2d138c-ee7e-4f91-b721-75c523bfadd3",
         "spacing_inner": "2",
         "spacing_top": "0",
-        "spacing_bottom": "0"
+        "spacing_bottom": "4"
       }
     },
     "dual_tiles_CVpVR6": {
