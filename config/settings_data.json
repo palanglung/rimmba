@@ -437,7 +437,7 @@
         "settings": {
           "background": "#151515",
           "background_gradient": "",
-          "primary_text": "#ffc829",
+          "primary_text": "#FFFFFF",
           "secondary_text": "#162a50",
           "header_text": "#ffc829",
           "primary_button": "#162a50",
