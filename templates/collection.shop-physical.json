@@ -153,6 +153,22 @@
         "spacing_bottom": "2"
       }
     },
+    "seo_content_3VjpLe": {
+      "type": "seo-content",
+      "name": "t:sections.seo-content.name",
+      "settings": {
+        "section_layout": "normal",
+        "heading": "",
+        "heading_size": "h3",
+        "text": "<p>If you're in Bali, you can visit <a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact Us\">our Boutique & Atelier</a>, feel the fabrics and choose what to take with you.</p>",
+        "content_alignment": "center",
+        "section_width": "max-w-narrower",
+        "color_scheme": "",
+        "spacing_inner": "1",
+        "spacing_top": "2",
+        "spacing_bottom": "1"
+      }
+    },
     "full_width_banner_hzMUDn": {
       "type": "full-width-banner",
       "blocks": {
@@ -381,6 +397,7 @@
   "order": [
     "featured_collections_JQrJUx",
     "banner",
+    "seo_content_3VjpLe",
     "full_width_banner_hzMUDn",
     "full_width_banner_zggUyx",
     "main",
