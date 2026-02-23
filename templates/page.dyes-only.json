@@ -1,0 +1,457 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_banner_kExA78": {
+      "type": "page-banner",
+      "name": "t:sections.page-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "heading": "",
+        "heading_size": "h6",
+        "text": "",
+        "show_default_description": true,
+        "show_on_description": "desktop",
+        "content_position": "center",
+        "content_alignment": "center",
+        "media_position": "background",
+        "page_menu": "",
+        "enable_breadcrumbs": true,
+        "section_height": "auto",
+        "content_width": "100%",
+        "video_external": "",
+        "show_controls_on_video": false,
+        "section_height_mobile": "auto",
+        "video_external_mobile": "",
+        "show_controls_on_video_mobile": false,
+        "section_width": "max-w-narrow",
+        "color_scheme": "scheme-1",
+        "color_scheme_for_media": "",
+        "spacing_top": "2",
+        "spacing_bottom": "6"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+        "table {box-shadow: none;}"
+      ],
+      "settings": {
+        "breadcrumbs": false,
+        "show_page_title": false,
+        "page_title_alignment": "text-center",
+        "info_title": "",
+        "info_content": "",
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-5",
+        "spacing_top": "0",
+        "spacing_bottom": "0"
+      }
+    },
+    "177164046378c96e3d": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_f61e859_VtdwQt": {
+          "type": "ai_gen_block_f61e859",
+          "settings": {
+            "title": "Explore our Fabrics",
+            "title_tag": "h2",
+            "description": "<p>We chose each of our natural fabrics with careful love. </p><p>Read more in depth about each:</p>",
+            "header_alignment": "center",
+            "container_width": "fluid",
+            "container_height": "auto",
+            "spacing_top": "m",
+            "spacing_bottom": "xl",
+            "color_scheme": "scheme-1",
+            "tiles_to_show": 6,
+            "masonry_enabled": false,
+            "columns": 3,
+            "rows": 2,
+            "tiles_spacing": "l",
+            "tile_1_color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "tile_1_page": "sustainable-fabrics-mulberry-silk",
+            "tile_1_custom_url": "",
+            "tile_1_open_new_tab": true,
+            "tile_1_tile_is_link": true,
+            "tile_1_custom_title": "",
+            "tile_1_custom_description": "",
+            "tile_1_button_label": "",
+            "tile_1_button_style": "filled",
+            "tile_1_background_image": "shopify://shop_images/silk_circle.jpg",
+            "tile_1_overlay_strength": "soft",
+            "tile_1_content_position": "center",
+            "tile_1_content_alignment": "center",
+            "tile_1_tile_padding": "m",
+            "tile_2_color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "tile_2_page": "sustainable-fabrics-wild-silks",
+            "tile_2_custom_url": "",
+            "tile_2_open_new_tab": true,
+            "tile_2_tile_is_link": true,
+            "tile_2_custom_title": "",
+            "tile_2_custom_description": "",
+            "tile_2_button_label": "",
+            "tile_2_button_style": "filled",
+            "tile_2_background_image": "shopify://shop_images/green-silkworm-actively-spinning-silk-strands-to-form-a-protective-hammock-with-cocoons-below-photo.jpg",
+            "tile_2_overlay_strength": "soft",
+            "tile_2_content_position": "center",
+            "tile_2_content_alignment": "center",
+            "tile_2_tile_padding": "m",
+            "tile_3_color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "tile_3_page": "ahimsa-silk",
+            "tile_3_custom_url": "",
+            "tile_3_open_new_tab": true,
+            "tile_3_tile_is_link": true,
+            "tile_3_custom_title": "",
+            "tile_3_custom_description": "",
+            "tile_3_button_label": "",
+            "tile_3_button_style": "filled",
+            "tile_3_background_image": "shopify://shop_images/tos3.jpg",
+            "tile_3_overlay_strength": "soft",
+            "tile_3_content_position": "center",
+            "tile_3_content_alignment": "center",
+            "tile_3_tile_padding": "m",
+            "tile_4_color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "tile_4_page": "cotton",
+            "tile_4_custom_url": "",
+            "tile_4_open_new_tab": true,
+            "tile_4_tile_is_link": true,
+            "tile_4_custom_title": "",
+            "tile_4_custom_description": "",
+            "tile_4_button_label": "",
+            "tile_4_button_style": "filled",
+            "tile_4_background_image": "shopify://shop_images/cotton.jpg",
+            "tile_4_overlay_strength": "soft",
+            "tile_4_content_position": "center",
+            "tile_4_content_alignment": "center",
+            "tile_4_tile_padding": "m",
+            "tile_5_color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "tile_5_page": "ramie",
+            "tile_5_custom_url": "",
+            "tile_5_open_new_tab": true,
+            "tile_5_tile_is_link": true,
+            "tile_5_custom_title": "",
+            "tile_5_custom_description": "",
+            "tile_5_button_label": "",
+            "tile_5_button_style": "filled",
+            "tile_5_background_image": "shopify://shop_images/kala-cotton-handloom-pit-loom-weaving---border_copy.jpg",
+            "tile_5_overlay_strength": "soft",
+            "tile_5_content_position": "center",
+            "tile_5_content_alignment": "center",
+            "tile_5_tile_padding": "m",
+            "tile_6_color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "tile_6_page": "linen",
+            "tile_6_custom_url": "",
+            "tile_6_open_new_tab": true,
+            "tile_6_tile_is_link": true,
+            "tile_6_custom_title": "",
+            "tile_6_custom_description": "",
+            "tile_6_button_label": "",
+            "tile_6_button_style": "filled",
+            "tile_6_background_image": "shopify://shop_images/Cotton_fabric_india_rimmba.heic",
+            "tile_6_overlay_strength": "soft",
+            "tile_6_content_position": "center",
+            "tile_6_content_alignment": "center",
+            "tile_6_tile_padding": "m",
+            "tile_7_color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "tile_7_page": "",
+            "tile_7_custom_url": "",
+            "tile_7_open_new_tab": true,
+            "tile_7_tile_is_link": true,
+            "tile_7_custom_title": "",
+            "tile_7_custom_description": "",
+            "tile_7_button_label": "",
+            "tile_7_button_style": "filled",
+            "tile_7_overlay_strength": "soft",
+            "tile_7_content_position": "center",
+            "tile_7_content_alignment": "center",
+            "tile_7_tile_padding": "m",
+            "tile_8_color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "tile_8_page": "",
+            "tile_8_custom_url": "",
+            "tile_8_open_new_tab": true,
+            "tile_8_tile_is_link": true,
+            "tile_8_custom_title": "",
+            "tile_8_custom_description": "",
+            "tile_8_button_label": "",
+            "tile_8_button_style": "filled",
+            "tile_8_overlay_strength": "soft",
+            "tile_8_content_position": "center",
+            "tile_8_content_alignment": "center",
+            "tile_8_tile_padding": "m",
+            "tile_9_color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "tile_9_page": "",
+            "tile_9_custom_url": "",
+            "tile_9_open_new_tab": true,
+            "tile_9_tile_is_link": true,
+            "tile_9_custom_title": "",
+            "tile_9_custom_description": "",
+            "tile_9_button_label": "",
+            "tile_9_button_style": "filled",
+            "tile_9_overlay_strength": "soft",
+            "tile_9_content_position": "center",
+            "tile_9_content_alignment": "center",
+            "tile_9_tile_padding": "m"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_f61e859_VtdwQt"
+      ],
+      "settings": {}
+    },
+    "full_width_banner_meeAGa": {
+      "type": "full-width-banner",
+      "blocks": {
+        "heading_L3X7TU": {
+          "type": "heading",
+          "settings": {
+            "heading": "Natural & Botanical Dyes",
+            "heading_size": "h3"
+          }
+        },
+        "subheading_bRynXm": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Selected by RIMMBA",
+            "link": ""
+          }
+        },
+        "content_aNDdqh": {
+          "type": "content",
+          "settings": {
+            "content": "<p>Read how we hand-pick our natural & botanical dye using plants, flowers and connecting with Nature</p>"
+          }
+        },
+        "buttons_nq4yj4": {
+          "type": "buttons",
+          "settings": {
+            "button_link_1": "shopify://pages/natural-dyes",
+            "button_link_1_type": "button",
+            "button_label_1": "Our Dyes",
+            "button_style_1": "button--filled",
+            "color_scheme_first_button": "",
+            "button_link_2": "/",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "color_scheme_second_button": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_L3X7TU",
+        "subheading_bRynXm",
+        "content_aNDdqh",
+        "buttons_nq4yj4"
+      ],
+      "name": "t:sections.full-width-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "auto",
+        "content_position": "center",
+        "content_alignment": "center",
+        "image": "shopify://shop_images/Natural_Dye_Preparation.webp",
+        "video_external": "",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "auto",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "video_external_mobile": "",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "color_scheme_for_content": "scheme-ee2d138c-ee7e-4f91-b721-75c523bfadd3",
+        "spacing_inner": "2",
+        "spacing_top": "0",
+        "spacing_bottom": "4"
+      }
+    },
+    "dual_tiles_CVpVR6": {
+      "type": "dual-tiles",
+      "blocks": {
+        "tile_qQwJq3": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "custom_background_color": "",
+            "heading": "Sustainable fabrics",
+            "heading_size": "h5",
+            "text": "",
+            "button_label": "Our Fabrics",
+            "button_link": "shopify://pages/sustainable-fabrics",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "16/9",
+            "vertical_position": "stretch",
+            "content_position": "justify-center",
+            "content_alignment": "text-center align-center",
+            "product_position": "0",
+            "image": "shopify://shop_images/Natural_Fabrics_Workshop.webp",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "16/9",
+            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        },
+        "tile_ibtWxT": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "custom_background_color": "",
+            "heading": "Natural Dyes",
+            "heading_size": "h5",
+            "text": "",
+            "button_label": "our dyes",
+            "button_link": "shopify://pages/natural-dyes",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "16/9",
+            "vertical_position": "stretch",
+            "content_position": "justify-center",
+            "content_alignment": "text-center align-center",
+            "product_position": "0",
+            "image": "shopify://shop_images/Natural_Dye_Preparation.webp",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "16/9",
+            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        }
+      },
+      "block_order": [
+        "tile_qQwJq3",
+        "tile_ibtWxT"
+      ],
+      "disabled": true,
+      "name": "t:sections.dual-tiles.name",
+      "settings": {
+        "section_layout": "seperated",
+        "block_size": "half",
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h5",
+        "heading_alignment": "center",
+        "color_scheme": "",
+        "section_width": "max-w-page",
+        "spacing_top": "2",
+        "spacing_bottom": "6"
+      }
+    },
+    "full_width_banner_W7yygr": {
+      "type": "full-width-banner",
+      "blocks": {
+        "subheading_i48kh8": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "subheading": "",
+            "link": ""
+          }
+        },
+        "heading_Tdce6k": {
+          "type": "heading",
+          "settings": {
+            "heading": "Explore our collections",
+            "heading_size": "h3"
+          }
+        },
+        "buttons_ppdT6B": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_link_1": "/",
+            "button_link_1_type": "button",
+            "button_label_1": "",
+            "button_style_1": "button--outlined",
+            "color_scheme_first_button": "",
+            "button_link_2": "/",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "color_scheme_second_button": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_i48kh8",
+        "heading_Tdce6k",
+        "buttons_ppdT6B"
+      ],
+      "disabled": true,
+      "name": "t:sections.full-width-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "auto",
+        "content_position": "center",
+        "content_alignment": "center",
+        "video_external": "",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "auto",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "video_external_mobile": "",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "color_scheme_for_content": "scheme-1",
+        "spacing_inner": "0",
+        "spacing_top": "2",
+        "spacing_bottom": "0"
+      }
+    },
+    "main_list_collections_EnGLME": {
+      "type": "main-list-collections",
+      "disabled": true,
+      "name": "t:sections.main-list-collections.name",
+      "settings": {
+        "collections_to_show": "all",
+        "card_title_style": "card-single-text",
+        "collection_product_count": "hide",
+        "collections_per_page": 12,
+        "pagination_style": "default",
+        "enable_infinity_scroll": false,
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "1",
+        "spacing_bottom": "2"
+      }
+    }
+  },
+  "order": [
+    "page_banner_kExA78",
+    "main",
+    "177164046378c96e3d",
+    "full_width_banner_meeAGa",
+    "dual_tiles_CVpVR6",
+    "full_width_banner_W7yygr",
+    "main_list_collections_EnGLME"
+  ]
+}
