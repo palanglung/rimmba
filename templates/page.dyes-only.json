@@ -233,9 +233,9 @@
         "buttons_nq4yj4": {
           "type": "buttons",
           "settings": {
-            "button_link_1": "shopify://pages/natural-dyes",
+            "button_link_1": "shopify://pages/sustainable-fabrics",
             "button_link_1_type": "button",
-            "button_label_1": "Our Dyes",
+            "button_label_1": "Our Fabrics",
             "button_style_1": "button--filled",
             "color_scheme_first_button": "",
             "button_link_2": "/",
@@ -258,7 +258,7 @@
         "section_height": "auto",
         "content_position": "center",
         "content_alignment": "center",
-        "image": "shopify://shop_images/Natural_Dye_Preparation.webp",
+        "image": "shopify://shop_images/Natural_Fabrics_Workshop.webp",
         "video_external": "",
         "show_controls_on_video": false,
         "aspect_ratio": "auto",
@@ -348,6 +348,7 @@
         "tile_qQwJq3",
         "tile_ibtWxT"
       ],
+      "disabled": true,
       "name": "t:sections.dual-tiles.name",
       "settings": {
         "section_layout": "seperated",
