@@ -79,7 +79,7 @@
             "tile_1_page": "indigo-natural-dye",
             "tile_1_custom_url": "shopify://pages/indigo-natural-dye",
             "tile_1_open_new_tab": true,
-            "tile_1_tile_is_link": true,
+            "tile_1_tile_is_link": false,
             "tile_1_custom_title": "",
             "tile_1_custom_description": "",
             "tile_1_button_label": "Indigo",
