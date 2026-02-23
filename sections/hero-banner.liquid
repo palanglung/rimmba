@@ -157,6 +157,15 @@
       assign header_menu_text_color = block.settings.header_menu_text_color.red | append: ', ' | append: block.settings.header_menu_text_color.green | append: ', ' | append: block.settings.header_menu_text_color.blue
     -%}
 
+    {%- liquid
+      assign loading_attr = 'lazy'
+      assign fetchpriority_attr = nil
+      if section.index == 1 and forloop.first
+        assign loading_attr = 'eager'
+        assign fetchpriority_attr = 'high'
+      endif
+    -%}
+
     <div class="hero__inner {{ block.settings.banner_layout }} {{ hero_enable_media_overlay | strip }}" data-header-menu-text-color="{{ header_menu_text_color }}">
 
       {%- comment -%}MEDIA / DESKTOP{%- endcomment -%}
@@ -172,7 +181,7 @@
         <div class="media media--overlay hero__media {% if has_mobile_media %} small-hide{% endif %}">
           {%- liquid
             if block.settings.image != blank
-              render 'image', image: block.settings.image, width: 2160, alt: image.alt | default: block.settings.heading
+              render 'image', image: block.settings.image, width: 2160, alt: block.settings.image.alt | default: block.settings.heading, loading: loading_attr, fetchpriority: fetchpriority_attr
             else
               echo 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg'
             endif
@@ -194,7 +203,7 @@
           <div class="media media--overlay hero__media small-up-hide">
             {%- liquid
               if block.settings.image_mobile != blank
-                render 'image', image: block.settings.image_mobile, image_for_mobile: true, alt: block.settings.image_mobile.alt | default: block.settings.heading
+                render 'image', image: block.settings.image_mobile, image_for_mobile: true, alt: block.settings.image_mobile.alt | default: block.settings.heading, loading: loading_attr, fetchpriority: fetchpriority_attr
               else
                 echo 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg'
               endif

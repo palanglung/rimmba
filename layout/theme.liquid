@@ -37,7 +37,42 @@ You can learn more about this (and learn how to cleanly revert these changes) at
     </noscript>
     <script src="{{ 'cookies.js' | asset_url }}" defer="defer"></script>
 
-    {{ content_for_header }}
+    {%- capture content_for_header_output -%}
+      {{ content_for_header }}
+    {%- endcapture -%}
+
+    {%- if request.design_mode -%}
+      {{ content_for_header_output }}
+    {%- else -%}
+      {%- comment -%} Delay heavy app scripts {%- endcomment -%}
+      {{ content_for_header_output
+        | replace: 'src="https://code.tidio.co', 'data-src="https://code.tidio.co'
+        | replace: 'src="https://cdn.shopify.com/shopifycloud/shopify_chat', 'data-src="https://cdn.shopify.com/shopifycloud/shopify_chat'
+        | replace: 'src="https://cdn.judgeme.com', 'data-src="https://cdn.judgeme.com'
+        | replace: 'src="https://js.smile.io', 'data-src="https://js.smile.io'
+      }}
+    {%- endif -%}
+
+    <script>
+      (function() {
+        const loadDelayed = () => {
+          if (window.delayedLoaded) return;
+          window.delayedLoaded = true;
+          document.querySelectorAll('script[data-src]').forEach(s => {
+            s.setAttribute('src', s.getAttribute('data-src'));
+            s.removeAttribute('data-src');
+          });
+          document.querySelectorAll('iframe[data-src]').forEach(i => {
+            i.setAttribute('src', i.getAttribute('data-src'));
+            i.removeAttribute('data-src');
+          });
+          document.dispatchEvent(new CustomEvent('delayed-load'));
+        };
+        ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(e => {
+          window.addEventListener(e, loadDelayed, { once: true, passive: true });
+        });
+      })();
+    </script>
 
     {%- render 'settings' -%}
 
@@ -51,7 +86,7 @@ You can learn more about this (and learn how to cleanly revert these changes) at
       <script src="{{- 'predictive-search.js' | asset_url -}}" defer="defer"></script>
     {%- endif -%}
 
-    {{ 'rimmba.css?' + "test" | asset_url | stylesheet_tag }}
+    {{ 'rimmba.css' | asset_url | stylesheet_tag }}
 
     {% comment %}theme-check-disable AssetPreload{% endcomment %}
     {%- unless settings.type_heading_font.system? -%}
