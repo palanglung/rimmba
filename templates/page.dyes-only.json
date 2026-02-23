@@ -213,7 +213,7 @@
         "heading_L3X7TU": {
           "type": "heading",
           "settings": {
-            "heading": "Natural & Botanical Dyes",
+            "heading": "Natural & Sustainable Fabrics",
             "heading_size": "h3"
           }
         },
@@ -227,7 +227,7 @@
         "content_aNDdqh": {
           "type": "content",
           "settings": {
-            "content": "<p>Read how we hand-pick our natural & botanical dye using plants, flowers and connecting with Nature</p>"
+            "content": "<p>Read how we hand-pick our natural & sustainable fabrics, ethically sourced in respectof the planet and connecting with Nature</p>"
           }
         },
         "buttons_nq4yj4": {
@@ -348,7 +348,6 @@
         "tile_qQwJq3",
         "tile_ibtWxT"
       ],
-      "disabled": true,
       "name": "t:sections.dual-tiles.name",
       "settings": {
         "section_layout": "seperated",
