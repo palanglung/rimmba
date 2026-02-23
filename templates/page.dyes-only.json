@@ -61,9 +61,9 @@
         "ai_gen_block_f61e859_VtdwQt": {
           "type": "ai_gen_block_f61e859",
           "settings": {
-            "title": "Explore our Fabrics",
+            "title": "Explore our Dyes",
             "title_tag": "h2",
-            "description": "<p>We chose each of our natural fabrics with careful love. </p><p>Read more in depth about each:</p>",
+            "description": "<p>We chose each of our natural and botanical dyes with careful love. </p><p>Read more in depth about each:</p>",
             "header_alignment": "center",
             "container_width": "fluid",
             "container_height": "auto",
