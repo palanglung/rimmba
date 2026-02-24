@@ -1314,7 +1314,8 @@ body[data-body-font="DMSans-Regular"] p {
     padding-left: 2em;
 }
 .section table td:not(:first-child) figcaption,
-.section table td:not(:first-child) figcaption p {
+.section table td:not(:first-child) figcaption p,
+.section table:has(p ~ p) td:only-child figcaption p {
     text-align: center;
     padding-left: 0em;
 }
@@ -1336,7 +1337,8 @@ body[data-body-font="DMSans-Regular"] p {
     padding-left: 0em !important;
 }
 .section table td:not(:first-child) figcaption,
-.section table td:not(:first-child) figcaption p {
+.section table td:not(:first-child) figcaption p,
+.section table:has(p ~ p) td:only-child figcaption p {
     text-align: center !important;
     padding-left: 0em;
 }
