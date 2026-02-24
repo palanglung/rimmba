@@ -535,6 +535,15 @@
     "accordions_MaqKtQ": {
       "type": "accordions",
       "blocks": {
+        "topic_DAVV6Q": {
+          "type": "topic",
+          "settings": {
+            "is_open": false,
+            "title": "Do you have discount codes?",
+            "text": "<p>As a high-end luxury brand, all of our pieces are artisanal, handmade, and produced in small batches. Because of the craftsmanship and integrity behind each garment, we do not offer discounts.</p><p>Instead, we invite our community into special launches, workshops and intimate giveaways. Join our mailing list to be part of that inner circle.</p>",
+            "page": ""
+          }
+        },
         "topic_4YNKGM": {
           "type": "topic",
           "settings": {
@@ -582,6 +591,7 @@
         }
       },
       "block_order": [
+        "topic_DAVV6Q",
         "topic_4YNKGM",
         "topic_dFEhN6",
         "topic_U3EC3a",
