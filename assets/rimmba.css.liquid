@@ -1314,9 +1314,12 @@ body[data-body-font="DMSans-Regular"] p {
     padding-left: 2em;
 }
 .section table td :is(h1, h2, h3, h4, h5, h6), 
-.section table td:is(:only-child) :is(p, h1, h2, h3, h4, h5, h6) {
+.section table:has(p):not(:has(p ~ p)) td:only-child :is(p, h1, h2, h3, h4, h5, h6)  {
     text-align: center;
 }
+.section table:has(p ~ p) td:only-child :is(p, h1, h2, h3, h4, h5, h6){
+    text-align: left;
+  }
 @media (max-width: 768px) {
   .section table.custom_inline_table {width: auto !important; max-width:fit-content !important; overflow-x:auto !important;}
   .section table.custom_inline_table,
