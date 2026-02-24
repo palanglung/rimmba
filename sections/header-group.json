@@ -50,7 +50,7 @@
             "show_on": "desktop",
             "link_label": "New Products",
             "link": "shopify://collections/new-in",
-            "icon": "theme-box"
+            "icon": "option-eye"
           }
         },
         "timer_UXXqcR": {
