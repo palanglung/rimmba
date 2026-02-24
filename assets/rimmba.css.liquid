@@ -1313,7 +1313,8 @@ body[data-body-font="DMSans-Regular"] p {
     text-align: left; /*align left text when text on the right and gives margin on left*/
     padding-left: 2em;
 }
-.section table td :is(h1, h2, h3, h4) {
+.section table td :is(h1, h2, h3, h4, h5, h6), 
+.section table td:is(:only-child) :is(p, h1, h2, h3, h4, h5, h6) {
     text-align: center;
 }
 @media (max-width: 768px) {
@@ -1321,7 +1322,8 @@ body[data-body-font="DMSans-Regular"] p {
   .section table.custom_inline_table,
   .section table.custom_inline_table p {text-align: left !important; font-size:0.8em !important;}
 .section table td:not(:first-child) :is(p, h1, h2, h3, h4, h5, h6),
-.section table td :is(h1, h2, h3, h4, h5, h6) {
+.section table td :is(h1, h2, h3, h4, h5, h6),
+.section table td:is(:only-child) :is(p, h1, h2, h3, h4, h5, h6) {
     text-align: left !important;
     padding-left: 0em !important;
 }
