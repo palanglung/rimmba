@@ -1309,21 +1309,21 @@ body[data-body-font="DMSans-Regular"] p {
 .section table.custom_inline_table p {font-size:1em !important;}
 .section table.custom_inline_table th,
 .section table.custom_inline_table td {text-align: center; box-shadow: 1px 1px 1px #eee; padding: 0.5em;}
-.section table td:not(:first-child) p { /*overrides baseCSS which forces center*/
+.section table:not(.custom_inline_table) td:not(:first-child) p { /*overrides baseCSS which forces center*/
     text-align: left; /*align left text when text on the right and gives margin on left*/
     padding-left: 2em;
 }
-.section table td:not(:first-child) figcaption,
-.section table td:not(:first-child) figcaption p,
-.section table:has(p ~ p) td:only-child figcaption p {
+.section table:not(.custom_inline_table) td:not(:first-child) figcaption,
+.section table:not(.custom_inline_table) td:not(:first-child) figcaption p,
+.section table:not(.custom_inline_table):has(p ~ p) td:only-child figcaption p {
     text-align: center;
     padding-left: 0em;
 }
-.section table td > :is(h1, h2, h3, h4, h5, h6), 
-.section table:has(p):not(:has(p ~ p)) td:only-child > :is(p, h1, h2, h3, h4, h5, h6)  {
+.section table:not(.custom_inline_table) td > :is(h1, h2, h3, h4, h5, h6), 
+.section table:not(.custom_inline_table):has(p):not(:has(p ~ p)) td:only-child > :is(p, h1, h2, h3, h4, h5, h6)  {
     text-align: center;
 }
-.section table:has(p ~ p) td:only-child :is(p){
+.section table:not(.custom_inline_table):has(p ~ p) td:only-child :is(p){
     text-align: left;
   }
 @media (max-width: 768px) {
