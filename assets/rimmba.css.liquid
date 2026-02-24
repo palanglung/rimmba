@@ -1313,6 +1313,11 @@ body[data-body-font="DMSans-Regular"] p {
     text-align: left; /*align left text when text on the right and gives margin on left*/
     padding-left: 2em;
 }
+.section table td:not(:first-child) figcaption,
+.section table td:not(:first-child) figcaption p {
+    text-align: center;
+    padding-left: 0em;
+}
 .section table td :is(h1, h2, h3, h4, h5, h6), 
 .section table:has(p):not(:has(p ~ p)) td:only-child :is(p, h1, h2, h3, h4, h5, h6)  {
     text-align: center;
