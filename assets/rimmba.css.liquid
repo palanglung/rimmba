@@ -1423,6 +1423,36 @@ body[data-body-font="DMSans-Regular"] p {
   column-count: 1;
   column-fill: balance;
 }
+/* lists on left */
+.section table:not(.custom_inline_table)
+  :has(td:last-child img)
+  td:first-child :is(ul,ol) {
+    text-align: left;
+    padding-right: 0rem;
+    padding-left: 3rem;
+    margin-left: 0;
+}
+
+/* lists on right */
+.section table:not(.custom_inline_table)
+  :has(td:first-child img)
+  td:last-child :is(ul,ol) {
+    text-align: left;
+    padding-left: 3rem;
+    margin-left: 0;
+}
+/*paragraphs in custom pages except center*/
+.section table:not(.custom_inline_table)
+  p:not(:where(
+    figcaption p,
+    dl p,
+    ul p,
+    ol p,
+    blockquote p
+  )) {
+    padding-right: 0rem !important;
+}
+
   /* Apply mobile layout only to our verified tables */
   .section table:has(> tbody > tr:only-child > td:nth-of-type(2)):has(img),
   .section table:has(> tbody > tr:only-child > td:nth-of-type(2)) img {
