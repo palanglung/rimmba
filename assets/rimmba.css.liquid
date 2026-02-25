@@ -1404,11 +1404,15 @@ body[data-body-font="DMSans-Regular"] p {
   .section table.custom_inline_table p {text-align: left !important; font-size:0.8em !important;}
 .section table td:not(:first-child) :is(p, h1, h2, h3, h4, h5, h6),
 .section table td :is(h1, h2, h3, h4, h5, h6),
-.section table td:is(:only-child) :is(p, h1, h2, h3, h4, h5, h6),
+.section table td:is(:only-child) :is(p, h1, h2, h3, h4, h5, h6) {
+    text-align: left !important;
+    padding-left: 0rem !important;
+}
 .seo-content,
 .seo-content .text-center * {
     text-align: left !important;
-    padding-left: 0rem !important;
+    padding-left: 0.3rem !important;
+    padding-right: 0.3rem;
 }
 .section table td figcaption p,
 .section table td:not(:first-child) figcaption,
