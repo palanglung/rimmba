@@ -59,75 +59,6 @@
         "spacing_bottom": "6"
       }
     },
-    "full_width_banner_meeAGa": {
-      "type": "full-width-banner",
-      "blocks": {
-        "heading_L3X7TU": {
-          "type": "heading",
-          "settings": {
-            "heading": "In celebration of the natural",
-            "heading_size": "h3"
-          }
-        },
-        "content_aNDdqh": {
-          "type": "content",
-          "settings": {
-            "content": "<p>Choosing natural fabrics is choosing balance between people and planet, craft and technology, tradition and tomorrow.</p><p>RIMMBA’s approach to natural fabrics remind us that fashion can return to its roots, becoming again what it once was: an art of connection between what is to come and ancient traditions.</p>"
-          }
-        },
-        "subheading_bRynXm": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Explore RIMMBA's fabrics and dyes in depth",
-            "link": ""
-          }
-        },
-        "buttons_nq4yj4": {
-          "type": "buttons",
-          "settings": {
-            "button_link_1": "shopify://pages/natural-dyes",
-            "button_link_1_type": "button",
-            "button_label_1": "our dyes",
-            "button_style_1": "button--filled",
-            "color_scheme_first_button": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
-            "button_link_2": "shopify://pages/sustainable-fabrics",
-            "button_label_2": "our fabrics",
-            "button_style_2": "button--filled",
-            "color_scheme_second_button": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca"
-          }
-        }
-      },
-      "block_order": [
-        "heading_L3X7TU",
-        "content_aNDdqh",
-        "subheading_bRynXm",
-        "buttons_nq4yj4"
-      ],
-      "name": "t:sections.full-width-banner.name",
-      "settings": {
-        "enable_transparent_header": false,
-        "media_position": "background",
-        "section_height": "auto",
-        "content_position": "center",
-        "content_alignment": "center",
-        "image": "shopify://shop_images/Dye_Workshop_Bali.webp",
-        "video_external": "",
-        "show_controls_on_video": false,
-        "aspect_ratio": "auto",
-        "section_height_mobile": "auto",
-        "content_position_mobile": "center",
-        "content_alignment_mobile": "center",
-        "video_external_mobile": "",
-        "show_controls_on_video_mobile": false,
-        "aspect_ratio_mobile": "auto",
-        "section_width": "max-w-full",
-        "color_scheme": "",
-        "color_scheme_for_content": "scheme-6",
-        "spacing_inner": "2",
-        "spacing_top": "0",
-        "spacing_bottom": "2"
-      }
-    },
     "dual_tiles_CVpVR6": {
       "type": "dual-tiles",
       "blocks": {
@@ -234,6 +165,75 @@
         "spacing_bottom": "0"
       }
     },
+    "full_width_banner_meeAGa": {
+      "type": "full-width-banner",
+      "blocks": {
+        "heading_L3X7TU": {
+          "type": "heading",
+          "settings": {
+            "heading": "In celebration of the natural",
+            "heading_size": "h3"
+          }
+        },
+        "content_aNDdqh": {
+          "type": "content",
+          "settings": {
+            "content": "<p>Choosing natural fabrics is choosing balance between people and planet, craft and technology, tradition and tomorrow.</p><p>RIMMBA’s approach to natural fabrics remind us that fashion can return to its roots, becoming again what it once was: an art of connection between what is to come and ancient traditions.</p>"
+          }
+        },
+        "subheading_bRynXm": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Explore RIMMBA's fabrics and dyes in depth",
+            "link": ""
+          }
+        },
+        "buttons_nq4yj4": {
+          "type": "buttons",
+          "settings": {
+            "button_link_1": "shopify://pages/natural-dyes",
+            "button_link_1_type": "button",
+            "button_label_1": "our dyes",
+            "button_style_1": "button--filled",
+            "color_scheme_first_button": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca",
+            "button_link_2": "shopify://pages/sustainable-fabrics",
+            "button_label_2": "our fabrics",
+            "button_style_2": "button--filled",
+            "color_scheme_second_button": "scheme-3b471ddf-1529-49f2-8266-9966119a98ca"
+          }
+        }
+      },
+      "block_order": [
+        "heading_L3X7TU",
+        "content_aNDdqh",
+        "subheading_bRynXm",
+        "buttons_nq4yj4"
+      ],
+      "name": "t:sections.full-width-banner.name",
+      "settings": {
+        "enable_transparent_header": false,
+        "media_position": "background",
+        "section_height": "auto",
+        "content_position": "center",
+        "content_alignment": "center",
+        "image": "shopify://shop_images/Dye_Workshop_Bali.webp",
+        "video_external": "",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "auto",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "video_external_mobile": "",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "color_scheme_for_content": "scheme-6",
+        "spacing_inner": "2",
+        "spacing_top": "0",
+        "spacing_bottom": "2"
+      }
+    },
     "seo_content_ebjggt": {
       "type": "seo-content",
       "disabled": true,
@@ -333,9 +333,9 @@
   "order": [
     "1760421621c74cd30c",
     "page_banner_kExA78",
-    "full_width_banner_meeAGa",
     "dual_tiles_CVpVR6",
     "main",
+    "full_width_banner_meeAGa",
     "seo_content_ebjggt",
     "full_width_banner_W7yygr",
     "main_list_collections_EnGLME"
