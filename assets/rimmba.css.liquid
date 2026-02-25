@@ -108,6 +108,9 @@ body {
 ) :is(li):not(:has(img)):not(button *):not(header *, footer *, nav *, .menu *, .header *, .footer *, .callout-banner *, p *) {
   margin-top: 0.5em !important;
 }
+.section :is(ul, ol, blockquote) {
+  margin-left: 2em !important;
+}
 @media (max-width: 768px) {
   :where(
   .main,
