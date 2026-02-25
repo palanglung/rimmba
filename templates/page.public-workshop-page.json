@@ -371,7 +371,7 @@
             "video_external": "",
             "show_controls_on_video": false,
             "aspect_ratio_mobile": "auto",
-            "content_alignment_mobile": "text-center--mobile align-center--mobile",
+            "content_alignment_mobile": "text-start--mobile align-start--mobile",
             "content_position_mobile": "justify-center--mobile",
             "product_position_mobile": "0",
             "video_external_mobile": "",
