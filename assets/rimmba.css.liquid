@@ -1347,6 +1347,57 @@ body[data-body-font="DMSans-Regular"] p {
   column-count: 2;
   column-fill: balance;
 }
+/*titles and paragraphs on center*/
+.section table:not(.custom_inline_table)
+  :has(td:only-child):not(:has(img))
+  td:only-child :is(p,h1,h2,h3,h4,h5,h6):not(ul *,dl *,dt *,ol *) {
+    text-align: left;
+    max-width: 720px !important;
+}
+/*titles on left*/
+.section table:not(.custom_inline_table)
+  :has(td:first-child):has(img)
+  td:first-child :is(h1,h2,h3,h4,h5,h6):not(ul *,dl *,dt *,ol *) {
+    text-align: left;
+}
+/*titles on right*/
+.section table:not(.custom_inline_table)
+  :has(td:last-child):has(img)
+  td:last-child :is(h1,h2,h3,h4,h5,h6):not(ul *,dl *,dt *,ol *) {
+    text-align: left;
+    padding-left: 3rem;
+}
+
+/* lists on left */
+.section table:not(.custom_inline_table)
+  :has(td:last-child img)
+  td:first-child :is(ul,ol) {
+    text-align: left;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    margin-left: 0;
+}
+
+/* lists on right */
+.section table:not(.custom_inline_table)
+  :has(td:first-child img)
+  td:last-child :is(ul,ol) {
+    text-align: left;
+    padding-left: 6rem;
+    margin-left: 0;
+}
+/*paragraphs in custom pages except center*/
+.section table:not(.custom_inline_table)
+  p:not(:where(
+    figcaption p,
+    dl p,
+    ul p,
+    ol p,
+    blockquote p
+  )) {
+    padding-right: 3rem !important;
+}
+
 @media (max-width: 768px) {
   .section table.custom_inline_table {width: auto !important; max-width:fit-content !important; overflow-x:auto !important;}
   .section table.custom_inline_table,
