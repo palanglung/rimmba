@@ -96,11 +96,12 @@ body {
   #main
 ) :is(ul):not(:has(img)):not(button *):not(header *, footer *, nav *, .menu *, .header *, .footer *, .callout-banner *, p *) {
   max-inline-size: 55ch !important;
-  margin: auto !important;
+  margin: auto;
   text-align: left;
-  margin-bottom:2em !Important;
-}
+  margin-bottom: 2em;
+  margin-left: 2em;
 
+}
 /*forced style on "li" when in pages like sustainability*/
 :where(
   .main,
@@ -109,7 +110,20 @@ body {
 ) :is(li):not(:has(img)):not(button *):not(header *, footer *, nav *, .menu *, .header *, .footer *, .callout-banner *, p *) {
   margin-top: 0.5em !important;
 }
+@media (max-width: 768px) {
+  :where(
+  .main,
+  .main-page,
+  #main
+) :is(ul,ol):not(:has(img)):not(button *):not(header *, footer *, nav *, .menu *, .header *, .footer *, .callout-banner *, p *) {
+  max-inline-size: 55ch !important;
+  margin: auto !important;
+  text-align: left;
+  margin-bottom: 2em !important;
+  margin-left: 0em !important;
 
+}
+}
 /* ========== INLINE SPECIALS ========== */
 /* STRONG & EM FORCED STARTS
 :where(strong):not(
@@ -1097,7 +1111,7 @@ figcaption, figcaption p, figcatpion em, figcaption span {
     font-size: calc(1rem * calc(var(--pi) * .35))!important;
     font-style: italic;
     color: var(--jdgm-primary-color) !important;
-    text-align: center;
+    text-align: left;
     max-inline-size: 65ch !important;
     margin: auto;
 }
