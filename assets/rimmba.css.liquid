@@ -1319,6 +1319,8 @@ body[data-body-font="DMSans-Regular"] p {
 .section table:has(p ~ p) td:only-child figcaption p {
     text-align: left !important;
     padding-left: 0em;
+    margin-block-start: 0em;
+    margin-left: auto !important;
 }
 .section table td > :is(h1, h2, h3, h4, h5, h6), 
 .section table:has(p):not(:has(p ~ p)) td:only-child > :is(p, h1, h2, h3, h4, h5, h6)  {
@@ -1348,8 +1350,10 @@ body[data-body-font="DMSans-Regular"] p {
 .section table td:not(:first-child) figcaption p,
 .section table:has(p ~ p) td:only-child figcaption p {
     text-align: left !important;
-    padding-left: 0em;
-}
+    padding-left: 0em !important;
+    margin-block-start: 0px;
+    margin-left: 0 !important;
+  }
 .section dl.section_guide {
   margin: 1.5rem auto;
   width: 95%;
