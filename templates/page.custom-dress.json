@@ -38,25 +38,73 @@
         "spacing_bottom": "6"
       }
     },
-    "1760421621c74cd30c": {
-      "type": "apps",
+    "full_width_banner_Dq9rJx": {
+      "type": "full-width-banner",
       "blocks": {
-        "yoast_seo_breadcrumbs_GjYUpM": {
-          "type": "shopify://apps/yoast-seo/blocks/breadcrumbs/7c777011-bc88-4743-a24e-64336e1e5b46",
-          "settings": {}
+        "subheading_3zkgNJ": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Save the Brochure to read it offline",
+            "link": ""
+          }
+        },
+        "buttons_BA3zWU": {
+          "type": "buttons",
+          "settings": {
+            "button_link_1": "https://cdn.shopify.com/s/files/1/0060/8560/7524/files/Custom_and_Bespoke_Silk_Dresses_RIMMBA.pdf?v=1771978741",
+            "button_link_1_type": "button",
+            "button_label_1": "Custom Dresses PDF",
+            "button_style_1": "button--filled",
+            "color_scheme_first_button": "",
+            "button_link_2": "/",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "color_scheme_second_button": ""
+          }
         }
       },
       "block_order": [
-        "yoast_seo_breadcrumbs_GjYUpM"
+        "subheading_3zkgNJ",
+        "buttons_BA3zWU"
       ],
-      "disabled": true,
+      "name": "t:sections.full-width-banner.name",
       "settings": {
-        "section_layout": "normal",
-        "spacing_inner": "2",
-        "section_width": "max-w-page",
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "auto",
+        "content_position": "center",
+        "content_alignment": "center",
+        "image": "shopify://shop_images/Banner_Silk_Natural_Dye.webp",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "auto",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-full",
         "color_scheme": "",
+        "color_scheme_for_content": "",
+        "spacing_inner": "2",
         "spacing_top": "2",
         "spacing_bottom": "2"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+        "table {box-shadow: none;}"
+      ],
+      "settings": {
+        "breadcrumbs": false,
+        "show_page_title": false,
+        "page_title_alignment": "text-center",
+        "info_title": "",
+        "info_content": "",
+        "section_width": "max-w-fluid",
+        "color_scheme": "",
+        "spacing_top": "0",
+        "spacing_bottom": "0"
       }
     },
     "dual_tiles_CVpVR6": {
@@ -143,40 +191,6 @@
         "section_width": "max-w-page",
         "spacing_top": "2",
         "spacing_bottom": "6"
-      }
-    },
-    "main": {
-      "type": "main-page",
-      "custom_css": [
-        "table {box-shadow: none;}"
-      ],
-      "settings": {
-        "breadcrumbs": false,
-        "show_page_title": false,
-        "page_title_alignment": "text-center",
-        "info_title": "",
-        "info_content": "",
-        "section_width": "max-w-fluid",
-        "color_scheme": "",
-        "spacing_top": "0",
-        "spacing_bottom": "0"
-      }
-    },
-    "seo_content_ebjggt": {
-      "type": "seo-content",
-      "disabled": true,
-      "name": "t:sections.seo-content.name",
-      "settings": {
-        "section_layout": "normal",
-        "heading": "",
-        "heading_size": "h5",
-        "text": "<p>Read about how we hand-pick our natural fabrics and learn how we dye using plant, flowers and connecting with Nature.</p>",
-        "content_alignment": "center",
-        "section_width": "max-w-fluid",
-        "color_scheme": "",
-        "spacing_inner": "2",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
       }
     },
     "full_width_banner_txyTw4": {
@@ -293,7 +307,6 @@
         "content_aNDdqh",
         "buttons_nq4yj4"
       ],
-      "disabled": true,
       "name": "t:sections.full-width-banner.name",
       "settings": {
         "enable_transparent_header": true,
@@ -449,10 +462,9 @@
   },
   "order": [
     "page_banner_kExA78",
-    "1760421621c74cd30c",
-    "dual_tiles_CVpVR6",
+    "full_width_banner_Dq9rJx",
     "main",
-    "seo_content_ebjggt",
+    "dual_tiles_CVpVR6",
     "full_width_banner_txyTw4",
     "full_width_banner_meeAGa",
     "accordions_BfpKAf",
