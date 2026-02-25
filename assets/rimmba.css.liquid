@@ -88,13 +88,13 @@ body {
 }
 
 /* ========== LISTS STYLING ========== */
-@media (min-width: 769px) {
+
 /*forced style "ul" when in pages like sustainability*/
 :where(
   .main,
   .main-page,
   #main
-) :is(ul):not(:has(img)):not(button *):not(header *, footer *, nav *, .menu *, .header *, .footer *, .callout-banner *, p *) {
+) :is(ul,ol):not(:has(img)):not(button *):not(header *, footer *, nav *, .menu *, .header *, .footer *, .callout-banner *, p *) {
   max-inline-size: 55ch !important;
   margin: auto;
   text-align: left;
@@ -108,7 +108,6 @@ body {
   #main
 ) :is(li):not(:has(img)):not(button *):not(header *, footer *, nav *, .menu *, .header *, .footer *, .callout-banner *, p *) {
   margin-top: 0.5em !important;
-}
 }
 @media (max-width: 768px) {
   :where(
