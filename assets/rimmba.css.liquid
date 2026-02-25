@@ -1315,6 +1315,13 @@ body[data-body-font="DMSans-Regular"] p {
 
 
 /*  CUSTOM PAGES with CLASS SECTION DIV */
+/*spacing before inline titles */
+.section table:not(.custom_inline_table)
+  :is(p, ul, ol, dl, blockquote)
+  + :is(h1, h2, h3, h4, h5, h6) {
+  margin-block-start: 4rem;
+}
+/*align elements to left and hide borders*/
 .section table {max-width:80% !important; margin:auto; table-layout:fixed; box-shadow:none;}
 .section table.custom_inline_table {max-width: 75% !important; border-collapse: collapse !important; text-align: left; table-layout: auto; border-top: hidden; border-left: hidden;}
 .section table.custom_inline_table,
