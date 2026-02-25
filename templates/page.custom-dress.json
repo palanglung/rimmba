@@ -107,6 +107,75 @@
         "spacing_bottom": "0"
       }
     },
+    "full_width_banner_meeAGa": {
+      "type": "full-width-banner",
+      "blocks": {
+        "heading_L3X7TU": {
+          "type": "heading",
+          "settings": {
+            "heading": "Natural Fabrics & Botanical Dyes",
+            "heading_size": "h3"
+          }
+        },
+        "subheading_bRynXm": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Selected by RIMMBA",
+            "link": ""
+          }
+        },
+        "content_aNDdqh": {
+          "type": "content",
+          "settings": {
+            "content": "<p>Read how we hand-pick our natural fabrics and learn how we dye using plants, flowers and connecting with Nature</p>"
+          }
+        },
+        "buttons_nq4yj4": {
+          "type": "buttons",
+          "settings": {
+            "button_link_1": "/",
+            "button_link_1_type": "button",
+            "button_label_1": "",
+            "button_style_1": "button--outlined",
+            "color_scheme_first_button": "",
+            "button_link_2": "/",
+            "button_label_2": "",
+            "button_style_2": "button--outlined",
+            "color_scheme_second_button": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_L3X7TU",
+        "subheading_bRynXm",
+        "content_aNDdqh",
+        "buttons_nq4yj4"
+      ],
+      "name": "t:sections.full-width-banner.name",
+      "settings": {
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "auto",
+        "content_position": "center",
+        "content_alignment": "center",
+        "image": "shopify://shop_images/Dye_Workshop_Bali.webp",
+        "video_external": "",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "auto",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "video_external_mobile": "",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-full",
+        "color_scheme": "",
+        "color_scheme_for_content": "scheme-6",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
     "dual_tiles_CVpVR6": {
       "type": "dual-tiles",
       "blocks": {
@@ -263,75 +332,6 @@
         "spacing_bottom": "2"
       }
     },
-    "full_width_banner_meeAGa": {
-      "type": "full-width-banner",
-      "blocks": {
-        "subheading_bRynXm": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "We invite you to explore our fabric stories in depth:",
-            "link": ""
-          }
-        },
-        "heading_L3X7TU": {
-          "type": "heading",
-          "settings": {
-            "heading": "In celebration of the natural",
-            "heading_size": "h3"
-          }
-        },
-        "content_aNDdqh": {
-          "type": "content",
-          "settings": {
-            "content": "<p>Choosing natural fabrics is choosing balance between people and planet, craft and technology, tradition and tomorrow. RIMMBA’s approach to natural fabrics remind us that fashion can return to its roots, becoming again what it once was: an art of connection between what is to come and ancient traditions.</p>"
-          }
-        },
-        "buttons_nq4yj4": {
-          "type": "buttons",
-          "settings": {
-            "button_link_1": "/",
-            "button_link_1_type": "button",
-            "button_label_1": "",
-            "button_style_1": "button--outlined",
-            "color_scheme_first_button": "",
-            "button_link_2": "/",
-            "button_label_2": "",
-            "button_style_2": "button--outlined",
-            "color_scheme_second_button": ""
-          }
-        }
-      },
-      "block_order": [
-        "subheading_bRynXm",
-        "heading_L3X7TU",
-        "content_aNDdqh",
-        "buttons_nq4yj4"
-      ],
-      "name": "t:sections.full-width-banner.name",
-      "settings": {
-        "enable_transparent_header": true,
-        "media_position": "background",
-        "section_height": "auto",
-        "content_position": "center",
-        "content_alignment": "center",
-        "image": "shopify://shop_images/Screenshot_2025-07-15_at_13.26.06.png",
-        "video_external": "",
-        "show_controls_on_video": false,
-        "aspect_ratio": "auto",
-        "section_height_mobile": "auto",
-        "content_position_mobile": "center",
-        "content_alignment_mobile": "center",
-        "video_external_mobile": "",
-        "show_controls_on_video_mobile": false,
-        "aspect_ratio_mobile": "auto",
-        "section_width": "max-w-full",
-        "color_scheme": "",
-        "color_scheme_for_content": "scheme-6",
-        "spacing_inner": "2",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
-      }
-    },
     "accordions_BfpKAf": {
       "type": "accordions",
       "blocks": {
@@ -464,9 +464,9 @@
     "page_banner_kExA78",
     "full_width_banner_Dq9rJx",
     "main",
+    "full_width_banner_meeAGa",
     "dual_tiles_CVpVR6",
     "full_width_banner_txyTw4",
-    "full_width_banner_meeAGa",
     "accordions_BfpKAf",
     "full_width_banner_W7yygr",
     "main_list_collections_EnGLME"
