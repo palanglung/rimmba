@@ -212,8 +212,8 @@
         "color_scheme": "",
         "color_scheme_for_content": "scheme-1",
         "spacing_inner": "2",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
+        "spacing_top": "0",
+        "spacing_bottom": "0"
       }
     },
     "full_width_banner_zggUyx": {
