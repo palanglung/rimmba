@@ -103,6 +103,7 @@
         "content_TWVMYQ",
         "buttons_BMDCEX"
       ],
+      "disabled": true,
       "name": "t:sections.full-width-banner.name",
       "settings": {
         "enable_transparent_header": true,
