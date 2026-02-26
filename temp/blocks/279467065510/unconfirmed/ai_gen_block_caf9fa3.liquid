@@ -1,6 +1,1124 @@
+{% doc %}
+  @prompt
+    A single-block “Navigate This Page” Accordion Section with internal anchor links, structured using a semantic <dl class="section_guide"> list.
+    
+    1) Component Overview
+    
+    A collapsible accordion block designed to:
+    
+    Display a customizable heading (e.g., “Navigate this page”).
+    
+    Include a clickable arrow icon that toggles visibility of a list.
+    
+    Contain a list of internal page links targeting existing id attributes.
+    
+    Use semantic HTML structure:
+    
+    <dl class="section_guide">
+    
+    Each link inside <dt>
+    
+    <dd> empty by default (optionally customizable manually)
+    
+    The block must be fully configurable in content, behavior, and styling.
+    
+    2) Block Configuration Options
+    General Block Settings
+    
+    Block Title (manually fill)
+    
+    Default: "Navigate this page"
+    
+    Hidden if empty
+    
+    Fully customizable text
+    
+    Title Tag Selector
+    
+    Options: [h2 | h3 | h4 | h5 | div]
+    
+    Default: h3
+    
+    Accordion Initial State
+    
+    Options: [Closed | Open]
+    
+    Default: Closed
+    
+    Arrow Position
+    
+    Options: [Left | Right]
+    
+    Default: Right
+    
+    Arrow Style
+    
+    Options: [Chevron | Caret | Plus/Minus | Custom SVG]
+    
+    Default: Chevron
+    
+    Animation Type
+    
+    Options: [None | Slide | Fade | Slide+Fade]
+    
+    Default: Slide
+    
+    Animation Duration
+    
+    Input: milliseconds
+    
+    Default: 300ms
+    
+    Container Width
+    
+    Options: [Narrow | Normal | Fluid | Full]
+    
+    Default: Normal
+    
+    Spacing Top
+    
+    Options: [No | S | M | L | XL]
+    
+    Default: M
+    
+    Spacing Bottom
+    
+    Options: [No | S | M | L | XL]
+    
+    Default: M
+    
+    Color Schema
+    
+    Options: [Theme Select]
+    
+    Controls text, arrow, hover state
+    
+    Sticky Behavior (Optional)
+    
+    Options: [Off | Sticky Top | Sticky After Scroll]
+    
+    Default: Off, the navigation links should be automatically "pulled" from the page , ids must be pulled not only in headings but also in div or table or other elements, must be possible to hide|show each of the id pulled, as well as customizing the text., colors and typography must follow the theme, use color scheme selector, same for the font options.
+    the "list" of links MUST be a <dl class="section_guide">.
+    Each of the link is inside the <dt> element with optional description to be shown in <dd>, the div containing <dl class="section_guide"> must have class="section", rearrange the settings so that are:
+    General
+    - Visible on Desktop, mobile, both
+    - Section width
+    - Spacing (top, bottom, inner)
+    - Align Start Center End
+    - Color Scheme
+    ____
+    - Block Title
+    - Title tag
+    - Dt tag
+    - dd tag
+    ____
+    - Initial State
+    - Sticky Behaviour
+    - Arrow Style
+    - Arrow Position
+    ____
+    Link #
+    - id
+    - Text
+    - Description
+    , dt tag should give options to choose p,h1,2,3,4
+    same for the DD, sticky behavior not working, remove sticky option as it does nothing, the "DT Tag" should be applied to the text within the <a> 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% liquid
+  assign spacing_top = 40
+  assign spacing_bottom = 40
+  assign spacing_inner = 24
+  
+  case block.settings.spacing_top
+    when 'no'
+      assign spacing_top = 0
+    when 's'
+      assign spacing_top = 20
+    when 'm'
+      assign spacing_top = 40
+    when 'l'
+      assign spacing_top = 60
+    when 'xl'
+      assign spacing_top = 80
+  endcase
+  
+  case block.settings.spacing_bottom
+    when 'no'
+      assign spacing_bottom = 0
+    when 's'
+      assign spacing_bottom = 20
+    when 'm'
+      assign spacing_bottom = 40
+    when 'l'
+      assign spacing_bottom = 60
+    when 'xl'
+      assign spacing_bottom = 80
+  endcase
+  
+  case block.settings.spacing_inner
+    when 'no'
+      assign spacing_inner = 0
+    when 's'
+      assign spacing_inner = 12
+    when 'm'
+      assign spacing_inner = 24
+    when 'l'
+      assign spacing_inner = 36
+    when 'xl'
+      assign spacing_inner = 48
+  endcase
+
+  assign container_width = '900px'
+  
+  case block.settings.section_width
+    when 'narrow'
+      assign container_width = '600px'
+    when 'normal'
+      assign container_width = '900px'
+    when 'fluid'
+      assign container_width = '1200px'
+    when 'full'
+      assign container_width = '100%'
+  endcase
+
+  if block.settings.initial_state == 'open'
+    assign is_open = true
+  else
+    assign is_open = false
+  endif
+%}
+
+{% style %}
+  .ai-nav-accordion-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding-top: {{ spacing_top }}px;
+    padding-bottom: {{ spacing_bottom }}px;
+    {% if block.settings.visibility == 'desktop' %}
+      @media screen and (max-width: 749px) {
+        display: none;
+      }
+    {% elsif block.settings.visibility == 'mobile' %}
+      @media screen and (min-width: 750px) {
+        display: none;
+      }
+    {% endif %}
+  }
+
+  .ai-nav-accordion-container-{{ ai_gen_id }} {
+    max-width: {{ container_width }};
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section {
+    width: 100%;
+  }
+
+  .ai-nav-accordion-header-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    {% if block.settings.align == 'start' %}
+      justify-content: flex-start;
+    {% elsif block.settings.align == 'center' %}
+      justify-content: center;
+    {% elsif block.settings.align == 'end' %}
+      justify-content: flex-end;
+    {% else %}
+      justify-content: space-between;
+    {% endif %}
+    cursor: pointer;
+    padding: 16px 0;
+    border-bottom: 1px solid rgb(var(--color-border));
+    gap: 16px;
+  }
+
+  .ai-nav-accordion-title-{{ ai_gen_id }} {
+    margin: 0;
+    color: rgb(var(--color-header-text));
+    font-family: var(--font-heading-family);
+    font-weight: var(--font-heading-weight);
+    font-style: var(--font-heading-style);
+    letter-spacing: var(--heading-letter-spacing);
+    text-transform: var(--heading-text-transform);
+    font-size: calc(var(--font-heading-scale) * 18px);
+    {% if block.settings.align != 'space-between' %}
+      flex-grow: 0;
+    {% else %}
+      flex-grow: 1;
+    {% endif %}
+  }
+
+  .ai-nav-accordion-arrow-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(var(--color-primary-text));
+    transition: transform 300ms ease;
+    {% if block.settings.arrow_position == 'left' %}
+      order: -1;
+    {% endif %}
+  }
+
+  .ai-nav-accordion-header-{{ ai_gen_id }}:hover .ai-nav-accordion-arrow-{{ ai_gen_id }} {
+    color: rgb(var(--color-link));
+  }
+
+  .ai-nav-accordion-arrow-{{ ai_gen_id }}.active {
+    transform: rotate(180deg);
+  }
+
+  .ai-nav-accordion-arrow-{{ ai_gen_id }}.plus-minus.active svg line:first-child {
+    opacity: 0;
+  }
+
+  .ai-nav-accordion-content-{{ ai_gen_id }} {
+    overflow: hidden;
+    {% if block.settings.initial_state == 'closed' %}
+      max-height: 0;
+      opacity: 0;
+    {% else %}
+      max-height: 3000px;
+      opacity: 1;
+    {% endif %}
+    transition: max-height 300ms ease, opacity 300ms ease;
+  }
+
+  .ai-nav-accordion-content-{{ ai_gen_id }}.active {
+    max-height: 3000px;
+    opacity: 1;
+  }
+
+  .section_guide {
+    list-style: none;
+    margin: 0;
+    padding: {{ spacing_inner }}px 0 0 0;
+  }
+
+  .section_guide dt {
+    margin: 0 0 8px 0;
+    padding: 0;
+  }
+
+  .section_guide dd {
+    margin: 0 0 16px 0;
+    padding: 0 0 0 16px;
+    color: rgb(var(--color-secondary-text));
+    font-family: var(--font-body-family);
+    font-weight: var(--font-body-weight);
+    font-style: var(--font-body-style);
+    font-size: calc(var(--font-body-scale) * 0.9);
+    line-height: 1.5;
+  }
+
+  .section_guide dd:empty {
+    display: none;
+  }
+
+  .ai-nav-link-{{ ai_gen_id }} {
+    display: inline-block;
+    color: rgb(var(--color-link));
+    text-decoration: none;
+    padding: 8px 0;
+    transition: color 0.2s ease;
+  }
+
+  .ai-nav-link-{{ ai_gen_id }}:hover {
+    color: rgb(var(--color-primary-button));
+  }
+
+  .ai-nav-link-{{ ai_gen_id }} p,
+  .ai-nav-link-{{ ai_gen_id }} h1,
+  .ai-nav-link-{{ ai_gen_id }} h2,
+  .ai-nav-link-{{ ai_gen_id }} h3,
+  .ai-nav-link-{{ ai_gen_id }} h4 {
+    margin: 0;
+    font-family: var(--font-body-family);
+    font-weight: var(--font-body-weight);
+    font-style: var(--font-body-style);
+    font-size: calc(var(--font-body-scale) * 16px);
+    color: inherit;
+  }
+
+  .ai-nav-empty-state-{{ ai_gen_id }} {
+    padding: {{ spacing_inner }}px 0;
+    color: rgb(var(--color-secondary-text));
+    font-family: var(--font-body-family);
+    font-size: 14px;
+    font-style: italic;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-nav-accordion-title-{{ ai_gen_id }} {
+      font-size: calc(var(--font-heading-scale) * 15px);
+    }
+    
+    .ai-nav-link-{{ ai_gen_id }} p,
+    .ai-nav-link-{{ ai_gen_id }} h1,
+    .ai-nav-link-{{ ai_gen_id }} h2,
+    .ai-nav-link-{{ ai_gen_id }} h3,
+    .ai-nav-link-{{ ai_gen_id }} h4 {
+      font-size: calc(var(--font-body-scale) * 14px);
+    }
+  }
+{% endstyle %}
+
+<nav-accordion-{{ ai_gen_id }} 
+  class="ai-nav-accordion-{{ ai_gen_id }} color-{{ block.settings.color_scheme }}" 
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-nav-accordion-container-{{ ai_gen_id }}">
+    <div class="ai-nav-accordion-header-{{ ai_gen_id }}" role="button" aria-expanded="{{ block.settings.initial_state }}" tabindex="0">
+      {% if block.settings.block_title != blank %}
+        {% case block.settings.title_tag %}
+          {% when 'h2' %}
+            <h2 class="ai-nav-accordion-title-{{ ai_gen_id }}">{{ block.settings.block_title }}</h2>
+          {% when 'h3' %}
+            <h3 class="ai-nav-accordion-title-{{ ai_gen_id }}">{{ block.settings.block_title }}</h3>
+          {% when 'h4' %}
+            <h4 class="ai-nav-accordion-title-{{ ai_gen_id }}">{{ block.settings.block_title }}</h4>
+          {% when 'h5' %}
+            <h5 class="ai-nav-accordion-title-{{ ai_gen_id }}">{{ block.settings.block_title }}</h5>
+          {% else %}
+            <div class="ai-nav-accordion-title-{{ ai_gen_id }}">{{ block.settings.block_title }}</div>
+        {% endcase %}
+      {% endif %}
+      
+      <div class="ai-nav-accordion-arrow-{{ ai_gen_id }} {% if block.settings.arrow_style == 'plus_minus' %}plus-minus{% endif %} {% if block.settings.initial_state == 'open' %}active{% endif %}">
+        {% case block.settings.arrow_style %}
+          {% when 'chevron' %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          {% when 'caret' %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M7 10l5 5 5-5z"></path>
+            </svg>
+          {% when 'plus_minus' %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19" style="transition: opacity 300ms ease;"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          {% else %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        {% endcase %}
+      </div>
+    </div>
+
+    <div class="ai-nav-accordion-content-{{ ai_gen_id }} {% if block.settings.initial_state == 'open' %}active{% endif %}">
+      <div class="section">
+        <dl class="section_guide">
+          {% for i in (1..20) %}
+            {% assign link_id_key = 'link_' | append: i | append: '_id' %}
+            {% assign link_text_key = 'link_' | append: i | append: '_text' %}
+            {% assign link_desc_key = 'link_' | append: i | append: '_description' %}
+            
+            {% assign link_id = block.settings[link_id_key] %}
+            {% assign link_text = block.settings[link_text_key] %}
+            {% assign link_desc = block.settings[link_desc_key] %}
+            
+            {% if link_id != blank %}
+              <dt>
+                <a href="#{{ link_id }}" class="ai-nav-link-{{ ai_gen_id }}" data-target-id="{{ link_id }}">
+                  {% case block.settings.dt_tag %}
+                    {% when 'p' %}
+                      <p>
+                    {% when 'h1' %}
+                      <h1>
+                    {% when 'h2' %}
+                      <h2>
+                    {% when 'h3' %}
+                      <h3>
+                    {% when 'h4' %}
+                      <h4>
+                  {% endcase %}
+                    {% if link_text != blank %}
+                      {{ link_text }}
+                    {% else %}
+                      {{ link_id | replace: '-', ' ' | replace: '_', ' ' | capitalize }}
+                    {% endif %}
+                  {% case block.settings.dt_tag %}
+                    {% when 'p' %}
+                      </p>
+                    {% when 'h1' %}
+                      </h1>
+                    {% when 'h2' %}
+                      </h2>
+                    {% when 'h3' %}
+                      </h3>
+                    {% when 'h4' %}
+                      </h4>
+                  {% endcase %}
+                </a>
+              </dt>
+              
+              {% if link_desc != blank %}
+                {% case block.settings.dd_tag %}
+                  {% when 'p' %}
+                    <p>{{ link_desc }}</p>
+                  {% when 'h1' %}
+                    <h1>{{ link_desc }}</h1>
+                  {% when 'h2' %}
+                    <h2>{{ link_desc }}</h2>
+                  {% when 'h3' %}
+                    <h3>{{ link_desc }}</h3>
+                  {% when 'h4' %}
+                    <h4>{{ link_desc }}</h4>
+                  {% else %}
+                    <dd>{{ link_desc }}</dd>
+                {% endcase %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </dl>
+      </div>
+      <div class="ai-nav-empty-state-{{ ai_gen_id }}" style="display: none;">
+        Configure navigation links in the block settings to get started.
+      </div>
+    </div>
+  </div>
+</nav-accordion-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class NavAccordion{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.header = this.querySelector('.ai-nav-accordion-header-{{ ai_gen_id }}');
+        this.content = this.querySelector('.ai-nav-accordion-content-{{ ai_gen_id }}');
+        this.arrow = this.querySelector('.ai-nav-accordion-arrow-{{ ai_gen_id }}');
+        this.navList = this.querySelector('.section_guide');
+        this.emptyState = this.querySelector('.ai-nav-empty-state-{{ ai_gen_id }}');
+        this.isOpen = {% if is_open %}true{% else %}false{% endif %};
+      }
+
+      connectedCallback() {
+        this.header.addEventListener('click', () => this.toggle());
+        this.header.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.toggle();
+          }
+        });
+
+        this.setupSmoothScroll();
+        this.checkEmptyState();
+      }
+
+      toggle() {
+        this.isOpen = !this.isOpen;
+        this.content.classList.toggle('active');
+        this.arrow.classList.toggle('active');
+        this.header.setAttribute('aria-expanded', this.isOpen);
+      }
+
+      setupSmoothScroll() {
+        const links = this.querySelectorAll('.ai-nav-link-{{ ai_gen_id }}');
+        
+        links.forEach((link) => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.dataset.targetId;
+            const offset = 100;
+            const target = document.getElementById(targetId);
+            
+            if (target) {
+              const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+              });
+            }
+          });
+        });
+      }
+
+      checkEmptyState() {
+        const visibleLinks = this.querySelectorAll('.ai-nav-link-{{ ai_gen_id }}');
+        
+        if (visibleLinks.length === 0) {
+          this.emptyState.style.display = 'block';
+          this.navList.style.display = 'none';
+        } else {
+          this.emptyState.style.display = 'none';
+          this.navList.style.display = 'block';
+        }
+      }
+    }
+
+    customElements.define('nav-accordion-{{ ai_gen_id }}', NavAccordion{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Navigate this page",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "select",
+      "id": "visibility",
+      "label": "Visible on",
+      "options": [
+        { "value": "both", "label": "Desktop and mobile" },
+        { "value": "desktop", "label": "Desktop only" },
+        { "value": "mobile", "label": "Mobile only" }
+      ],
+      "default": "both"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "narrow", "label": "Narrow" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "fluid", "label": "Fluid" },
+        { "value": "full", "label": "Full" }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "select",
+      "id": "spacing_top",
+      "label": "Spacing top",
+      "options": [
+        { "value": "no", "label": "No" },
+        { "value": "s", "label": "S" },
+        { "value": "m", "label": "M" },
+        { "value": "l", "label": "L" },
+        { "value": "xl", "label": "XL" }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "spacing_bottom",
+      "label": "Spacing bottom",
+      "options": [
+        { "value": "no", "label": "No" },
+        { "value": "s", "label": "S" },
+        { "value": "m", "label": "M" },
+        { "value": "l", "label": "L" },
+        { "value": "xl", "label": "XL" }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "spacing_inner",
+      "label": "Spacing inner",
+      "options": [
+        { "value": "no", "label": "No" },
+        { "value": "s", "label": "S" },
+        { "value": "m", "label": "M" },
+        { "value": "l", "label": "L" },
+        { "value": "xl", "label": "XL" }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "align",
+      "label": "Align",
+      "options": [
+        { "value": "start", "label": "Start" },
+        { "value": "center", "label": "Center" },
+        { "value": "end", "label": "End" },
+        { "value": "space-between", "label": "Space between" }
+      ],
+      "default": "space-between"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "block_title",
+      "label": "Block title",
+      "default": "Navigate this page"
+    },
+    {
+      "type": "select",
+      "id": "title_tag",
+      "label": "Title tag",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "div", "label": "Div" }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "select",
+      "id": "dt_tag",
+      "label": "DT tag",
+      "info": "HTML tag for link text inside anchor",
+      "options": [
+        { "value": "span", "label": "Span (default)" },
+        { "value": "p", "label": "P" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" }
+      ],
+      "default": "span"
+    },
+    {
+      "type": "select",
+      "id": "dd_tag",
+      "label": "DD tag",
+      "info": "HTML tag for descriptions",
+      "options": [
+        { "value": "dd", "label": "DD (default)" },
+        { "value": "p", "label": "P" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" }
+      ],
+      "default": "dd"
+    },
+    {
+      "type": "header",
+      "content": "Behavior"
+    },
+    {
+      "type": "select",
+      "id": "initial_state",
+      "label": "Initial state",
+      "options": [
+        { "value": "closed", "label": "Closed" },
+        { "value": "open", "label": "Open" }
+      ],
+      "default": "closed"
+    },
+    {
+      "type": "select",
+      "id": "arrow_style",
+      "label": "Arrow style",
+      "options": [
+        { "value": "chevron", "label": "Chevron" },
+        { "value": "caret", "label": "Caret" },
+        { "value": "plus_minus", "label": "Plus/Minus" }
+      ],
+      "default": "chevron"
+    },
+    {
+      "type": "select",
+      "id": "arrow_position",
+      "label": "Arrow position",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "header",
+      "content": "Link 1"
+    },
+    {
+      "type": "text",
+      "id": "link_1_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_1_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_1_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 2"
+    },
+    {
+      "type": "text",
+      "id": "link_2_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_2_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_2_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 3"
+    },
+    {
+      "type": "text",
+      "id": "link_3_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_3_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_3_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 4"
+    },
+    {
+      "type": "text",
+      "id": "link_4_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_4_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_4_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 5"
+    },
+    {
+      "type": "text",
+      "id": "link_5_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_5_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_5_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 6"
+    },
+    {
+      "type": "text",
+      "id": "link_6_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_6_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_6_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 7"
+    },
+    {
+      "type": "text",
+      "id": "link_7_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_7_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_7_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 8"
+    },
+    {
+      "type": "text",
+      "id": "link_8_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_8_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_8_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 9"
+    },
+    {
+      "type": "text",
+      "id": "link_9_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_9_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_9_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 10"
+    },
+    {
+      "type": "text",
+      "id": "link_10_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_10_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_10_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 11"
+    },
+    {
+      "type": "text",
+      "id": "link_11_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_11_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_11_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 12"
+    },
+    {
+      "type": "text",
+      "id": "link_12_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_12_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_12_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 13"
+    },
+    {
+      "type": "text",
+      "id": "link_13_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_13_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_13_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 14"
+    },
+    {
+      "type": "text",
+      "id": "link_14_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_14_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_14_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 15"
+    },
+    {
+      "type": "text",
+      "id": "link_15_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_15_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_15_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 16"
+    },
+    {
+      "type": "text",
+      "id": "link_16_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_16_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_16_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 17"
+    },
+    {
+      "type": "text",
+      "id": "link_17_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_17_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_17_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 18"
+    },
+    {
+      "type": "text",
+      "id": "link_18_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_18_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_18_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 19"
+    },
+    {
+      "type": "text",
+      "id": "link_19_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_19_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_19_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 20"
+    },
+    {
+      "type": "text",
+      "id": "link_20_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "link_20_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "link_20_description",
+      "label": "Description"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Navigate this page"
+    }
+  ]
+}
 {% endschema %}
