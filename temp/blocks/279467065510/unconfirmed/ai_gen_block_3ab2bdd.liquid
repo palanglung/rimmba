@@ -1,6 +1,745 @@
+{% doc %}
+  @prompt
+    A single-block “Navigate This Page” Accordion Section with internal anchor links, structured using a semantic <dl class="section_guide"> list.
+    
+    1) Component Overview
+    
+    A collapsible accordion block designed to:
+    
+    Display a customizable heading (e.g., “Navigate this page”).
+    
+    Include a clickable arrow icon that toggles visibility of a list.
+    
+    Contain a list of internal page links targeting existing id attributes.
+    
+    Use semantic HTML structure:
+    
+    <dl class="section_guide">
+    
+    Each link inside <dt>
+    
+    <dd> empty by default (optionally customizable manually)
+    
+    The block must be fully configurable in content, behavior, and styling.
+    
+    2) Block Configuration Options
+    General Block Settings
+    
+    Block Title (manually fill)
+    
+    Default: "Navigate this page"
+    
+    Hidden if empty
+    
+    Fully customizable text
+    
+    Title Tag Selector
+    
+    Options: [h2 | h3 | h4 | h5 | div]
+    
+    Default: h3
+    
+    Accordion Initial State
+    
+    Options: [Closed | Open]
+    
+    Default: Closed
+    
+    Arrow Position
+    
+    Options: [Left | Right]
+    
+    Default: Right
+    
+    Arrow Style
+    
+    Options: [Chevron | Caret | Plus/Minus | Custom SVG]
+    
+    Default: Chevron
+    
+    Animation Type
+    
+    Options: [None | Slide | Fade | Slide+Fade]
+    
+    Default: Slide
+    
+    Animation Duration
+    
+    Input: milliseconds
+    
+    Default: 300ms
+    
+    Container Width
+    
+    Options: [Narrow | Normal | Fluid | Full]
+    
+    Default: Normal
+    
+    Spacing Top
+    
+    Options: [No | S | M | L | XL]
+    
+    Default: M
+    
+    Spacing Bottom
+    
+    Options: [No | S | M | L | XL]
+    
+    Default: M
+    
+    Color Schema
+    
+    Options: [Theme Select]
+    
+    Controls text, arrow, hover state
+    
+    Sticky Behavior (Optional)
+    
+    Options: [Off | Sticky Top | Sticky After Scroll]
+    
+    Default: Off
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% liquid
+  assign spacing_map = 'no:0,s:20,m:40,l:60,xl:80' | split: ','
+  assign spacing_top = 40
+  assign spacing_bottom = 40
+  
+  for item in spacing_map
+    assign parts = item | split: ':'
+    if parts[0] == block.settings.spacing_top
+      assign spacing_top = parts[1] | times: 1
+    endif
+    if parts[0] == block.settings.spacing_bottom
+      assign spacing_bottom = parts[1] | times: 1
+    endif
+  endfor
+
+  assign container_width_map = 'narrow:600,normal:900,fluid:1200,full:100%' | split: ','
+  assign container_width = '900px'
+  
+  for item in container_width_map
+    assign parts = item | split: ':'
+    if parts[0] == block.settings.container_width
+      if parts[1] contains '%'
+        assign container_width = parts[1]
+      else
+        assign container_width = parts[1] | append: 'px'
+      endif
+    endif
+  endfor
+
+  if block.settings.initial_state == 'open'
+    assign is_open = true
+  else
+    assign is_open = false
+  endif
+%}
+
+{% style %}
+  .ai-nav-accordion-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding-top: {{ spacing_top }}px;
+    padding-bottom: {{ spacing_bottom }}px;
+    {% if block.settings.sticky_behavior == 'sticky_top' %}
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    {% endif %}
+  }
+
+  .ai-nav-accordion-container-{{ ai_gen_id }} {
+    max-width: {{ container_width }};
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-nav-accordion-header-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 16px 0;
+    border-bottom: 1px solid {{ block.settings.border_color }};
+    gap: 16px;
+  }
+
+  .ai-nav-accordion-title-{{ ai_gen_id }} {
+    margin: 0;
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.title_font_size }}px;
+    flex-grow: 1;
+  }
+
+  .ai-nav-accordion-arrow-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: {{ block.settings.arrow_size }}px;
+    height: {{ block.settings.arrow_size }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: {{ block.settings.arrow_color }};
+    transition: transform {{ block.settings.animation_duration }}ms ease;
+    {% if block.settings.arrow_position == 'left' %}
+      order: -1;
+    {% endif %}
+  }
+
+  .ai-nav-accordion-header-{{ ai_gen_id }}:hover .ai-nav-accordion-arrow-{{ ai_gen_id }} {
+    color: {{ block.settings.arrow_hover_color }};
+  }
+
+  .ai-nav-accordion-arrow-{{ ai_gen_id }}.active {
+    transform: rotate(180deg);
+  }
+
+  .ai-nav-accordion-content-{{ ai_gen_id }} {
+    overflow: hidden;
+    {% if block.settings.initial_state == 'closed' %}
+      max-height: 0;
+      opacity: 0;
+    {% else %}
+      max-height: 2000px;
+      opacity: 1;
+    {% endif %}
+    {% if block.settings.animation_type == 'slide' %}
+      transition: max-height {{ block.settings.animation_duration }}ms ease;
+    {% elsif block.settings.animation_type == 'fade' %}
+      transition: opacity {{ block.settings.animation_duration }}ms ease;
+    {% elsif block.settings.animation_type == 'slide_fade' %}
+      transition: max-height {{ block.settings.animation_duration }}ms ease, opacity {{ block.settings.animation_duration }}ms ease;
+    {% endif %}
+  }
+
+  .ai-nav-accordion-content-{{ ai_gen_id }}.active {
+    max-height: 2000px;
+    opacity: 1;
+  }
+
+  .section_guide {
+    list-style: none;
+    margin: 0;
+    padding: 24px 0 0 0;
+  }
+
+  .section_guide dt {
+    margin: 0 0 12px 0;
+    padding: 0;
+  }
+
+  .section_guide dd {
+    margin: 0;
+    padding: 0;
+  }
+
+  .ai-nav-link-{{ ai_gen_id }} {
+    display: inline-block;
+    color: {{ block.settings.link_color }};
+    text-decoration: none;
+    font-size: {{ block.settings.link_font_size }}px;
+    padding: 8px 0;
+    transition: color 0.2s ease;
+  }
+
+  .ai-nav-link-{{ ai_gen_id }}:hover {
+    color: {{ block.settings.link_hover_color }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-nav-accordion-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.title_font_size | times: 0.85 }}px;
+    }
+    
+    .ai-nav-link-{{ ai_gen_id }} {
+      font-size: {{ block.settings.link_font_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<nav-accordion-{{ ai_gen_id }} class="ai-nav-accordion-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-nav-accordion-container-{{ ai_gen_id }}">
+    <div class="ai-nav-accordion-header-{{ ai_gen_id }}" role="button" aria-expanded="{{ block.settings.initial_state }}" tabindex="0">
+      {% if block.settings.block_title != blank %}
+        {% case block.settings.title_tag %}
+          {% when 'h2' %}
+            <h2 class="ai-nav-accordion-title-{{ ai_gen_id }}">{{ block.settings.block_title }}</h2>
+          {% when 'h3' %}
+            <h3 class="ai-nav-accordion-title-{{ ai_gen_id }}">{{ block.settings.block_title }}</h3>
+          {% when 'h4' %}
+            <h4 class="ai-nav-accordion-title-{{ ai_gen_id }}">{{ block.settings.block_title }}</h4>
+          {% when 'h5' %}
+            <h5 class="ai-nav-accordion-title-{{ ai_gen_id }}">{{ block.settings.block_title }}</h5>
+          {% else %}
+            <div class="ai-nav-accordion-title-{{ ai_gen_id }}">{{ block.settings.block_title }}</div>
+        {% endcase %}
+      {% endif %}
+      
+      <div class="ai-nav-accordion-arrow-{{ ai_gen_id }} {% if block.settings.initial_state == 'open' %}active{% endif %}">
+        {% case block.settings.arrow_style %}
+          {% when 'chevron' %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          {% when 'caret' %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M7 10l5 5 5-5z"></path>
+            </svg>
+          {% when 'plus_minus' %}
+            <svg class="ai-nav-plus-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          {% else %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        {% endcase %}
+      </div>
+    </div>
+
+    <div class="ai-nav-accordion-content-{{ ai_gen_id }} {% if block.settings.initial_state == 'open' %}active{% endif %}">
+      <dl class="section_guide">
+        {% if block.settings.link_1_text != blank and block.settings.link_1_anchor != blank %}
+          <dt>
+            <a href="#{{ block.settings.link_1_anchor }}" class="ai-nav-link-{{ ai_gen_id }}">{{ block.settings.link_1_text }}</a>
+          </dt>
+          <dd></dd>
+        {% endif %}
+
+        {% if block.settings.link_2_text != blank and block.settings.link_2_anchor != blank %}
+          <dt>
+            <a href="#{{ block.settings.link_2_anchor }}" class="ai-nav-link-{{ ai_gen_id }}">{{ block.settings.link_2_text }}</a>
+          </dt>
+          <dd></dd>
+        {% endif %}
+
+        {% if block.settings.link_3_text != blank and block.settings.link_3_anchor != blank %}
+          <dt>
+            <a href="#{{ block.settings.link_3_anchor }}" class="ai-nav-link-{{ ai_gen_id }}">{{ block.settings.link_3_text }}</a>
+          </dt>
+          <dd></dd>
+        {% endif %}
+
+        {% if block.settings.link_4_text != blank and block.settings.link_4_anchor != blank %}
+          <dt>
+            <a href="#{{ block.settings.link_4_anchor }}" class="ai-nav-link-{{ ai_gen_id }}">{{ block.settings.link_4_text }}</a>
+          </dt>
+          <dd></dd>
+        {% endif %}
+
+        {% if block.settings.link_5_text != blank and block.settings.link_5_anchor != blank %}
+          <dt>
+            <a href="#{{ block.settings.link_5_anchor }}" class="ai-nav-link-{{ ai_gen_id }}">{{ block.settings.link_5_text }}</a>
+          </dt>
+          <dd></dd>
+        {% endif %}
+
+        {% if block.settings.link_6_text != blank and block.settings.link_6_anchor != blank %}
+          <dt>
+            <a href="#{{ block.settings.link_6_anchor }}" class="ai-nav-link-{{ ai_gen_id }}">{{ block.settings.link_6_text }}</a>
+          </dt>
+          <dd></dd>
+        {% endif %}
+
+        {% if block.settings.link_7_text != blank and block.settings.link_7_anchor != blank %}
+          <dt>
+            <a href="#{{ block.settings.link_7_anchor }}" class="ai-nav-link-{{ ai_gen_id }}">{{ block.settings.link_7_text }}</a>
+          </dt>
+          <dd></dd>
+        {% endif %}
+
+        {% if block.settings.link_8_text != blank and block.settings.link_8_anchor != blank %}
+          <dt>
+            <a href="#{{ block.settings.link_8_anchor }}" class="ai-nav-link-{{ ai_gen_id }}">{{ block.settings.link_8_text }}</a>
+          </dt>
+          <dd></dd>
+        {% endif %}
+      </dl>
+    </div>
+  </div>
+</nav-accordion-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class NavAccordion{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.header = this.querySelector('.ai-nav-accordion-header-{{ ai_gen_id }}');
+        this.content = this.querySelector('.ai-nav-accordion-content-{{ ai_gen_id }}');
+        this.arrow = this.querySelector('.ai-nav-accordion-arrow-{{ ai_gen_id }}');
+        this.isOpen = {% if is_open %}true{% else %}false{% endif %};
+      }
+
+      connectedCallback() {
+        this.header.addEventListener('click', () => this.toggle());
+        this.header.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.toggle();
+          }
+        });
+
+        {% if block.settings.sticky_behavior == 'sticky_after_scroll' %}
+          this.setupStickyScroll();
+        {% endif %}
+      }
+
+      toggle() {
+        this.isOpen = !this.isOpen;
+        this.content.classList.toggle('active');
+        this.arrow.classList.toggle('active');
+        this.header.setAttribute('aria-expanded', this.isOpen);
+      }
+
+      setupStickyScroll() {
+        let lastScroll = 0;
+        const threshold = 200;
+
+        window.addEventListener('scroll', () => {
+          const currentScroll = window.pageYOffset;
+          
+          if (currentScroll > threshold && currentScroll > lastScroll) {
+            this.style.position = 'sticky';
+            this.style.top = '0';
+            this.style.zIndex = '100';
+          } else if (currentScroll < threshold) {
+            this.style.position = 'relative';
+          }
+          
+          lastScroll = currentScroll;
+        });
+      }
+    }
+
+    customElements.define('nav-accordion-{{ ai_gen_id }}', NavAccordion{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Navigate this page",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "text",
+      "id": "block_title",
+      "label": "Block title",
+      "default": "Navigate this page"
+    },
+    {
+      "type": "select",
+      "id": "title_tag",
+      "label": "Title tag",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "div", "label": "Div" }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "select",
+      "id": "initial_state",
+      "label": "Initial state",
+      "options": [
+        { "value": "closed", "label": "Closed" },
+        { "value": "open", "label": "Open" }
+      ],
+      "default": "closed"
+    },
+    {
+      "type": "header",
+      "content": "Navigation links"
+    },
+    {
+      "type": "text",
+      "id": "link_1_text",
+      "label": "Link 1 text"
+    },
+    {
+      "type": "text",
+      "id": "link_1_anchor",
+      "label": "Link 1 anchor ID",
+      "info": "Enter the ID without #"
+    },
+    {
+      "type": "text",
+      "id": "link_2_text",
+      "label": "Link 2 text"
+    },
+    {
+      "type": "text",
+      "id": "link_2_anchor",
+      "label": "Link 2 anchor ID",
+      "info": "Enter the ID without #"
+    },
+    {
+      "type": "text",
+      "id": "link_3_text",
+      "label": "Link 3 text"
+    },
+    {
+      "type": "text",
+      "id": "link_3_anchor",
+      "label": "Link 3 anchor ID",
+      "info": "Enter the ID without #"
+    },
+    {
+      "type": "text",
+      "id": "link_4_text",
+      "label": "Link 4 text"
+    },
+    {
+      "type": "text",
+      "id": "link_4_anchor",
+      "label": "Link 4 anchor ID",
+      "info": "Enter the ID without #"
+    },
+    {
+      "type": "text",
+      "id": "link_5_text",
+      "label": "Link 5 text"
+    },
+    {
+      "type": "text",
+      "id": "link_5_anchor",
+      "label": "Link 5 anchor ID",
+      "info": "Enter the ID without #"
+    },
+    {
+      "type": "text",
+      "id": "link_6_text",
+      "label": "Link 6 text"
+    },
+    {
+      "type": "text",
+      "id": "link_6_anchor",
+      "label": "Link 6 anchor ID",
+      "info": "Enter the ID without #"
+    },
+    {
+      "type": "text",
+      "id": "link_7_text",
+      "label": "Link 7 text"
+    },
+    {
+      "type": "text",
+      "id": "link_7_anchor",
+      "label": "Link 7 anchor ID",
+      "info": "Enter the ID without #"
+    },
+    {
+      "type": "text",
+      "id": "link_8_text",
+      "label": "Link 8 text"
+    },
+    {
+      "type": "text",
+      "id": "link_8_anchor",
+      "label": "Link 8 anchor ID",
+      "info": "Enter the ID without #"
+    },
+    {
+      "type": "header",
+      "content": "Arrow style"
+    },
+    {
+      "type": "select",
+      "id": "arrow_position",
+      "label": "Arrow position",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "select",
+      "id": "arrow_style",
+      "label": "Arrow style",
+      "options": [
+        { "value": "chevron", "label": "Chevron" },
+        { "value": "caret", "label": "Caret" },
+        { "value": "plus_minus", "label": "Plus/Minus" }
+      ],
+      "default": "chevron"
+    },
+    {
+      "type": "range",
+      "id": "arrow_size",
+      "label": "Arrow size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Animation"
+    },
+    {
+      "type": "select",
+      "id": "animation_type",
+      "label": "Animation type",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "slide", "label": "Slide" },
+        { "value": "fade", "label": "Fade" },
+        { "value": "slide_fade", "label": "Slide + Fade" }
+      ],
+      "default": "slide"
+    },
+    {
+      "type": "range",
+      "id": "animation_duration",
+      "label": "Animation duration",
+      "min": 100,
+      "max": 800,
+      "step": 50,
+      "unit": "ms",
+      "default": 300
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        { "value": "narrow", "label": "Narrow" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "fluid", "label": "Fluid" },
+        { "value": "full", "label": "Full" }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "select",
+      "id": "spacing_top",
+      "label": "Spacing top",
+      "options": [
+        { "value": "no", "label": "No" },
+        { "value": "s", "label": "S" },
+        { "value": "m", "label": "M" },
+        { "value": "l", "label": "L" },
+        { "value": "xl", "label": "XL" }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "spacing_bottom",
+      "label": "Spacing bottom",
+      "options": [
+        { "value": "no", "label": "No" },
+        { "value": "s", "label": "S" },
+        { "value": "m", "label": "M" },
+        { "value": "l", "label": "L" },
+        { "value": "xl", "label": "XL" }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "sticky_behavior",
+      "label": "Sticky behavior",
+      "options": [
+        { "value": "off", "label": "Off" },
+        { "value": "sticky_top", "label": "Sticky top" },
+        { "value": "sticky_after_scroll", "label": "Sticky after scroll" }
+      ],
+      "default": "off"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Title color",
+      "default": "#151515"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link color",
+      "default": "#162a50"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Link hover color",
+      "default": "#ffc829"
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Arrow color",
+      "default": "#151515"
+    },
+    {
+      "type": "color",
+      "id": "arrow_hover_color",
+      "label": "Arrow hover color",
+      "default": "#162a50"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#ebebeb"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "label": "Title font size",
+      "min": 14,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "link_font_size",
+      "label": "Link font size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Navigate this page"
+    }
+  ]
+}
 {% endschema %}
