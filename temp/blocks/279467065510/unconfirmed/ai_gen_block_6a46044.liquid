@@ -1,6 +1,1187 @@
+{% doc %}
+  @prompt
+    A single-block “Navigate This Page” Accordion Section with internal anchor links, structured using a semantic <dl class="section_guide"> list.
+    
+    1) Component Overview
+    
+    A collapsible accordion block designed to:
+    
+    Display a customizable heading (e.g., “Navigate this page”).
+    
+    Include a clickable arrow icon that toggles visibility of a list.
+    
+    Contain a list of internal page links targeting existing id attributes.
+    
+    Use semantic HTML structure:
+    
+    <dl class="section_guide">
+    
+    Each link inside <dt>
+    
+    <dd> empty by default (optionally customizable manually)
+    
+    The block must be fully configurable in content, behavior, and styling.
+    
+    2) Block Configuration Options
+    General Block Settings
+    
+    Block Title (manually fill)
+    
+    Default: "Navigate this page"
+    
+    Hidden if empty
+    
+    Fully customizable text
+    
+    Title Tag Selector
+    
+    Options: [h2 | h3 | h4 | h5 | div]
+    
+    Default: h3
+    
+    Accordion Initial State
+    
+    Options: [Closed | Open]
+    
+    Default: Closed
+    
+    Arrow Position
+    
+    Options: [Left | Right]
+    
+    Default: Right
+    
+    Arrow Style
+    
+    Options: [Chevron | Caret | Plus/Minus | Custom SVG]
+    
+    Default: Chevron
+    
+    Animation Type
+    
+    Options: [None | Slide | Fade | Slide+Fade]
+    
+    Default: Slide
+    
+    Animation Duration
+    
+    Input: milliseconds
+    
+    Default: 300ms
+    
+    Container Width
+    
+    Options: [Narrow | Normal | Fluid | Full]
+    
+    Default: Normal
+    
+    Spacing Top
+    
+    Options: [No | S | M | L | XL]
+    
+    Default: M
+    
+    Spacing Bottom
+    
+    Options: [No | S | M | L | XL]
+    
+    Default: M
+    
+    Color Schema
+    
+    Options: [Theme Select]
+    
+    Controls text, arrow, hover state
+    
+    Sticky Behavior (Optional)
+    
+    Options: [Off | Sticky Top | Sticky After Scroll]
+    
+    Default: Off, the navigation links should be automatically "pulled" from the page , ids must be pulled not only in headings but also in div or table or other elements, must be possible to hide|show each of the id pulled, as well as customizing the text., colors and typography must follow the theme, use color scheme selector, same for the font options.
+    the "list" of links MUST be a <dl class="section_guide">.
+    Each of the link is inside the <dt> element with optional description to be shown in <dd>, the div containing <dl class="section_guide"> must have class="section"
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% liquid
+  assign spacing_map = 'no:0,s:20,m:40,l:60,xl:80' | split: ','
+  assign spacing_top = 40
+  assign spacing_bottom = 40
+  
+  for item in spacing_map
+    assign parts = item | split: ':'
+    if parts[0] == block.settings.spacing_top
+      assign spacing_top = parts[1] | times: 1
+    endif
+    if parts[0] == block.settings.spacing_bottom
+      assign spacing_bottom = parts[1] | times: 1
+    endif
+  endfor
+
+  assign container_width_map = 'narrow:600,normal:900,fluid:1200,full:100%' | split: ','
+  assign container_width = '900px'
+  
+  for item in container_width_map
+    assign parts = item | split: ':'
+    if parts[0] == block.settings.container_width
+      if parts[1] contains '%'
+        assign container_width = parts[1]
+      else
+        assign container_width = parts[1] | append: 'px'
+      endif
+    endif
+  endfor
+
+  if block.settings.initial_state == 'open'
+    assign is_open = true
+  else
+    assign is_open = false
+  endif
+%}
+
+{% style %}
+  .ai-nav-accordion-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding-top: {{ spacing_top }}px;
+    padding-bottom: {{ spacing_bottom }}px;
+    {% if block.settings.sticky_behavior == 'sticky_top' %}
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    {% endif %}
+  }
+
+  .ai-nav-accordion-container-{{ ai_gen_id }} {
+    max-width: {{ container_width }};
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section {
+    width: 100%;
+  }
+
+  .ai-nav-accordion-header-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 16px 0;
+    border-bottom: 1px solid rgb(var(--color-border));
+    gap: 16px;
+  }
+
+  .ai-nav-accordion-title-{{ ai_gen_id }} {
+    margin: 0;
+    color: rgb(var(--color-header-text));
+    font-family: var(--font-heading-family);
+    font-weight: var(--font-heading-weight);
+    font-style: var(--font-heading-style);
+    letter-spacing: var(--heading-letter-spacing);
+    text-transform: var(--heading-text-transform);
+    font-size: calc(var(--font-heading-scale) * {{ block.settings.title_font_size }}px);
+    flex-grow: 1;
+  }
+
+  .ai-nav-accordion-arrow-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: {{ block.settings.arrow_size }}px;
+    height: {{ block.settings.arrow_size }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(var(--color-primary-text));
+    transition: transform {{ block.settings.animation_duration }}ms ease;
+    {% if block.settings.arrow_position == 'left' %}
+      order: -1;
+    {% endif %}
+  }
+
+  .ai-nav-accordion-header-{{ ai_gen_id }}:hover .ai-nav-accordion-arrow-{{ ai_gen_id }} {
+    color: rgb(var(--color-link));
+  }
+
+  .ai-nav-accordion-arrow-{{ ai_gen_id }}.active {
+    transform: rotate(180deg);
+  }
+
+  .ai-nav-accordion-arrow-{{ ai_gen_id }}.plus-minus.active svg line:first-child {
+    opacity: 0;
+  }
+
+  .ai-nav-accordion-content-{{ ai_gen_id }} {
+    overflow: hidden;
+    {% if block.settings.initial_state == 'closed' %}
+      max-height: 0;
+      opacity: 0;
+    {% else %}
+      max-height: 3000px;
+      opacity: 1;
+    {% endif %}
+    {% if block.settings.animation_type == 'slide' %}
+      transition: max-height {{ block.settings.animation_duration }}ms ease;
+    {% elsif block.settings.animation_type == 'fade' %}
+      transition: opacity {{ block.settings.animation_duration }}ms ease;
+    {% elsif block.settings.animation_type == 'slide_fade' %}
+      transition: max-height {{ block.settings.animation_duration }}ms ease, opacity {{ block.settings.animation_duration }}ms ease;
+    {% endif %}
+  }
+
+  .ai-nav-accordion-content-{{ ai_gen_id }}.active {
+    max-height: 3000px;
+    opacity: 1;
+  }
+
+  .section_guide {
+    list-style: none;
+    margin: 0;
+    padding: 24px 0 0 0;
+  }
+
+  .section_guide dt {
+    margin: 0 0 8px 0;
+    padding: 0;
+  }
+
+  .section_guide dd {
+    margin: 0 0 16px 0;
+    padding: 0 0 0 16px;
+    color: rgb(var(--color-secondary-text));
+    font-family: var(--font-body-family);
+    font-weight: var(--font-body-weight);
+    font-style: var(--font-body-style);
+    font-size: calc(var(--font-body-scale) * 0.9);
+    line-height: 1.5;
+  }
+
+  .section_guide dd:empty {
+    display: none;
+  }
+
+  .ai-nav-link-{{ ai_gen_id }} {
+    display: inline-block;
+    color: rgb(var(--color-link));
+    text-decoration: none;
+    font-family: var(--font-body-family);
+    font-weight: var(--font-body-weight);
+    font-style: var(--font-body-style);
+    font-size: calc(var(--font-body-scale) * {{ block.settings.link_font_size }}px);
+    padding: 8px 0;
+    transition: color 0.2s ease;
+  }
+
+  .ai-nav-link-{{ ai_gen_id }}:hover {
+    color: rgb(var(--color-primary-button));
+  }
+
+  .ai-nav-empty-state-{{ ai_gen_id }} {
+    padding: 24px 0;
+    color: rgb(var(--color-secondary-text));
+    font-family: var(--font-body-family);
+    font-size: 14px;
+    font-style: italic;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-nav-accordion-title-{{ ai_gen_id }} {
+      font-size: calc(var(--font-heading-scale) * {{ block.settings.title_font_size | times: 0.85 }}px);
+    }
+    
+    .ai-nav-link-{{ ai_gen_id }} {
+      font-size: calc(var(--font-body-scale) * {{ block.settings.link_font_size | times: 0.9 }}px);
+    }
+  }
+{% endstyle %}
+
+<nav-accordion-{{ ai_gen_id }} 
+  class="ai-nav-accordion-{{ ai_gen_id }} color-{{ block.settings.color_scheme }}" 
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-nav-accordion-container-{{ ai_gen_id }}">
+    <div class="ai-nav-accordion-header-{{ ai_gen_id }}" role="button" aria-expanded="{{ block.settings.initial_state }}" tabindex="0">
+      {% if block.settings.block_title != blank %}
+        {% case block.settings.title_tag %}
+          {% when 'h2' %}
+            <h2 class="ai-nav-accordion-title-{{ ai_gen_id }}">{{ block.settings.block_title }}</h2>
+          {% when 'h3' %}
+            <h3 class="ai-nav-accordion-title-{{ ai_gen_id }}">{{ block.settings.block_title }}</h3>
+          {% when 'h4' %}
+            <h4 class="ai-nav-accordion-title-{{ ai_gen_id }}">{{ block.settings.block_title }}</h4>
+          {% when 'h5' %}
+            <h5 class="ai-nav-accordion-title-{{ ai_gen_id }}">{{ block.settings.block_title }}</h5>
+          {% else %}
+            <div class="ai-nav-accordion-title-{{ ai_gen_id }}">{{ block.settings.block_title }}</div>
+        {% endcase %}
+      {% endif %}
+      
+      <div class="ai-nav-accordion-arrow-{{ ai_gen_id }} {% if block.settings.arrow_style == 'plus_minus' %}plus-minus{% endif %} {% if block.settings.initial_state == 'open' %}active{% endif %}">
+        {% case block.settings.arrow_style %}
+          {% when 'chevron' %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          {% when 'caret' %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M7 10l5 5 5-5z"></path>
+            </svg>
+          {% when 'plus_minus' %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19" style="transition: opacity {{ block.settings.animation_duration }}ms ease;"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          {% else %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        {% endcase %}
+      </div>
+    </div>
+
+    <div class="ai-nav-accordion-content-{{ ai_gen_id }} {% if block.settings.initial_state == 'open' %}active{% endif %}">
+      <div class="section">
+        <dl class="section_guide">
+          {% for i in (1..20) %}
+            {% assign link_id_key = 'link_' | append: i | append: '_id' %}
+            {% assign link_text_key = 'link_' | append: i | append: '_text' %}
+            {% assign link_desc_key = 'link_' | append: i | append: '_description' %}
+            {% assign link_show_key = 'link_' | append: i | append: '_show' %}
+            
+            {% assign link_id = block.settings[link_id_key] %}
+            {% assign link_text = block.settings[link_text_key] %}
+            {% assign link_desc = block.settings[link_desc_key] %}
+            {% assign link_show = block.settings[link_show_key] %}
+            
+            {% if link_show and link_id != blank %}
+              <dt>
+                <a href="#{{ link_id }}" class="ai-nav-link-{{ ai_gen_id }}" data-target-id="{{ link_id }}" data-scroll-offset="{{ block.settings.scroll_offset }}">
+                  {% if link_text != blank %}
+                    {{ link_text }}
+                  {% else %}
+                    {{ link_id | replace: '-', ' ' | replace: '_', ' ' | capitalize }}
+                  {% endif %}
+                </a>
+              </dt>
+              <dd>{{ link_desc }}</dd>
+            {% endif %}
+          {% endfor %}
+        </dl>
+      </div>
+      <div class="ai-nav-empty-state-{{ ai_gen_id }}" style="display: none;">
+        Configure navigation links in the block settings to get started.
+      </div>
+    </div>
+  </div>
+</nav-accordion-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class NavAccordion{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.header = this.querySelector('.ai-nav-accordion-header-{{ ai_gen_id }}');
+        this.content = this.querySelector('.ai-nav-accordion-content-{{ ai_gen_id }}');
+        this.arrow = this.querySelector('.ai-nav-accordion-arrow-{{ ai_gen_id }}');
+        this.navList = this.querySelector('.section_guide');
+        this.emptyState = this.querySelector('.ai-nav-empty-state-{{ ai_gen_id }}');
+        this.isOpen = {% if is_open %}true{% else %}false{% endif %};
+      }
+
+      connectedCallback() {
+        this.header.addEventListener('click', () => this.toggle());
+        this.header.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.toggle();
+          }
+        });
+
+        {% if block.settings.sticky_behavior == 'sticky_after_scroll' %}
+          this.setupStickyScroll();
+        {% endif %}
+
+        this.setupSmoothScroll();
+        this.checkEmptyState();
+      }
+
+      toggle() {
+        this.isOpen = !this.isOpen;
+        this.content.classList.toggle('active');
+        this.arrow.classList.toggle('active');
+        this.header.setAttribute('aria-expanded', this.isOpen);
+      }
+
+      setupSmoothScroll() {
+        const links = this.querySelectorAll('.ai-nav-link-{{ ai_gen_id }}');
+        
+        links.forEach((link) => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.dataset.targetId;
+            const offset = parseInt(link.dataset.scrollOffset) || 80;
+            const target = document.getElementById(targetId);
+            
+            if (target) {
+              const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+              });
+            }
+          });
+        });
+      }
+
+      checkEmptyState() {
+        const visibleLinks = this.querySelectorAll('.ai-nav-link-{{ ai_gen_id }}');
+        
+        if (visibleLinks.length === 0) {
+          this.emptyState.style.display = 'block';
+          this.navList.style.display = 'none';
+        } else {
+          this.emptyState.style.display = 'none';
+          this.navList.style.display = 'block';
+        }
+      }
+
+      setupStickyScroll() {
+        let lastScroll = 0;
+        const threshold = 200;
+
+        window.addEventListener('scroll', () => {
+          const currentScroll = window.pageYOffset;
+          
+          if (currentScroll > threshold && currentScroll > lastScroll) {
+            this.style.position = 'sticky';
+            this.style.top = '0';
+            this.style.zIndex = '100';
+          } else if (currentScroll < threshold) {
+            this.style.position = 'relative';
+          }
+          
+          lastScroll = currentScroll;
+        });
+      }
+    }
+
+    customElements.define('nav-accordion-{{ ai_gen_id }}', NavAccordion{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Navigate this page",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "text",
+      "id": "block_title",
+      "label": "Block title",
+      "default": "Navigate this page"
+    },
+    {
+      "type": "select",
+      "id": "title_tag",
+      "label": "Title tag",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "div", "label": "Div" }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "select",
+      "id": "initial_state",
+      "label": "Initial state",
+      "options": [
+        { "value": "closed", "label": "Closed" },
+        { "value": "open", "label": "Open" }
+      ],
+      "default": "closed"
+    },
+    {
+      "type": "range",
+      "id": "scroll_offset",
+      "label": "Scroll offset",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 80,
+      "info": "Space above element when scrolling"
+    },
+    {
+      "type": "header",
+      "content": "Link 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_1_show",
+      "label": "Show link 1",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_1_id",
+      "label": "Target ID",
+      "info": "The ID of the element to link to (without #)"
+    },
+    {
+      "type": "text",
+      "id": "link_1_text",
+      "label": "Link text",
+      "info": "Leave empty to auto-generate from ID"
+    },
+    {
+      "type": "text",
+      "id": "link_1_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_2_show",
+      "label": "Show link 2",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_2_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_2_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_2_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_3_show",
+      "label": "Show link 3",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_3_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_3_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_3_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 4"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_4_show",
+      "label": "Show link 4",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_4_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_4_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_4_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 5"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_5_show",
+      "label": "Show link 5",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_5_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_5_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_5_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 6"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_6_show",
+      "label": "Show link 6",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_6_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_6_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_6_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 7"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_7_show",
+      "label": "Show link 7",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_7_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_7_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_7_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 8"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_8_show",
+      "label": "Show link 8",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_8_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_8_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_8_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 9"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_9_show",
+      "label": "Show link 9",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_9_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_9_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_9_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 10"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_10_show",
+      "label": "Show link 10",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_10_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_10_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_10_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 11"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_11_show",
+      "label": "Show link 11",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_11_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_11_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_11_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 12"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_12_show",
+      "label": "Show link 12",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_12_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_12_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_12_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 13"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_13_show",
+      "label": "Show link 13",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_13_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_13_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_13_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 14"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_14_show",
+      "label": "Show link 14",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_14_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_14_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_14_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 15"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_15_show",
+      "label": "Show link 15",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_15_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_15_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_15_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 16"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_16_show",
+      "label": "Show link 16",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_16_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_16_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_16_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 17"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_17_show",
+      "label": "Show link 17",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_17_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_17_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_17_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 18"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_18_show",
+      "label": "Show link 18",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_18_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_18_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_18_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 19"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_19_show",
+      "label": "Show link 19",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_19_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_19_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_19_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Link 20"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_20_show",
+      "label": "Show link 20",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "link_20_id",
+      "label": "Target ID"
+    },
+    {
+      "type": "text",
+      "id": "link_20_text",
+      "label": "Link text"
+    },
+    {
+      "type": "text",
+      "id": "link_20_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Arrow style"
+    },
+    {
+      "type": "select",
+      "id": "arrow_position",
+      "label": "Arrow position",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "select",
+      "id": "arrow_style",
+      "label": "Arrow style",
+      "options": [
+        { "value": "chevron", "label": "Chevron" },
+        { "value": "caret", "label": "Caret" },
+        { "value": "plus_minus", "label": "Plus/Minus" }
+      ],
+      "default": "chevron"
+    },
+    {
+      "type": "range",
+      "id": "arrow_size",
+      "label": "Arrow size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Animation"
+    },
+    {
+      "type": "select",
+      "id": "animation_type",
+      "label": "Animation type",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "slide", "label": "Slide" },
+        { "value": "fade", "label": "Fade" },
+        { "value": "slide_fade", "label": "Slide + Fade" }
+      ],
+      "default": "slide"
+    },
+    {
+      "type": "range",
+      "id": "animation_duration",
+      "label": "Animation duration",
+      "min": 100,
+      "max": 800,
+      "step": 50,
+      "unit": "ms",
+      "default": 300
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        { "value": "narrow", "label": "Narrow" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "fluid", "label": "Fluid" },
+        { "value": "full", "label": "Full" }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "select",
+      "id": "spacing_top",
+      "label": "Spacing top",
+      "options": [
+        { "value": "no", "label": "No" },
+        { "value": "s", "label": "S" },
+        { "value": "m", "label": "M" },
+        { "value": "l", "label": "L" },
+        { "value": "xl", "label": "XL" }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "spacing_bottom",
+      "label": "Spacing bottom",
+      "options": [
+        { "value": "no", "label": "No" },
+        { "value": "s", "label": "S" },
+        { "value": "m", "label": "M" },
+        { "value": "l", "label": "L" },
+        { "value": "xl", "label": "XL" }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "select",
+      "id": "sticky_behavior",
+      "label": "Sticky behavior",
+      "options": [
+        { "value": "off", "label": "Off" },
+        { "value": "sticky_top", "label": "Sticky top" },
+        { "value": "sticky_after_scroll", "label": "Sticky after scroll" }
+      ],
+      "default": "off"
+    },
+    {
+      "type": "header",
+      "content": "Color scheme"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "label": "Title font size",
+      "min": 14,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "link_font_size",
+      "label": "Link font size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Navigate this page"
+    }
+  ]
+}
 {% endschema %}
