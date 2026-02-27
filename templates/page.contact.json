@@ -540,7 +540,7 @@
           "settings": {
             "is_open": false,
             "title": "Do you have discount codes?",
-            "text": "<p>As a high-end luxury brand, all of our pieces are artisanal, handmade, and produced in small batches. Because of the craftsmanship and integrity behind each garment, we do not offer discounts.</p><p>Instead, we invite our community into special launches, workshops and intimate giveaways. Join our mailing list to be part of that inner circle.</p>",
+            "text": "<p>As a high-end luxury brand, all of our pieces are artisanal, handmade, and produced in small batches. Because of the craftsmanship and integrity behind each garment, we do not offer discounts.</p><p>Instead, we invite our community into special launches, workshops and intimate giveaways. </p><p><a href=\"https://account.rimmba.com\" target=\"_blank\" title=\"Subscribe to RIMMBA\">Join our mailing list</a> to be part of that inner circle.</p>",
             "page": ""
           }
         },
@@ -628,8 +628,8 @@
         "custom_liquid": "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": [{\n    \"@type\": \"Question\",\n    \"name\": \"Where is Botanicals by RIMMBA located?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Botanicals by RIMMBA is located at Jl. Dewisita No.12, Ubud, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"Do I need an appointment to visit the boutique?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"No appointment is required during opening hours, but private consultations must be arranged in advance.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"Can I see the atelier and learn about the dyeing process?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Yes, we offer both private classes and public workshops to learn about the natural dyeing process.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"Do you offer bespoke or custom pieces?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Yes. Botanicals by RIMMBA offers bespoke silk garments and custom tailoring services.\"\n    }\n  },\n  {\n    \"@type\": \"Question\",\n    \"name\": \"How should I care for botanically dyed silk?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Natural dyes benefit from gentle washing, mild detergents, and air drying to preserve color and fabric integrity.\"\n    }\n  }]\n}\n</script>",
         "section_width": "max-w-page",
         "color_scheme": "",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
+        "spacing_top": "0",
+        "spacing_bottom": "0"
       }
     }
   },
