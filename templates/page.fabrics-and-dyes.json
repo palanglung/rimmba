@@ -103,6 +103,7 @@
         "content_TWVMYQ",
         "buttons_BMDCEX"
       ],
+      "disabled": true,
       "name": "t:sections.full-width-banner.name",
       "settings": {
         "enable_transparent_header": true,
@@ -188,10 +189,10 @@
         "buttons_nq4yj4": {
           "type": "buttons",
           "settings": {
-            "button_link_1": "/",
+            "button_link_1": "shopify://pages/natural-dye-workshop-bali",
             "button_link_1_type": "button",
-            "button_label_1": "",
-            "button_style_1": "button--outlined",
+            "button_label_1": "Join the Workshop",
+            "button_style_1": "button--filled",
             "color_scheme_first_button": "",
             "button_link_2": "/",
             "button_label_2": "",
