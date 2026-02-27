@@ -1410,6 +1410,13 @@ body[data-body-font="DMSans-Regular"] p {
   .section table.custom_inline_table {width: auto !important; max-width:fit-content !important; overflow-x:auto !important; min-width: stretch;}
   .section table.custom_inline_table,
   .section table.custom_inline_table p {text-align: left !important; font-size:0.8em !important;}
+.section table.custom_inline_table
+  > tbody > tr > td:first-child {
+  white-space: nowrap;        
+  max-width: none !important; 
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
 .section table td:not(:first-child) :is(p, h1, h2, h3, h4, h5, h6),
 .section table td :is(h1, h2, h3, h4, h5, h6),
 .section table td:is(:only-child) :is(p, h1, h2, h3, h4, h5, h6) {
