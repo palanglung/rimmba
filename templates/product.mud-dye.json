@@ -100,7 +100,7 @@
           "settings": {
             "spacing_bottom": "1",
             "heading": "<a href=\"/pages/natural-dyes-mud-dyeing\" target=\"_blank\" title=\"Mud Dyeing\">Learn about: <strong>Mud-Dye</strong></a>",
-            "icon": "theme-info-circle",
+            "icon": "option-leaf",
             "link_to_resource": "none",
             "text_before_link": false,
             "heading_secondary": "",

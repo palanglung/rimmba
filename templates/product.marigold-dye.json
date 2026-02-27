@@ -100,7 +100,7 @@
           "settings": {
             "spacing_bottom": "1",
             "heading": "<a href=\"/pages/marigold-natural-dye\" target=\"_blank\" title=\"Marigold Natural Dye\">Learn about: <strong>Marigold-Dye</strong></a>",
-            "icon": "theme-info-circle",
+            "icon": "option-leaf",
             "link_to_resource": "none",
             "text_before_link": false,
             "heading_secondary": "",
