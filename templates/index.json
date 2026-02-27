@@ -709,7 +709,7 @@
         "heading_size": "h3",
         "subheading": "",
         "button_label": "View all",
-        "button_link": "shopify://collections",
+        "button_link": "shopify://collections/red-silk-eco-print-dresses",
         "button_style": "button--text",
         "max_products": 4,
         "enable_slideshow_overflow": false,
