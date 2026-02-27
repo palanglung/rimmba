@@ -1357,20 +1357,20 @@ body[data-body-font="DMSans-Regular"] p {
 /*titles and paragraphs on center*/
 .section table:not(.custom_inline_table)
   :has(td:only-child):not(:has(img))
-  td:only-child :is(p,h1,h2,h3,h4,h5,h6):not(ul *,dl *,dt *,ol *) {
+  td:only-child :is(p,h1,h2,h3,h4,h5,h6):not(ul *,dl *,dt *,ol *):not(:where(.custom_inline_table *)) {
     text-align: left;
     max-width: 720px !important;
 }
 /*titles on left*/
 .section table:not(.custom_inline_table)
   :has(td:first-child):has(img)
-  td:first-child :is(h1,h2,h3,h4,h5,h6):not(ul *,dl *,dt *,ol *) {
+  td:first-child :is(h1,h2,h3,h4,h5,h6):not(ul *,dl *,dt *,ol *):not(:where(.custom_inline_table *)) {
     text-align: left;
 }
 /*titles on right*/
 .section table:not(.custom_inline_table)
   :has(td:last-child):has(img)
-  td:last-child :is(h1,h2,h3,h4,h5,h6):not(ul *,dl *,dt *,ol *) {
+  td:last-child :is(h1,h2,h3,h4,h5,h6):not(ul *,dl *,dt *,ol *):not(:where(.custom_inline_table *)) {
     text-align: left;
     padding-left: 3rem;
 }
