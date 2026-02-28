@@ -317,6 +317,37 @@
     "dual_tiles_VMgfML": {
       "type": "dual-tiles",
       "blocks": {
+        "tile_C9qM8E": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-1",
+            "custom_background_color": "",
+            "heading": "Contact & bookings",
+            "heading_size": "h5",
+            "text": "<p>Not only for enquiries about our natural dye workshop, but also for private bookings, or collaborations in Bali or beyond: <br/>please reach out via WhatsApp or <a href=\"mailto:care@rimmba.com\" target=\"_blank\" title=\"mailto:care@rimmba.com\">email</a>.</p><p>In order to reserve your place, book directly via the workshop checkout page below.</p>",
+            "button_label": "Book The Workshop",
+            "button_link": "shopify://products/botanical-dye-lingerie-workshop-rimmba",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "auto",
+            "vertical_position": "stretch",
+            "content_position": "justify-center",
+            "content_alignment": "text-start align-start",
+            "product_position": "0",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "auto",
+            "content_alignment_mobile": "text-start--mobile align-start--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
+        },
         "tile_XCNLMb": {
           "type": "tile",
           "settings": {
@@ -348,48 +379,17 @@
             "show_controls_on_video_mobile": false,
             "spacing_inner": "3"
           }
-        },
-        "tile_C9qM8E": {
-          "type": "tile",
-          "settings": {
-            "show_on": "both",
-            "color_scheme": "scheme-1",
-            "custom_background_color": "",
-            "heading": "Contact & bookings",
-            "heading_size": "h5",
-            "text": "<p>Not only for enquiries about our natural dye workshop, but also for private bookings, or collaborations in Bali or beyond: <br/>please reach out via WhatsApp or <a href=\"mailto:care@rimmba.com\" target=\"_blank\" title=\"mailto:care@rimmba.com\">email</a>.</p><p>In order to reserve your place, book directly via the workshop checkout page below.</p>",
-            "button_label": "Book The Workshop",
-            "button_link": "shopify://products/botanical-dye-lingerie-workshop-rimmba",
-            "button_style": "button--filled",
-            "product": "",
-            "product_width": 24,
-            "show_other_elements_with_product": true,
-            "aspect_ratio": "auto",
-            "vertical_position": "stretch",
-            "content_position": "justify-center",
-            "content_alignment": "text-start align-start",
-            "product_position": "0",
-            "video_external": "",
-            "show_controls_on_video": false,
-            "aspect_ratio_mobile": "auto",
-            "content_alignment_mobile": "text-start--mobile align-start--mobile",
-            "content_position_mobile": "justify-center--mobile",
-            "product_position_mobile": "0",
-            "video_external_mobile": "",
-            "show_controls_on_video_mobile": false,
-            "spacing_inner": "3"
-          }
         }
       },
       "block_order": [
-        "tile_XCNLMb",
-        "tile_C9qM8E"
+        "tile_C9qM8E",
+        "tile_XCNLMb"
       ],
       "name": "t:sections.dual-tiles.name",
       "settings": {
         "section_layout": "seperated",
         "block_size": "half",
-        "block_order_mobile": false,
+        "block_order_mobile": true,
         "heading": "",
         "heading_size": "h3",
         "heading_alignment": "start",
@@ -402,37 +402,6 @@
     "dual_tiles_wX6bcQ": {
       "type": "dual-tiles",
       "blocks": {
-        "tile_tDhBEa": {
-          "type": "tile",
-          "settings": {
-            "show_on": "both",
-            "color_scheme": "scheme-1",
-            "custom_background_color": "",
-            "heading": "Private Dyeing Experience",
-            "heading_size": "h5",
-            "text": "<p>Our <a href=\"/pages/tailored-workshop-bali\" target=\"_blank\" title=\"Private Dye Workshop\"><strong>Private Dyeing Experience</strong></a> is a <strong>personalized </strong>botanical-dye workshop brought right to your location of choice: whether it’s your home, villa, resort, or event space.</p><h6>We take care of the full setup</h6><p>RIMMBA's team will guide you and your guests through the dyeing process in a relaxed, creative atmosphere. Before your event, we’ll connect with you to understand the occasion and tailor the pieces to match your theme.</p>",
-            "button_label": "Private Workshop",
-            "button_link": "shopify://pages/tailored-workshop-bali",
-            "button_style": "button--filled",
-            "product": "",
-            "product_width": 24,
-            "show_other_elements_with_product": true,
-            "aspect_ratio": "auto",
-            "vertical_position": "stretch",
-            "content_position": "justify-center",
-            "content_alignment": "text-start align-start",
-            "product_position": "0",
-            "video_external": "",
-            "show_controls_on_video": false,
-            "aspect_ratio_mobile": "auto",
-            "content_alignment_mobile": "text-start--mobile align-start--mobile",
-            "content_position_mobile": "justify-center--mobile",
-            "product_position_mobile": "0",
-            "video_external_mobile": "",
-            "show_controls_on_video_mobile": false,
-            "spacing_inner": "3"
-          }
-        },
         "tile_X6iEqY": {
           "type": "tile",
           "settings": {
@@ -464,17 +433,48 @@
             "show_controls_on_video_mobile": false,
             "spacing_inner": "3"
           }
+        },
+        "tile_tDhBEa": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "color_scheme": "scheme-1",
+            "custom_background_color": "",
+            "heading": "Private Dyeing Experience",
+            "heading_size": "h5",
+            "text": "<p>Our <a href=\"/pages/tailored-workshop-bali\" target=\"_blank\" title=\"Private Dye Workshop\"><strong>Private Dyeing Experience</strong></a> is a <strong>personalized </strong>botanical-dye workshop brought right to your location of choice: whether it’s your home, villa, resort, or event space.</p><h6>We take care of the full setup</h6><p>RIMMBA's team will guide you and your guests through the dyeing process in a relaxed, creative atmosphere. Before your event, we’ll connect with you to understand the occasion and tailor the pieces to match your theme.</p>",
+            "button_label": "Private Workshop",
+            "button_link": "shopify://pages/tailored-workshop-bali",
+            "button_style": "button--filled",
+            "product": "",
+            "product_width": 24,
+            "show_other_elements_with_product": true,
+            "aspect_ratio": "auto",
+            "vertical_position": "stretch",
+            "content_position": "justify-center",
+            "content_alignment": "text-start align-start",
+            "product_position": "0",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "aspect_ratio_mobile": "auto",
+            "content_alignment_mobile": "text-start--mobile align-start--mobile",
+            "content_position_mobile": "justify-center--mobile",
+            "product_position_mobile": "0",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "3"
+          }
         }
       },
       "block_order": [
-        "tile_tDhBEa",
-        "tile_X6iEqY"
+        "tile_X6iEqY",
+        "tile_tDhBEa"
       ],
       "name": "t:sections.dual-tiles.name",
       "settings": {
         "section_layout": "seperated",
         "block_size": "half",
-        "block_order_mobile": true,
+        "block_order_mobile": false,
         "heading": "",
         "heading_size": "h3",
         "heading_alignment": "start",
