@@ -1512,14 +1512,12 @@ body[data-body-font="DMSans-Regular"] p {
    STYLING FOR NO-STACK CLASS IN CUSTOM PAGES
 ========================================================== */
 
-  section .no-stack table.custom_inline_table td:first-child {
+section .no-stack table.custom_inline_table td:first-child {
   white-space: nowrap !important;
   max-width: none !important;
 }
+
 @media (max-width: 768px) {
-
-
-
 .section table.no-stack:has(>tbody>tr:only-child>td:nth-of-type(2)):has(img),
 .section table.no-stack:has(>tbody>tr:only-child>td:nth-of-type(2)):has(img) > tbody,
 .section table.no-stack:has(>tbody>tr:only-child>td:nth-of-type(2)):has(img) > tbody > tr {
@@ -1546,7 +1544,6 @@ body[data-body-font="DMSans-Regular"] p {
 /* LEFT CELL padding-right (exclude img + figure) */
 .section table.no-stack:has(>tbody>tr:only-child>td:nth-of-type(2)):has(img)
   > tbody > tr > td:first-child > :not(img):not(figure) {
-
   padding-right: 2rem !important;
   padding-left: 0 !important;
 }
@@ -1579,7 +1576,10 @@ body[data-body-font="DMSans-Regular"] p {
 .section table.no-stack {
   overflow-x: auto;
 }
-
+section .no-stack table.custom_inline_table td {
+  color: #162A50;
+  font-weight: bolder;
+}
 .section table.no-stack,
 .section table.no-stack * {
   font-size: 0.884em !important;
