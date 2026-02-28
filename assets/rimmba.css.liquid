@@ -1587,4 +1587,19 @@ section .no-stack table.custom_inline_table td {
 .section:has(> table.no-stack) {
     padding: 0 !important;
 }
+.section .no-stack table.custom_inline_table td:not(:first-child) p,
+.section .no-stack table.custom_inline_table td:not(:first-child) td {
+    text-align: center !important;
+    font-size: 1.1em !important;
+    font-weight: bolder;
+    margin: 0;
+    align-self:center;
+}
+.section .no-stack table.custom_inline_table td:not(:first-child) p:is(:first-child){
+    padding-top:0.3em;
+}
+.section .no-stack table.custom_inline_table td:not(:first-child) {
+    padding: 0.2em;
+    align-content:center;
+}
 }
