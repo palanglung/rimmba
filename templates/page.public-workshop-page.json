@@ -333,7 +333,7 @@
             "product_width": 24,
             "show_other_elements_with_product": true,
             "aspect_ratio": "3/4",
-            "vertical_position": "stretch",
+            "vertical_position": "center",
             "content_position": "justify-center",
             "content_alignment": "text-center align-center",
             "product_position": "0",
